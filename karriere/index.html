@@ -1784,10 +1784,8 @@
   .site-header .nav > ul > li > a,
   .site-header .nav-dropdown > button {
     font-family: 'Volte', system-ui, sans-serif !important;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-    letter-spacing: 0 !important;
-    color: #222120 !important;
+    font-size: 14px !important; font-weight: 500 !important;
+    letter-spacing: 0 !important; color: #222120 !important;
   }
   .nav-dropdown { position: relative; }
   .nav-dropdown > button {
@@ -1799,14 +1797,12 @@
     border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
     transform: rotate(45deg); margin-top: -3px; transition: transform .2s ease;
   }
-  .nav-dropdown:hover > button::after,
-  .nav-dropdown:focus-within > button::after { transform: rotate(225deg); margin-top: 1px; }
+  .nav-dropdown:hover > button::after, .nav-dropdown:focus-within > button::after { transform: rotate(225deg); margin-top: 1px; }
   .nav-dropdown::before {
     content: ''; position: absolute; top: 100%; left: -10px; right: -10px;
     height: 18px; pointer-events: none;
   }
-  .nav-dropdown:hover::before,
-  .nav-dropdown:focus-within::before { pointer-events: auto; }
+  .nav-dropdown:hover::before, .nav-dropdown:focus-within::before { pointer-events: auto; }
   ul.nav-dropdown-menu {
     position: absolute; top: calc(100% + 14px); left: 50%;
     transform: translate(-50%, -6px); min-width: 240px;
@@ -1818,8 +1814,7 @@
     transition: opacity .18s ease, transform .18s ease, visibility .18s;
     z-index: 100;
   }
-  .nav-dropdown:hover ul.nav-dropdown-menu,
-  .nav-dropdown:focus-within ul.nav-dropdown-menu {
+  .nav-dropdown:hover ul.nav-dropdown-menu, .nav-dropdown:focus-within ul.nav-dropdown-menu {
     opacity: 1; visibility: visible; pointer-events: auto;
     transform: translate(-50%, 0);
   }
@@ -1829,18 +1824,14 @@
     text-decoration: none; color: #222120; white-space: nowrap;
     font-family: 'Volte', system-ui, sans-serif !important;
     font-size: 14px !important; font-weight: 500 !important;
-    letter-spacing: 0 !important;
   }
   ul.nav-dropdown-menu a::after { display: none !important; content: none !important; }
-  ul.nav-dropdown-menu a:hover,
-  ul.nav-dropdown-menu a:focus-visible { background: rgba(255,99,77,0.08); color: #FF634D; outline: none; }
+  ul.nav-dropdown-menu a:hover, ul.nav-dropdown-menu a:focus-visible { background: rgba(255,99,77,0.08); color: #FF634D; outline: none; }
   ul.nav-dropdown-menu a[aria-current="page"] { background: rgba(255,99,77,0.10); color: #FF634D; font-weight: 600 !important; }
-  .site-header nav ul > li > a[aria-current="page"],
-  header.header nav .nav > li > a[aria-current="page"] {
+  .site-header nav ul > li > a[aria-current="page"], header.header nav .nav > li > a[aria-current="page"] {
     color: #FF634D !important; position: relative;
   }
-  .site-header nav ul > li > a[aria-current="page"]::before,
-  header.header nav .nav > li > a[aria-current="page"]::before {
+  .site-header nav ul > li > a[aria-current="page"]::before, header.header nav .nav > li > a[aria-current="page"]::before {
     content: ''; position: absolute; left: 50%; bottom: -8px;
     transform: translateX(-50%); width: 5px; height: 5px;
     background: #FF634D; border-radius: 50%;
@@ -2501,18 +2492,18 @@
         <h4>Leistungen</h4>
         <ul>
           <li><a href="/aumann-eco-preview/">Energieberatung</a></li>
-          <li><a href="sanierungsfahrplan.html">Sanierungsfahrplan</a></li>
-          <li><a href="bauphysik.html">Bauphysik</a></li>
-          <li><a href="foerderberatung.html">Förderberatung</a></li>
-          <li><a href="blower-door.html">Blower Door Test</a></li>
+          <li><a href="/aumann-eco-preview/sanierungsfahrplan/">Sanierungsfahrplan</a></li>
+          <li><a href="/aumann-eco-preview/bauphysik/">Bauphysik</a></li>
+          <li><a href="/aumann-eco-preview/foerderberatung/">Förderberatung</a></li>
+          <li><a href="/aumann-eco-preview/blower-door/">Blower Door Test</a></li>
         </ul>
       </div>
       <div>
         <h4>Büro</h4>
         <ul>
-          <li><a href="ueber-uns.html">Über uns</a></li>
-          <li><a href="stellenangebote.html" aria-current="page">Karriere</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="/aumann-eco-preview/ueber-uns/">Über uns</a></li>
+          <li><a href="/aumann-eco-preview/karriere/" aria-current="page">Karriere</a></li>
+          <li><a href="/aumann-eco-preview/kontakt/">Kontakt</a></li>
         </ul>
       </div>
       <div>

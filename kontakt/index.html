@@ -1197,18 +1197,14 @@
   @media (max-width: 640px) { .design-note { display: none; } }
 </style>
 <style id="dropdown-nav-style">
-  /* Unified nav typography across all page styles */
   header.header nav .nav > li > a,
   header.header nav .nav .nav-dropdown > button,
   .site-header .nav > ul > li > a,
   .site-header .nav-dropdown > button {
     font-family: 'Volte', system-ui, sans-serif !important;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-    letter-spacing: 0 !important;
-    color: #222120 !important;
+    font-size: 14px !important; font-weight: 500 !important;
+    letter-spacing: 0 !important; color: #222120 !important;
   }
-
   .nav-dropdown { position: relative; }
   .nav-dropdown > button {
     background: none; border: 0; cursor: pointer;
@@ -1219,33 +1215,24 @@
     border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
     transform: rotate(45deg); margin-top: -3px; transition: transform .2s ease;
   }
-  .nav-dropdown:hover > button::after,
-  .nav-dropdown:focus-within > button::after { transform: rotate(225deg); margin-top: 1px; }
-
-  /* Invisible hover bridge so menu stays open between button and panel */
+  .nav-dropdown:hover > button::after, .nav-dropdown:focus-within > button::after { transform: rotate(225deg); margin-top: 1px; }
   .nav-dropdown::before {
-    content: ''; position: absolute;
-    top: 100%; left: -10px; right: -10px;
-    height: 18px;
-    pointer-events: none;
+    content: ''; position: absolute; top: 100%; left: -10px; right: -10px;
+    height: 18px; pointer-events: none;
   }
-  .nav-dropdown:hover::before,
-  .nav-dropdown:focus-within::before { pointer-events: auto; }
-
+  .nav-dropdown:hover::before, .nav-dropdown:focus-within::before { pointer-events: auto; }
   ul.nav-dropdown-menu {
     position: absolute; top: calc(100% + 14px); left: 50%;
     transform: translate(-50%, -6px); min-width: 240px;
     background: #FCFAF5; border: 1px solid rgba(34,33,32,0.08);
     border-radius: 14px; padding: 8px;
     box-shadow: 0 16px 40px rgba(34,33,32,0.10);
-    list-style: none; margin: 0;
-    display: block;
+    list-style: none; margin: 0; display: block;
     opacity: 0; visibility: hidden; pointer-events: none;
     transition: opacity .18s ease, transform .18s ease, visibility .18s;
     z-index: 100;
   }
-  .nav-dropdown:hover ul.nav-dropdown-menu,
-  .nav-dropdown:focus-within ul.nav-dropdown-menu {
+  .nav-dropdown:hover ul.nav-dropdown-menu, .nav-dropdown:focus-within ul.nav-dropdown-menu {
     opacity: 1; visibility: visible; pointer-events: auto;
     transform: translate(-50%, 0);
   }
@@ -1255,26 +1242,19 @@
     text-decoration: none; color: #222120; white-space: nowrap;
     font-family: 'Volte', system-ui, sans-serif !important;
     font-size: 14px !important; font-weight: 500 !important;
-    letter-spacing: 0 !important;
   }
   ul.nav-dropdown-menu a::after { display: none !important; content: none !important; }
-  ul.nav-dropdown-menu a:hover,
-  ul.nav-dropdown-menu a:focus-visible { background: rgba(255,99,77,0.08); color: #FF634D; outline: none; }
+  ul.nav-dropdown-menu a:hover, ul.nav-dropdown-menu a:focus-visible { background: rgba(255,99,77,0.08); color: #FF634D; outline: none; }
   ul.nav-dropdown-menu a[aria-current="page"] { background: rgba(255,99,77,0.10); color: #FF634D; font-weight: 600 !important; }
-
-  /* Active page indicator for top-level nav links */
-  .site-header nav ul > li > a[aria-current="page"],
-  header.header nav .nav > li > a[aria-current="page"] {
+  .site-header nav ul > li > a[aria-current="page"], header.header nav .nav > li > a[aria-current="page"] {
     color: #FF634D !important; position: relative;
   }
-  .site-header nav ul > li > a[aria-current="page"]::before,
-  header.header nav .nav > li > a[aria-current="page"]::before {
+  .site-header nav ul > li > a[aria-current="page"]::before, header.header nav .nav > li > a[aria-current="page"]::before {
     content: ''; position: absolute; left: 50%; bottom: -8px;
     transform: translateX(-50%); width: 5px; height: 5px;
     background: #FF634D; border-radius: 50%;
   }
   .nav-dropdown > button[aria-current="true"] { color: #FF634D !important; }
-
   @media (max-width: 900px) { .nav-dropdown { display: none; } }
 </style>
 </head>
@@ -1321,6 +1301,7 @@
         </ul>
       </li>
       <li><a href="/aumann-eco-preview/ueber-uns/">Über uns</a></li>
+      <li><a href="/aumann-eco-preview/karriere/">Karriere</a></li>
       <li><a href="/aumann-eco-preview/kontakt/" aria-current="page">Kontakt</a></li>
     </ul>
       </nav>

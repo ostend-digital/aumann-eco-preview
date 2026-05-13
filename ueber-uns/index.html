@@ -11,38 +11,38 @@
 
   @font-face {
     font-family: 'Volte';
-    src: url('/aumann-eco-preview/assets/fonts/Volte-Light.woff2') format('woff2'),
-         url('/aumann-eco-preview/assets/fonts/Volte-Light.woff') format('woff');
+    src: url('../05-design-system/assets/fonts/Volte-Light.woff2') format('woff2'),
+         url('../05-design-system/assets/fonts/Volte-Light.woff') format('woff');
     font-weight: 300; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: 'Volte';
-    src: url('/aumann-eco-preview/assets/fonts/Volte-LightItalic.woff2') format('woff2'),
-         url('/aumann-eco-preview/assets/fonts/Volte-LightItalic.woff') format('woff');
+    src: url('../05-design-system/assets/fonts/Volte-LightItalic.woff2') format('woff2'),
+         url('../05-design-system/assets/fonts/Volte-LightItalic.woff') format('woff');
     font-weight: 300; font-style: italic; font-display: swap;
   }
   @font-face {
     font-family: 'Volte';
-    src: url('/aumann-eco-preview/assets/fonts/Volte-Regular.woff2') format('woff2'),
-         url('/aumann-eco-preview/assets/fonts/Volte-Regular.woff') format('woff');
+    src: url('../05-design-system/assets/fonts/Volte-Regular.woff2') format('woff2'),
+         url('../05-design-system/assets/fonts/Volte-Regular.woff') format('woff');
     font-weight: 400; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: 'Volte';
-    src: url('/aumann-eco-preview/assets/fonts/Volte-Medium.woff2') format('woff2'),
-         url('/aumann-eco-preview/assets/fonts/Volte-Medium.woff') format('woff');
+    src: url('../05-design-system/assets/fonts/Volte-Medium.woff2') format('woff2'),
+         url('../05-design-system/assets/fonts/Volte-Medium.woff') format('woff');
     font-weight: 500; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: 'Volte';
-    src: url('/aumann-eco-preview/assets/fonts/Volte-Semibold.woff2') format('woff2'),
-         url('/aumann-eco-preview/assets/fonts/Volte-Semibold.woff') format('woff');
+    src: url('../05-design-system/assets/fonts/Volte-Semibold.woff2') format('woff2'),
+         url('../05-design-system/assets/fonts/Volte-Semibold.woff') format('woff');
     font-weight: 600; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: 'Volte';
-    src: url('/aumann-eco-preview/assets/fonts/Volte-Bold.woff2') format('woff2'),
-         url('/aumann-eco-preview/assets/fonts/Volte-Bold.woff') format('woff');
+    src: url('../05-design-system/assets/fonts/Volte-Bold.woff2') format('woff2'),
+         url('../05-design-system/assets/fonts/Volte-Bold.woff') format('woff');
     font-weight: 700; font-style: normal; font-display: swap;
   }
 
@@ -303,20 +303,10 @@
     letter-spacing: 2.4px;
     color: var(--coral);
     margin-bottom: 16px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .section-label::before {
-    content: '';
-    width: 24px;
-    height: 1px;
-    background: var(--coral);
+    display: inline-block;
   }
   .section-label--light { color: rgba(255, 255, 255, 0.6); }
-  .section-label--light::before { background: rgba(255, 255, 255, 0.4); }
   .section-label--lime { color: var(--lime); }
-  .section-label--lime::before { background: var(--lime); }
 
   .lead {
     font-size: 18px;
@@ -1979,18 +1969,14 @@
   .design-note strong { color: var(--coral); }
 </style>
 <style id="dropdown-nav-style">
-  /* Unified nav typography across all page styles */
   header.header nav .nav > li > a,
   header.header nav .nav .nav-dropdown > button,
   .site-header .nav > ul > li > a,
   .site-header .nav-dropdown > button {
     font-family: 'Volte', system-ui, sans-serif !important;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-    letter-spacing: 0 !important;
-    color: #222120 !important;
+    font-size: 14px !important; font-weight: 500 !important;
+    letter-spacing: 0 !important; color: #222120 !important;
   }
-
   .nav-dropdown { position: relative; }
   .nav-dropdown > button {
     background: none; border: 0; cursor: pointer;
@@ -2001,33 +1987,24 @@
     border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
     transform: rotate(45deg); margin-top: -3px; transition: transform .2s ease;
   }
-  .nav-dropdown:hover > button::after,
-  .nav-dropdown:focus-within > button::after { transform: rotate(225deg); margin-top: 1px; }
-
-  /* Invisible hover bridge so menu stays open between button and panel */
+  .nav-dropdown:hover > button::after, .nav-dropdown:focus-within > button::after { transform: rotate(225deg); margin-top: 1px; }
   .nav-dropdown::before {
-    content: ''; position: absolute;
-    top: 100%; left: -10px; right: -10px;
-    height: 18px;
-    pointer-events: none;
+    content: ''; position: absolute; top: 100%; left: -10px; right: -10px;
+    height: 18px; pointer-events: none;
   }
-  .nav-dropdown:hover::before,
-  .nav-dropdown:focus-within::before { pointer-events: auto; }
-
+  .nav-dropdown:hover::before, .nav-dropdown:focus-within::before { pointer-events: auto; }
   ul.nav-dropdown-menu {
     position: absolute; top: calc(100% + 14px); left: 50%;
     transform: translate(-50%, -6px); min-width: 240px;
     background: #FCFAF5; border: 1px solid rgba(34,33,32,0.08);
     border-radius: 14px; padding: 8px;
     box-shadow: 0 16px 40px rgba(34,33,32,0.10);
-    list-style: none; margin: 0;
-    display: block;
+    list-style: none; margin: 0; display: block;
     opacity: 0; visibility: hidden; pointer-events: none;
     transition: opacity .18s ease, transform .18s ease, visibility .18s;
     z-index: 100;
   }
-  .nav-dropdown:hover ul.nav-dropdown-menu,
-  .nav-dropdown:focus-within ul.nav-dropdown-menu {
+  .nav-dropdown:hover ul.nav-dropdown-menu, .nav-dropdown:focus-within ul.nav-dropdown-menu {
     opacity: 1; visibility: visible; pointer-events: auto;
     transform: translate(-50%, 0);
   }
@@ -2037,26 +2014,19 @@
     text-decoration: none; color: #222120; white-space: nowrap;
     font-family: 'Volte', system-ui, sans-serif !important;
     font-size: 14px !important; font-weight: 500 !important;
-    letter-spacing: 0 !important;
   }
   ul.nav-dropdown-menu a::after { display: none !important; content: none !important; }
-  ul.nav-dropdown-menu a:hover,
-  ul.nav-dropdown-menu a:focus-visible { background: rgba(255,99,77,0.08); color: #FF634D; outline: none; }
+  ul.nav-dropdown-menu a:hover, ul.nav-dropdown-menu a:focus-visible { background: rgba(255,99,77,0.08); color: #FF634D; outline: none; }
   ul.nav-dropdown-menu a[aria-current="page"] { background: rgba(255,99,77,0.10); color: #FF634D; font-weight: 600 !important; }
-
-  /* Active page indicator for top-level nav links */
-  .site-header nav ul > li > a[aria-current="page"],
-  header.header nav .nav > li > a[aria-current="page"] {
+  .site-header nav ul > li > a[aria-current="page"], header.header nav .nav > li > a[aria-current="page"] {
     color: #FF634D !important; position: relative;
   }
-  .site-header nav ul > li > a[aria-current="page"]::before,
-  header.header nav .nav > li > a[aria-current="page"]::before {
+  .site-header nav ul > li > a[aria-current="page"]::before, header.header nav .nav > li > a[aria-current="page"]::before {
     content: ''; position: absolute; left: 50%; bottom: -8px;
     transform: translateX(-50%); width: 5px; height: 5px;
     background: #FF634D; border-radius: 50%;
   }
   .nav-dropdown > button[aria-current="true"] { color: #FF634D !important; }
-
   @media (max-width: 900px) { .nav-dropdown { display: none; } }
 </style>
 </head>
@@ -2103,6 +2073,7 @@
         </ul>
       </li>
       <li><a href="/aumann-eco-preview/ueber-uns/" aria-current="page">Über uns</a></li>
+      <li><a href="/aumann-eco-preview/karriere/">Karriere</a></li>
       <li><a href="/aumann-eco-preview/kontakt/">Kontakt</a></li>
     </ul>
       </nav>
@@ -2146,7 +2117,7 @@
 
       <div class="hero-visual">
         <div class="hero-portrait-wrap">
-          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann — Ingenieur (M.Sc.), Inhaber Aumann Eco">
+          <img src="/aumann-eco-preview/assets/images/JOT00132.webp" alt="Benedikt Aumann — Ingenieur (M.Sc.), Inhaber Aumann Eco">
           <div class="hero-portrait-meta">
             <strong>Benedikt Aumann</strong>
             <span>M.Sc. Bauing. · Inhaber</span>
@@ -2180,7 +2151,7 @@
 
       <aside class="bio-card">
         <div class="bio-card-img">
-          <img src="/aumann-eco-preview/assets/images/img-benedikt-cutout.webp" alt="Portrait Benedikt Aumann">
+          <img src="/aumann-eco-preview/assets/images/JOT00269.webp" alt="Portrait Benedikt Aumann">
         </div>
         <div class="bio-card-meta">
           <div class="name">Benedikt Aumann</div>
@@ -2217,15 +2188,15 @@
     </header>
     <div class="glimpses-row">
       <figure class="glimpse">
-        <img src="/aumann-eco-preview/assets/images/Visual-Bild-03.webp" alt="Baustellen-Eindruck einer Sanierung">
+        <img src="/aumann-eco-preview/assets/images/JOT00753.webp" alt="Vor-Ort-Beratung mit Eigentümer-Paar am Esstisch">
         <figcaption class="glimpse-caption">Sanierungsfahrplan · EFH Köln-Sülz · BJ 1972</figcaption>
       </figure>
       <figure class="glimpse">
-        <img src="/aumann-eco-preview/assets/images/Visual-Bild-05.webp" alt="Architektur-Eindruck eines Neubaus">
+        <img src="/aumann-eco-preview/assets/images/JOT00191.webp" alt="Dämmung und Bauphysik-Aufnahme auf der Baustelle">
         <figcaption class="glimpse-caption">Bauphysik-Nachweis · Neubau MFH · KfW 40</figcaption>
       </figure>
       <figure class="glimpse">
-        <img src="/aumann-eco-preview/assets/images/Visual-Bild-07.webp" alt="Messgerät im Einsatz">
+        <img src="/aumann-eco-preview/assets/images/JOT01325.webp" alt="Thermografiekamera und Blower-Door-Messung im Einsatz">
         <figcaption class="glimpse-caption">Blower Door + Thermografie · Bestand · n₅₀ 1.2</figcaption>
       </figure>
     </div>
@@ -2309,7 +2280,7 @@
       <div class="messtechnik-visual">
         <div class="messtechnik-visual-dot" aria-hidden="true"></div>
         <div class="messtechnik-visual-frame">
-          <img src="/aumann-eco-preview/assets/images/Visual-Bild-01.webp" alt="Messtechnik und Bauplanung — Aumann Eco">
+          <img src="/aumann-eco-preview/assets/images/JOT01124.webp" alt="Benedikt Aumann mit Blower-Door-Prüfgerät vor Einsatzfahrzeug">
         </div>
       </div>
 
