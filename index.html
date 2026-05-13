@@ -1,0 +1,2658 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Energieberatung Köln — BAFA-zertifiziert | aumann eco</title>
+<meta name="description" content="Ingenieurbüro für Bauphysik & Energieberatung in Köln. Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik. BAFA-Förderung bis 50 %. Jetzt Erstgespräch sichern.">
+<style>
+/* ═══════════════════════════════════════════════
+   VOLTE WEBFONT
+═══════════════════════════════════════════════ */
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-RegularItalic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+
+/* ═══════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════ */
+:root {
+  --ae-coral:#FF634D;
+  --ae-off-white:#FCFAF5;
+  --ae-lime:#CDF15D;
+  --ae-light-blue:#A2C9D0;
+  --ae-deep-teal:#056C7F;
+  --ae-near-black:#222120;
+  --ae-white:#FFFFFF;
+  --ae-grey-100:#F3F1EC;
+  --ae-grey-300:#D8D4CB;
+  --ae-grey-500:#8C877E;
+  --ae-font:'Volte',system-ui,sans-serif;
+  --ae-tight:-0.03em;
+  --ae-headline:-0.02em;
+  --ae-body:-0.005em;
+  --ae-s-1:4px; --ae-s-2:8px; --ae-s-3:12px; --ae-s-4:16px; --ae-s-5:24px;
+  --ae-s-6:32px; --ae-s-7:48px; --ae-s-8:64px; --ae-s-9:96px; --ae-s-10:128px;
+  --ae-r-sm:8px; --ae-r-md:16px; --ae-r-lg:24px; --ae-r-pill:999px;
+  --ae-max:1280px;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:var(--ae-font);
+  font-weight:400;
+  font-size:16px;
+  line-height:1.55;
+  color:var(--ae-near-black);
+  background:var(--ae-off-white);
+  letter-spacing:var(--ae-body);
+  -webkit-font-smoothing:antialiased;
+}
+img { max-width:100%; display:block; }
+a { color:inherit; }
+
+/* ═══════════════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════════════ */
+.ae-display { font-size:clamp(56px,9vw,140px); font-weight:700; line-height:0.92; letter-spacing:var(--ae-tight); }
+.ae-h1 { font-size:clamp(44px,5.5vw,84px); font-weight:700; line-height:1.0; letter-spacing:var(--ae-tight); }
+.ae-h2 { font-size:clamp(32px,3.5vw,52px); font-weight:600; line-height:1.05; letter-spacing:var(--ae-headline); }
+.ae-h3 { font-size:clamp(22px,2vw,28px); font-weight:600; line-height:1.15; letter-spacing:var(--ae-headline); }
+.ae-lead { font-size:clamp(18px,1.5vw,22px); font-weight:400; line-height:1.45; }
+.ae-small { font-size:13px; font-weight:400; line-height:1.5; }
+.ae-eyebrow { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; }
+
+.wrap { max-width:var(--ae-max); margin:0 auto; padding:0 var(--ae-s-6); }
+section { padding:var(--ae-s-9) 0; }
+@media (max-width:720px) { section { padding:var(--ae-s-8) 0; } }
+
+/* ═══════════════════════════════════════════════
+   HEADER / NAV
+═══════════════════════════════════════════════ */
+.site-header {
+  position:sticky; top:0; z-index:50;
+  background:rgba(252,250,245,0.88);
+  backdrop-filter:blur(10px) saturate(140%);
+  border-bottom:1px solid var(--ae-grey-300);
+}
+.nav {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:var(--ae-s-4) var(--ae-s-6);
+  max-width:var(--ae-max); margin:0 auto;
+}
+.nav .logo img { height:36px; }
+.nav ul { list-style:none; display:flex; gap:var(--ae-s-6); }
+.nav ul a { text-decoration:none; font-size:14px; font-weight:500; color:var(--ae-near-black); }
+.nav ul a:hover { color:var(--ae-coral); }
+.nav .phone { font-size:14px; font-weight:500; text-decoration:none; margin-right:var(--ae-s-4); }
+.nav .nav-cta { margin-left:var(--ae-s-4); }
+@media (max-width:900px) { .nav ul { display:none; } }
+
+/* ═══════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════ */
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:14px 28px;
+  border-radius:var(--ae-r-pill);
+  font-family:var(--ae-font); font-weight:500; font-size:15px;
+  text-decoration:none; border:none; cursor:pointer;
+  transition:transform .15s, box-shadow .15s, background .15s;
+  letter-spacing:-0.005em;
+}
+.btn:hover { transform:translateY(-1px); }
+.btn--primary { background:var(--ae-coral); color:var(--ae-near-black); }
+.btn--primary:hover { background:#FF4A31; box-shadow:0 6px 20px rgba(255,99,77,0.35); }
+.btn--lime { background:var(--ae-lime); color:var(--ae-near-black); }
+.btn--lime:hover { background:#BCE44A; box-shadow:0 6px 20px rgba(205,241,93,0.4); }
+.btn--dark { background:var(--ae-near-black); color:var(--ae-off-white); }
+.btn--dark:hover { background:#000; }
+.btn--outline { background:transparent; color:var(--ae-near-black); border:1.5px solid var(--ae-near-black); }
+.btn--outline:hover { background:var(--ae-near-black); color:var(--ae-off-white); }
+.btn--outline-light { background:transparent; color:var(--ae-off-white); border:1.5px solid rgba(252,250,245,0.5); }
+.btn--outline-light:hover { background:var(--ae-off-white); color:var(--ae-near-black); }
+.btn-group { display:flex; flex-wrap:wrap; gap:var(--ae-s-3); }
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+.hero {
+  background:var(--ae-off-white);
+  color:var(--ae-near-black);
+  padding:var(--ae-s-10) 0 var(--ae-s-9);
+  position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(34,33,32,0.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,33,32,0.045) 1px,transparent 1px),
+    linear-gradient(rgba(34,33,32,0.10) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,33,32,0.10) 1px,transparent 1px);
+  background-size:16px 16px,16px 16px,96px 96px,96px 96px;
+  mask-image:radial-gradient(ellipse 80% 95% at 72% 50%,#000 8%,rgba(0,0,0,0.5) 40%,transparent 82%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 95% at 72% 50%,#000 8%,rgba(0,0,0,0.5) 40%,transparent 82%);
+  pointer-events:none;
+}
+.hero-inner {
+  position:relative; z-index:1;
+  max-width:var(--ae-max); margin:0 auto; padding:0 var(--ae-s-6);
+  display:grid; grid-template-columns:1.4fr 1fr;
+  gap:var(--ae-s-8); align-items:center;
+}
+.hero-content { min-width:0; }
+.hero-aside { min-width:0; display:flex; justify-content:center; }
+.hero .ae-eyebrow { opacity:0.75; }
+.hero h1 { margin:var(--ae-s-4) 0 var(--ae-s-5); max-width:20ch; }
+.hero .ae-lead { max-width:54ch; margin-bottom:var(--ae-s-6); font-size:17px; }
+.hero .btn-group { margin-bottom:var(--ae-s-6); }
+.hero-meta {
+  display:flex; flex-wrap:nowrap; gap:18px;
+  font-size:12px; opacity:0.8;
+}
+.hero-meta span { white-space:nowrap; }
+@media (max-width:960px) {
+  .hero-meta { flex-wrap:wrap; }
+}
+
+/* Founder Card — Editorial */
+.founder-card {
+  position:relative;
+  max-width:440px;
+  width:100%;
+  padding:var(--ae-s-6) 0 var(--ae-s-4);
+}
+.founder-visual {
+  position:relative;
+  width:100%;
+  max-width:420px;
+  aspect-ratio:1/1;
+  margin:0 auto;
+  z-index:1;
+}
+.founder-dots-stack {
+  position:absolute;
+  left:50%; top:50%;
+  transform:translate(-50%,-50%);
+  display:flex; flex-direction:column;
+  align-items:center; gap:14px;
+  z-index:0;
+  pointer-events:none;
+}
+.founder-dots-stack span {
+  display:block;
+  width:150px; height:150px;
+  border-radius:50%;
+  background:var(--ae-coral);
+}
+.founder-dots-stack span:nth-child(1) { opacity:0.35; }
+.founder-dots-stack span:nth-child(2) { opacity:0.62; }
+.founder-dots-stack span:nth-child(3) { opacity:0.9; }
+@media (max-width:720px) {
+  .founder-dots-stack span { width:120px; height:120px; }
+  .founder-dots-stack { gap:10px; }
+}
+.founder-portrait-cutout {
+  position:relative;
+  width:100%; height:auto;
+  display:block;
+  z-index:1;
+  transform:scaleX(-1);
+  filter:drop-shadow(0 24px 28px rgba(34,33,32,0.22));
+}
+.brand-badge {
+  position:absolute;
+  right:-44px; top:50%;
+  transform:translateY(-50%);
+  width:140px; height:140px;
+  z-index:3;
+  filter:drop-shadow(0 14px 32px rgba(34,33,32,0.28));
+  pointer-events:none;
+}
+@media (max-width:720px) {
+  .brand-badge { width:110px; height:110px; right:-20px; }
+}
+.brand-badge-ring {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  animation:brand-badge-spin 24s linear infinite;
+  transform-origin:center;
+}
+.brand-badge-mark {
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--ae-font);
+  font-size:58px; font-weight:600;
+  color:var(--ae-off-white);
+  letter-spacing:-0.06em;
+  line-height:1;
+  padding-bottom:4px;
+}
+@keyframes brand-badge-spin {
+  to { transform:rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-badge-ring { animation:none; }
+}
+
+/* 3-Dot brand signature — inline with eyebrow */
+.hero .ae-eyebrow {
+  display:inline-flex; align-items:center; gap:13px;
+}
+.hero-dots {
+  display:inline-flex; align-items:center; gap:6px;
+}
+.hero-dots span {
+  width:8px; height:8px;
+  border-radius:50%;
+  background:var(--ae-coral);
+  display:inline-block;
+}
+
+.founder-plaque {
+  position:relative;
+  max-width:380px;
+  margin:-30px auto 0;
+  background:var(--ae-near-black);
+  color:var(--ae-off-white);
+  padding:var(--ae-s-3) 95px var(--ae-s-3) var(--ae-s-4);
+  border-radius:var(--ae-r-sm);
+  display:flex; align-items:center;
+  gap:var(--ae-s-4);
+  z-index:2;
+  box-shadow:0 14px 32px -12px rgba(34,33,32,0.45);
+}
+.founder-plaque::before {
+  content:'';
+  width:3px; align-self:stretch;
+  background:var(--ae-coral);
+  border-radius:2px;
+  flex:none;
+}
+.founder-name {
+  font-size:17px; font-weight:600;
+  letter-spacing:var(--ae-headline);
+  line-height:1.2;
+}
+.founder-title {
+  font-size:12px; font-weight:400;
+  opacity:0.7;
+  margin-top:3px;
+  letter-spacing:0;
+}
+@media (max-width:960px) {
+  .hero-inner { grid-template-columns:1fr; gap:var(--ae-s-7); }
+  .hero h1 { max-width:20ch; }
+  .hero .ae-lead { max-width:60ch; }
+  .founder-card { max-width:none; margin:0 auto; }
+}
+
+/* Logo Slider */
+.logo-slider {
+  max-width:var(--ae-max);
+  margin:0 auto;
+  padding:var(--ae-s-7) var(--ae-s-6);
+  position:relative;
+}
+.logo-slider-inner {
+  padding:var(--ae-s-5) 0;
+  overflow:hidden;
+  position:relative;
+  mask-image:linear-gradient(90deg,transparent 0%,black 12%,black 88%,transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 12%,black 88%,transparent 100%);
+}
+.logo-slider .slider-label {
+  text-align:center;
+  font-size:11px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--ae-grey-500);
+  margin-bottom:var(--ae-s-5);
+}
+.logo-track {
+  display:flex;
+  gap:var(--ae-s-9);
+  width:max-content;
+  animation:scroll-logos 40s linear infinite;
+  align-items:center;
+}
+.logo-slider-inner:hover .logo-track { animation-play-state:paused; }
+.logo-item {
+  display:flex; align-items:center;
+  height:64px;
+  opacity:0.65;
+  filter:grayscale(1);
+  transition:opacity .25s ease, filter .25s ease;
+}
+.logo-item:hover { opacity:1; filter:grayscale(0); }
+.logo-item img {
+  max-height:100%;
+  width:auto;
+  display:block;
+  object-fit:contain;
+}
+.logo-item.flib img { max-height:72px; }
+.logo-item.ikbau img { max-height:58px; }
+
+@keyframes scroll-logos {
+  from { transform:translateX(0); }
+  to { transform:translateX(-50%); }
+}
+
+
+/* ═══════════════════════════════════════════════
+   ANSWER-FIRST BOX
+═══════════════════════════════════════════════ */
+.answer-box {
+  background:var(--ae-white);
+  border:1px solid var(--ae-grey-300);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-7);
+  max-width:900px;
+  margin:0 auto;
+  position:relative;
+}
+.answer-box .eyebrow {
+  color:var(--ae-coral); font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.08em; margin-bottom:var(--ae-s-3);
+}
+.answer-box h3 { font-size:clamp(22px,2.2vw,30px); font-weight:600; margin-bottom:var(--ae-s-4); letter-spacing:var(--ae-headline); }
+.answer-box p { font-size:17px; line-height:1.6; color:#333; max-width:70ch; }
+.answer-box .highlight { background:var(--ae-lime); padding:1px 6px; border-radius:4px; font-weight:500; }
+
+/* ═══════════════════════════════════════════════
+   SECTION HEAD
+═══════════════════════════════════════════════ */
+.section-head { max-width:760px; margin-bottom:var(--ae-s-7); }
+.section-head .ae-eyebrow { color:var(--ae-coral); display:block; margin-bottom:var(--ae-s-3); }
+.section-head h2 { margin-bottom:var(--ae-s-4); }
+.section-head p { font-size:18px; color:#444; max-width:64ch; }
+
+/* ═══════════════════════════════════════════════
+   SERVICE CARDS
+═══════════════════════════════════════════════ */
+.grid { display:grid; gap:var(--ae-s-5); }
+.grid-3 { grid-template-columns:repeat(3,1fr); }
+.grid-2 { grid-template-columns:repeat(2,1fr); }
+.grid-4 { grid-template-columns:repeat(4,1fr); }
+@media (max-width:980px) { .grid-3,.grid-4 { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:640px) { .grid-2,.grid-3,.grid-4 { grid-template-columns:1fr; } }
+
+.ae-card {
+  background:var(--ae-white);
+  border:1px solid var(--ae-grey-300);
+  border-radius:var(--ae-r-md);
+  padding:var(--ae-s-6);
+  transition:transform .15s, border-color .15s;
+  display:flex; flex-direction:column;
+}
+.ae-card:hover { transform:translateY(-2px); border-color:var(--ae-near-black); }
+.ae-card .svg-icon {
+  width:64px; height:64px;
+  border-radius:var(--ae-r-sm);
+  background:var(--ae-grey-100);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:var(--ae-s-5);
+  transition:background .2s;
+}
+.ae-card:hover .svg-icon { background:var(--ae-coral); }
+.ae-card .svg-icon svg { width:34px; height:34px; stroke:var(--ae-near-black); }
+.ae-card .svg-icon svg [stroke="#FF634D"],
+.ae-card .svg-icon svg [fill="#FF634D"] { transition:stroke .2s, fill .2s; }
+.ae-card:hover .svg-icon svg [stroke="#FF634D"] { stroke:var(--ae-off-white); }
+.ae-card:hover .svg-icon svg [fill="#FF634D"] { fill:var(--ae-off-white); }
+.ae-card .eyebrow { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--ae-coral); margin-bottom:var(--ae-s-2); }
+.ae-card h3 { font-size:22px; font-weight:600; line-height:1.2; margin-bottom:var(--ae-s-3); letter-spacing:-0.01em; }
+.ae-card p { font-size:15px; line-height:1.55; color:#444; margin-bottom:var(--ae-s-4); }
+.ae-card .link-row { margin-top:auto; font-size:13px; font-weight:500; display:inline-flex; gap:6px; align-items:center; text-decoration:none; }
+.ae-card .link-row:hover { color:var(--ae-coral); }
+
+.ae-card--dark { background:var(--ae-near-black); color:var(--ae-off-white); border-color:var(--ae-near-black); }
+.ae-card--dark h3 { color:var(--ae-off-white); }
+.ae-card--dark p { color:rgba(252,250,245,0.75); }
+.ae-card--dark .eyebrow { color:var(--ae-lime); }
+
+/* ═══════════════════════════════════════════════
+   SO ARBEITEN WIR — TIMELINE USP LIST
+═══════════════════════════════════════════════ */
+.usp-list {
+  margin:var(--ae-s-8) auto 0;
+  max-width:720px;
+  position:relative;
+  --num-col:100px;
+  --usp-gap:var(--ae-s-6);
+}
+.usp-row {
+  display:grid;
+  grid-template-columns:var(--num-col) 1fr;
+  gap:var(--usp-gap);
+  padding:var(--ae-s-7) 0;
+  align-items:start;
+  position:relative;
+}
+.usp-row:not(:last-child)::after {
+  content:"";
+  position:absolute;
+  left:calc(var(--num-col) / 2);
+  bottom:calc(-1 * var(--ae-s-7));
+  width:2px;
+  height:calc(var(--ae-s-7) * 2);
+  transform:translateX(-50%);
+  background-color:rgba(255,99,77,0.25);
+  background-image:linear-gradient(var(--ae-coral),var(--ae-coral));
+  background-size:100% var(--seg-progress,0%);
+  background-repeat:no-repeat;
+  background-position:top;
+  border-radius:2px;
+  transition:background-size .1s linear;
+  pointer-events:none;
+}
+.usp-num {
+  font-size:clamp(44px,5.4vw,72px);
+  font-weight:300;
+  color:var(--ae-near-black);
+  line-height:0.95;
+  letter-spacing:-0.03em;
+  opacity:0.28;
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum";
+  transition:opacity .3s ease, color .3s ease;
+}
+.usp-row.is-active .usp-num { opacity:0.9; }
+.usp-body { max-width:72ch; }
+.usp-body h3 {
+  font-size:clamp(22px,2.2vw,28px);
+  font-weight:600;
+  margin:0 0 12px;
+  letter-spacing:-0.02em;
+  line-height:1.25;
+  color:var(--ae-near-black);
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.usp-body h3::before {
+  content:"";
+  width:8px; height:8px;
+  background:var(--ae-coral);
+  border-radius:50%;
+  flex:none;
+  transform:translateY(-2px);
+}
+.usp-body p {
+  font-size:15px;
+  line-height:1.6;
+  color:rgba(34,33,32,0.72);
+  margin:0;
+}
+@media (max-width:720px) {
+  .usp-list { --num-col:48px; --usp-gap:var(--ae-s-4); }
+  .usp-row { padding:var(--ae-s-5) 0; }
+  .usp-row:not(:last-child)::after {
+    bottom:calc(-1 * var(--ae-s-5));
+    height:calc(var(--ae-s-5) * 2);
+  }
+  .usp-num { font-size:30px; }
+  .usp-body h3 { font-size:19px; }
+  .usp-body h3::before { width:7px; height:7px; }
+  .usp-body p { font-size:14px; }
+}
+
+/* ═══════════════════════════════════════════════
+   ABLAUF — INTERACTIVE PROCESS
+═══════════════════════════════════════════════ */
+.process { margin-top:var(--ae-s-7); }
+
+/* Tab row */
+.process-tabs {
+  position:relative;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:var(--ae-s-3);
+  padding-bottom:var(--ae-s-4);
+  border-bottom:1px solid var(--ae-grey-300);
+}
+.process-tab {
+  position:relative;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  grid-template-rows:auto auto;
+  column-gap:var(--ae-s-4); row-gap:2px;
+  padding:var(--ae-s-4) var(--ae-s-5);
+  background:transparent;
+  border:1px solid var(--ae-grey-300);
+  border-radius:var(--ae-r-md);
+  color:var(--ae-near-black);
+  font-family:inherit; text-align:left;
+  cursor:pointer;
+  transition:background .25s, border-color .25s, color .25s, transform .25s;
+}
+.process-tab .num {
+  grid-row:1 / 3; align-self:center;
+  display:flex; align-items:center; justify-content:center;
+  width:40px; height:40px;
+  color:var(--ae-grey-500);
+  transition:color .25s;
+}
+.process-tab .num svg {
+  width:30px; height:30px;
+  stroke:currentColor; fill:none;
+  stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;
+}
+.process-tab .label {
+  font-size:15px; font-weight:600;
+  line-height:1.2; letter-spacing:-0.01em;
+}
+.process-tab .dur {
+  font-size:11px; font-weight:500;
+  color:var(--ae-grey-500);
+  text-transform:uppercase; letter-spacing:0.08em;
+  transition:color .25s;
+}
+.process-tab:hover:not(.active) {
+  border-color:var(--ae-near-black);
+  transform:translateY(-2px);
+}
+.process-tab.active {
+  background:var(--ae-near-black);
+  border-color:var(--ae-near-black);
+  color:var(--ae-off-white);
+}
+.process-tab.active .num { color:var(--ae-coral); }
+.process-tab.active .dur { color:rgba(252,250,245,0.6); }
+.process-tab:focus-visible {
+  outline:2px solid var(--ae-coral);
+  outline-offset:3px;
+}
+
+/* Progress indicator */
+.process-progress {
+  position:absolute; bottom:-1px; left:0;
+  height:2px; width:25%;
+  background:rgba(255,99,77,0.18);
+  transform:translateX(0);
+  transition:transform .45s cubic-bezier(0.22, 0.61, 0.36, 1);
+  pointer-events:none;
+  overflow:hidden;
+}
+.process-progress-fill {
+  display:block; height:100%; width:100%;
+  background:var(--ae-coral);
+  transform:scaleX(1);
+  transform-origin:left center;
+  will-change:transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-progress { transition:none; }
+}
+
+/* Panels */
+.process-panels {
+  position:relative;
+  margin-top:var(--ae-s-7);
+  background:var(--ae-white);
+  border:1px solid var(--ae-grey-300);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-8);
+  overflow:hidden;
+}
+.process-panels::before {
+  content:""; position:absolute; top:-80px; right:-80px;
+  width:360px; height:360px;
+  background:radial-gradient(circle, rgba(255,99,77,0.08) 0%, transparent 65%);
+  pointer-events:none;
+}
+.process-panel { display:none; position:relative; }
+.process-panel.active {
+  display:block;
+  animation:panelIn .45s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+@keyframes panelIn {
+  from { opacity:0; transform:translateY(12px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.panel-head {
+  display:grid; grid-template-columns:auto 1fr;
+  gap:var(--ae-s-6); align-items:start;
+  margin-bottom:var(--ae-s-7);
+  padding-bottom:var(--ae-s-6);
+  border-bottom:1px solid var(--ae-grey-300);
+}
+.panel-head .big-num {
+  display:flex; align-items:center; justify-content:center;
+  width:clamp(88px,10vw,120px);
+  height:clamp(88px,10vw,120px);
+  border-radius:var(--ae-r-md);
+  background:rgba(255,99,77,0.08);
+  color:var(--ae-coral);
+  flex-shrink:0;
+}
+.panel-head .big-num svg {
+  width:62%; height:62%;
+  stroke:currentColor; fill:none;
+  stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;
+}
+.panel-head h3 {
+  font-size:clamp(24px,2.4vw,32px);
+  font-weight:600;
+  letter-spacing:var(--ae-headline);
+  margin-bottom:var(--ae-s-3);
+}
+.panel-head p {
+  font-size:17px; line-height:1.55;
+  color:#444; max-width:58ch;
+}
+
+.panel-grid {
+  display:grid; grid-template-columns:1.4fr 1fr;
+  gap:var(--ae-s-7);
+}
+.panel-col h4 {
+  font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.12em;
+  color:var(--ae-grey-500);
+  margin-bottom:var(--ae-s-4);
+}
+
+.check-list { list-style:none; display:grid; gap:12px; }
+.check-list li {
+  position:relative; padding-left:32px;
+  font-size:15px; line-height:1.5;
+}
+.check-list li::before {
+  content:""; position:absolute; left:0; top:2px;
+  width:20px; height:20px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='10' r='10' fill='%23CDF15D'/><path d='M5.8 10.2 L8.8 13 L14.3 7.2' stroke='%23222120' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-size:100%; background-repeat:no-repeat;
+}
+
+.deliverable-card {
+  background:var(--ae-near-black);
+  color:var(--ae-off-white);
+  padding:var(--ae-s-6);
+  border-radius:var(--ae-r-md);
+}
+.deliverable-card::before {
+  content:"Ergebnis";
+  display:inline-block;
+  font-size:10px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  color:var(--ae-coral);
+  padding:4px 10px;
+  border:1px solid var(--ae-coral);
+  border-radius:var(--ae-r-pill);
+  margin-bottom:var(--ae-s-4);
+}
+.deliverable-card p {
+  font-size:16px; line-height:1.5;
+  color:var(--ae-off-white);
+}
+.panel-meta {
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin-top:var(--ae-s-5);
+}
+.panel-meta span {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:12px; font-weight:500;
+  padding:6px 12px;
+  background:rgba(252,250,245,0.08);
+  border:1px solid rgba(252,250,245,0.14);
+  border-radius:var(--ae-r-pill);
+  color:var(--ae-off-white);
+}
+.panel-meta svg {
+  width:13px; height:13px;
+  color:var(--ae-coral); flex-shrink:0;
+}
+
+/* Keyboard hint */
+.process-hint {
+  display:inline-flex; align-items:center; gap:8px;
+  margin-top:var(--ae-s-5);
+  font-size:12px; color:var(--ae-grey-500);
+}
+.process-hint kbd {
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:22px; height:22px;
+  padding:0 6px;
+  background:var(--ae-grey-100);
+  border:1px solid var(--ae-grey-300);
+  border-radius:4px;
+  font:inherit; font-size:11px; font-weight:600;
+}
+
+/* Responsive */
+@media (max-width:900px) {
+  .process-tabs { grid-template-columns:repeat(2,1fr); }
+  .process-progress { display:none; }
+  .process-panels { padding:var(--ae-s-6); }
+  .panel-head { grid-template-columns:1fr; gap:var(--ae-s-3); }
+  .panel-head .big-num { width:72px; height:72px; }
+  .panel-grid { grid-template-columns:1fr; gap:var(--ae-s-5); }
+}
+@media (max-width:560px) {
+  .process-tabs { grid-template-columns:1fr; }
+  .process-panels { padding:var(--ae-s-5); }
+}
+
+/* ═══════════════════════════════════════════════
+   STATS — Counter, zentriert, ohne Container
+═══════════════════════════════════════════════ */
+.stats {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:var(--ae-s-6);
+  text-align:center;
+  padding-top:var(--ae-s-6);
+}
+@media (max-width:900px) { .stats { grid-template-columns:repeat(2,1fr); row-gap:var(--ae-s-8); } }
+.stat {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:var(--ae-s-3);
+}
+.stat .num {
+  font-size:clamp(64px,7vw,96px);
+  font-weight:500;
+  line-height:0.9;
+  letter-spacing:var(--ae-tight);
+  color:var(--ae-near-black);
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+}
+.stat .num .unit {
+  color:var(--ae-coral);
+  font-weight:500;
+  margin-left:4px;
+}
+.stat .label {
+  font-size:13px;
+  color:var(--ae-grey-500);
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  font-weight:600;
+}
+
+.section-head-center {
+  max-width:640px;
+  margin:0 auto var(--ae-s-8);
+  text-align:center;
+}
+.section-head-center .ae-eyebrow { color:var(--ae-coral); display:block; margin-bottom:var(--ae-s-3); }
+.section-head-center h2 { margin-bottom:var(--ae-s-4); }
+.section-head-center p { font-size:18px; color:#444; max-width:56ch; margin:0 auto; }
+
+/* ═══════════════════════════════════════════════
+   FÖRDER-HIGHLIGHT
+═══════════════════════════════════════════════ */
+.foerder-section {
+  background:var(--ae-near-black);
+  color:var(--ae-off-white);
+  padding:var(--ae-s-10) 0;
+  position:relative; overflow:hidden;
+}
+.foerder-section::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 78% 35%, rgba(205,241,93,0.12), transparent 55%);
+  pointer-events:none; z-index:0;
+}
+.foerder-section > .wrap { position:relative; z-index:1; }
+.foerder {
+  display:grid; grid-template-columns:1fr 1fr; gap:var(--ae-s-8);
+  align-items:center;
+}
+.foerder .ae-eyebrow { color:var(--ae-lime); }
+.foerder h2 { margin:var(--ae-s-3) 0 var(--ae-s-5); }
+.foerder p { font-size:17px; color:rgba(252,250,245,0.82); line-height:1.6; margin-bottom:var(--ae-s-6); max-width:50ch; }
+.foerder-highlight {
+  position:relative;
+  display:flex; flex-direction:column; align-items:center;
+  gap:var(--ae-s-5);
+}
+.foerder-donut {
+  position:relative;
+  width:100%;
+  max-width:400px;
+  aspect-ratio:1;
+}
+.foerder-donut-svg { width:100%; height:100%; overflow:visible; }
+.foerder-donut-track {
+  fill:none;
+  stroke:rgba(205,241,93,0.18);
+  stroke-width:3;
+  stroke-dasharray:3 7;
+}
+.foerder-donut-fill {
+  fill:none;
+  stroke:var(--ae-lime);
+  stroke-width:10;
+  stroke-linecap:round;
+  stroke-dasharray:434 867;
+  filter:drop-shadow(0 0 18px rgba(205,241,93,0.4));
+}
+.foerder-donut-ticks {
+  stroke:rgba(252,250,245,0.22);
+  stroke-width:1.5;
+  stroke-linecap:round;
+}
+.foerder-donut-content {
+  position:absolute; inset:0;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center; gap:6px;
+  padding:0 12%;
+}
+.foerder-donut-top {
+  font-size:13px; font-weight:500;
+  color:rgba(252,250,245,0.6);
+  letter-spacing:0.06em; text-transform:uppercase;
+}
+.foerder-donut-value {
+  font-size:clamp(56px,8.6vw,96px);
+  font-weight:700; color:var(--ae-lime);
+  line-height:1; letter-spacing:var(--ae-tight);
+}
+.foerder-donut-bottom {
+  font-size:12px; font-weight:600;
+  color:rgba(252,250,245,0.72);
+  letter-spacing:0.14em; text-transform:uppercase;
+  margin-top:6px;
+}
+.foerder-donut-chip {
+  position:absolute;
+  top:4%; right:2%;
+  background:var(--ae-lime); color:var(--ae-near-black);
+  font-size:18px; font-weight:700;
+  padding:10px 16px; border-radius:999px;
+  box-shadow:0 14px 28px -8px rgba(205,241,93,0.45);
+  line-height:1; z-index:2;
+  transform:rotate(8deg);
+}
+.foerder-highlight .big-num-label {
+  font-size:14px; color:rgba(252,250,245,0.68);
+  max-width:36ch; text-align:center; margin:0;
+}
+@media (max-width:900px) {
+  .foerder-section { padding:var(--ae-s-9) 0; }
+  .foerder { grid-template-columns:1fr; gap:var(--ae-s-6); }
+  .foerder-donut { max-width:300px; }
+  .foerder-donut-chip { font-size:15px; padding:8px 13px; }
+}
+
+/* ═══════════════════════════════════════════════
+   ZIELGRUPPEN VERGLEICH — SPLIT
+═══════════════════════════════════════════════ */
+.compare {
+  display:grid;
+  grid-template-columns:1fr 56px 1fr;
+  gap:0;
+  align-items:stretch;
+  margin-top:var(--ae-s-7);
+  position:relative;
+}
+.compare-col {
+  padding:var(--ae-s-7) var(--ae-s-6);
+  border-radius:var(--ae-r-md);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden;
+}
+.compare-col--sanierung {
+  background:var(--ae-white);
+  border:1px solid var(--ae-grey-300);
+  color:var(--ae-near-black);
+}
+.compare-col--neubau {
+  background:var(--ae-near-black);
+  color:var(--ae-off-white);
+}
+.compare-col--neubau::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(252,250,245,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(252,250,245,0.03) 1px,transparent 1px),
+    linear-gradient(rgba(252,250,245,0.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(252,250,245,0.07) 1px,transparent 1px);
+  background-size:16px 16px,16px 16px,96px 96px,96px 96px;
+  mask-image:radial-gradient(ellipse at top right,black 10%,transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse at top right,black 10%,transparent 70%);
+  pointer-events:none;
+}
+.compare-col > * { position:relative; }
+.compare-illustration {
+  width:100%;
+  height:120px;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:var(--ae-s-5);
+}
+.compare-illustration svg { height:100%; width:auto; max-width:100%; }
+.compare-tag {
+  display:inline-block; align-self:flex-start;
+  font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.1em;
+  padding:6px 14px;
+  border-radius:var(--ae-r-pill);
+  background:var(--ae-coral);
+  color:var(--ae-near-black);
+  margin-bottom:var(--ae-s-3);
+}
+.compare-col h3 {
+  font-size:30px; font-weight:600;
+  letter-spacing:var(--ae-headline);
+  line-height:1.1;
+  margin-bottom:var(--ae-s-3);
+}
+.compare-col--neubau h3 { color:var(--ae-off-white); }
+.compare-lead {
+  font-size:15px;
+  line-height:1.55;
+  margin-bottom:var(--ae-s-5);
+  opacity:0.85;
+  max-width:40ch;
+}
+.compare-stat {
+  display:flex; align-items:center;
+  gap:var(--ae-s-4);
+  padding:var(--ae-s-4) var(--ae-s-5);
+  border-radius:var(--ae-r-sm);
+  background:rgba(255,99,77,0.08);
+  margin-bottom:var(--ae-s-6);
+}
+.compare-col--neubau .compare-stat {
+  background:rgba(255,99,77,0.12);
+}
+.compare-stat strong {
+  font-size:26px; font-weight:600;
+  color:var(--ae-coral);
+  letter-spacing:var(--ae-headline);
+  line-height:1; flex:none;
+}
+.compare-stat span {
+  font-size:13px;
+  line-height:1.4;
+  opacity:0.85;
+}
+.compare-list {
+  list-style:none;
+  display:grid;
+  gap:var(--ae-s-3);
+  margin-bottom:var(--ae-s-6);
+}
+.compare-list li {
+  padding-left:30px;
+  position:relative;
+  font-size:14.5px;
+  line-height:1.55;
+}
+.compare-list li::before {
+  content:'';
+  position:absolute;
+  left:0; top:3px;
+  width:20px; height:20px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='10' r='10' fill='%23FF634D'/><path d='M5.8 10.2 L8.8 13 L14.3 7.4' stroke='%23222120' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+}
+.compare-cta {
+  margin-top:auto;
+  align-self:flex-start;
+}
+.compare-divider {
+  display:flex;
+  align-items:center; justify-content:center;
+  position:relative;
+}
+.compare-divider::before {
+  content:'';
+  position:absolute;
+  top:15%; bottom:15%; left:50%;
+  width:1px;
+  background:linear-gradient(to bottom,transparent,var(--ae-grey-300) 20%,var(--ae-grey-300) 80%,transparent);
+}
+.compare-divider span {
+  position:relative;
+  background:var(--ae-off-white);
+  padding:var(--ae-s-3) var(--ae-s-2);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.2em;
+  color:var(--ae-grey-500);
+  text-transform:uppercase;
+}
+
+@media (max-width:960px) {
+  .compare { grid-template-columns:1fr; }
+  .compare-divider { height:56px; width:auto; }
+  .compare-divider::before { top:50%; bottom:auto; left:15%; right:15%; width:auto; height:1px;
+    background:linear-gradient(to right,transparent,var(--ae-grey-300) 20%,var(--ae-grey-300) 80%,transparent); }
+  .compare-divider span { padding:var(--ae-s-2) var(--ae-s-4); }
+}
+
+/* ═══════════════════════════════════════════════
+   PREIS-BADGES
+═══════════════════════════════════════════════ */
+.price-row { display:flex; flex-wrap:wrap; gap:var(--ae-s-3); margin-top:var(--ae-s-5); }
+.price-tag {
+  display:inline-flex; align-items:baseline; gap:var(--ae-s-2);
+  padding:var(--ae-s-3) var(--ae-s-5);
+  background:var(--ae-white);
+  border:1px solid var(--ae-grey-300);
+  border-radius:var(--ae-r-pill);
+  font-size:14px;
+}
+.price-tag strong { font-size:16px; font-weight:600; }
+.price-tag span { color:var(--ae-grey-500); }
+
+/* ═══════════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════════ */
+.faq { max-width:860px; margin:0 auto; }
+.faq details {
+  border-bottom:1px solid var(--ae-grey-300);
+  padding:var(--ae-s-5) 0;
+}
+.faq details[open] summary { color:var(--ae-coral); }
+.faq summary {
+  list-style:none; cursor:pointer;
+  font-size:19px; font-weight:500;
+  display:flex; justify-content:space-between; gap:var(--ae-s-4);
+  letter-spacing:-0.01em;
+  transition:color .2s ease;
+}
+.faq summary::-webkit-details-marker { display:none; }
+.faq summary::after { content:'+'; font-size:24px; font-weight:400; transition:transform .25s ease; flex:none; }
+.faq details[open] summary::after { transform:rotate(45deg); }
+.faq details p { margin-top:var(--ae-s-4); font-size:15px; line-height:1.65; color:#444; max-width:70ch; }
+.faq details[open] p { animation:faq-open .3s ease-out; }
+@keyframes faq-open {
+  from { opacity:0; transform:translateY(-6px); }
+  to { opacity:1; transform:translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq details[open] p { animation:none; }
+}
+
+/* ═══════════════════════════════════════════════
+   FINAL CTA — BRIDGE
+═══════════════════════════════════════════════ */
+.cta-section {
+  padding:var(--ae-s-8) 0 0;
+  position:relative;
+  margin-bottom:-140px;
+  background:var(--ae-grey-100);
+}
+.final-cta {
+  background:var(--ae-coral);
+  color:var(--ae-near-black);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-9) var(--ae-s-8);
+  position:relative; overflow:hidden;
+  z-index:2;
+  box-shadow:0 30px 80px -20px rgba(34,33,32,0.45);
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:var(--ae-s-8);
+  align-items:center;
+}
+.final-cta::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(34,33,32,0.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,33,32,0.045) 1px,transparent 1px),
+    linear-gradient(rgba(34,33,32,0.10) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,33,32,0.10) 1px,transparent 1px);
+  background-size:16px 16px,16px 16px,96px 96px,96px 96px;
+  mask-image:radial-gradient(ellipse at center,black 30%,transparent 72%);
+  -webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 72%);
+  pointer-events:none;
+}
+.final-cta > * { position:relative; }
+
+.cta-portrait {
+  display:flex; flex-direction:column;
+  align-items:center;
+  gap:var(--ae-s-4);
+}
+.cta-portrait-frame {
+  width:200px; height:200px;
+  border-radius:var(--ae-r-md);
+  overflow:hidden;
+  background:var(--ae-near-black);
+  border:4px solid var(--ae-near-black);
+  box-shadow:0 16px 40px -12px rgba(34,33,32,0.45);
+}
+.cta-portrait-frame img {
+  width:100%; height:100%;
+  object-fit:cover; object-position:center 18%;
+  display:block;
+}
+.cta-sign { text-align:center; display:grid; gap:2px; }
+.cta-sign-name {
+  font-size:15px; font-weight:600;
+  letter-spacing:var(--ae-headline);
+}
+.cta-sign-title { font-size:12px; opacity:0.75; }
+
+.cta-content .ae-eyebrow { opacity:0.8; margin-bottom:var(--ae-s-3); }
+.cta-content h2 { max-width:20ch; margin-bottom:var(--ae-s-4); }
+.cta-content p {
+  max-width:56ch;
+  font-size:17px; line-height:1.55;
+  margin-bottom:var(--ae-s-6);
+}
+.cta-content .btn-group { margin-bottom:var(--ae-s-6); }
+
+.cta-trust {
+  list-style:none;
+  display:flex; flex-wrap:wrap;
+  gap:var(--ae-s-5);
+  font-size:13px;
+  border-top:1px solid rgba(34,33,32,0.2);
+  padding-top:var(--ae-s-4);
+}
+.cta-trust li {
+  padding-left:22px; position:relative;
+  font-weight:500;
+}
+.cta-trust li::before {
+  content:'';
+  position:absolute; left:0; top:3px;
+  width:14px; height:14px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7.5 L5.8 10 L11 4.5' stroke='%23222120' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-size:100%; background-repeat:no-repeat;
+}
+
+@media (max-width:860px) {
+  .final-cta {
+    grid-template-columns:1fr;
+    text-align:center;
+    padding:var(--ae-s-8) var(--ae-s-6);
+    gap:var(--ae-s-6);
+  }
+  .cta-content h2, .cta-content p { margin-left:auto; margin-right:auto; }
+  .cta-content .btn-group { justify-content:center; }
+  .cta-trust { justify-content:center; }
+  .cta-section { margin-bottom:-100px; }
+}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer.site-footer {
+  position:relative; overflow:hidden; isolation:isolate;
+  background:var(--ae-near-black);
+  color:var(--ae-off-white);
+  padding-top:calc(var(--ae-s-9) + 60px);
+}
+.site-footer::before {
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(252,250,245,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(252,250,245,0.03) 1px,transparent 1px),
+    linear-gradient(rgba(252,250,245,0.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(252,250,245,0.07) 1px,transparent 1px);
+  background-size:16px 16px,16px 16px,96px 96px,96px 96px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 0%, black 0%, transparent 75%);
+          mask-image:radial-gradient(ellipse at 50% 0%, black 0%, transparent 75%);
+}
+.site-footer::after {
+  content:""; position:absolute; z-index:0; pointer-events:none;
+  width:620px; height:620px; left:-180px; top:-180px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(255,99,77,0.12) 0%, transparent 65%);
+  filter:blur(60px);
+}
+.site-footer .wrap { position:relative; z-index:1; }
+
+/* Claim + Office card */
+.footer-claim {
+  padding:var(--ae-s-9) 0 var(--ae-s-7);
+  display:grid; grid-template-columns:1.35fr 1fr;
+  gap:var(--ae-s-8); align-items:end;
+  border-bottom:1px solid rgba(252,250,245,0.1);
+}
+.footer-claim .eyebrow {
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:12px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  color:rgba(252,250,245,0.65);
+  margin-bottom:var(--ae-s-5);
+}
+.footer-claim .eyebrow::before {
+  content:""; width:8px; height:8px; border-radius:50%;
+  background:var(--ae-lime);
+  box-shadow:0 0 0 0 rgba(205,241,93,0.45);
+  animation:ae-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ae-pulse {
+  0%, 100% { box-shadow:0 0 0 0 rgba(205,241,93,0.45); }
+  50%      { box-shadow:0 0 0 10px rgba(205,241,93,0); }
+}
+.footer-claim h2 {
+  font-size:clamp(36px, 4.8vw, 68px); font-weight:600; line-height:1.02;
+  letter-spacing:var(--ae-tight); color:var(--ae-off-white); max-width:14ch;
+}
+.footer-claim h2 em {
+  font-style:italic; font-weight:500; color:var(--ae-coral);
+}
+.footer-claim .lead {
+  margin-top:var(--ae-s-5);
+  font-size:16px; line-height:1.6;
+  color:rgba(252,250,245,0.65); max-width:48ch;
+}
+
+/* Office card */
+.office-card {
+  background:rgba(252,250,245,0.04);
+  border:1px solid rgba(252,250,245,0.12);
+  border-radius:var(--ae-r-md);
+  padding:var(--ae-s-6);
+  backdrop-filter:blur(6px);
+}
+.office-card .status {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 12px; border-radius:var(--ae-r-pill);
+  background:rgba(205,241,93,0.12);
+  color:var(--ae-lime);
+  font-size:12px; font-weight:500;
+  margin-bottom:var(--ae-s-5);
+}
+.office-card .status::before {
+  content:""; width:6px; height:6px; border-radius:50%;
+  background:var(--ae-lime);
+  box-shadow:0 0 8px rgba(205,241,93,0.6);
+}
+.office-card dl {
+  display:grid; grid-template-columns:76px 1fr;
+  gap:12px var(--ae-s-4);
+  font-size:14px; line-height:1.45;
+}
+.office-card dt { color:rgba(252,250,245,0.5); font-weight:400; }
+.office-card dd { color:var(--ae-off-white); }
+.office-card dd a { text-decoration:none; color:inherit; border-bottom:1px solid transparent; transition:border-color .2s, color .2s; }
+.office-card dd a:hover { color:var(--ae-lime); border-color:var(--ae-lime); }
+.office-card .response {
+  margin-top:var(--ae-s-5);
+  padding-top:var(--ae-s-4);
+  border-top:1px solid rgba(252,250,245,0.1);
+  font-size:13px; color:rgba(252,250,245,0.7);
+  display:flex; align-items:center; gap:10px;
+}
+.office-card .response strong { color:var(--ae-off-white); font-weight:600; }
+.office-card .response svg { width:16px; height:16px; color:var(--ae-lime); flex-shrink:0; }
+
+/* Link grid */
+.footer-inner {
+  padding:var(--ae-s-8) 0 var(--ae-s-7);
+  display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:var(--ae-s-7);
+}
+.footer-inner .brand .logo img { height:44px; margin-bottom:var(--ae-s-4); }
+.footer-inner .brand p {
+  font-size:14px; color:rgba(252,250,245,0.6); line-height:1.6; max-width:34ch;
+}
+.site-footer h4 {
+  font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  margin-bottom:var(--ae-s-4);
+  color:rgba(252,250,245,0.5);
+}
+.site-footer ul { list-style:none; display:grid; gap:10px; }
+.site-footer li a {
+  position:relative;
+  font-size:14px; color:rgba(252,250,245,0.88);
+  text-decoration:none;
+  transition:color .2s, transform .2s;
+  display:inline-block;
+}
+.site-footer li a::before {
+  content:"→"; position:absolute; left:-18px; top:0;
+  color:var(--ae-lime);
+  opacity:0; transform:translateX(-6px);
+  transition:opacity .2s, transform .2s;
+}
+.site-footer li a:hover { color:var(--ae-lime); transform:translateX(14px); }
+.site-footer li a:hover::before { opacity:1; transform:translateX(0); }
+
+/* Certs strip */
+.cert-strip {
+  display:grid; grid-template-columns:auto 1fr; gap:var(--ae-s-6);
+  align-items:center;
+  padding:var(--ae-s-5) 0;
+  border-top:1px solid rgba(252,250,245,0.1);
+  border-bottom:1px solid rgba(252,250,245,0.1);
+}
+.cert-strip .label {
+  font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  color:rgba(252,250,245,0.5);
+  max-width:12ch; line-height:1.3;
+}
+.cert-strip ul {
+  list-style:none; display:flex; flex-wrap:wrap; gap:var(--ae-s-3);
+}
+.cert-strip li {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px;
+  border:1px solid rgba(252,250,245,0.14);
+  border-radius:var(--ae-r-sm);
+  background:rgba(252,250,245,0.02);
+  font-size:13px; color:var(--ae-off-white);
+  transition:border-color .2s, background .2s, transform .2s;
+}
+.cert-strip li:hover {
+  border-color:rgba(205,241,93,0.35);
+  background:rgba(252,250,245,0.05);
+  transform:translateY(-1px);
+}
+.cert-strip li svg { width:14px; height:14px; color:var(--ae-lime); flex-shrink:0; }
+
+/* Bottom bar */
+.footer-bottom {
+  padding:var(--ae-s-5) 0;
+  display:flex; justify-content:space-between; gap:var(--ae-s-4);
+  flex-wrap:wrap; align-items:center;
+  font-size:12px; color:rgba(252,250,245,0.5);
+}
+.footer-bottom .socials { display:flex; gap:10px; }
+.footer-bottom .socials a {
+  width:34px; height:34px; border-radius:50%;
+  border:1px solid rgba(252,250,245,0.14);
+  display:inline-flex; align-items:center; justify-content:center;
+  color:rgba(252,250,245,0.75);
+  text-decoration:none;
+  transition:color .2s, background .2s, border-color .2s, transform .2s;
+}
+.footer-bottom .socials a:hover {
+  color:var(--ae-near-black);
+  background:var(--ae-lime);
+  border-color:var(--ae-lime);
+  transform:translateY(-2px);
+}
+.footer-bottom .socials a svg { width:14px; height:14px; }
+.footer-bottom .back-to-top {
+  display:inline-flex; align-items:center; gap:6px;
+  color:rgba(252,250,245,0.65); text-decoration:none;
+  font-size:12px;
+  transition:color .2s;
+}
+.footer-bottom .back-to-top:hover { color:var(--ae-lime); }
+.footer-bottom .back-to-top span { transition:transform .2s; }
+.footer-bottom .back-to-top:hover span { transform:translateY(-2px); }
+
+/* Responsive */
+@media (max-width:900px) {
+  .footer-claim { grid-template-columns:1fr; gap:var(--ae-s-7); align-items:start; }
+  .footer-inner { grid-template-columns:1fr 1fr; gap:var(--ae-s-6); }
+  .cert-strip { grid-template-columns:1fr; gap:var(--ae-s-3); }
+}
+@media (max-width:560px) {
+  .footer-inner { grid-template-columns:1fr; }
+  .footer-bottom { justify-content:flex-start; }
+  .office-card dl { grid-template-columns:68px 1fr; }
+}
+
+/* ═══════════════════════════════════════════════
+   EINSPAR-KALKULATOR (Hero-Split)
+═══════════════════════════════════════════════ */
+.calc {
+  display:grid; grid-template-columns:1fr; gap:0;
+  background:var(--ae-white);
+  border:1px solid rgba(0,0,0,0.06);
+  border-radius:var(--ae-r-lg);
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(34,33,32,0.22);
+}
+.calc-form {
+  padding:var(--ae-s-6);
+  display:grid; gap:var(--ae-s-5);
+  align-content:start;
+}
+.calc-form-eyebrow {
+  font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  color:var(--ae-grey-500);
+  display:inline-flex; align-items:center; gap:8px;
+}
+.calc-form-eyebrow::before {
+  content:""; width:6px; height:6px; border-radius:50%;
+  background:var(--ae-coral);
+}
+.calc-field > label:not(.calc-pill) {
+  display:block;
+  font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  color:var(--ae-grey-500);
+  margin-bottom:var(--ae-s-3);
+}
+.calc-slider-wrap {
+  display:grid; grid-template-columns:auto 1fr auto;
+  gap:var(--ae-s-3); align-items:center;
+}
+.calc-range-min, .calc-range-max {
+  font-size:11px; color:var(--ae-grey-500);
+  font-variant-numeric:tabular-nums;
+}
+.calc-slider {
+  -webkit-appearance:none; appearance:none;
+  width:100%; height:6px;
+  background:var(--ae-grey-300);
+  border-radius:3px; outline:none;
+}
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none;
+  width:22px; height:22px; border-radius:50%;
+  background:var(--ae-coral);
+  border:3px solid var(--ae-white);
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
+  cursor:grab;
+}
+.calc-slider::-moz-range-thumb {
+  width:22px; height:22px; border-radius:50%;
+  background:var(--ae-coral);
+  border:3px solid var(--ae-white);
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
+  cursor:grab;
+}
+.calc-slider:focus-visible::-webkit-slider-thumb {
+  outline:2px solid var(--ae-near-black); outline-offset:2px;
+}
+.calc-output-inline {
+  display:block;
+  font-size:24px; font-weight:600;
+  letter-spacing:var(--ae-tight);
+  color:var(--ae-near-black);
+  margin-top:var(--ae-s-2);
+  font-variant-numeric:tabular-nums;
+}
+.calc-number-wrap {
+  display:inline-flex; align-items:baseline; gap:6px;
+  border-bottom:2px solid var(--ae-grey-300);
+  padding-bottom:4px;
+  transition:border-color .2s;
+}
+.calc-number-wrap:focus-within { border-color:var(--ae-coral); }
+.calc-number {
+  font-family:inherit;
+  font-size:28px; font-weight:600;
+  letter-spacing:var(--ae-tight);
+  border:none; outline:none; background:transparent;
+  width:90px; color:var(--ae-near-black);
+  -moz-appearance:textfield;
+}
+.calc-number::-webkit-outer-spin-button,
+.calc-number::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+.calc-unit { font-size:15px; color:var(--ae-grey-500); font-weight:500; }
+.calc-pills { display:flex; flex-wrap:wrap; gap:6px; }
+.calc-pill {
+  position:relative;
+  display:inline-flex;
+  padding:8px 14px;
+  border:1px solid var(--ae-grey-300);
+  border-radius:var(--ae-r-pill);
+  font-size:13px; font-weight:500;
+  cursor:pointer;
+  transition:all .2s;
+}
+.calc-pill input { position:absolute; opacity:0; pointer-events:none; }
+.calc-pill.active {
+  background:var(--ae-near-black);
+  color:var(--ae-off-white);
+  border-color:var(--ae-near-black);
+}
+.calc-pill:hover:not(.active) { border-color:var(--ae-near-black); }
+.calc-pill:focus-within {
+  outline:2px solid var(--ae-coral); outline-offset:3px;
+}
+.calc-results {
+  padding:var(--ae-s-6);
+  background:var(--ae-near-black);
+  color:var(--ae-off-white);
+  position:relative; overflow:hidden;
+}
+.calc-results::before {
+  content:""; position:absolute;
+  top:-80px; right:-80px;
+  width:320px; height:320px; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,99,77,0.18) 0%, transparent 65%);
+  pointer-events:none;
+}
+.calc-results > * { position:relative; }
+.calc-result-eyebrow {
+  font-size:10px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  color:rgba(252,250,245,0.55);
+}
+.calc-result-main {
+  display:flex; align-items:baseline; gap:var(--ae-s-3);
+  margin-top:6px;
+}
+.calc-result-number {
+  display:inline-block;
+  font-size:clamp(44px,5vw,64px);
+  font-weight:700; line-height:1;
+  letter-spacing:var(--ae-tight);
+  color:var(--ae-coral);
+  font-variant-numeric:tabular-nums;
+  transform-origin:left center;
+}
+@keyframes calcFlash {
+  0%   { transform:scale(1); }
+  40%  { transform:scale(1.06); }
+  100% { transform:scale(1); }
+}
+.calc-flash { animation:calcFlash .35s ease-out; }
+.calc-result-unit { font-size:15px; opacity:0.7; }
+.calc-result-grid {
+  margin-top:var(--ae-s-5);
+  padding-top:var(--ae-s-4);
+  border-top:1px solid rgba(252,250,245,0.12);
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:var(--ae-s-4);
+}
+.calc-metric { display:flex; flex-direction:column; gap:4px; }
+.calc-metric-label {
+  font-size:10px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.12em;
+  color:rgba(252,250,245,0.5);
+}
+.calc-metric-value {
+  font-size:18px; font-weight:600;
+  color:var(--ae-off-white);
+  letter-spacing:-0.01em;
+  font-variant-numeric:tabular-nums;
+}
+.calc-cta { margin-top:var(--ae-s-5); width:100%; justify-content:center; }
+.calc-micro-disclaimer {
+  margin-top:var(--ae-s-3);
+  font-size:10px; line-height:1.5;
+  color:rgba(252,250,245,0.5);
+  text-align:center;
+}
+@media (max-width:480px) {
+  .calc-form, .calc-results { padding:var(--ae-s-5); }
+  .calc-result-grid { grid-template-columns:1fr; }
+}
+</style>
+<style id="dropdown-nav-style">
+  /* Unified nav typography across all page styles */
+  header.header nav .nav > li > a,
+  header.header nav .nav .nav-dropdown > button,
+  .site-header .nav > ul > li > a,
+  .site-header .nav-dropdown > button {
+    font-family: 'Volte', system-ui, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+    color: #222120 !important;
+  }
+
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > button {
+    background: none; border: 0; cursor: pointer;
+    padding: 0; display: inline-flex; align-items: center; gap: 6px; line-height: inherit;
+  }
+  .nav-dropdown > button::after {
+    content: ''; width: 6px; height: 6px;
+    border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg); margin-top: -3px; transition: transform .2s ease;
+  }
+  .nav-dropdown:hover > button::after,
+  .nav-dropdown:focus-within > button::after { transform: rotate(225deg); margin-top: 1px; }
+
+  /* Invisible hover bridge so menu stays open between button and panel */
+  .nav-dropdown::before {
+    content: ''; position: absolute;
+    top: 100%; left: -10px; right: -10px;
+    height: 18px;
+    pointer-events: none;
+  }
+  .nav-dropdown:hover::before,
+  .nav-dropdown:focus-within::before { pointer-events: auto; }
+
+  ul.nav-dropdown-menu {
+    position: absolute; top: calc(100% + 14px); left: 50%;
+    transform: translate(-50%, -6px); min-width: 240px;
+    background: #FCFAF5; border: 1px solid rgba(34,33,32,0.08);
+    border-radius: 14px; padding: 8px;
+    box-shadow: 0 16px 40px rgba(34,33,32,0.10);
+    list-style: none; margin: 0;
+    display: block;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease, visibility .18s;
+    z-index: 100;
+  }
+  .nav-dropdown:hover ul.nav-dropdown-menu,
+  .nav-dropdown:focus-within ul.nav-dropdown-menu {
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+  ul.nav-dropdown-menu li { padding: 0; margin: 0; list-style: none; display: block; }
+  ul.nav-dropdown-menu a {
+    display: block; padding: 10px 14px; border-radius: 9px;
+    text-decoration: none; color: #222120; white-space: nowrap;
+    font-family: 'Volte', system-ui, sans-serif !important;
+    font-size: 14px !important; font-weight: 500 !important;
+    letter-spacing: 0 !important;
+  }
+  ul.nav-dropdown-menu a::after { display: none !important; content: none !important; }
+  ul.nav-dropdown-menu a:hover,
+  ul.nav-dropdown-menu a:focus-visible { background: rgba(255,99,77,0.08); color: #FF634D; outline: none; }
+  ul.nav-dropdown-menu a[aria-current="page"] { background: rgba(255,99,77,0.10); color: #FF634D; font-weight: 600 !important; }
+
+  /* Active page indicator for top-level nav links */
+  .site-header nav ul > li > a[aria-current="page"],
+  header.header nav .nav > li > a[aria-current="page"] {
+    color: #FF634D !important; position: relative;
+  }
+  .site-header nav ul > li > a[aria-current="page"]::before,
+  header.header nav .nav > li > a[aria-current="page"]::before {
+    content: ''; position: absolute; left: 50%; bottom: -8px;
+    transform: translateX(-50%); width: 5px; height: 5px;
+    background: #FF634D; border-radius: 50%;
+  }
+  .nav-dropdown > button[aria-current="true"] { color: #FF634D !important; }
+
+  @media (max-width: 900px) { .nav-dropdown { display: none; } }
+</style>
+</head>
+<body id="top">
+
+<!-- ═════════════════════ HEADER ═════════════════════ -->
+<header class="site-header">
+  <nav class="nav">
+    <a href="/aumann-eco-preview/" class="logo" aria-label="aumann eco — Startseite">
+      <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortbildmarke-rot.svg" alt="aumann eco">
+    </a>
+    <ul>
+      <li class="nav-dropdown">
+        <button type="button" class="nav-link" aria-haspopup="menu" aria-expanded="false">Leistungen</button>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li role="none"><a role="menuitem" href="/aumann-eco-preview/sanierungsfahrplan/">Sanierungsfahrplan</a></li>
+          <li role="none"><a role="menuitem" href="/aumann-eco-preview/bauphysik/">Bauphysik &amp; Nachweise</a></li>
+          <li role="none"><a role="menuitem" href="/aumann-eco-preview/blower-door/">Blower Door Test</a></li>
+          <li role="none"><a role="menuitem" href="/aumann-eco-preview/foerderberatung/">Förderberatung</a></li>
+        </ul>
+      </li>
+      <li><a href="/aumann-eco-preview/ueber-uns/">Über uns</a></li>
+      <li><a href="/aumann-eco-preview/kontakt/">Kontakt</a></li>
+    </ul>
+    <div style="display:flex; align-items:center;">
+      <a href="tel:+491755697551" class="phone">0175 569 75 51</a>
+      <a href="#kontakt" class="btn btn--primary nav-cta">Kostenloses Erstgespräch</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ═════════════════════ HERO ═════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="ae-eyebrow">
+        <span class="hero-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+        Energieberatung Köln · Transparent &amp; ehrlich
+      </div>
+      <h1 class="ae-h1">Ihr Ingenieurbüro<br>&amp; Energieberater<br>in Köln</h1>
+      <p class="ae-lead">
+        Sanierungsfahrplan, Bauphysik-Nachweise und Qualitätssicherung aus einer Hand. Blower-Door ab 900 €, Thermografie ab 390 € — unabhängig, ohne Provisionen.
+      </p>
+      <div class="btn-group">
+        <a href="#kontakt" class="btn btn--primary">Kostenloses Erstgespräch →</a>
+        <a href="#leistungen" class="btn btn--outline">Leistungen ansehen</a>
+      </div>
+      <div class="hero-meta">
+        <span><strong>✓ BAFA-Förderung</strong> sichert 50 % Zuschuss auf Beratung &amp; Messung.</span>
+      </div>
+    </div>
+
+    <aside class="hero-aside">
+      <div class="founder-card">
+        <div class="founder-visual">
+          <div class="founder-dots-stack" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <img class="founder-portrait-cutout" src="/aumann-eco-preview/assets/images/img-benedikt-cutout.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco" width="1600" height="1600">
+        </div>
+        <div class="founder-plaque">
+          <div class="brand-badge" aria-hidden="true">
+            <svg class="brand-badge-ring" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="96" fill="#222120"/>
+              <defs>
+                <path id="brand-badge-path" d="M 100 100 m 0 -76 a 76 76 0 1 1 0 152 a 76 76 0 1 1 0 -152" fill="none"/>
+              </defs>
+              <text fill="#FCFAF5" font-family="Volte, system-ui, sans-serif" font-size="14" font-weight="500" letter-spacing="2.4">
+                <textPath href="#brand-badge-path" startOffset="0" textLength="475" lengthAdjust="spacingAndGlyphs">INGENIEURBÜRO · FÜR NACHHALTIGES BAUEN · </textPath>
+              </text>
+            </svg>
+            <span class="brand-badge-mark">ae</span>
+          </div>
+          <div>
+            <div class="founder-name">Benedikt Aumann</div>
+            <div class="founder-title">Dipl.-Ing. · Geschäftsführer</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ═════════════════════ LOGO SLIDER ═════════════════════ -->
+<div class="logo-slider">
+  <div class="slider-label">Vertrauen von Bauherren, Architekten und Hausverwaltungen im Rheinland</div>
+  <div class="logo-slider-inner">
+  <div class="logo-track">
+    <!-- Set 1 -->
+    <div class="logo-item ikbau"><img src="/aumann-eco-preview/assets/partners/logo-ikbau.webp" alt="Ingenieurkammer-Bau Nordrhein-Westfalen · Mitglied der Kammer"></div>
+    <div class="logo-item"><img src="/aumann-eco-preview/assets/partners/logo-eee.webp" alt="Energieeffizienz-Experte für Förderprogramme des Bundes"></div>
+    <div class="logo-item flib"><img src="/aumann-eco-preview/assets/partners/logo-flib.webp" alt="FLiB · Fachverband Luftdichtheit im Bauwesen e.V."></div>
+    <div class="logo-item"><img src="/aumann-eco-preview/assets/partners/logo-dgnb.webp" alt="Mitglied der DGNB · Deutsche Gesellschaft für Nachhaltiges Bauen"></div>
+    <!-- Set 2 (Duplikat für nahtlose Loop) -->
+    <div class="logo-item ikbau"><img src="/aumann-eco-preview/assets/partners/logo-ikbau.webp" alt="" aria-hidden="true"></div>
+    <div class="logo-item"><img src="/aumann-eco-preview/assets/partners/logo-eee.webp" alt="" aria-hidden="true"></div>
+    <div class="logo-item flib"><img src="/aumann-eco-preview/assets/partners/logo-flib.webp" alt="" aria-hidden="true"></div>
+    <div class="logo-item"><img src="/aumann-eco-preview/assets/partners/logo-dgnb.webp" alt="" aria-hidden="true"></div>
+  </div>
+  </div>
+</div>
+
+<script>
+  // Einspar-Kalkulator
+  (function(){
+    const root = document.querySelector('[data-calc]');
+    if (!root) return;
+    const baujahrInput = root.querySelector('#calc-baujahr');
+    const flaecheInput = root.querySelector('#calc-flaeche');
+    const heatingInputs = root.querySelectorAll('input[name="heating"]');
+    const baujahrOut = root.querySelector('[data-output="baujahr"]');
+    const monthOut   = root.querySelector('[data-result="month"]');
+    const yearOut    = root.querySelector('[data-result="year"]');
+    const co2Out     = root.querySelector('[data-result="co2"]');
+
+    const fmtInt = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 0 });
+    const fmtDec = new Intl.NumberFormat('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+    function consumptionByYear(year) {
+      if (year < 1978) return 220;
+      if (year < 1995) return 170;
+      if (year < 2010) return 130;
+      return 80;
+    }
+
+    function heatingFactors(type) {
+      switch (type) {
+        case 'oel':          return { price: 0.115, co2: 0.27 };
+        case 'fernwaerme':   return { price: 0.14,  co2: 0.23 };
+        case 'waermepumpe':  return { price: 0.08,  co2: 0.10 };
+        default:             return { price: 0.12,  co2: 0.20 };
+      }
+    }
+
+    function getHeating() {
+      const checked = root.querySelector('input[name="heating"]:checked');
+      return checked ? checked.value : 'gas';
+    }
+
+    function updatePills() {
+      heatingInputs.forEach(input => {
+        input.closest('.calc-pill').classList.toggle('active', input.checked);
+      });
+    }
+
+    function calc() {
+      const baujahr = parseInt(baujahrInput.value, 10) || 1975;
+      const flaecheRaw = parseFloat(flaecheInput.value);
+      const flaeche = isNaN(flaecheRaw) ? 150 : Math.max(50, Math.min(500, flaecheRaw));
+      const heating = getHeating();
+
+      const current = consumptionByYear(baujahr);
+      const target = 55;
+      const kwhSaved = Math.max(0, current - target) * flaeche;
+
+      const { price, co2 } = heatingFactors(heating);
+      const euroYear = kwhSaved * price;
+      const euroMonth = euroYear / 12;
+      const co2Tons = (kwhSaved * co2) / 1000;
+
+      baujahrOut.textContent = baujahr;
+      monthOut.textContent   = fmtInt.format(euroMonth);
+      yearOut.textContent    = fmtInt.format(euroYear) + ' €';
+      co2Out.textContent     = fmtDec.format(co2Tons) + ' t / Jahr';
+
+      monthOut.classList.remove('calc-flash');
+      void monthOut.offsetWidth;
+      monthOut.classList.add('calc-flash');
+    }
+
+    baujahrInput.addEventListener('input', calc);
+    flaecheInput.addEventListener('input', calc);
+    heatingInputs.forEach(input => {
+      input.addEventListener('change', () => { updatePills(); calc(); });
+    });
+
+    updatePills();
+    calc();
+  })();
+</script>
+
+<!-- ═════════════════════ LEISTUNGEN ═════════════════════ -->
+<section id="leistungen">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="ae-eyebrow">01 · Kernleistungen</span>
+      <h2 class="ae-h2">Energieberatung, Bauphysik und Messung — aus einer Hand.</h2>
+      <p>Vier Leistungen, ein Ansprechpartner. Kein Outsourcing, keine Koordinationsverluste zwischen verschiedenen Büros.</p>
+    </div>
+    <div class="grid grid-4">
+
+      <div class="ae-card">
+        <div class="svg-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 6h18l6 6v22H8z"/>
+            <path d="M26 6v6h6"/>
+            <path d="M13 20h14M13 25h14M13 30h9"/>
+            <path d="M30 17l-2 2 2 2" stroke="#FF634D"/>
+          </svg>
+        </div>
+        <div class="eyebrow">Sanierung</div>
+        <h3>Individueller Sanierungsfahrplan (iSFP)</h3>
+        <p>Klarer Plan, welche Maßnahmen sich wann lohnen — mit realistischen Kosten und Fördermöglichkeiten.</p>
+        <a href="/aumann-eco-preview/sanierungsfahrplan/" class="link-row">iSFP anfragen →</a>
+      </div>
+
+      <div class="ae-card">
+        <div class="svg-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 5l13 4v10c0 8-5.5 14-13 16-7.5-2-13-8-13-16V9l13-4z"/>
+            <path d="M14 20l4 4 8-8" stroke="#FF634D"/>
+          </svg>
+        </div>
+        <div class="eyebrow">Nachweise</div>
+        <h3>Bauphysik &amp; Energieausweise</h3>
+        <p>Wärmeschutz-, Schallschutz- und Feuchteschutznachweise nach GEG und DIN — termingerecht, behördenkonform.</p>
+        <a href="/aumann-eco-preview/bauphysik/" class="link-row">Nachweis beauftragen →</a>
+      </div>
+
+      <div class="ae-card">
+        <div class="svg-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 34V14l14-8 14 8v20"/>
+            <path d="M6 34h28"/>
+            <path d="M16 34V22h8v12"/>
+            <path d="M20 6v4" stroke="#FF634D"/>
+            <circle cx="20" cy="15" r="1.5" fill="#FF634D" stroke="#FF634D"/>
+          </svg>
+        </div>
+        <div class="eyebrow">Neubau</div>
+        <h3>Energetische Förderungen</h3>
+        <p>KfW-40-Planung, QNG-Lebenszyklusanalyse (LCA) und Baubegleitung für Neubauten.</p>
+        <a href="/aumann-eco-preview/foerderberatung/" class="link-row">Fachplanung anfragen →</a>
+      </div>
+
+      <div class="ae-card">
+        <div class="svg-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="14"/>
+            <circle cx="20" cy="20" r="9"/>
+            <circle cx="20" cy="20" r="4" fill="#FF634D" stroke="#FF634D"/>
+            <path d="M20 6v4M20 30v4M6 20h4M30 20h4"/>
+          </svg>
+        </div>
+        <div class="eyebrow">Messung</div>
+        <h3>Blower Door &amp; Thermografie</h3>
+        <p>Luftdichtheitsmessung nach DIN EN ISO 9972 und Thermografie mit Bildbericht. Eigene Messtechnik.</p>
+        <a href="/aumann-eco-preview/blower-door/" class="link-row">Messung anfragen →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ SO ARBEITEN WIR ═════════════════════ -->
+<section id="ablauf">
+  <div class="wrap">
+    <div class="section-head-center">
+      <span class="ae-eyebrow">02 · So arbeiten wir</span>
+      <h2 class="ae-h2">Vier Schritte zum Sanierungsfahrplan.</h2>
+      <p>Vom kostenlosen Erstgespräch bis zum geförderten Bauvorhaben — transparent, termintreu, messbar.</p>
+    </div>
+
+    <div class="usp-list">
+
+      <article class="usp-row">
+        <span class="usp-num">01</span>
+        <div class="usp-body">
+          <h3>Erstgespräch</h3>
+          <p>30 Minuten Tacheles statt Vertriebs-Pitch. Wir hören zu, stellen präzise Fragen und sagen Ihnen am Ende ehrlich, ob wir der passende Partner sind — oder nicht.</p>
+        </div>
+      </article>
+
+      <article class="usp-row">
+        <span class="usp-num">02</span>
+        <div class="usp-body">
+          <h3>Vor-Ort-Analyse</h3>
+          <p>Wir kommen mit eigener Messtechnik — Blower Door, Thermografie, Datenlogger. Keine Standardwerte, keine Ferndiagnose. Nach der Aufnahme kennen wir Ihr Gebäude exakt.</p>
+        </div>
+      </article>
+
+      <article class="usp-row">
+        <span class="usp-num">03</span>
+        <div class="usp-body">
+          <h3>Bericht &amp; iSFP</h3>
+          <p>Kein 80-seitiges Fachchinesisch. Sie bekommen einen klaren Maßnahmenplan mit Kosten, Einsparung und Fördermitteln — so, dass Sie Entscheidungen treffen können.</p>
+        </div>
+      </article>
+
+      <article class="usp-row">
+        <span class="usp-num">04</span>
+        <div class="usp-body">
+          <h3>Umsetzung &amp; QS</h3>
+          <p>Wir begleiten den Bau bis zur Abnahme und messen die Qualität am Ende — mit Blower Door und Thermografie. Kein „wird schon halten", sondern nachgewiesen.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ WARUM AUMANN ECO ═════════════════════ -->
+<section id="warum">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="ae-eyebrow">03 · Warum aumann eco</span>
+      <h2 class="ae-h2">Der Unterschied zwischen Zertifikat und echter Beratung.</h2>
+      <p>Energieberatung gibt es an jeder Ecke. Was uns unterscheidet: Wir rechnen nicht am Schreibtisch, sondern messen vor Ort — und liefern Nachweise, die vor Bauamt und BAFA bestehen.</p>
+    </div>
+
+    <div class="process" data-process>
+      <!-- Tabs -->
+      <div class="process-tabs" role="tablist" aria-label="Warum aumann eco">
+        <button class="process-tab active" role="tab" aria-selected="true" aria-controls="process-panel-1" id="process-tab-1" data-step="1">
+          <span class="num" aria-hidden="true">
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M7 27a13 13 0 0 1 26 0"/><line x1="20" y1="27" x2="27" y2="16"/><circle cx="20" cy="27" r="2" fill="currentColor" stroke="none"/><line x1="11" y1="27" x2="9" y2="27"/><line x1="29" y1="27" x2="31" y2="27"/><line x1="20" y1="15" x2="20" y2="13"/></svg>
+          </span>
+          <span class="label">Messdaten</span>
+          <span class="dur">Eigene Messtechnik</span>
+        </button>
+        <button class="process-tab" role="tab" aria-selected="false" aria-controls="process-panel-2" id="process-tab-2" data-step="2" tabindex="-1">
+          <span class="num" aria-hidden="true">
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="4"/><circle cx="8" cy="8" r="3"/><circle cx="32" cy="8" r="3"/><circle cx="8" cy="32" r="3"/><circle cx="32" cy="32" r="3"/><line x1="10.5" y1="10.5" x2="17" y2="17"/><line x1="29.5" y1="10.5" x2="23" y2="17"/><line x1="10.5" y1="29.5" x2="17" y2="23"/><line x1="29.5" y1="29.5" x2="23" y2="23"/></svg>
+          </span>
+          <span class="label">Aus einer Hand</span>
+          <span class="dur">Ein Ansprechpartner</span>
+        </button>
+        <button class="process-tab" role="tab" aria-selected="false" aria-controls="process-panel-3" id="process-tab-3" data-step="3" tabindex="-1">
+          <span class="num" aria-hidden="true">
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="16" r="9"/><path d="M14 22.5l-3.5 12 9.5-5 9.5 5-3.5-12"/><path d="M20 11l1.5 3 3.2 0.5-2.3 2.3 0.5 3.2-2.9-1.5-2.9 1.5 0.5-3.2-2.3-2.3 3.2-0.5z"/></svg>
+          </span>
+          <span class="label">Zertifiziert</span>
+          <span class="dur">Seit 2010 in Köln</span>
+        </button>
+        <button class="process-tab" role="tab" aria-selected="false" aria-controls="process-panel-4" id="process-tab-4" data-step="4" tabindex="-1">
+          <span class="num" aria-hidden="true">
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="14"/><path d="M26 14c-1.3-1.5-3.3-2.4-5.7-2.4-4.4 0-8 3.6-8 8.4s3.6 8.4 8 8.4c2.4 0 4.4-0.9 5.7-2.4"/><line x1="10" y1="18" x2="22" y2="18"/><line x1="10" y1="22" x2="22" y2="22"/></svg>
+          </span>
+          <span class="label">Förderung</span>
+          <span class="dur">Bis zu 50 % BAFA</span>
+        </button>
+        <span class="process-progress" aria-hidden="true"><span class="process-progress-fill"></span></span>
+      </div>
+
+      <!-- Panels -->
+      <div class="process-panels">
+        <article class="process-panel active" id="process-panel-1" role="tabpanel" aria-labelledby="process-tab-1" data-step="1">
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true">
+              <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M7 27a13 13 0 0 1 26 0"/><line x1="20" y1="27" x2="27" y2="16"/><circle cx="20" cy="27" r="2" fill="currentColor" stroke="none"/><line x1="11" y1="27" x2="9" y2="27"/><line x1="29" y1="27" x2="31" y2="27"/><line x1="20" y1="15" x2="20" y2="13"/></svg>
+            </span>
+            <div>
+              <h3>Messdaten statt Tabellenwerte</h3>
+              <p>Wir kommen mit eigener Messtechnik zu Ihnen — Blower Door, Thermografie, Datenlogger. Keine Ferndiagnose, keine Standardwerte aus der Software.</p>
+            </div>
+          </div>
+          <div class="panel-grid">
+            <div class="panel-col">
+              <h4>Konkret heißt das</h4>
+              <ul class="check-list">
+                <li>Luftdichtheitsmessung nach DIN EN ISO 9972 (Blower Door)</li>
+                <li>Thermografie nach DIN EN 13187 für Wärmebrücken</li>
+                <li>Kalibrierte Datenlogger (Kl. A) für Langzeit-Messungen</li>
+                <li>Foto- und Maßprotokoll als digitale Gebäudeakte</li>
+              </ul>
+            </div>
+            <div class="panel-col">
+              <h4>Ihr Vorteil</h4>
+              <div class="deliverable-card">
+                <p>Förderanträge stehen auf Messdaten, nicht auf Schätzungen — keine Rückfragen vom BAFA, keine nachträglichen Mehrkosten durch fehlerhafte Annahmen.</p>
+                <div class="panel-meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Blower Door</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Thermografie</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> DIN-konform</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-panel" id="process-panel-2" role="tabpanel" aria-labelledby="process-tab-2" data-step="2" hidden>
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true">
+              <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="4"/><circle cx="8" cy="8" r="3"/><circle cx="32" cy="8" r="3"/><circle cx="8" cy="32" r="3"/><circle cx="32" cy="32" r="3"/><line x1="10.5" y1="10.5" x2="17" y2="17"/><line x1="29.5" y1="10.5" x2="23" y2="17"/><line x1="10.5" y1="29.5" x2="17" y2="23"/><line x1="29.5" y1="29.5" x2="23" y2="23"/></svg>
+            </span>
+            <div>
+              <h3>Bauphysik, Energie &amp; Messung aus einer Hand</h3>
+              <p>Ein Büro, alle Leistungen. Bauphysik, Energieberatung, Messung und Förderantrag — ohne Koordinationsverluste zwischen verschiedenen Fachplanern.</p>
+            </div>
+          </div>
+          <div class="panel-grid">
+            <div class="panel-col">
+              <h4>Konkret heißt das</h4>
+              <ul class="check-list">
+                <li>Energieberatung, iSFP und GEG-Nachweise</li>
+                <li>Bauphysik (Wärme-, Schall- und Feuchteschutz)</li>
+                <li>Blower-Door-Messung und Thermografie</li>
+                <li>Förderanträge BAFA und KfW aus einem Haus</li>
+              </ul>
+            </div>
+            <div class="panel-col">
+              <h4>Ihr Vorteil</h4>
+              <div class="deliverable-card">
+                <p>Kein Büro-Ping-Pong, kein Koordinations-Overhead, keine widersprüchlichen Aussagen — ein Ansprechpartner vom ersten Kontakt bis zur Abrechnung.</p>
+                <div class="panel-meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg> Ein Kontakt</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Ein Angebot</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Alle Gewerke</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-panel" id="process-panel-3" role="tabpanel" aria-labelledby="process-tab-3" data-step="3" hidden>
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true">
+              <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="16" r="9"/><path d="M14 22.5l-3.5 12 9.5-5 9.5 5-3.5-12"/><path d="M20 11l1.5 3 3.2 0.5-2.3 2.3 0.5 3.2-2.9-1.5-2.9 1.5 0.5-3.2-2.3-2.3 3.2-0.5z"/></svg>
+            </span>
+            <div>
+              <h3>Zertifiziert seit 2010</h3>
+              <p>Mitglied der Ingenieurkammer-Bau NRW, BAFA-Energieeffizienz-Experte, FliB-zertifizierter Prüfer. Haftpflichtversichert, weitergebildet, seit 2010 in Köln.</p>
+            </div>
+          </div>
+          <div class="panel-grid">
+            <div class="panel-col">
+              <h4>Konkret heißt das</h4>
+              <ul class="check-list">
+                <li>Ingenieurkammer-Bau NRW · eingetragenes Kammermitglied</li>
+                <li>BAFA-Energieeffizienz-Experte · offizielle Listeneintragung</li>
+                <li>FliB-zertifizierter Prüfer der Gebäudedichtheit</li>
+                <li>Haftpflichtversichert · regelmäßige Fortbildung</li>
+              </ul>
+            </div>
+            <div class="panel-col">
+              <h4>Ihr Vorteil</h4>
+              <div class="deliverable-card">
+                <p>Rechtssichere Nachweise, förderfähige Anträge und unabhängige Beratung — statt „Energieberater" mit Wochenend-Zertifikat und Excel-Tabelle.</p>
+                <div class="panel-meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-10 8-14a8 8 0 0 0-16 0c0 4 8 14 8 14z"/><circle cx="12" cy="10" r="3"/></svg> Kammer NRW</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg> BAFA · FliB</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Seit 2010</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-panel" id="process-panel-4" role="tabpanel" aria-labelledby="process-tab-4" data-step="4" hidden>
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true">
+              <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="14"/><path d="M26 14c-1.3-1.5-3.3-2.4-5.7-2.4-4.4 0-8 3.6-8 8.4s3.6 8.4 8 8.4c2.4 0 4.4-0.9 5.7-2.4"/><line x1="10" y1="18" x2="22" y2="18"/><line x1="10" y1="22" x2="22" y2="22"/></svg>
+            </span>
+            <div>
+              <h3>Förderung maximal und formkorrekt</h3>
+              <p>Wir kennen die Förderkulisse — und die typischen Formfehler, an denen Anträge scheitern. Maximale Zuschüsse, minimales Antragsrisiko.</p>
+            </div>
+          </div>
+          <div class="panel-grid">
+            <div class="panel-col">
+              <h4>Konkret heißt das</h4>
+              <ul class="check-list">
+                <li>BAFA-Energieberatung: 50 % Zuschuss bis 650 €</li>
+                <li>iSFP-Bonus: 5 % auf alle Folgemaßnahmen der Sanierung</li>
+                <li>KfW-Fachplaner-Anerkennung für Neubauten</li>
+                <li>Begleitung bis zum Verwendungsnachweis</li>
+              </ul>
+            </div>
+            <div class="panel-col">
+              <h4>Ihr Vorteil</h4>
+              <div class="deliverable-card">
+                <p>Jeder Antrag wird von einem BAFA-gelisteten Experten gestellt — kein Antrag scheitert bei uns an Formfehlern oder fehlenden Nachweisen.</p>
+                <div class="panel-meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> BAFA 50 %</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg> iSFP 5 %</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> KfW-Fachplaner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    const root = document.querySelector('[data-process]');
+    if (!root) return;
+    const tabs = root.querySelectorAll('.process-tab');
+    const panels = root.querySelectorAll('.process-panel');
+    const progress = root.querySelector('.process-progress');
+    const fill = root.querySelector('.process-progress-fill');
+    const total = tabs.length;
+    const STEP_DURATION = 7000;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const autoplayEnabled = !!fill && !prefersReducedMotion && typeof fill.animate === 'function';
+
+    let currentAnim = null;
+    let isInViewport = false;
+    let isHovered = false;
+    let isFocused = false;
+
+    function getActiveStep() {
+      return [...tabs].findIndex(t => t.classList.contains('active')) + 1;
+    }
+
+    function activate(step) {
+      tabs.forEach(t => {
+        const isActive = +t.dataset.step === step;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        t.tabIndex = isActive ? 0 : -1;
+      });
+      panels.forEach(p => {
+        const isActive = +p.dataset.step === step;
+        p.classList.toggle('active', isActive);
+        if (isActive) p.removeAttribute('hidden');
+        else p.setAttribute('hidden', '');
+      });
+      if (progress) progress.style.transform = `translateX(${(step - 1) * 100}%)`;
+      restartAutoplay();
+    }
+
+    function restartAutoplay() {
+      if (!autoplayEnabled) return;
+      if (currentAnim) currentAnim.cancel();
+      currentAnim = fill.animate(
+        [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }],
+        { duration: STEP_DURATION, easing: 'linear', fill: 'forwards' }
+      );
+      currentAnim.onfinish = () => {
+        const current = getActiveStep();
+        const next = current >= total ? 1 : current + 1;
+        activate(next);
+      };
+      updatePlayState();
+    }
+
+    function updatePlayState() {
+      if (!currentAnim) return;
+      const shouldPlay = autoplayEnabled && isInViewport && !isHovered && !isFocused;
+      if (shouldPlay && currentAnim.playState !== 'running') currentAnim.play();
+      else if (!shouldPlay && currentAnim.playState === 'running') currentAnim.pause();
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        activate(+tab.dataset.step);
+        tab.focus();
+      });
+    });
+
+    root.addEventListener('keydown', (e) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+      if (!e.target.classList.contains('process-tab')) return;
+      e.preventDefault();
+      const current = getActiveStep();
+      let next = current;
+      if (e.key === 'ArrowRight') next = current >= total ? 1 : current + 1;
+      else if (e.key === 'ArrowLeft') next = current <= 1 ? total : current - 1;
+      else if (e.key === 'Home') next = 1;
+      else if (e.key === 'End') next = total;
+      activate(next);
+      tabs[next - 1].focus();
+    });
+
+    root.addEventListener('pointerenter', () => { isHovered = true; updatePlayState(); });
+    root.addEventListener('pointerleave', () => { isHovered = false; updatePlayState(); });
+    root.addEventListener('focusin', () => { isFocused = true; updatePlayState(); });
+    root.addEventListener('focusout', (e) => {
+      if (!root.contains(e.relatedTarget)) {
+        isFocused = false;
+        updatePlayState();
+      }
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isInViewport = entry.isIntersecting;
+        if (isInViewport && !currentAnim) restartAutoplay();
+        else updatePlayState();
+      });
+    }, { threshold: 0.3 });
+    io.observe(root);
+
+    document.addEventListener('visibilitychange', updatePlayState);
+  })();
+
+  /* Timeline scroll-progress per segment between rows */
+  (function(){
+    const list = document.querySelector('.usp-list');
+    if (!list) return;
+    const rows = Array.from(list.querySelectorAll('.usp-row'));
+    let ticking = false;
+
+    function rowAnchor(row) {
+      const r = row.getBoundingClientRect();
+      const pt = parseFloat(getComputedStyle(row).paddingTop) || 0;
+      return r.top + pt + 20;
+    }
+
+    function compute() {
+      ticking = false;
+      const viewportH = window.innerHeight || document.documentElement.clientHeight;
+      const anchor = viewportH * 0.55;
+
+      rows.forEach((row, i) => {
+        const a = rowAnchor(row);
+        row.classList.toggle('is-active', a < anchor);
+        if (i < rows.length - 1) {
+          const b = rowAnchor(rows[i + 1]);
+          const span = Math.max(b - a, 1);
+          let p = (anchor - a) / span;
+          p = Math.max(0, Math.min(1, p));
+          row.style.setProperty('--seg-progress', (p * 100) + '%');
+        }
+      });
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(compute);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive:true });
+    window.addEventListener('resize', onScroll);
+    compute();
+  })();
+</script>
+
+<!-- ═════════════════════ STATS / ZERTIFIZIERUNGEN ═════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="section-head-center">
+      <span class="ae-eyebrow">04 · Zahlen &amp; Fakten</span>
+      <h2 class="ae-h2">aumann eco in Zahlen.</h2>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="num"><span class="counter" data-target="16">0</span><span class="unit">+</span></div>
+        <div class="label">Jahre Erfahrung</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="counter" data-target="250">0</span><span class="unit">+</span></div>
+        <div class="label">Begleitete Projekte</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="counter" data-target="5">0</span></div>
+        <div class="label">Fachqualifikationen</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="counter" data-target="50">0</span><span class="unit">%</span></div>
+        <div class="label">BAFA-Förderung</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    const counters = document.querySelectorAll('.counter');
+    const animate = (el) => {
+      const target = parseInt(el.dataset.target, 10);
+      const duration = 1600;
+      const start = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased).toLocaleString('de-DE');
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          animate(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(c => io.observe(c));
+  })();
+
+  /* FAQ accordion: close others when one opens */
+  function initFaqAccordion(){
+    const faqDetails = document.querySelectorAll('.faq details');
+    faqDetails.forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (d.open) {
+          faqDetails.forEach(other => {
+            if (other !== d && other.open) other.open = false;
+          });
+        }
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFaqAccordion);
+  } else {
+    initFaqAccordion();
+  }
+</script>
+
+<!-- ═════════════════════ FÖRDER-HIGHLIGHT ═════════════════════ -->
+<section id="foerderung" class="foerder-section">
+  <div class="wrap">
+    <div class="foerder">
+      <div>
+        <span class="ae-eyebrow">05 · Förderung</span>
+        <h2 class="ae-h2">Bis zu 50 % Förderung für Ihre Energieberatung.</h2>
+        <p>Die BAFA übernimmt 50 % der förderfähigen Beratungskosten — maximal 650 € für Ein- und Zweifamilienhäuser. Unabhängige Qualitätssicherung durch Blower Door im Rahmen der Baubegleitung wird mit weiteren 50 % BAFA-gefördert. Messen zahlt sich aus.</p>
+        <div class="btn-group">
+          <a href="/aumann-eco-preview/foerderberatung/" class="btn btn--lime">Fördercheck starten →</a>
+          <a href="#kontakt" class="btn btn--outline-light">Erstgespräch vereinbaren</a>
+        </div>
+      </div>
+      <div class="foerder-highlight">
+        <div class="foerder-donut">
+          <svg class="foerder-donut-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="160" cy="160" r="138" class="foerder-donut-track" transform="rotate(-90 160 160)"/>
+            <circle cx="160" cy="160" r="138" class="foerder-donut-fill" transform="rotate(-90 160 160)"/>
+            <g class="foerder-donut-ticks">
+              <line x1="160" y1="8" x2="160" y2="20"/>
+              <line x1="160" y1="300" x2="160" y2="312"/>
+              <line x1="8" y1="160" x2="20" y2="160"/>
+              <line x1="300" y1="160" x2="312" y2="160"/>
+            </g>
+          </svg>
+          <div class="foerder-donut-content">
+            <span class="foerder-donut-top">bis zu</span>
+            <span class="foerder-donut-value">650 €</span>
+            <span class="foerder-donut-bottom">BAFA-Zuschuss</span>
+          </div>
+          <div class="foerder-donut-chip" aria-hidden="true">50 %</div>
+        </div>
+        <p class="big-num-label">Für den individuellen Sanierungsfahrplan bei Ein- und Zweifamilienhäusern.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ ZIELGRUPPEN VERGLEICH ═════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="ae-eyebrow">06 · Für wen</span>
+      <h2 class="ae-h2">Sanierung oder Neubau — wir liefern die passende Grundlage.</h2>
+      <p>Zwei Ausgangslagen, eine Herangehensweise: messbar, nachweisbar, gefördert.</p>
+    </div>
+    <div class="compare">
+
+      <article class="compare-col compare-col--sanierung">
+        <div class="compare-illustration" aria-hidden="true">
+          <svg viewBox="0 0 200 140" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M70 32 Q74 24 70 16" stroke="#FF634D" stroke-width="2.2"/>
+            <path d="M100 26 Q104 18 100 10" stroke="#FF634D" stroke-width="2.2"/>
+            <path d="M130 32 Q134 24 130 16" stroke="#FF634D" stroke-width="2.2"/>
+            <path d="M35 80 L100 40 L165 80" stroke="#222120" stroke-width="2.4"/>
+            <path d="M45 80 L45 122 L155 122 L155 80" stroke="#222120" stroke-width="2"/>
+            <rect x="60" y="88" width="22" height="22" stroke="#222120" stroke-width="1.6"/>
+            <path d="M71 88 L71 110 M60 99 L82 99" stroke="#222120" stroke-width="1.2"/>
+            <rect x="118" y="88" width="22" height="22" stroke="#222120" stroke-width="1.6"/>
+            <path d="M129 88 L129 110 M118 99 L140 99" stroke="#222120" stroke-width="1.2"/>
+            <rect x="90" y="96" width="20" height="26" stroke="#222120" stroke-width="1.6"/>
+            <circle cx="105" cy="109" r="1.2" fill="#222120"/>
+          </svg>
+        </div>
+        <span class="compare-tag">Bestandsgebäude</span>
+        <h3>Sanierung</h3>
+        <p class="compare-lead">Ihr Gebäude steht — jetzt geht es um Sanierungsfahrplan, Förderung und messbar dokumentierte Qualität.</p>
+        <div class="compare-stat">
+          <strong>5&nbsp;%</strong>
+          <span>iSFP-Bonus auf alle Folgemaßnahmen der BAFA-Förderung</span>
+        </div>
+        <ul class="compare-list">
+          <li>Individueller Sanierungsfahrplan (iSFP) — BAFA-förderfähig</li>
+          <li>GEG-konforme Energieausweise (Bedarf und Verbrauch)</li>
+          <li>Baubegleitung mit Blower-Door-Messung</li>
+          <li>Förderberatung für BAFA, KfW und NRW.BANK</li>
+          <li>Mängelbericht mit Bilddokumentation</li>
+        </ul>
+        <a href="/aumann-eco-preview/sanierungsfahrplan/" class="btn btn--outline compare-cta">Zur Sanierungsberatung →</a>
+      </article>
+
+      <div class="compare-divider" aria-hidden="true"><span>oder</span></div>
+
+      <article class="compare-col compare-col--neubau">
+        <div class="compare-illustration" aria-hidden="true">
+          <svg viewBox="0 0 200 140" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 24 L180 24" stroke="#FF634D" stroke-width="1.3" stroke-dasharray="4 5"/>
+            <path d="M20 19 L20 29 M100 19 L100 29 M180 19 L180 29" stroke="#FF634D" stroke-width="1.5"/>
+            <text x="100" y="16" text-anchor="middle" fill="#FF634D" font-family="Volte,system-ui,sans-serif" font-size="8" font-weight="600" letter-spacing="1">18,40 m</text>
+            <path d="M35 122 L35 70 L95 45 L95 80 L145 60 L165 80 L165 122 Z" stroke="#FCFAF5" stroke-width="2.2"/>
+            <rect x="44" y="82" width="30" height="34" stroke="#FCFAF5" stroke-width="1.5"/>
+            <path d="M59 82 L59 116 M44 99 L74 99" stroke="#FCFAF5" stroke-width="1"/>
+            <rect x="103" y="88" width="22" height="28" stroke="#FCFAF5" stroke-width="1.5"/>
+            <rect x="135" y="92" width="22" height="24" stroke="#FCFAF5" stroke-width="1.5"/>
+            <rect x="47" y="54" width="22" height="8" fill="#FF634D" opacity="0.9"/>
+            <path d="M47 58 L69 58 M52 54 L52 62 M58 54 L58 62 M64 54 L64 62" stroke="#222120" stroke-width="0.6" opacity="0.6"/>
+          </svg>
+        </div>
+        <span class="compare-tag">Neubau</span>
+        <h3>Planung &amp; Nachweise</h3>
+        <p class="compare-lead">Ihr Projekt startet auf dem Reißbrett — wir liefern die bauphysikalische und energetische Datengrundlage.</p>
+        <div class="compare-stat">
+          <strong>KfW 40</strong>
+          <span>Förderklasse mit Fachplanung und Nachweisen erreichbar</span>
+        </div>
+        <ul class="compare-list">
+          <li>Energetische Fachplanung für KfW 40 und Effizienzhaus-Stufen</li>
+          <li>Wärme-, Schall- und Feuchteschutznachweise</li>
+          <li>Lebenszyklusanalyse (LCA) nach QNG-Kriterien</li>
+          <li>Baubegleitung mit Qualitätssicherung</li>
+          <li>Unabhängige Abnahme-Messung</li>
+        </ul>
+        <a href="/aumann-eco-preview/foerderberatung/" class="btn btn--outline-light compare-cta">Zur Fachplanung →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ FAQ ═════════════════════ -->
+<section id="faq" style="background:var(--ae-grey-100);">
+  <div class="wrap">
+    <div class="section-head" style="margin:0 auto var(--ae-s-7); text-align:center; max-width:640px;">
+      <span class="ae-eyebrow">07 · Häufige Fragen</span>
+      <h2 class="ae-h2">Was Sie wissen sollten.</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Was kostet eine Energieberatung in Köln?</summary>
+        <p>Zwischen 400 € und 2.500 € je nach Umfang. Ein iSFP für ein Einfamilienhaus liegt bei 1.200–1.800 €. Die BAFA übernimmt 50 % (maximal 650 € für Ein- und Zweifamilienhäuser). Der Blower-Door-Test startet bei 900 €, Thermografie ab 390 €.</p>
+      </details>
+      <details>
+        <summary>Wie lange dauert eine Energieberatung bis zum fertigen iSFP?</summary>
+        <p>Vom Erstgespräch bis zum fertigen Sanierungsfahrplan planen wir 4–6 Wochen. Die Vor-Ort-Aufnahme dauert ca. 2–3 Stunden, die Auswertung und der Bericht 2–3 Wochen. Bei dringenden Fristen (z. B. Bauantrag) beschleunigen wir den Ablauf nach Absprache.</p>
+      </details>
+      <details>
+        <summary>Woher weiß ich, dass Sie wirklich qualifiziert sind?</summary>
+        <p>Der Beruf „Energieberater" ist in Deutschland nicht geschützt. Wir sind Mitglied der Ingenieurkammer-Bau NRW, staatlich anerkannter Sachverständiger für Schall- und Wärmeschutz, gelisteter Energieeffizienz-Experte bei der dena und zertifizierter Prüfer der Gebäudedichtheit (FliB). Als Ingenieurbüro verpflichten wir uns zu Weiterbildung, Unabhängigkeit und Normeneinhaltung.</p>
+      </details>
+      <details>
+        <summary>Was ist der Unterschied zu einem reinen Online-Anbieter?</summary>
+        <p>Online-Anbieter arbeiten mit Standard-Werten, ohne Ihr Haus je gesehen zu haben. Wir beraten auf Basis einer Vor-Ort-Aufnahme — inklusive Qualitätssicherung durch Messung, falls gewünscht. Unsere Empfehlungen passen zu Ihrem tatsächlichen Gebäude, und die Ausführung lässt sich messbar überprüfen.</p>
+      </details>
+      <details>
+        <summary>Machen Sie auch die QNG-Zertifizierung selbst?</summary>
+        <p>Wir bieten die Lebenszyklusanalyse (LCA) nach QNG-Kriterien für Ihr Neubau- oder Sanierungsprojekt. Die eigentliche QNG-Zertifizierung führen wir nicht durch — dafür sind QNG-Auditoren zuständig. In der Praxis arbeiten wir eng mit zertifizierten Auditoren zusammen: Wir liefern die bauphysikalische und energetische Datengrundlage, der Auditor zertifiziert.</p>
+      </details>
+      <details>
+        <summary>Welche Förderungen sind für die Beratung selbst möglich?</summary>
+        <p>BAFA-Energieberatung Wohngebäude: 50 % Zuschuss, maximal 650 € (Ein-/Zweifamilien) bzw. 850 € (Mehrfamilien). Baubegleitung bei KfW-Neubau und -Sanierung: bis zu 50 % der Kosten. Blower-Door-Messung im Rahmen der Baubegleitung wird mitgefördert — effektive Qualitätssicherung ohne Aufpreis.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ FINAL CTA (BRIDGE) ═════════════════════ -->
+<section id="kontakt" class="cta-section">
+  <div class="wrap">
+    <div class="final-cta">
+      <div class="cta-portrait">
+        <div class="cta-portrait-frame">
+          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco" width="200" height="200">
+        </div>
+        <div class="cta-sign">
+          <span class="cta-sign-name">Benedikt Aumann</span>
+          <span class="cta-sign-title">Dipl.-Ing. · Geschäftsführer</span>
+        </div>
+      </div>
+
+      <div class="cta-content">
+        <span class="ae-eyebrow">Kostenloses Erstgespräch</span>
+        <h2 class="ae-h2">Ihr Gebäude verdient eine ehrliche Beratung.</h2>
+        <p>30 Minuten, unverbindlich, ohne Verkaufsdruck. Wir hören zu, stellen die richtigen Fragen und sagen Ihnen, ob wir der passende Partner sind.</p>
+        <div class="btn-group">
+          <a href="mailto:info@aumann-ing.de" class="btn btn--dark">Erstgespräch vereinbaren →</a>
+          <a href="tel:+491755697551" class="btn btn--outline">0175 569 75 51</a>
+        </div>
+        <ul class="cta-trust">
+          <li>Antwort binnen 24h</li>
+          <li>Kostenlos &amp; unverbindlich</li>
+          <li>Ohne Verkaufsdruck</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ FOOTER ═════════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+
+    <!-- Claim + Office-Card -->
+    <div class="footer-claim">
+      <div>
+        <span class="eyebrow">Ingenieurbüro Köln · seit 2010</span>
+        <h2>Nachhaltig. <em>Messbar.</em> Ehrlich.</h2>
+        <p class="lead">Wir planen Gebäude nicht nach Bauchgefühl, sondern mit Messdaten. Bauphysik, Energieberatung und eigene Messtechnik aus einer Hand — damit Förderung, Qualität und Klimaziel zusammenpassen.</p>
+      </div>
+      <aside class="office-card" aria-label="Kontakt & Öffnungszeiten">
+        <span class="status">Heute erreichbar bis 18:00</span>
+        <dl>
+          <dt>Büro</dt>
+          <dd>Schiefersburger Weg 57<br>50739 Köln</dd>
+          <dt>Telefon</dt>
+          <dd><a href="tel:+491755697551">0175 569 75 51</a></dd>
+          <dt>E-Mail</dt>
+          <dd><a href="mailto:info@aumann-ing.de">info@aumann-ing.de</a></dd>
+          <dt>Mo–Fr</dt>
+          <dd>08:30 – 18:00 Uhr</dd>
+        </dl>
+        <div class="response">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Antwort innerhalb von <strong>2 Stunden</strong> (werktags)</span>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Link-Grid -->
+    <div class="footer-inner">
+      <div class="brand">
+        <a href="/aumann-eco-preview/" class="logo">
+          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortmarke-mitClaim-weiss.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
+        </a>
+        <p>Ingenieurbüro für Bauphysik &amp; Energieberatung in Köln. Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
+      </div>
+      <div>
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="/aumann-eco-preview/">Energieberatung</a></li>
+          <li><a href="/aumann-eco-preview/sanierungsfahrplan/">Sanierungsfahrplan</a></li>
+          <li><a href="/aumann-eco-preview/bauphysik/">Bauphysik</a></li>
+          <li><a href="/aumann-eco-preview/">Vermessung</a></li>
+          <li><a href="/aumann-eco-preview/foerderberatung/">Förderberatung</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Büro</h4>
+        <ul>
+          <li><a href="/aumann-eco-preview/ueber-uns/">Über uns</a></li>
+          <li><a href="/aumann-eco-preview/ueber-uns/">Team</a></li>
+          <li><a href="/aumann-eco-preview/projekte/">Referenzen</a></li>
+          <li><a href="/aumann-eco-preview/karriere/">Karriere</a></li>
+          <li><a href="/aumann-eco-preview/kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="/aumann-eco-preview/impressum/">Impressum</a></li>
+          <li><a href="/aumann-eco-preview/datenschutz/">Datenschutz</a></li>
+          <li><a href="/aumann-eco-preview/agb/">AGB</a></li>
+          <li><a href="/aumann-eco-preview/cookie-einstellungen/">Cookie-Einstellungen</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mitgliedschaften / Zertifikate -->
+    <div class="cert-strip" aria-label="Mitgliedschaften und Zertifikate">
+      <span class="label">Zertifiziert &amp; gelistet</span>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> Ingenieurkammer-Bau NRW</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> dena Energieeffizienz-Experte</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> FliB e.V.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> BAFA-Energieberater</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> KfW-zugelassen</li>
+      </ul>
+    </div>
+
+    <!-- Bottom-Bar -->
+    <div class="footer-bottom">
+      <span>© 2026 aumann eco GmbH · Alle Rechte vorbehalten</span>
+      <div class="socials">
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+      <a href="#top" class="back-to-top" aria-label="Nach oben scrollen">Nach oben <span aria-hidden="true">↑</span></a>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
