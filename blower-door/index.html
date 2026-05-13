@@ -1482,10 +1482,17 @@ footer.site-footer {
   .site-header nav ul > li > a[aria-current="page"], header.header nav .nav > li > a[aria-current="page"] {
     color: #FF634D !important; position: relative;
   }
-  .site-header nav ul > li > a[aria-current="page"]::before, header.header nav .nav > li > a[aria-current="page"]::before {
-    content: ''; position: absolute; left: 50%; bottom: -8px;
-    transform: translateX(-50%); width: 5px; height: 5px;
+  .site-header nav ul > li > a[aria-current="page"]::after,
+  header.header nav .nav > li > a[aria-current="page"]::after {
+    content: ''; display: inline-block;
+    width: 5px; height: 5px;
     background: #FF634D; border-radius: 50%;
+    margin-left: 6px; vertical-align: middle;
+    position: static;
+  }
+  .site-header nav ul > li > a[aria-current="page"]::before,
+  header.header nav .nav > li > a[aria-current="page"]::before {
+    content: none !important;
   }
   .nav-dropdown > button[aria-current="true"] { color: #FF634D !important; }
   @media (max-width: 900px) { .nav-dropdown { display: none; } }

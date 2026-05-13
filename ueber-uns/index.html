@@ -2021,10 +2021,17 @@
   .site-header nav ul > li > a[aria-current="page"], header.header nav .nav > li > a[aria-current="page"] {
     color: #FF634D !important; position: relative;
   }
-  .site-header nav ul > li > a[aria-current="page"]::before, header.header nav .nav > li > a[aria-current="page"]::before {
-    content: ''; position: absolute; left: 50%; bottom: -8px;
-    transform: translateX(-50%); width: 5px; height: 5px;
+  .site-header nav ul > li > a[aria-current="page"]::after,
+  header.header nav .nav > li > a[aria-current="page"]::after {
+    content: ''; display: inline-block;
+    width: 5px; height: 5px;
     background: #FF634D; border-radius: 50%;
+    margin-left: 6px; vertical-align: middle;
+    position: static;
+  }
+  .site-header nav ul > li > a[aria-current="page"]::before,
+  header.header nav .nav > li > a[aria-current="page"]::before {
+    content: none !important;
   }
   .nav-dropdown > button[aria-current="true"] { color: #FF634D !important; }
   @media (max-width: 900px) { .nav-dropdown { display: none; } }
@@ -2044,6 +2051,8 @@
   <div class="container">
     <div class="header-inner">
 
+      <a href="/aumann-eco-preview/" class="logo-link" aria-label="aumann eco — Startseite" data-marker="aumann-eco-preview-logo-link">
+
       <div class="logo-mark">
         <svg viewBox="0 0 263 112" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M212.98,81.49c-1.62,6.79-7.6,12.34-15.68,12.34-9.06,0-16.01-7.12-16.01-16.01s6.85-15.9,15.79-15.9c7.92,0,14.34,5.23,15.85,12.56h-9.05c-.97-2.05-2.75-4.2-6.47-4.2-2.1-.11-3.88.7-5.17,2.1-1.24,1.4-1.94,3.34-1.94,5.5,0,4.37,2.86,7.6,7.12,7.6,3.72,0,5.5-2.16,6.47-3.99h9.11Z" fill="#222120"/>
@@ -2060,6 +2069,8 @@
           <circle cx="118.22" cy="77.85" r="16.11" fill="#FF634D"/>
         </svg>
       </div>
+
+      </a>
 
       <nav aria-label="Hauptnavigation">
         <ul class="nav">
