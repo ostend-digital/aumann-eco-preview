@@ -1875,6 +1875,13 @@ footer.site-footer {
   @media (max-width: 900px) {
     .nav-dropdown { display: none; }
   }
+  /* Hide debug screendesign annotations (editorial pages) */
+  .design-note { display: none !important; }
+
+  /* Solid header background (no transparency glitches over dark sections) */
+  header.header { background: #FCFAF5 !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  header.site-header { background: #FCFAF5; }
+
 
 
 </style>
