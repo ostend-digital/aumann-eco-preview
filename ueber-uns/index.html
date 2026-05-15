@@ -2082,6 +2082,29 @@
   .nav-dropdown > button[aria-current="true"] { color: #FF634D !important; }
 
   @media (max-width: 900px) { .nav-dropdown { display: none; } }
+  /* === Icon-Box hover state (unified across pages) === */
+  .ae-card:hover .svg-icon,
+  .leistung-card:hover .leistung-card-icon,
+  .leckage-card:hover .leckage-card-icon,
+  .ebene-card:hover .ebene-card-icon,
+  .isfp-value-card:hover .isfp-value-icon,
+  .value-card:hover .value-icon {
+    background: #FF634D !important;
+  }
+  .ae-card:hover .svg-icon svg,
+  .leistung-card:hover .leistung-card-icon svg,
+  .leckage-card:hover .leckage-card-icon svg,
+  .ebene-card:hover .ebene-card-icon svg,
+  .isfp-value-card:hover .isfp-value-icon svg,
+  .value-card:hover .value-icon svg {
+    stroke: #FCFAF5 !important;
+    color: #FCFAF5 !important;
+  }
+  /* Override homepage homepage-specific stroke-color rule on hover */
+  .ae-card:hover .svg-icon svg [stroke="#FF634D"],
+  .ae-card:hover .svg-icon svg [stroke="currentColor"] { stroke: #FCFAF5 !important; }
+  .ae-card:hover .svg-icon svg [fill="#FF634D"] { fill: #FCFAF5 !important; }
+
 </style>
 </head>
 <body>

@@ -686,7 +686,7 @@ section { padding:var(--ae-s-9) 0; }
   border-radius:var(--ae-r-lg);
   padding:var(--ae-s-6) var(--ae-s-7);
   display:flex; flex-direction:column;
-  box-shadow:0 20px 50px -20px rgba(34,33,32,0.18);
+  box-shadow:0 12px 30px -14px rgba(34,33,32,0.16);
   transition:transform 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.85s ease, filter 0.85s ease, background 0.85s ease, border-color 0.85s ease;
   cursor:pointer;
   transform-style:preserve-3d;
@@ -1391,6 +1391,29 @@ footer.site-footer {
   .nav-dropdown > button[aria-current="true"] { color: #FF634D !important; }
 
   @media (max-width: 900px) { .nav-dropdown { display: none; } }
+  /* === Icon-Box hover state (unified across pages) === */
+  .ae-card:hover .svg-icon,
+  .leistung-card:hover .leistung-card-icon,
+  .leckage-card:hover .leckage-card-icon,
+  .ebene-card:hover .ebene-card-icon,
+  .isfp-value-card:hover .isfp-value-icon,
+  .value-card:hover .value-icon {
+    background: #FF634D !important;
+  }
+  .ae-card:hover .svg-icon svg,
+  .leistung-card:hover .leistung-card-icon svg,
+  .leckage-card:hover .leckage-card-icon svg,
+  .ebene-card:hover .ebene-card-icon svg,
+  .isfp-value-card:hover .isfp-value-icon svg,
+  .value-card:hover .value-icon svg {
+    stroke: #FCFAF5 !important;
+    color: #FCFAF5 !important;
+  }
+  /* Override homepage homepage-specific stroke-color rule on hover */
+  .ae-card:hover .svg-icon svg [stroke="#FF634D"],
+  .ae-card:hover .svg-icon svg [stroke="currentColor"] { stroke: #FCFAF5 !important; }
+  .ae-card:hover .svg-icon svg [fill="#FF634D"] { fill: #FCFAF5 !important; }
+
 </style>
 </head>
 <body>
