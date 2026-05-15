@@ -1577,6 +1577,16 @@ footer.site-footer {
   /* Solid header background (no transparency glitches over dark sections) */
   header.header { background: #FCFAF5 !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
   header.site-header { background: #FCFAF5; }
+  /* === Unified container + phone (no SVG icon) === */
+  .site-header .nav,
+  .header .header-inner {
+    max-width: 1320px !important;
+    margin: 0 auto !important;
+    padding-left: 32px !important; padding-right: 32px !important;
+  }
+  /* Hide the phone SVG-icon on editorial pages (standard doesn't have one) */
+  .header .header-phone svg { display: none !important; }
+
 
 
 
