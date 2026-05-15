@@ -700,6 +700,21 @@
     border-color: rgba(255,99,77,0.7);
     animation-play-state: paused;
   }
+  .opening.lime-bordered {
+    border-color: rgba(205,241,93,0.55);
+    box-shadow: 0 0 0 0 rgba(205,241,93,0.4);
+    animation: limePulseRing 3.2s ease-out 1.8s infinite;
+  }
+  .opening.lime-bordered:hover {
+    border-color: rgba(205,241,93,0.85);
+    animation-play-state: paused;
+  }
+  @keyframes limePulseRing {
+    0%   { box-shadow: 0 0 0 0 rgba(205,241,93,0.45); }
+    70%  { box-shadow: 0 0 0 14px rgba(205,241,93,0); }
+    100% { box-shadow: 0 0 0 0 rgba(205,241,93,0); }
+  }
+
   @keyframes coralPulseRing {
     0%   { box-shadow: 0 0 0 0 rgba(255,99,77,0.35); }
     70%  { box-shadow: 0 0 0 14px rgba(255,99,77,0); }
@@ -2330,8 +2345,7 @@
 
     <div class="opening-list">
 
-      <article class="opening coral-bordered reveal-stagger">
-        <span class="opening-live" aria-label="Neu ausgeschrieben">Neu · top-priorisiert</span>
+      <article class="opening lime-bordered reveal-stagger">
         <div class="opening-main">
           <h3 class="opening-title">Energieberater:in / Ingenieur:in Bauphysik</h3>
           <p class="opening-summary">Du übernimmst eigenständig iSFP, BAFA- und KfW-Beratungen sowie Wärmeschutznachweise nach GEG — von der Bestandsaufnahme bis zur Förderzusage.</p>
