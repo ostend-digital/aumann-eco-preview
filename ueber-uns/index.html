@@ -1146,9 +1146,9 @@
   /* Timeline-Track */
   .cred-timeline {
     position: relative;
-    max-width: 880px;
-    margin: 0 auto;
-    padding-left: 64px;
+    max-width: 100%;
+    margin: 0;
+    padding-left: 0;
   }
   /* Vertikale Coral-Linie */
   .cred-timeline::before {
@@ -1168,7 +1168,7 @@
 
   .cred-row {
     position: relative;
-    padding: 28px 0 28px 40px;
+    padding: 28px 0 28px 104px;
     display: grid;
     grid-template-columns: 1fr 1.4fr;
     gap: 32px;
@@ -1184,7 +1184,7 @@
   /* Stempel (kleiner Coral-Kreis am Anfang der Row, sitzt auf der Timeline) */
   .cred-stamp {
     position: absolute;
-    left: -64px;
+    left: 0;
     top: 50%;
     transform: translateY(-50%) rotate(-10deg);
     width: 80px;
@@ -1896,9 +1896,9 @@
     .obligation .number { font-size: 64px; }
     .equipment-row { grid-template-columns: 1fr; }
     .values-grid { grid-template-columns: 1fr; }
-    .cred-timeline { padding-left: 56px; }
+    .cred-timeline { padding-left: 0; }
     .cred-timeline::before { left: 31px; }
-    .cred-stamp { width: 64px; height: 64px; left: -56px; font-size: 8px; }
+    .cred-stamp { width: 64px; height: 64px; left: 0; font-size: 8px; }
     .pullquote { padding: 80px 0; }
   }
 
