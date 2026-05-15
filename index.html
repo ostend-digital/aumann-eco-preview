@@ -201,7 +201,6 @@ section { padding:var(--ae-s-9) 0; }
   width:100%; height:auto;
   display:block;
   z-index:1;
-  transform:scaleX(-1);
   filter:drop-shadow(0 24px 28px rgba(34,33,32,0.22));
 }
 .brand-badge {
@@ -395,13 +394,13 @@ section { padding:var(--ae-s-9) 0; }
 .ae-card .svg-icon {
   width:64px; height:64px;
   border-radius:var(--ae-r-sm);
-  background:var(--ae-grey-100);
+  background:rgba(255,99,77,0.10);
   display:flex; align-items:center; justify-content:center;
   margin-bottom:var(--ae-s-5);
   transition:background .2s;
 }
 .ae-card:hover .svg-icon { background:var(--ae-coral); }
-.ae-card .svg-icon svg { width:34px; height:34px; stroke:var(--ae-near-black); }
+.ae-card .svg-icon svg { width:34px; height:34px; stroke:var(--ae-coral); }
 .ae-card .svg-icon svg [stroke="#FF634D"],
 .ae-card .svg-icon svg [fill="#FF634D"] { transition:stroke .2s, fill .2s; }
 .ae-card:hover .svg-icon svg [stroke="#FF634D"] { stroke:var(--ae-off-white); }
