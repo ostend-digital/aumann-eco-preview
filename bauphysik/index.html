@@ -169,6 +169,46 @@ section { padding:var(--ae-s-9) 0; }
   .hero-loop { width:100%; margin-right:0; }
 }
 
+/* ═══════════════════════════════════════════════
+   BAUPHYSIK HERO ANIMATION (inline SVG)
+═══════════════════════════════════════════════ */
+.bauphysik-anim .dot {
+  transform-origin: center;
+  animation: heat-pulse 2.6s ease-in-out infinite;
+}
+.bauphysik-anim .dot-1 { animation-delay: 0s; }
+.bauphysik-anim .dot-2 { animation-delay: 0.2s; }
+.bauphysik-anim .dot-3 { animation-delay: 0.4s; }
+@keyframes heat-pulse {
+  0%, 100% { transform: scale(1); opacity: var(--base-opacity, 0.8); }
+  50%      { transform: scale(1.18); opacity: 1; }
+}
+.bauphysik-anim .arrow {
+  transform-origin: 185px center;
+  animation: heat-flow 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.bauphysik-anim .arrow-1 { animation-delay: 0s; }
+.bauphysik-anim .arrow-2 { animation-delay: 0.6s; }
+.bauphysik-anim .arrow-3 { animation-delay: 1.2s; }
+@keyframes heat-flow {
+  0%   { opacity: 0; transform: translateX(-12px); }
+  18%  { opacity: 1; transform: translateX(0); }
+  78%  { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(8px); }
+}
+.bauphysik-anim .cool-dot {
+  animation: cool-pulse 4s ease-in-out infinite;
+}
+@keyframes cool-pulse {
+  0%, 100% { opacity: 0.14; r: 9; }
+  50%      { opacity: 0.28; r: 11; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bauphysik-anim .dot,
+  .bauphysik-anim .arrow,
+  .bauphysik-anim .cool-dot { animation: none; }
+}
+
 /* Lüfter-Spin in Verfahren-Section (für SVG fallback, falls noch genutzt) */
 .bd-rotor {
   transform-origin:center;
@@ -1421,12 +1461,100 @@ footer.site-footer {
       </div>
     </div>
 
-    <!-- ═════ HERO ILLUSTRATION: Higgsfield Motion-Graphics Loop ═════ -->
+    <!-- ═════ HERO ILLUSTRATION: Bauphysik — Wandaufbau + Wärmefluss ═════ -->
     <div class="hero-visual" aria-hidden="true">
-      <video class="hero-loop" autoplay muted loop playsinline aria-label="Animation: Markenpunkte formen ein Bauphysik-Mess-Setup">
-        <source src="/aumann-eco-preview/assets/media/bauphysik-hero-loop.webm" type="video/webm">
-        <source src="/aumann-eco-preview/assets/media/bauphysik-hero-loop.mp4" type="video/mp4">
-      </video>
+      <svg class="hero-loop bauphysik-anim" viewBox="0 0 600 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animation: Wandquerschnitt mit Dämmschicht, Wärme strömt von innen warm nach außen, wird durch Dämmung gebremst">
+        <defs>
+          <!-- Gradient für Temperaturverlauf in der Wand -->
+          <linearGradient id="thermal-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FF634D" stop-opacity="0.18"/>
+            <stop offset="50%" stop-color="#FF634D" stop-opacity="0.06"/>
+            <stop offset="100%" stop-color="#222120" stop-opacity="0.04"/>
+          </linearGradient>
+          <!-- Hatching-Pattern für Dämmung -->
+          <pattern id="insulation" x="0" y="0" width="10" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(20)">
+            <path d="M0 7 Q2.5 0 5 7 T10 7" fill="none" stroke="#FF634D" stroke-width="0.8" opacity="0.55"/>
+          </pattern>
+        </defs>
+
+        <!-- Haus-Silhouette als Anker (oben rechts) -->
+        <g class="house-mini" stroke="#FF634D" stroke-width="1.4" fill="none" stroke-linejoin="round" stroke-linecap="round" opacity="0.5">
+          <path d="M468 32 L508 12 L548 32 L548 76 L468 76 Z"/>
+          <line x1="488" y1="48" x2="488" y2="76"/>
+          <line x1="528" y1="48" x2="528" y2="76"/>
+          <line x1="478" y1="56" x2="498" y2="56"/>
+        </g>
+
+        <!-- LABEL: innen warm / außen kalt -->
+        <g font-family="Volte, system-ui, sans-serif" fill="#222120" opacity="0.55">
+          <text x="60" y="98" font-size="11" font-weight="500" letter-spacing="2.6">INNEN · 21&#176;C</text>
+          <text x="430" y="98" font-size="11" font-weight="500" letter-spacing="2.6">AUSSEN · 0&#176;C</text>
+        </g>
+
+        <!-- Wandquerschnitt (Mauerwerk + Dämmung + Putz innen/außen) -->
+        <g class="wall-cross-section">
+          <!-- Hintergrund Temperaturverlauf -->
+          <rect x="220" y="140" width="160" height="240" fill="url(#thermal-grad)"/>
+          <!-- Putz innen -->
+          <rect x="220" y="140" width="10" height="240" fill="none" stroke="#FF634D" stroke-width="1.4" opacity="0.7"/>
+          <!-- Mauerwerk (mit Ziegel-Pattern: vertikale Linien) -->
+          <rect x="230" y="140" width="56" height="240" fill="none" stroke="#FF634D" stroke-width="1.4" opacity="0.7"/>
+          <g class="brick-pattern" stroke="#FF634D" stroke-width="0.8" opacity="0.4">
+            <line x1="240" y1="160" x2="240" y2="380"/>
+            <line x1="252" y1="140" x2="252" y2="380"/>
+            <line x1="264" y1="160" x2="264" y2="380"/>
+            <line x1="276" y1="140" x2="276" y2="380"/>
+            <!-- Horizontale Fugen -->
+            <line x1="230" y1="180" x2="286" y2="180"/>
+            <line x1="230" y1="220" x2="286" y2="220"/>
+            <line x1="230" y1="260" x2="286" y2="260"/>
+            <line x1="230" y1="300" x2="286" y2="300"/>
+            <line x1="230" y1="340" x2="286" y2="340"/>
+          </g>
+          <!-- Dämmschicht (Hatching) -->
+          <rect x="286" y="140" width="68" height="240" fill="url(#insulation)" stroke="#FF634D" stroke-width="1.4" opacity="0.85"/>
+          <!-- Putz außen -->
+          <rect x="354" y="140" width="10" height="240" fill="none" stroke="#FF634D" stroke-width="1.4" opacity="0.7"/>
+          <rect x="364" y="140" width="16" height="240" fill="none" stroke="#FF634D" stroke-width="1.4" opacity="0.4"/>
+
+          <!-- Beschriftungen unter der Wand -->
+          <g font-family="Volte, system-ui, sans-serif" fill="#222120" opacity="0.5" font-size="9" letter-spacing="1.6" text-anchor="middle">
+            <text x="225" y="400">PUTZ</text>
+            <text x="258" y="400">MAUERWERK</text>
+            <text x="320" y="400">DÄMMUNG</text>
+            <text x="372" y="400">AUSSEN</text>
+          </g>
+        </g>
+
+        <!-- Drei Marken-Dots als Wärmequelle (links neben Wand, innen) -->
+        <g class="brand-dots-source" fill="#FF634D">
+          <circle class="dot dot-1" cx="160" cy="230" r="9" opacity="0.4"/>
+          <circle class="dot dot-2" cx="160" cy="260" r="9" opacity="0.65"/>
+          <circle class="dot dot-3" cx="160" cy="290" r="9" opacity="0.9"/>
+        </g>
+
+        <!-- Wärme-Flow Arrows (Pfeile von innen nach außen, gebremst) -->
+        <g class="heat-flow" stroke="#FF634D" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Pfeil 1 (oben): voller Pfeil, kommt nur bis Dämmung -->
+          <g class="arrow arrow-1">
+            <path d="M185 200 L300 200"/>
+            <path d="M294 195 L300 200 L294 205"/>
+          </g>
+          <!-- Pfeil 2 (mitte): kleiner, weiter -->
+          <g class="arrow arrow-2">
+            <path d="M185 260 L335 260" opacity="0.7"/>
+            <path d="M329 255 L335 260 L329 265" opacity="0.7"/>
+          </g>
+          <!-- Pfeil 3 (unten): kurz, nur halb -->
+          <g class="arrow arrow-3">
+            <path d="M185 320 L270 320" opacity="0.5"/>
+            <path d="M264 315 L270 320 L264 325" opacity="0.5"/>
+          </g>
+        </g>
+
+        <!-- Ein einzelner kühler Dot außen rechts -->
+        <circle class="cool-dot" cx="430" cy="260" r="9" fill="#222120" opacity="0.18"/>
+      </svg>
     </div>
     <!-- LEGACY SVG (entfernt) -->
     <div style="display:none">
