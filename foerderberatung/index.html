@@ -1579,12 +1579,16 @@ footer.site-footer {
   header.site-header { background: #FCFAF5; }
   /* === Unified container + phone (no SVG icon) === */
   .site-header .nav,
-  .header .header-inner {
-    max-width: 1320px !important;
+  header.header > .container {
+    max-width: 1280px !important;
     margin: 0 auto !important;
-    padding-left: 32px !important; padding-right: 32px !important;
+    padding-left: 24px !important; padding-right: 24px !important;
+    box-sizing: border-box !important;
   }
-  /* Hide the phone SVG-icon on editorial pages (standard doesn't have one) */
+  header.header .header-inner {
+    padding-left: 0 !important; padding-right: 0 !important;
+  }
+  /* Hide the phone SVG-icon on editorial pages */
   .header .header-phone svg { display: none !important; }
 
 
