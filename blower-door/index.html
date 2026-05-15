@@ -630,7 +630,7 @@ section { padding:var(--ae-s-9) 0; }
   display:inline-flex; align-items:baseline; gap:8px;
   font-family:var(--ae-font);
   font-size:clamp(72px,9vw,108px);
-  font-weight:300; line-height:0.9;
+  font-weight:300; line-height:1.1;
   color:var(--ae-lime);
   letter-spacing:var(--ae-tight);
   font-variant-numeric:tabular-nums;
@@ -647,11 +647,12 @@ section { padding:var(--ae-s-9) 0; }
 }
 @keyframes cursor-blink { 50% { opacity:0; } }
 .live-display-unit {
+  display:block;
   font-size:12px; font-weight:500;
   color:rgba(252,250,245,0.55);
   letter-spacing:0.08em;
   text-transform:uppercase;
-  margin-top:8px;
+  margin-top:16px;
 }
 .live-display-name {
   display:block;
