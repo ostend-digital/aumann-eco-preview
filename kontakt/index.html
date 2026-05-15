@@ -886,6 +886,54 @@
     box-shadow: inset 0 0 0 1px rgba(34, 33, 32, 0.04);
     border-radius: var(--ae-r-lg);
   }
+  .map-consent-placeholder {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 14px;
+    padding: 32px 28px;
+    background: linear-gradient(160deg, rgba(255,99,77,0.08) 0%, rgba(34,33,32,0.04) 100%);
+    border: 0; cursor: pointer;
+    font-family: 'Volte', system-ui, sans-serif;
+    text-align: center;
+    color: var(--dark);
+    transition: background 0.25s ease;
+  }
+  .map-consent-placeholder:hover {
+    background: linear-gradient(160deg, rgba(255,99,77,0.14) 0%, rgba(34,33,32,0.05) 100%);
+  }
+  .map-consent-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    background: rgba(255,99,77,0.12);
+    color: var(--coral);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .map-consent-icon svg { width: 26px; height: 26px; }
+  .map-consent-title {
+    font-size: 17px; font-weight: 600; letter-spacing: -0.01em;
+  }
+  .map-consent-address {
+    font-size: 13px; color: rgba(34,33,32,0.6);
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .map-consent-note {
+    font-size: 12px; color: rgba(34,33,32,0.55);
+    max-width: 380px; line-height: 1.5;
+  }
+  .map-consent-note a { color: var(--coral); text-decoration: underline; }
+  .map-consent-cta {
+    margin-top: 4px;
+    display: inline-flex; align-items: center;
+    padding: 10px 20px;
+    background: var(--coral); color: var(--ae-near-black);
+    border-radius: 100px;
+    font-size: 14px; font-weight: 500;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .map-consent-placeholder:hover .map-consent-cta {
+    background: var(--coral-hover); transform: translateY(-1px);
+  }
   .standort-info { display: flex; }
   .standort-info .info-card { width: 100%; }
   @media (max-width: 900px) {
@@ -1787,14 +1835,42 @@
       <p>Ingenieurbüro in Köln-Lövenich, gute Anbindung an A1 und A4. Vor-Ort-Termine im Großraum Köln, Bonn, Düsseldorf und Aachen.</p>
     </header>
     <div class="standort-grid">
-      <div class="map-frame">
-        <iframe
-          src="https://www.openstreetmap.org/export/embed.html?bbox=6.831%2C50.957%2C6.871%2C50.977&amp;layer=mapnik&amp;marker=50.967%2C6.851"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Standort Aumann Eco — Schiefersburger Weg 57, 50739 Köln">
-        </iframe>
+      <div class="map-frame" data-map-consent>
+        <button type="button" class="map-consent-placeholder" data-map-load aria-label="Karte anzeigen — beim Klick wird deine IP-Adresse an Google übertragen">
+          <span class="map-consent-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </span>
+          <span class="map-consent-title">Karte von Google Maps anzeigen</span>
+          <span class="map-consent-address">Schiefersburger Weg 57 · 50739 Köln</span>
+          <span class="map-consent-note">Beim Aktivieren wird deine IP-Adresse an Google&nbsp;LLC übertragen. Hinweise dazu in der <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google-Datenschutzerklärung</a>.</span>
+          <span class="map-consent-cta">Karte aktivieren</span>
+        </button>
       </div>
+      <script>
+        (function() {
+          const wrap = document.querySelector('.map-frame[data-map-consent]');
+          if (!wrap) return;
+          const btn = wrap.querySelector('[data-map-load]');
+          const STORAGE_KEY = 'aumann-eco-map-consent';
+          function loadMap() {
+            wrap.innerHTML = '';
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://www.google.com/maps?q=Schiefersburger+Weg+57,+50739+K%C3%B6ln&z=15&output=embed';
+            iframe.loading = 'lazy';
+            iframe.title = 'Standort Aumann Eco — Schiefersburger Weg 57, 50739 Köln';
+            iframe.referrerPolicy = 'no-referrer-when-downgrade';
+            iframe.allowFullscreen = false;
+            wrap.appendChild(iframe);
+            try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch(_) {}
+          }
+          if (btn) btn.addEventListener('click', loadMap);
+          // Auto-load if user consented earlier in this session
+          try { if (sessionStorage.getItem(STORAGE_KEY) === '1') loadMap(); } catch(_) {}
+        })();
+      </script>
 
       <aside class="standort-info" aria-label="Erreichbarkeit">
         <div class="info-card dark">
