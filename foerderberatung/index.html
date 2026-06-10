@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Förderberatung Köln — KfW, BAFA & BEG sichern | aumann eco</title>
-<meta name="description" content="Förderberatung in Köln vom Ingenieurbüro: KfW 458, BEG-Einzelmaßnahmen, iSFP-Bonus, NRW.BANK. Wir beantragen — du sparst bis 70 % der Sanierungskosten.">
+<meta name="description" content="Förderberatung in Köln vom Ingenieurbüro: KfW 458, BEG-Einzelmaßnahmen, iSFP-Bonus. Wir beantragen — Sie sparen bis 70 % der Sanierungskosten.">
 <style>
 /* ═══════════════════════════════════════════════
    VOLTE WEBFONT
 ═══════════════════════════════════════════════ */
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
 
 /* ═══════════════════════════════════════════════
    TOKENS
@@ -66,7 +66,7 @@ a { color:inherit; }
 
 .wrap { max-width:var(--ae-max); margin:0 auto; padding:0 var(--ae-s-6); }
 section { padding:var(--ae-s-9) 0; }
-@media (max-width:720px) { section { padding:var(--ae-s-8) 0; } }
+@media (max-width:720px) { section { padding:var(--ae-s-7) 0; } }
 
 /* ═══════════════════════════════════════════════
    HEADER
@@ -160,10 +160,13 @@ section { padding:var(--ae-s-9) 0; }
     drop-shadow(0 -0.8px 0 #FF634D)
     saturate(1.1);
 }
+.hero-still { display:none; }
 @media (max-width:960px) {
   .hero-grid { grid-template-columns:1fr; gap:var(--ae-s-6); }
   .hero-visual { max-width:520px; margin:0 auto; }
-  .hero-loop { width:100%; margin-right:0; }
+  .hero-loop { display:none; }
+  .hero-still { display:block; width:100%; height:auto; background:transparent;
+    filter: drop-shadow(0.8px 0 0 #FF634D) drop-shadow(-0.8px 0 0 #FF634D) drop-shadow(0 0.8px 0 #FF634D) drop-shadow(0 -0.8px 0 #FF634D) saturate(1.1); }
 }
 
 /* ═══════════════════════════════════════════════
@@ -215,6 +218,37 @@ section { padding:var(--ae-s-9) 0; }
    FÖRDER-EBENEN (3 Karten: Bund / NRW / Köln)
 ═══════════════════════════════════════════════ */
 .ebenen-section { background:var(--ae-off-white); }
+/* Geförderte Vorhaben — Process-Tabs (wie Homepage „Warum aumann eco") */
+.process { margin-top:var(--ae-s-7); }
+.process-tabs { position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:var(--ae-s-3); padding-bottom:var(--ae-s-4); border-bottom:1px solid var(--ae-grey-300); }
+.process-tab { position:relative; display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto auto; column-gap:var(--ae-s-4); row-gap:2px; padding:var(--ae-s-4) var(--ae-s-5); background:transparent; border:1px solid var(--ae-grey-300); border-radius:var(--ae-r-md); color:var(--ae-near-black); font-family:inherit; text-align:left; cursor:pointer; transition:background .25s, border-color .25s, color .25s, transform .25s; }
+.process-tab .num { grid-row:1 / 3; align-self:center; display:flex; align-items:center; justify-content:center; width:40px; height:40px; color:var(--ae-grey-500); transition:color .25s; }
+.process-tab .num svg { width:28px; height:28px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.process-tab .label { font-size:15px; font-weight:600; line-height:1.2; letter-spacing:-0.01em; }
+.process-tab .dur { font-size:11px; font-weight:500; color:var(--ae-grey-500); text-transform:uppercase; letter-spacing:0.08em; transition:color .25s; }
+.process-tab:hover:not(.active) { border-color:var(--ae-near-black); transform:translateY(-2px); }
+.process-tab.active { background:var(--ae-near-black); border-color:var(--ae-near-black); color:var(--ae-off-white); }
+.process-tab.active .num { color:var(--ae-coral); }
+.process-tab.active .dur { color:rgba(252,250,245,0.6); }
+.process-tab:focus-visible { outline:2px solid var(--ae-coral); outline-offset:3px; }
+.process-progress { position:absolute; bottom:-1px; left:0; height:2px; width:25%; background:rgba(255,99,77,0.18); transform:translateX(0); transition:transform .45s cubic-bezier(0.22,0.61,0.36,1); pointer-events:none; overflow:hidden; }
+.process-progress-fill { display:block; height:100%; width:100%; background:var(--ae-coral); transform-origin:left center; }
+@media (prefers-reduced-motion: reduce) { .process-progress { transition:none; } }
+.process-panels { position:relative; margin-top:var(--ae-s-7); background:var(--ae-white); border:1px solid var(--ae-grey-300); border-radius:var(--ae-r-lg); padding:var(--ae-s-8); overflow:hidden; }
+.process-panels::before { content:""; position:absolute; top:-80px; right:-80px; width:360px; height:360px; background:radial-gradient(circle, rgba(255,99,77,0.08) 0%, transparent 65%); pointer-events:none; }
+.process-panel { display:none; position:relative; }
+.process-panel.active { display:block; animation:panelIn .45s cubic-bezier(0.22,0.61,0.36,1); }
+@keyframes panelIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+.panel-head { display:grid; grid-template-columns:auto 1fr; gap:var(--ae-s-6); align-items:start; margin-bottom:var(--ae-s-6); padding-bottom:var(--ae-s-6); border-bottom:1px solid var(--ae-grey-300); }
+.panel-head .big-num { display:flex; align-items:center; justify-content:center; width:clamp(80px,9vw,104px); height:clamp(80px,9vw,104px); border-radius:var(--ae-r-md); background:rgba(255,99,77,0.08); color:var(--ae-coral); flex-shrink:0; }
+.panel-head .big-num svg { width:60%; height:60%; stroke:currentColor; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.panel-head h3 { font-size:clamp(22px,2.2vw,28px); font-weight:600; letter-spacing:var(--ae-headline); margin-bottom:var(--ae-s-3); }
+.panel-head p { font-size:16px; line-height:1.55; color:#444; max-width:60ch; }
+.check-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:12px var(--ae-s-7); }
+.check-list li { position:relative; padding-left:32px; font-size:15px; line-height:1.5; }
+.check-list li::before { content:""; position:absolute; left:0; top:2px; width:20px; height:20px; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='10' r='10' fill='%23CDF15D'/><path d='M5.8 10.2 L8.8 13 L14.3 7.2' stroke='%23222120' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>"); background-size:100%; background-repeat:no-repeat; }
+@media (max-width:900px) { .process-tabs { grid-template-columns:repeat(2,1fr); } .process-progress { display:none; } .process-panels { padding:var(--ae-s-6); } .panel-head { grid-template-columns:1fr; gap:var(--ae-s-3); } .panel-head .big-num { width:64px; height:64px; } .check-list { grid-template-columns:1fr; } }
+@media (max-width:560px) { .process-tabs { grid-template-columns:1fr; } }
 .ebenen-grid {
   display:grid; grid-template-columns:repeat(3,1fr);
   gap:var(--ae-s-5); margin-top:var(--ae-s-7);
@@ -409,6 +443,7 @@ section { padding:var(--ae-s-9) 0; }
   display:grid; grid-template-columns:1fr 1fr; gap:var(--ae-s-7);
   align-items:stretch;
 }
+.rechen-layout > * { min-width:0; }
 @media (max-width:900px) { .rechen-layout { grid-template-columns:1fr; } }
 
 .rechen-table-card {
@@ -633,6 +668,13 @@ section { padding:var(--ae-s-9) 0; }
   .foerder-layer { padding:0 16px; gap:14px; height:68px; }
   .foerder-layer-value { font-size:15px; }
   .foerder-layer--eigen .foerder-layer-value { font-size:20px; }
+}
+
+@media (max-width:560px) {
+  /* NACH den Basis-Regeln notiert, damit es var(--ae-s-7) überschreibt: schmaleres Karten-Padding, damit die Tabelle in den Content-Bereich passt und links/rechts gleich viel Abstand hat (sonst läuft die Tabelle nach rechts über) */
+  .rechen-table-card { padding:var(--ae-s-5); }
+  .rechen-table { font-size:13px; }
+  .foerder-stack { padding:var(--ae-s-5) 0; }
 }
 
 .rechen-cta {
@@ -861,9 +903,8 @@ section { padding:var(--ae-s-9) 0; }
 .usp-row:not(:last-child)::after {
   content:""; position:absolute;
   left:calc(var(--num-col) / 2);
-  bottom:calc(-1 * var(--ae-s-7));
-  width:2px; height:calc(var(--ae-s-7) * 2);
-  transform:translateX(-50%);
+  top:calc(var(--ae-s-7) + clamp(44px,5.4vw,72px) + 12px); bottom:calc(-1 * (var(--ae-s-7) - 12px));
+  width:2px; transform:translateX(-50%);
   background-color:rgba(255,99,77,0.25);
   background-image:linear-gradient(var(--ae-coral),var(--ae-coral));
   background-size:100% var(--seg-progress,0%);
@@ -873,7 +914,7 @@ section { padding:var(--ae-s-9) 0; }
   transition:background-size .1s linear;
   pointer-events:none;
 }
-.usp-row.is-active .usp-num { opacity:0.9; transition:opacity .3s ease; }
+.usp-row.is-active .usp-num { text-align:center; opacity:0.9; transition:opacity .3s ease; }
 .usp-num {
   font-size:clamp(44px,5.4vw,72px); font-weight:300;
   color:var(--ae-near-black); line-height:0.95;
@@ -893,7 +934,7 @@ section { padding:var(--ae-s-9) 0; }
 @media (max-width:720px) {
   .usp-list { --num-col:48px; --usp-gap:var(--ae-s-4); }
   .usp-row { padding:var(--ae-s-5) 0; }
-  .usp-row:not(:last-child)::after { bottom:calc(-1 * var(--ae-s-5)); height:calc(var(--ae-s-5) * 2); }
+  .usp-row:not(:last-child)::after { top:calc(var(--ae-s-5) + 30px + 8px); bottom:calc(-1 * (var(--ae-s-5) - 8px)); }
   .usp-num { font-size:30px; }
   .usp-body h3 { font-size:19px; }
 }
@@ -902,15 +943,31 @@ section { padding:var(--ae-s-9) 0; }
    PREISE — Festpreis-Tabelle
 ═══════════════════════════════════════════════ */
 .preise-section { background:var(--ae-off-white); }
+/* Querverweis-Box */
+.xref { margin-top:var(--ae-s-6); display:flex; align-items:center; gap:var(--ae-s-5); flex-wrap:wrap; padding:var(--ae-s-5) var(--ae-s-6); background:var(--ae-white); border:1px solid rgba(34,33,32,0.10); border-radius:var(--ae-r-lg); }
+.xref-icon { flex:none; width:44px; height:44px; border-radius:var(--ae-r-sm); background:rgba(255,99,77,0.10); display:flex; align-items:center; justify-content:center; }
+.xref-icon svg { width:22px; height:22px; fill:none; stroke:var(--ae-coral); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.xref-text { flex:1; min-width:260px; margin:0; font-size:15px; line-height:1.55; color:rgba(34,33,32,0.8); }
+.xref-text strong { color:var(--ae-near-black); }
+.xref .btn { flex:none; }
 .preise-table-wrap {
   background:var(--ae-white);
   border:1px solid rgba(34,33,32,0.08);
   border-radius:var(--ae-r-lg);
   padding:var(--ae-s-7);
   margin-top:var(--ae-s-6);
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
 }
 .preise-table {
   width:100%; border-collapse:collapse; font-size:15px;
+}
+@media (max-width:560px) {
+  .preise-table-wrap { padding:var(--ae-s-4); }
+  .preise-table { font-size:13px; table-layout:fixed; }
+  .preise-table th, .preise-table td { padding-right:var(--ae-s-2); }
+  .preise-table th:nth-child(1) { width:46%; }
+  .preise-table th:nth-child(2), .preise-table th:nth-child(3) { width:27%; }
 }
 .preise-table th {
   text-align:left; font-size:11px; font-weight:600;
@@ -933,6 +990,10 @@ section { padding:var(--ae-s-9) 0; }
 }
 .preise-table td:nth-child(3) { color:var(--ae-coral); }
 .preise-table tr:last-child td { border-bottom:none; }
+@media (max-width:560px) {
+  /* NACH der Basis-Regel notiert, damit es deren white-space:nowrap überschreibt: lange Text-Werte (z. B. „im KfW-Kredit inkludiert") umbrechen statt abschneiden — Zahlen bleiben durch &nbsp; intakt */
+  .preise-table td:nth-child(2), .preise-table td:nth-child(3) { white-space:normal; vertical-align:top; }
+}
 .preise-note {
   margin-top:var(--ae-s-5);
   font-size:13px; line-height:1.55;
@@ -958,22 +1019,25 @@ section { padding:var(--ae-s-9) 0; }
 }
 .ueber-lead em {
   font-style:normal;
-  background:linear-gradient(120deg, transparent 0%, transparent 8%, rgba(205,241,93,0.45) 8%, rgba(205,241,93,0.45) 92%, transparent 92%);
+  background:linear-gradient(120deg, rgba(205,241,93,0.45) 0%, rgba(205,241,93,0.45) 92%, transparent 92%);
+  -webkit-box-decoration-break:clone; box-decoration-break:clone;
   padding:0 4px; font-weight:600; color:var(--ae-near-black);
 }
 .ueber-cta-group { display:flex; gap:var(--ae-s-3); margin-bottom:var(--ae-s-6); flex-wrap:wrap; }
 .ueber-quals {
-  display:flex; flex-wrap:wrap;
-  gap:var(--ae-s-4) var(--ae-s-5);
+  display:flex; flex-wrap:nowrap;
+  gap:var(--ae-s-4);
   padding-top:var(--ae-s-5);
   border-top:1px solid var(--ae-grey-300);
 }
 .ueber-qual {
-  display:inline-flex; align-items:center; gap:8px;
-  font-size:13px; font-weight:500;
+  display:inline-flex; align-items:center; gap:7px;
+  font-size:12px; font-weight:500;
   color:var(--ae-grey-500);
+  white-space:nowrap;
 }
-.ueber-qual svg { width:18px; height:18px; color:var(--ae-coral); flex-shrink:0; }
+.ueber-qual svg { width:16px; height:16px; color:var(--ae-coral); flex-shrink:0; }
+@media (max-width:640px) { .ueber-quals { flex-wrap:wrap; gap:var(--ae-s-3) var(--ae-s-4); } }
 .ueber-aside { display:flex; justify-content:center; position:relative; }
 .ueber-aside .founder-card {
   position:relative; max-width:440px; width:100%;
@@ -1055,7 +1119,7 @@ section { padding:var(--ae-s-9) 0; }
   letter-spacing:var(--ae-tight); color:var(--ae-near-black);
   display:flex; align-items:baseline; justify-content:center;
 }
-.stat .num .unit { color:var(--ae-coral); font-weight:500; margin-left:4px; }
+.stat .num .unit { color:var(--ae-coral); font-weight:500; font-size:0.5em; align-self:flex-start; margin-top:0.4em; margin-left:2px; }
 .stat .label {
   font-size:13px; color:var(--ae-grey-500);
   text-transform:uppercase; letter-spacing:0.08em; font-weight:600;
@@ -1231,7 +1295,7 @@ footer.site-footer {
   padding:var(--ae-s-8) 0 var(--ae-s-7);
   display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:var(--ae-s-7);
 }
-.footer-inner .brand .logo img { height:44px; margin-bottom:var(--ae-s-4); }
+.footer-inner .brand .logo img { width:100%; max-width:210px; height:auto; margin-bottom:var(--ae-s-4); }
 .footer-inner .brand p { font-size:14px; color:rgba(252,250,245,0.6); line-height:1.6; max-width:34ch; }
 .site-footer h4 { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; margin-bottom:var(--ae-s-4); color:rgba(252,250,245,0.5); }
 .site-footer ul { list-style:none; display:grid; gap:10px; }
@@ -1276,6 +1340,40 @@ footer.site-footer {
   .footer-inner { grid-template-columns:1fr 1fr; gap:var(--ae-s-6); }
 }
 @media (max-width:560px) { .footer-inner { grid-template-columns:1fr; } }
+
+/* ===== MOBILE NAV (Hamburger) — added in mobile-optimization pass ===== */
+.ae-burger{ display:none; }
+.ae-mobile-menu{
+  position:fixed; inset:0; z-index:1000; background:#FCFAF5;
+  padding:92px 28px 40px; display:flex; flex-direction:column; overflow-y:auto;
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity .25s ease, transform .25s ease, visibility .25s;
+}
+.ae-mobile-menu.is-open{ opacity:1; visibility:visible; transform:none; }
+.ae-mm-inner{ display:flex; flex-direction:column; gap:2px; max-width:420px; margin:0 auto; width:100%; }
+.ae-mm-label{ font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#FF634D; margin-bottom:8px; }
+.ae-mobile-menu a{ font-size:22px; font-weight:600; color:#222120; text-decoration:none;
+  padding:13px 2px; border-bottom:1px solid rgba(34,33,32,0.08); letter-spacing:-0.02em; }
+.ae-mobile-menu a.is-current{ color:#FF634D; }
+.ae-mm-divider{ height:16px; }
+.ae-mobile-menu a.ae-mm-cta{ margin-top:24px; background:#FF634D; color:#222120; text-align:center;
+  border:none; border-radius:999px; padding:16px; font-size:16px; }
+.ae-mobile-menu a.ae-mm-phone{ text-align:center; border:none; color:#222120; opacity:0.7;
+  font-size:16px; font-weight:500; padding-top:16px; }
+body.ae-menu-open{ overflow:hidden; }
+@media (max-width:900px){
+  .ae-burger{ display:flex; flex-direction:column; justify-content:center; gap:5px;
+    position:fixed; top:14px; right:16px; z-index:1001; width:46px; height:46px; padding:11px;
+    border:none; border-radius:12px; background:#FCFAF5; box-shadow:0 4px 16px rgba(34,33,32,0.16); cursor:pointer; }
+  .ae-burger span{ display:block; height:2px; width:100%; background:#222120; border-radius:2px;
+    transition:transform .25s ease, opacity .2s ease; }
+  .ae-burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .ae-burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .ae-burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  /* hide desktop header nav + cta/phone on mobile (menu replaces them) */
+  .site-header .nav > ul, .header .header-inner nav, .nav > ul{ display:none !important; }
+  .nav .phone, .nav .nav-cta, .site-header .btn.nav-cta, .header-right{ display:none !important; }
+}
 </style>
 <style id="dropdown-nav-style">
   @font-face {
@@ -1613,9 +1711,66 @@ footer.site-footer {
 
 
 
+
+/* ===== MOBILE NAV: hide desktop header CTA/phone/nav (override, must be last) ===== */
+@media (max-width:900px){
+  .site-header .nav .phone, .site-header .nav .nav-cta, .site-header .btn.nav-cta,
+  .header .header-right, .header-right, .header .header-phone, .header .btn-primary,
+  .header .header-inner nav, .site-header .nav > ul, .nav > ul { display:none !important; }
+}
+
+/* ===== MOBILE: no horizontal scroll + long-word wrapping (safeguard) ===== */
+html{ overflow-x:clip; }
+h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-word; }
+ (max-width:768px){
+}
+
+@media (max-width:960px){ .hero-grid > *, .hero-content{ min-width:0; } }
+
+/* ===== Ostend Digital On-Page SEO-Credit (blends with adjacent sections) ===== */
+.ostend-seo-strip{ background:#F3F1EC; padding:26px 24px; }
+.ostend-seo-strip p{ max-width:1000px; margin:0 auto; text-align:center; font-size:12.5px; line-height:1.55; color:rgba(34,33,32,0.45); }
+.ostend-seo-strip a{ color:rgba(34,33,32,0.62); text-decoration:none; border-bottom:1px solid rgba(34,33,32,0.22); }
+.ostend-seo-strip a:hover{ color:#FF634D; border-bottom-color:#FF634D; }
+
+/* center step numbers under the connector line */
+.usp-row > .usp-num{ text-align:center; }
+
+/* Final CTA: Mobile overflow-fix (unbreakable &nbsp;-Phrasen + grid 1fr min-content) */
+@media (max-width:860px) {
+  .final-cta > * { min-width:0; }
+  .cta-content { min-width:0; }
+  .cta-content h2, .cta-content p { overflow-wrap:anywhere; word-break:break-word; max-width:100%; }
+}
+@media (max-width:560px) {
+  .final-cta { padding:var(--ae-s-7) var(--ae-s-5); }
+  .cta-content .btn-group { flex-direction:column; align-items:stretch; gap:var(--ae-s-3); }
+  .cta-content .btn-group .btn { width:100%; text-align:center; justify-content:center; }
+  .cta-trust { gap:var(--ae-s-3); justify-content:flex-start; }
+}
 </style>
 </head>
 <body>
+<!-- ===== MOBILE NAV (Hamburger) ===== -->
+<button class="ae-burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="ae-mobile-menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="ae-mobile-menu" id="ae-mobile-menu">
+  <nav class="ae-mm-inner" aria-label="Mobile Navigation">
+    <span class="ae-mm-label">Leistungen</span>
+    <a href="/aumann-eco-preview/sanierungsfahrplan/" data-slug="sanierungsfahrplan">Sanierungsfahrplan</a>
+    <a href="/aumann-eco-preview/bauphysik/" data-slug="bauphysik">Bauphysik &amp; Nachweise</a>
+    <a href="/aumann-eco-preview/blower-door/" data-slug="blower-door">Blower Door Test</a>
+    <a href="/aumann-eco-preview/foerderberatung/" class="is-current" data-slug="foerderberatung">Förderberatung</a>
+    <span class="ae-mm-divider"></span>
+    <a href="/aumann-eco-preview/ueber-uns/" data-slug="ueber-uns">Über uns</a>
+    <a href="/aumann-eco-preview/karriere/" data-slug="karriere">Karriere</a>
+    <a href="/aumann-eco-preview/kontakt/" data-slug="kontakt">Kontakt</a>
+    <a class="ae-mm-cta" href="/aumann-eco-preview/kontakt/">Kostenloses Erstgespräch</a>
+    <a class="ae-mm-phone" href="tel:+491755697551">0175 569 75 51</a>
+  </nav>
+</div>
+
 
 <!-- ═════════════════════ HEADER ═════════════════════ -->
 <header class="site-header">
@@ -1632,7 +1787,7 @@ footer.site-footer {
               <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-4 4 4 7-7"/><path d="M14 6h6v6"/><path d="M3 21h18"/></svg></span>
               <span class="nav-mega-content">
                 <span class="nav-mega-title">Sanierungsfahrplan</span>
-                <span class="nav-mega-sub">iSFP nach BAFA · bis 80&nbsp;% Förderung</span>
+                <span class="nav-mega-sub">iSFP nach BAFA · bis 50&nbsp;% Förderung</span>
               </span>
             </a></li>
             <li role="none"><a class="nav-mega-item" role="menuitem" href="/aumann-eco-preview/bauphysik/">
@@ -1653,13 +1808,13 @@ footer.site-footer {
               <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8h6"/><path d="M8 11h7a3 3 0 010 6h-3.5"/><path d="M11.5 8v9"/></svg></span>
               <span class="nav-mega-content">
                 <span class="nav-mega-title">Förderberatung</span>
-                <span class="nav-mega-sub">KfW · BAFA · NRW.BANK</span>
+                <span class="nav-mega-sub">KfW · BAFA</span>
               </span>
             </a></li>
           </ul>
           <a class="nav-mega-footer" href="/aumann-eco-preview/kontakt/">
             <span class="nav-mega-footer-text">
-              <strong>Unsicher, was du brauchst?</strong>
+              <strong>Unsicher, was Sie brauchen?</strong>
               <span>Kostenloses Erstgespräch — 15&nbsp;Min</span>
             </span>
             <span class="nav-mega-footer-cta">
@@ -1686,11 +1841,11 @@ footer.site-footer {
     <div class="hero-content">
       <div class="ae-eyebrow">
         <span class="hero-dots" aria-hidden="true"><span></span><span></span><span></span></span>
-        Förderberatung · KfW · BAFA · BEG · NRW.BANK
+        Förderberatung · BEG · KfW · BAFA
       </div>
-      <h1 class="ae-h1">Förderberatung Köln —<br>bis zu 70&nbsp;%&nbsp;Förderung<br>für deine Sanierung.</h1>
+      <h1 class="ae-h1">Förderberatung für energieeffizientes<br>Bauen &amp; Sanieren.</h1>
       <p class="ae-lead">
-        KfW, BAFA, BEG-Einzelmaßnahmen, NRW.BANK und Stadt-Köln-Programme — wir beantragen, du sparst. <strong>Festpreis ab 650&nbsp;€</strong> nach BAFA-Bezuschussung der Beratung.
+        Wir prüfen, welche Förderprogramme für Ihr Vorhaben passen — BEG-Förderung, BAFA-Einzelmaßnahme, Heizungstausch oder KfW-Effizienzhaus, für Sanierung und Neubau. Auf Wunsch prüfen wir, ob kommunale Programme ergänzend infrage kommen. <strong>KfW-Bestätigung zum Antrag (BzA) ab 250&nbsp;€</strong>, Sanierungsfahrplan ab 1.200&nbsp;€ nach BAFA-Bezuschussung.
       </p>
       <div class="btn-group">
         <a href="/aumann-eco-preview/kontakt/" class="btn btn--primary">Kostenlose Förder-Einschätzung →</a>
@@ -1713,6 +1868,7 @@ footer.site-footer {
         <source src="/aumann-eco-preview/assets/media/foerderung-hero-loop.webm" type="video/webm">
         <source src="/aumann-eco-preview/assets/media/foerderung-hero-source.mp4" type="video/mp4">
       </video>
+      <img class="hero-still" src="/aumann-eco-preview/assets/media/foerderung-hero-anim.webp" width="960" height="960" alt="" aria-hidden="true" loading="lazy">
     </div>
   </div>
 </section>
@@ -1740,124 +1896,103 @@ footer.site-footer {
 <section class="ebenen-section">
   <div class="wrap">
     <div class="section-head-center">
-      <span class="ae-eyebrow">01 · Förder-Landschaft</span>
-      <h2 class="ae-h2">Drei Förder-Ebenen.<br>Alle aus einer&nbsp;Hand.</h2>
-      <p>Bund, Land NRW und Stadt Köln fördern parallel — wir kombinieren die Programme, damit deine Förderung maximal wird.</p>
+      <span class="ae-eyebrow">01 · Geförderte Vorhaben</span>
+      <h2 class="ae-h2">Für welche Vorhaben lohnt sich die Förderberatung?</h2>
+      <p>Ob Neubau, Komplettsanierung oder einzelne Maßnahme — wir finden für Ihr Vorhaben die passende BEG-Förderung.</p>
     </div>
 
-    <div class="ebenen-grid">
-      <article class="ebene-card">
-        <div class="ebene-card-head">
-          <div class="ebene-card-icon">
-            <!-- Reichstag — Glaskuppel auf Säulen-Front (Bundes-Symbol) -->
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <!-- Glaskuppel -->
-              <path d="M11 11 Q11 6 16 6 Q21 6 21 11"/>
-              <line x1="13" y1="7.2" x2="13" y2="10.8"/>
-              <line x1="16" y1="6" x2="16" y2="11"/>
-              <line x1="19" y1="7.2" x2="19" y2="10.8"/>
-              <!-- Dach-Linie -->
-              <line x1="8" y1="13" x2="24" y2="13"/>
-              <!-- Säulen -->
-              <line x1="10" y1="14" x2="10" y2="24"/>
-              <line x1="14" y1="14" x2="14" y2="24"/>
-              <line x1="18" y1="14" x2="18" y2="24"/>
-              <line x1="22" y1="14" x2="22" y2="24"/>
-              <!-- Basis -->
-              <line x1="6" y1="25" x2="26" y2="25"/>
-              <line x1="5" y1="27" x2="27" y2="27"/>
-            </svg>
-          </div>
-          <div>
-            <div class="ebene-card-tier">Ebene 01</div>
-            <div class="ebene-card-tier-name">Bund</div>
-          </div>
-        </div>
-        <ul class="ebene-card-list">
-          <li><strong>BAFA-BEG-Einzelmaßnahmen</strong> für Dämmung, Fenster, Anlagentechnik</li>
-          <li><strong>KfW 458</strong> Heizungstausch — bis 70 % Zuschuss</li>
-          <li><strong>KfW 261</strong> Komplettsanierung Effizienzhaus — bis 150.000 € Kredit</li>
-          <li><strong>iSFP-Bonus</strong> 5 % auf alle <a href="/aumann-eco-preview/sanierungsfahrplan/" class="inline-link">BEG-Einzelmaßnahmen</a></li>
-          <li><strong>BAFA-Energieberatung</strong> 50 % der Beratungskosten</li>
-        </ul>
-        <div class="ebene-card-foot">
-          <span>Verwaltet von</span><strong>BAFA · KfW</strong>
-        </div>
-      </article>
+    <div class="process" data-process>
+      <div class="process-tabs" role="tablist" aria-label="Geförderte Vorhaben">
+        <button class="process-tab active" role="tab" aria-selected="true" aria-controls="fb-panel-1" id="fb-tab-1" data-step="1">
+          <span class="num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M12 14.5v4M10 16.5h4"/></svg></span>
+          <span class="label">Neubau</span>
+          <span class="dur">KfW 297 / 298</span>
+        </button>
+        <button class="process-tab" role="tab" aria-selected="false" aria-controls="fb-panel-2" id="fb-tab-2" data-step="2" tabindex="-1">
+          <span class="num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><polyline points="21 3 21 9 15 9"/></svg></span>
+          <span class="label">Sanierung</span>
+          <span class="dur">KfW 261 · iSFP</span>
+        </button>
+        <button class="process-tab" role="tab" aria-selected="false" aria-controls="fb-panel-3" id="fb-tab-3" data-step="3" tabindex="-1">
+          <span class="num" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg></span>
+          <span class="label">Gebäudehülle</span>
+          <span class="dur">BAFA · BEG-EM</span>
+        </button>
+        <button class="process-tab" role="tab" aria-selected="false" aria-controls="fb-panel-4" id="fb-tab-4" data-step="4" tabindex="-1">
+          <span class="num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span>
+          <span class="label">Heizungsförderung</span>
+          <span class="dur">KfW 458</span>
+        </button>
+        <span class="process-progress" aria-hidden="true"><span class="process-progress-fill"></span></span>
+      </div>
 
-      <article class="ebene-card">
-        <div class="ebene-card-head">
-          <div class="ebene-card-icon">
-            <!-- NRW: stilisiertes Wappen-Pferd (Westfalen-Ross) auf Schild -->
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <!-- Schild -->
-              <path d="M6 6 L26 6 L26 17 Q26 23 16 27 Q6 23 6 17 Z"/>
-              <!-- Pferde-Silhouette stilisiert (Westfalenpferd) -->
-              <path d="M11 19 L11 14 Q11 12 13 12 L14 12 L15 10 L16 11 L18 11 L20 12.5 L21 14 L21 17 L19.5 17.5 L19.5 19 L18 19 L18 17.5 L13 17.5 L13 19 Z"/>
-              <!-- Schwanz -->
-              <path d="M11 14 Q9 13 9 15"/>
-              <!-- Auge -->
-              <circle cx="16.5" cy="13" r="0.4" fill="currentColor"/>
-            </svg>
+      <div class="process-panels">
+        <article class="process-panel active" id="fb-panel-1" role="tabpanel" aria-labelledby="fb-tab-1" data-step="1">
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M12 14.5v4M10 16.5h4"/></svg></span>
+            <div>
+              <h3>Klimafreundlicher Neubau</h3>
+              <p>Wer neu baut, fördert über die KfW: zinsgünstige Kredite für Gebäude im Standard „Klimafreundliches Wohngebäude".</p>
+            </div>
           </div>
-          <div>
-            <div class="ebene-card-tier">Ebene 02</div>
-            <div class="ebene-card-tier-name">Land NRW</div>
-          </div>
-        </div>
-        <ul class="ebene-card-list">
-          <li><strong>progres.nrw</strong> Solarthermie, Pellets, Batteriespeicher</li>
-          <li><strong>NRW.BANK Modernisierungskredit</strong> zinsgünstiges Darlehen</li>
-          <li><strong>NRW.BANK Wohnraumförderung</strong> für selbstgenutztes Eigentum</li>
-          <li>Kombinierbar mit Bundes- und Stadt-Programmen</li>
-        </ul>
-        <div class="ebene-card-foot">
-          <span>Verwaltet von</span><strong>NRW.BANK · BezReg</strong>
-        </div>
-      </article>
+          <ul class="check-list">
+            <li>KfW 297 — bis 100.000 € Kredit je Wohneinheit</li>
+            <li>KfW 298 — mit QNG bis 150.000 €</li>
+            <li>Effizienzhaus 40 + niedrige Lebenszyklus-Emissionen</li>
+            <li>Fachplanung &amp; Baubegleitung durch uns</li>
+          </ul>
+        </article>
 
-      <article class="ebene-card">
-        <div class="ebene-card-head">
-          <div class="ebene-card-icon">
-            <!-- Kölner Dom: Doppelturm-Silhouette mit Kreuzen -->
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <!-- Linker Turm -->
-              <path d="M9 25 L9 12 L10 10 L11 6 L12 10 L13 12 L13 25"/>
-              <!-- Rechter Turm -->
-              <path d="M19 25 L19 12 L20 10 L21 6 L22 10 L23 12 L23 25"/>
-              <!-- Mittelschiff zwischen den Türmen -->
-              <path d="M13 25 L13 16 L14 14 L18 14 L19 16 L19 25"/>
-              <!-- Rosette / Fenster Mitte -->
-              <circle cx="16" cy="19" r="1.4"/>
-              <!-- Schmale Fenster Türme -->
-              <line x1="11" y1="15" x2="11" y2="20"/>
-              <line x1="21" y1="15" x2="21" y2="20"/>
-              <!-- Kreuze auf Türmen -->
-              <line x1="11" y1="5" x2="11" y2="2.5"/>
-              <line x1="10" y1="3.6" x2="12" y2="3.6"/>
-              <line x1="21" y1="5" x2="21" y2="2.5"/>
-              <line x1="20" y1="3.6" x2="22" y2="3.6"/>
-              <!-- Basis-Linie -->
-              <line x1="5" y1="27" x2="27" y2="27"/>
-            </svg>
+        <article class="process-panel" id="fb-panel-2" role="tabpanel" aria-labelledby="fb-tab-2" data-step="2" hidden>
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><polyline points="21 3 21 9 15 9"/></svg></span>
+            <div>
+              <h3>Energetische Sanierung</h3>
+              <p>Vom Effizienzhaus bis Maßnahme für Maßnahme — wir holen die passende BEG-Förderung für Ihren Bestand.</p>
+            </div>
           </div>
-          <div>
-            <div class="ebene-card-tier">Ebene 03</div>
-            <div class="ebene-card-tier-name">Stadt Köln</div>
+          <ul class="check-list">
+            <li>Komplettsanierung zum Effizienzhaus — KfW 261</li>
+            <li>Schritt für Schritt per individuellem <a href="/aumann-eco-preview/sanierungsfahrplan/" class="inline-link">Sanierungsfahrplan</a></li>
+            <li>+5 % iSFP-Bonus auf jede Maßnahme</li>
+            <li>BAFA-Energieberatung 50 % bezuschusst</li>
+          </ul>
+        </article>
+
+        <article class="process-panel" id="fb-panel-3" role="tabpanel" aria-labelledby="fb-tab-3" data-step="3" hidden>
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg></span>
+            <div>
+              <h3>Gebäudehülle &amp; Anlagentechnik</h3>
+              <p>Einzelne Maßnahmen am Bestand — als BAFA-geförderte BEG-Einzelmaßnahme.</p>
+            </div>
           </div>
-        </div>
-        <ul class="ebene-card-list">
-          <li><strong>PV-Anlagen</strong> 1.500–2.500 € (2–14+ kWp)</li>
-          <li><strong>Batteriespeicher</strong> 500–1.300 € (3–11+ kWh)</li>
-          <li><strong>Steckersolargeräte</strong> 150–200 €</li>
-          <li><strong>Photovoltaik Arbeiten</strong> identische Staffelung wie Wohnen</li>
-          <li>Max. <strong>10.000 €/Jahr</strong> · kombinierbar mit Bund &amp; Land</li>
-        </ul>
-        <div class="ebene-card-foot">
-          <span>Verwaltet von</span><strong>Stadt Köln</strong>
-        </div>
-      </article>
+          <ul class="check-list">
+            <li>Dämmung von Dach, Fassade &amp; Kellerdecke</li>
+            <li>Fenster &amp; Außentüren</li>
+            <li>Lüftungsanlage &amp; Anlagentechnik</li>
+            <li>15 % (+5 % mit iSFP), bis 30.000 €/WE</li>
+          </ul>
+        </article>
+
+        <article class="process-panel" id="fb-panel-4" role="tabpanel" aria-labelledby="fb-tab-4" data-step="4" hidden>
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span>
+            <div>
+              <h3>Heizungstausch</h3>
+              <p>Raus aus fossil — die KfW-Heizungsförderung macht den Umstieg attraktiv.</p>
+            </div>
+          </div>
+          <ul class="check-list">
+            <li>Wärmepumpe, Biomasse, Solarthermie, Fernwärme</li>
+            <li>KfW 458 — bis zu 70 % Zuschuss</li>
+            <li>Grund- + Einkommens- + Geschwindigkeits-Bonus</li>
+            <li>Kombinierbar mit weiteren BEG-Maßnahmen</li>
+          </ul>
+        </article>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -1865,9 +2000,9 @@ footer.site-footer {
 <section id="programme" class="programme-section">
   <div class="wrap">
     <div class="section-head">
-      <span class="ae-eyebrow">02 · Programme im Detail</span>
-      <h2 class="ae-h2">Sechs Programme. Wir wissen, welches passt.</h2>
-      <p>Stand Mai 2026 — wir aktualisieren Fördersätze laufend und prüfen für dein Vorhaben die maximal mögliche Kombination.</p>
+      <span class="ae-eyebrow">02 · Sanierung</span>
+      <h2 class="ae-h2">Förderung für die energetische Sanierung.</h2>
+      <p>Die BEG-Programme für Bestandsgebäude — von der Einzelmaßnahme bis zur Komplettsanierung. Stand Mai 2026; wir prüfen für Ihr Vorhaben die höchstmögliche Förderung.</p>
     </div>
 
     <div class="programme-grid">
@@ -1890,7 +2025,7 @@ footer.site-footer {
       <article class="programm-card">
         <span class="programm-card-tag">Komplettsanierung</span>
         <h3>KfW 261</h3>
-        <div class="programm-card-rate">150.000<span class="unit">€ Kredit · 45 % Tilgung</span></div>
+        <div class="programm-card-rate">150.000<span class="unit">€ Kredit · bis 45 % Tilgungszuschuss</span></div>
         <p>Effizienzhaus-Sanierung zur Klasse 85 / 70 / 55 / 40 EE. Tilgungszuschuss steigt mit Effizienz-Klasse — plus <a href="/aumann-eco-preview/bauphysik/" class="inline-link">Nachweise</a> aus einer Hand.</p>
         <div class="programm-card-foot"><span>Antrag bei</span><strong>KfW</strong></div>
       </article>
@@ -1899,7 +2034,7 @@ footer.site-footer {
         <span class="programm-card-tag">Beratung</span>
         <h3>BAFA Energieberatung</h3>
         <div class="programm-card-rate">50<span class="unit">% · max. 650 € EFH</span></div>
-        <p>Hälftige Bezuschussung der Beratungskosten. Für EFH/ZFH max. 650 €, für MFH (3+ WE) max. 850 € — direkt mit deiner <a href="/aumann-eco-preview/sanierungsfahrplan/" class="inline-link">iSFP-Beratung</a> kombiniert.</p>
+        <p>Hälftige Bezuschussung der Beratungskosten. Für EFH/ZFH max. 650 €, für MFH (3+ WE) max. 850 € — direkt mit Ihrer <a href="/aumann-eco-preview/sanierungsfahrplan/" class="inline-link">iSFP-Beratung</a> kombiniert.</p>
         <div class="programm-card-foot"><span>Antrag bei</span><strong>BAFA</strong></div>
       </article>
 
@@ -1912,11 +2047,48 @@ footer.site-footer {
       </article>
 
       <article class="programm-card">
-        <span class="programm-card-tag">Land &amp; Stadt</span>
-        <h3>progres.nrw &amp; Köln</h3>
-        <div class="programm-card-rate">bis 10.000<span class="unit">€/Jahr Köln</span></div>
-        <p>NRW: Solarthermie, Pellets, Batteriespeicher. Stadt Köln: PV (1.500–2.500 €), Speicher (500–1.300 €), Steckersolargeräte (150–200 €) — kombinierbar mit Bund.</p>
-        <div class="programm-card-foot"><span>Antrag bei</span><strong>NRW · Stadt Köln</strong></div>
+        <span class="programm-card-tag">Baubegleitung</span>
+        <h3>Fachplanung &amp; Baubegleitung</h3>
+        <div class="programm-card-rate">50<span class="unit">% · bis 5.000 €</span></div>
+        <p>Die BEG fördert die Baubegleitung durch Energieeffizienz-Experten mit 50 % der Kosten (bis 5.000 € bei EFH/ZFH) — bei den meisten Maßnahmen Voraussetzung für die Förderung. Übernehmen wir.</p>
+        <div class="programm-card-foot"><span>Antrag bei</span><strong>BAFA · KfW</strong></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ FÖRDERUNG NEUBAU ═════════════════════ -->
+<section class="programme-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="ae-eyebrow">03 · Neubau</span>
+      <h2 class="ae-h2">Förderung für den klimafreundlichen Neubau.</h2>
+      <p>Für Neubauten gilt die KfW-Förderung „Klimafreundliches Wohngebäude" (KFN) — als zinsgünstiger Kredit, je nach Nachhaltigkeits-Standard.</p>
+    </div>
+
+    <div class="programme-grid">
+      <article class="programm-card">
+        <span class="programm-card-tag">Klimafreundlicher Neubau</span>
+        <h3>KfW 297 · 296</h3>
+        <div class="programm-card-rate">bis 100.000<span class="unit">€ Kredit / WE</span></div>
+        <p>Klimafreundlicher Neubau (KFN): zinsgünstiger Förderkredit für Effizienzhaus 40 mit niedrigen Lebenszyklus-Emissionen. Ergänzend Klimafreundlicher Neubau im Niedrigpreissegment (KNN): Effizienzhaus 55 mit Lebenszyklusanalyse (LCA) und Kosten-Flächen-Optimierung.</p>
+        <div class="programm-card-foot"><span>Antrag bei</span><strong>KfW</strong></div>
+      </article>
+
+      <article class="programm-card">
+        <span class="programm-card-tag">KFN mit QNG</span>
+        <h3>KfW 298</h3>
+        <div class="programm-card-rate">bis 150.000<span class="unit">€ Kredit / WE</span></div>
+        <p>Höherer Kreditrahmen, wenn das Gebäude zusätzlich das Qualitätssiegel Nachhaltiges Gebäude (QNG) erreicht — Nachweis über einen QNG-Auditor.</p>
+        <div class="programm-card-foot"><span>Antrag bei</span><strong>KfW</strong></div>
+      </article>
+
+      <article class="programm-card">
+        <span class="programm-card-tag">Energieeffizienz-Experte</span>
+        <h3>Fachplanung &amp; Baubegleitung</h3>
+        <div class="programm-card-rate">Pflicht<span class="unit">für die KFN-Förderung</span></div>
+        <p>Die KFN-Förderung setzt die Bestätigung durch einen Energieeffizienz-Experten voraus. Wir übernehmen die energetische Fachplanung und Baubegleitung — gelistet bei der dena.</p>
+        <div class="programm-card-foot"><span>Leistung von</span><strong>aumann eco</strong></div>
       </article>
     </div>
   </div>
@@ -1926,14 +2098,14 @@ footer.site-footer {
 <section class="rechen-section">
   <div class="wrap">
     <div class="section-head">
-      <span class="ae-eyebrow">03 · Rechenbeispiel</span>
+      <span class="ae-eyebrow">04 · Rechenbeispiel</span>
       <h2 class="ae-h2">Wie viel Förderung steckt in einer Sanierung?</h2>
-      <p>Beispiel: Einfamilienhaus 220&nbsp;m², Komplettsanierung mit Dämmung, neuen Fenstern, Wärmepumpe und PV-Anlage. Mit kombinierter Förderung aus Bund + Stadt Köln.</p>
+      <p>Beispiel: Einfamilienhaus, 220&nbsp;m², Komplettsanierung zum <strong>Effizienzhaus 85-EE</strong> mit Dämmung, neuen Fenstern und Wärmepumpe — gefördert über die <strong>BEG</strong> (BAFA &amp; KfW). Kommunale Programme wie die PV-Förderung der Stadt Köln kommen optional als Ergänzung dazu.</p>
     </div>
 
     <div class="rechen-statusbar">
       <span class="rechen-statusbar-item"><strong>Projekt:</strong>&nbsp;EFH Köln-Lindenthal · Sanierung 2026</span>
-      <span class="rechen-statusbar-item"><strong>Gesamtförderung:</strong>&nbsp;34.550 €</span>
+      <span class="rechen-statusbar-item"><strong>Gesamtförderung:</strong>&nbsp;33.450 €</span>
       <span class="rechen-statusbar-item ts">Stand 11.05.2026</span>
     </div>
 
@@ -1948,12 +2120,12 @@ footer.site-footer {
           <tbody>
             <tr><td>Dämmung Fassade &amp; Dach</td><td>45.000&nbsp;€</td><td>−9.000&nbsp;€</td></tr>
             <tr><td>Neue Fenster (3-fach)</td><td>20.000&nbsp;€</td><td>−4.000&nbsp;€</td></tr>
-            <tr><td>Wärmepumpe + Pufferspeicher</td><td>35.000&nbsp;€</td><td>−19.250&nbsp;€</td></tr>
+            <tr><td>Wärmepumpe + Pufferspeicher</td><td>35.000&nbsp;€</td><td>−16.500&nbsp;€</td></tr>
             <tr><td>PV-Anlage 8 kWp + Speicher</td><td>18.000&nbsp;€</td><td>−3.300&nbsp;€</td></tr>
             <tr><td>iSFP + Förderberatung</td><td>1.500&nbsp;€</td><td>−650&nbsp;€</td></tr>
           </tbody>
           <tfoot>
-            <tr><td>Summe</td><td>119.500&nbsp;€</td><td>−36.200&nbsp;€</td></tr>
+            <tr><td>Summe</td><td>119.500&nbsp;€</td><td>−33.450&nbsp;€</td></tr>
           </tfoot>
         </table>
 
@@ -1968,13 +2140,13 @@ footer.site-footer {
           <div class="rechen-compare-row rechen-compare-row--after">
             <div class="rechen-compare-head">
               <span class="rechen-compare-label">Mit Förderung</span>
-              <span class="rechen-compare-value">83.300&nbsp;€</span>
+              <span class="rechen-compare-value">86.050&nbsp;€</span>
             </div>
-            <div class="rechen-compare-bar" style="--scale:0.697"></div>
+            <div class="rechen-compare-bar" style="--scale:0.720"></div>
           </div>
           <div class="rechen-saving">
-            <span>Du sparst</span>
-            <strong>36.200&nbsp;€ · −30,3&nbsp;%</strong>
+            <span>Sie sparen</span>
+            <strong>33.450&nbsp;€ · −28,0&nbsp;%</strong>
           </div>
         </div>
       </div>
@@ -1999,7 +2171,7 @@ footer.site-footer {
           <div class="foerder-layer foerder-layer--beg" style="--idx:1;">
             <div class="foerder-layer-info">
               <span class="foerder-layer-label">BEG-EM Dämmung + Fenster</span>
-              <span class="foerder-layer-note">20 % von 65.000 € (15 % + 5 % iSFP-Bonus)</span>
+              <span class="foerder-layer-note">1. Jahr Fenster: 20 % von 20.000 € = 4.000 € · 2. Jahr Dämmung Fassade &amp; Dach: 20 % von 45.000 € = 9.000 € (15 % + 5 % iSFP-Bonus)</span>
             </div>
             <span class="foerder-layer-value">– 13.000&nbsp;€</span>
           </div>
@@ -2008,9 +2180,9 @@ footer.site-footer {
           <div class="foerder-layer foerder-layer--kfw" style="--idx:2;">
             <div class="foerder-layer-info">
               <span class="foerder-layer-label">KfW 458 Wärmepumpe</span>
-              <span class="foerder-layer-note">55 % von 35.000 € (Grund + Klima-Bonus)</span>
+              <span class="foerder-layer-note">55 % von 30.000 € (gedeckelt · Grund + Klima-Bonus)</span>
             </div>
-            <span class="foerder-layer-value">– 19.250&nbsp;€</span>
+            <span class="foerder-layer-value">– 16.500&nbsp;€</span>
           </div>
 
           <!-- Layer 4: Stadt Köln PV -->
@@ -2034,24 +2206,24 @@ footer.site-footer {
           <!-- Layer 6: Eigenanteil (gross white) -->
           <div class="foerder-layer foerder-layer--eigen" style="--idx:5;">
             <div class="foerder-layer-info">
-              <span class="foerder-layer-label">Dein Eigenanteil</span>
-              <span class="foerder-layer-note">nach Gesamtförderung · 29 % gespart</span>
+              <span class="foerder-layer-label">Ihr Eigenanteil</span>
+              <span class="foerder-layer-note">nach Gesamtförderung · 28 % gespart</span>
             </div>
-            <span class="foerder-layer-value">83.300&nbsp;€</span>
+            <span class="foerder-layer-value">86.050&nbsp;€</span>
           </div>
         </div>
 
         <div class="foerder-stack-summary">
           <span>Gesamtförderung</span>
-          <strong>36.200 €  ·  −30,3 %</strong>
+          <strong>33.450 €  ·  −28,0 %</strong>
         </div>
       </div>
     </div>
 
     <div class="rechen-cta">
       <div class="rechen-cta-text">
-        <h3>Auch dein Projekt soll maximal gefördert sein?</h3>
-        <p>Wir prüfen kostenlos, welche Förderprogramme zu deinem Vorhaben passen — und wie wir sie maximal kombinieren.</p>
+        <h3>Auch Ihr Projekt soll maximal gefördert sein?</h3>
+        <p>Wir prüfen kostenlos, welche Förderprogramme zu Ihrem Vorhaben passen — und wie wir sie maximal kombinieren.</p>
       </div>
       <a href="/aumann-eco-preview/kontakt/" class="btn btn--lime">Förder-Check starten →</a>
     </div>
@@ -2062,9 +2234,9 @@ footer.site-footer {
 <section id="stolperfallen" class="stolper-section" style="scroll-margin-top:80px;">
   <div class="wrap">
     <div class="section-head section-head-center">
-      <span class="ae-eyebrow">04 · Stolperfallen</span>
-      <h2 class="ae-h2">Fünf Fehler, die dich tausende Euro&nbsp;kosten.</h2>
-      <p>Förderanträge sind formalistisch. Wer einen Schritt verpasst, verliert das Geld — klicke oder wische durch die häufigsten Fallen.</p>
+      <span class="ae-eyebrow">05 · Stolperfallen</span>
+      <h2 class="ae-h2">Fünf Fehler, die Sie tausende Euro&nbsp;kosten.</h2>
+      <p>Förderanträge sind formalistisch. Wer einen Schritt verpasst, verliert das Geld — klicken oder wischen Sie durch die häufigsten Fallen.</p>
     </div>
 
     <div class="carousel-wrap">
@@ -2078,7 +2250,7 @@ footer.site-footer {
             <span class="carousel-card-tag">Falle 01</span>
             <div class="carousel-card-num">01</div>
             <h3>Auftrag vor Antrag.</h3>
-            <p>Wer den Handwerker beauftragt, <strong>bevor</strong> der Antrag bei KfW/BAFA gestellt ist, verliert die komplette Förderung. Ausnahme: BEG-EM bei BAFA erlaubt nachträgliche Anträge bis 12 Monate — nicht jede Maßnahme.</p>
+            <p>Wer das ausführende Unternehmen beauftragt, <strong>bevor</strong> der Antrag bei KfW/BAFA gestellt ist, verliert die komplette Förderung. Entscheidend sind Förderprogramm, Vertragsklausel, Antragsdatum und die richtige Reihenfolge.</p>
             <div class="carousel-card-stat">
               <strong>100&nbsp;%</strong>
               <span>Förderung weg bei KfW</span>
@@ -2111,7 +2283,7 @@ footer.site-footer {
             <span class="carousel-card-tag">Falle 04</span>
             <div class="carousel-card-num">04</div>
             <h3>Zusagefrist verpasst.</h3>
-            <p>Nach einem positiven Förderbescheid musst du die Maßnahme innerhalb der <strong>Umsetzungsfrist</strong> abschließen — bei KfW typisch 12 Monate, mit Verlängerung bis 36. Sonst läuft die Zusage aus.</p>
+            <p>Nach einem positiven Förderbescheid müssen Sie die Maßnahme innerhalb der <strong>Umsetzungsfrist</strong> abschließen — bei KfW typisch 12 Monate, mit Verlängerung bis 36. Sonst läuft die Zusage aus.</p>
             <div class="carousel-card-stat">
               <strong>12&nbsp;Mon.</strong>
               <span>KfW-Standard-Zusagefrist</span>
@@ -2150,16 +2322,16 @@ footer.site-footer {
 <section id="ablauf" class="ablauf-section">
   <div class="wrap">
     <div class="section-head-center">
-      <span class="ae-eyebrow">05 · Ablauf</span>
+      <span class="ae-eyebrow">06 · Ablauf</span>
       <h2 class="ae-h2">In 5 Schritten zum Förderbescheid.</h2>
-      <p>Von der ersten Einschätzung bis zur Auszahlung — wir begleiten dich durch jeden Schritt.</p>
+      <p>Von der ersten Einschätzung bis zur Auszahlung — wir begleiten Sie durch jeden Schritt.</p>
     </div>
     <div class="usp-list">
       <article class="usp-row">
         <span class="usp-num">01</span>
         <div class="usp-body">
           <h3>Erstgespräch &amp; Förder-Check</h3>
-          <p>30 Minuten, kostenlos und unverbindlich. Wir prüfen dein Vorhaben und sagen dir, welche Programme passen — und welche Kombination die maximale Förderung bringt.</p>
+          <p>30 Minuten, kostenlos und unverbindlich. Wir prüfen Ihr Vorhaben und sagen Ihnen, welche Programme passen — und welche Kombination die maximale Förderung bringt.</p>
         </div>
       </article>
       <article class="usp-row">
@@ -2173,7 +2345,7 @@ footer.site-footer {
         <span class="usp-num">03</span>
         <div class="usp-body">
           <h3>Antragstellung — vor Auftragsvergabe</h3>
-          <p>Anträge bei BAFA, KfW und NRW.BANK werden formgerecht eingereicht. Wir stellen sicher, dass alle Voraussetzungen erfüllt sind, bevor du den Handwerker beauftragst.</p>
+          <p>Anträge bei BAFA und KfW erfordern die formgerechte Einreichung — wir begleiten Sie und stellen sicher, dass alle technischen Mindestvoraussetzungen erfüllt sind, und erstellen die erforderlichen Bestätigungen, bevor Sie den Handwerker beauftragen.</p>
         </div>
       </article>
       <article class="usp-row">
@@ -2187,7 +2359,7 @@ footer.site-footer {
         <span class="usp-num">05</span>
         <div class="usp-body">
           <h3>Verwendungsnachweis &amp; Auszahlung</h3>
-          <p>Wir reichen die Endabrechnung formal korrekt ein und überwachen Fristen. Sobald die Förderstelle prüft und freigibt, kommt das Geld direkt auf dein Konto.</p>
+          <p>Wir reichen die Endabrechnung formal korrekt ein und überwachen Fristen. Sobald die Förderstelle prüft und freigibt, kommt das Geld direkt auf Ihr Konto.</p>
         </div>
       </article>
     </div>
@@ -2198,7 +2370,7 @@ footer.site-footer {
 <section class="preise-section">
   <div class="wrap">
     <div class="section-head">
-      <span class="ae-eyebrow">06 · Kosten</span>
+      <span class="ae-eyebrow">07 · Kosten</span>
       <h2 class="ae-h2">Was kostet die&nbsp;Förderberatung?</h2>
       <p>Festpreise — die Beratung wird ihrerseits mit 50&nbsp;% über das BAFA bezuschusst.</p>
     </div>
@@ -2213,14 +2385,20 @@ footer.site-footer {
           </tr>
         </thead>
         <tbody>
-          <tr><td>iSFP + Förderberatung (EFH / ZFH)</td><td>1.300&nbsp;€</td><td>650&nbsp;€</td></tr>
-          <tr><td>iSFP + Förderberatung (MFH 3+ WE)</td><td>1.700&nbsp;€</td><td>850&nbsp;€</td></tr>
+          <tr><td>iSFP + Förderberatung (EFH / ZFH)</td><td>1.850–2.150&nbsp;€</td><td>1.200–1.500&nbsp;€</td></tr>
+          <tr><td>iSFP + Förderberatung (MFH 3+ WE)</td><td>2.650&nbsp;€</td><td>1.800&nbsp;€</td></tr>
           <tr><td>Reine Förderberatung (ohne iSFP)</td><td>480&nbsp;€</td><td>–</td></tr>
           <tr><td>Baubegleitung BEG-Einzelmaßnahme</td><td>nach Aufwand</td><td>bis 50&nbsp;% förderbar</td></tr>
-          <tr><td>KfW-Bestätigung (zum Antrag + nach Durchführung)</td><td>ab 1.200&nbsp;€</td><td>im KfW-Kredit inkludiert</td></tr>
+          <tr><td>KfW-Bestätigung zum Antrag (BzA) oder nach Durchführung (BnD) — je Bescheinigung</td><td>ab 250&nbsp;€</td><td>im KfW-Kredit inkludiert</td></tr>
         </tbody>
       </table>
       <p class="preise-note"><strong>Hinweis:</strong> Aufträge mit <a href="/aumann-eco-preview/sanierungsfahrplan/" class="inline-link">iSFP</a> enthalten die Förderberatung ohne Aufpreis. Bei Baubegleitung für KfW-Effizienzhäuser können bis zu 10.000 € Beratungskosten über die KfW gefördert werden.</p>
+    </div>
+
+    <div class="xref">
+      <div class="xref-icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h6a4 4 0 0 0 4-4V7"/></svg></div>
+      <p class="xref-text">Sie möchten vor der Förderberatung wissen, welche Sanierungsschritte überhaupt sinnvoll sind? Dann ist der <strong>individuelle Sanierungsfahrplan</strong> die richtige Grundlage.</p>
+      <a href="/aumann-eco-preview/sanierungsfahrplan/" class="btn btn--outline">Zum Sanierungsfahrplan →</a>
     </div>
   </div>
 </section>
@@ -2230,12 +2408,12 @@ footer.site-footer {
   <div class="wrap">
     <div class="ueber-grid">
       <div class="ueber-content">
-        <span class="ae-eyebrow ueber-eyebrow">07 · Über mich</span>
-        <h2 class="ae-h2 ueber-headline">Förderung von Mensch zu Mensch.</h2>
-        <p class="ueber-lead">Seit über 16&nbsp;Jahren beantrage ich Förderungen für Sanierungs- und Neubauprojekte in Köln und dem Rheinland — als <em>dena-Energieeffizienz-Experte</em> mit BAFA- und KfW-Zulassung. Du bekommst keine Marketing-Versprechen, sondern ein realistisches Bild deiner Möglichkeiten.</p>
+        <span class="ae-eyebrow ueber-eyebrow">08 · Über aumann eco</span>
+        <h2 class="ae-h2 ueber-headline">Ihr Ingenieurbüro für maximale Förderung.</h2>
+        <p class="ueber-lead">aumann eco beantragt Förderungen für Sanierungs- und Neubauprojekte in Köln und dem Rheinland — als <em>dena-gelistetes Ingenieurbüro</em> mit BAFA- und KfW-Zulassung. Bei uns erhalten Sie keine Marketing-Versprechen, sondern ein realistisches Bild Ihrer Möglichkeiten.</p>
 
         <div class="ueber-cta-group">
-          <a href="/aumann-eco-preview/ueber-uns/" class="btn btn--primary">Mehr über Benedikt →</a>
+          <a href="/aumann-eco-preview/ueber-uns/" class="btn btn--primary">Mehr über aumann eco →</a>
           <a href="/aumann-eco-preview/kontakt/" class="btn btn--outline">Termin vereinbaren</a>
         </div>
 
@@ -2246,7 +2424,7 @@ footer.site-footer {
           </div>
           <div class="ueber-qual">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg>
-            <span>Ingenieurkammer NRW</span>
+            <span>Ingenieurkammer-Bau NRW</span>
           </div>
           <div class="ueber-qual">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -2258,10 +2436,7 @@ footer.site-footer {
       <aside class="ueber-aside">
         <div class="founder-card">
           <div class="founder-visual">
-            <div class="founder-dots-stack" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
-            <img class="founder-portrait" src="/aumann-eco-preview/assets/images/img-benedikt-jot00269-cutout.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco">
+            <img class="founder-portrait" src="/aumann-eco-preview/assets/images/img-benedikt-jot00258-cutout.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco">
           </div>
           <div class="founder-plaque">
             <div class="brand-badge" aria-hidden="true">
@@ -2278,7 +2453,7 @@ footer.site-footer {
             </div>
             <div>
               <div class="founder-name">Benedikt Aumann</div>
-              <div class="founder-title">Dipl.-Ing. · Geschäftsführer</div>
+              <div class="founder-title">Ingenieur, M.A. · Inhaber</div>
             </div>
           </div>
         </div>
@@ -2287,45 +2462,17 @@ footer.site-footer {
   </div>
 </section>
 
-<!-- ═════════════════════ ZAHLEN & FAKTEN ═════════════════════ -->
-<section>
-  <div class="wrap">
-    <div class="section-head-center">
-      <span class="ae-eyebrow">Zahlen &amp; Fakten</span>
-      <h2 class="ae-h2">Förderberatung bei aumann&nbsp;eco.</h2>
-    </div>
-    <div class="stats">
-      <div class="stat">
-        <div class="num"><span class="counter" data-target="16">0</span><span class="unit">+</span></div>
-        <div class="label">Jahre Erfahrung</div>
-      </div>
-      <div class="stat">
-        <div class="num"><span class="counter" data-target="250">0</span><span class="unit">+</span></div>
-        <div class="label">Förderanträge erfolgreich</div>
-      </div>
-      <div class="stat">
-        <div class="num"><span class="counter" data-target="0">0</span></div>
-        <div class="label">Ablehnungen wegen Formfehler</div>
-      </div>
-      <div class="stat">
-        <div class="num"><span class="counter" data-target="50">0</span><span class="unit">%</span></div>
-        <div class="label">BAFA-Bonus auf Beratung</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═════════════════════ FAQ ═════════════════════ -->
 <section id="faq" style="background:var(--ae-grey-100);">
   <div class="wrap">
     <div class="section-head-center">
-      <span class="ae-eyebrow">08 · Häufige Fragen</span>
+      <span class="ae-eyebrow">09 · Häufige Fragen</span>
       <h2 class="ae-h2">Häufig gefragt.</h2>
     </div>
     <div class="faq">
       <details open>
         <summary>Wie viel Förderung kann ich für meine Sanierung bekommen?</summary>
-        <p>Das hängt von deinen Maßnahmen, deinem Einkommen und der Reihenfolge ab. Bei einer typischen Komplettsanierung (Dämmung, Fenster, Wärmepumpe, PV) sind <strong>25 bis 40 %</strong> Gesamtförderung realistisch. Mit <a href="/aumann-eco-preview/sanierungsfahrplan/" class="inline-link">iSFP</a> + KfW 458 Höchstsatz + Stadt-Köln-PV können es auch über 40 % werden.</p>
+        <p>Das hängt individuell vom Gebäude, der Anzahl der Wohneinheiten, den geplanten Maßnahmen, dem Einkommen und kommunalen Förderungen ab. Bei einer <a href="/aumann-eco-preview/sanierungsfahrplan/" class="inline-link">Komplettsanierung</a> zum Effizienzhaus sind <strong>25 bis 40 %</strong> Gesamtförderung möglich.</p>
       </details>
       <details>
         <summary>Welche Programme kann ich kombinieren?</summary>
@@ -2337,45 +2484,44 @@ footer.site-footer {
       </details>
       <details>
         <summary>Was passiert, wenn die Förderung abgelehnt wird?</summary>
-        <p>Wir hatten in über 250 Anträgen keine Ablehnung wegen Formfehlern. Sollte trotzdem etwas im Inhalt unklar sein, gehen wir in Widerspruch und legen Belege nach. Du zahlst nur, wenn der Antrag erfolgreich ist (bei reiner Antragsstellung).</p>
+        <p>Wir hatten bisher noch keine Ablehnung wegen Formfehlern — sollte trotzdem etwas unklar sein, klären wir dies mit den jeweiligen Fördermittelgebern ab und liefern Belege entsprechend nach.</p>
       </details>
       <details>
         <summary>Wie lange dauert es vom Antrag bis zur Auszahlung?</summary>
-        <p>Förderbescheid: meist 4–8 Wochen. Auszahlung: nach Verwendungsnachweis (also nach Umsetzung) weitere 4–12 Wochen. Bei KfW-Krediten läuft die Auszahlung über deine Hausbank — die Förderung wird mit der Tilgung verrechnet.</p>
+        <p>Förderbescheid: meist 4–8 Wochen. Auszahlung: nach Verwendungsnachweis (also nach Umsetzung) weitere 4–12 Wochen. Bei KfW-Krediten läuft die Auszahlung über Ihre Hausbank — die Förderung wird mit der Tilgung verrechnet.</p>
       </details>
       <details>
         <summary>Kann ich Förderung auch rückwirkend beantragen?</summary>
-        <p>Bei <strong>BAFA-BEG-EM</strong> teilweise ja (max. 12 Monate nach Maßnahmen-Beginn, gilt nicht für alle Maßnahmen). Bei <strong>KfW</strong> grundsätzlich <strong>nein</strong>. Beauftragst du erst und beantragst danach KfW, ist die Förderung verloren.</p>
+        <p>Nein, eine Förderung kann nicht rückwirkend beantragt werden. Der Förderantrag bei KfW und BAFA muss immer vor Maßnahmenbeginn gestellt werden. Planungs- und Beratungsleistungen von Architekten und Energieeffizienz-Experten können vorab begonnen werden.</p>
       </details>
       <details>
         <summary>Was kostet die Förderberatung und wird sie selbst gefördert?</summary>
-        <p>Festpreis 1.300 € (EFH/ZFH) bzw. 1.700 € (MFH) — das BAFA bezuschusst die Beratung mit 50 %. Dein Eigenanteil: <strong>650 € bzw. 850 €</strong>. Diese Investition refinanziert sich mit dem iSFP-Bonus bei der ersten Sanierungsmaßnahme.</p>
-      </details>
-      <details>
-        <summary>Welche Stadt-Köln-Programme gibt es 2026?</summary>
-        <p>Die Stadt Köln fokussiert 2026 auf erneuerbare Energien: PV-Anlagen (1.500–2.500 €), Batteriespeicher (500–1.300 €), Steckersolargeräte (150–200 €). Max. 10.000 € pro Jahr und Antragsteller — kombinierbar mit Bundes- und Landesförderung.</p>
+        <p>Festpreis 1.850 € (EFH/ZFH) bzw. 2.650 € (MFH) — das BAFA bezuschusst die Beratung mit 50 %. Ihr Eigenanteil: <strong>1.200 € bzw. 1.800 €</strong>. Diese Investition refinanziert sich mit dem iSFP-Bonus bei der ersten Sanierungsmaßnahme.</p>
       </details>
     </div>
   </div>
 </section>
 
 <!-- ═════════════════════ FINAL CTA ═════════════════════ -->
+<div class="ostend-seo-strip">
+  <p>Mit Ostend Digital als <a href="https://ostend.digital" target="_blank" rel="noopener">Werbeagentur Stuttgart</a> haben wir, die aumann eco, unsere Online-Präsenz mit kreativen Webdesigns und effektiven SEO-Maßnahmen optimiert.</p>
+</div>
 <section class="cta-section">
   <div class="wrap">
     <div class="final-cta">
       <div class="cta-portrait">
         <div class="cta-portrait-frame">
-          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco" width="200" height="200">
+          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco" width="200" height="200">
         </div>
         <div class="cta-sign">
           <span class="cta-sign-name">Benedikt Aumann</span>
-          <span class="cta-sign-title">Dipl.-Ing. · Geschäftsführer</span>
+          <span class="cta-sign-title">Ingenieur, M.A. · Inhaber</span>
         </div>
       </div>
       <div class="cta-content">
         <span class="ae-eyebrow">Kostenloser Förder-Check</span>
         <h2 class="ae-h2">30 Minuten —<br>maximale Förderung sichern.</h2>
-        <p>Sag uns kurz dein Vorhaben (Sanierung, Heizungstausch, Komplettsanierung) — wir prüfen alle aktuellen Förderprogramme und sagen dir realistisch, was möglich ist.</p>
+        <p>Sagen Sie uns kurz Ihr Vorhaben (Sanierung, Heizungstausch, Komplettsanierung) — wir prüfen alle aktuellen Förderprogramme und sagen Ihnen realistisch, was möglich ist.</p>
         <div class="btn-group">
           <a href="mailto:info@aumann-ing.de" class="btn btn--dark">Förder-Check anfragen →</a>
           <a href="tel:+491755697551" class="btn btn--outline">0175 569 75 51</a>
@@ -2383,7 +2529,6 @@ footer.site-footer {
         <ul class="cta-trust">
           <li>Stand Mai 2026</li>
           <li>Kostenlos &amp; unverbindlich</li>
-          <li>0 abgelehnte Anträge</li>
         </ul>
       </div>
     </div>
@@ -2395,9 +2540,9 @@ footer.site-footer {
   <div class="wrap">
     <div class="footer-claim">
       <div>
-        <span class="eyebrow">Ingenieurbüro Köln · seit 2010</span>
+        <span class="eyebrow">Ingenieurbüro Köln</span>
         <h2>Nachhaltig. <em>Messbar.</em> Ehrlich.</h2>
-        <p class="lead">Wir planen Gebäude nicht nach Bauchgefühl, sondern mit Messdaten. Bauphysik, Energieberatung und eigene Messtechnik aus einer Hand — damit Förderung, Qualität und Klimaziel zusammenpassen.</p>
+        <p class="lead">Bauphysik, Energieberatung und Messungen aus einer Hand — damit Förderung, Planung und Qualität zusammenpassen.</p>
       </div>
       <aside class="office-card" aria-label="Kontakt & Öffnungszeiten">
         <span class="status">Heute erreichbar bis 18:00</span>
@@ -2421,9 +2566,9 @@ footer.site-footer {
     <div class="footer-inner">
       <div class="brand">
         <a href="/aumann-eco-preview/" class="logo">
-          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortmarke-mitClaim-weiss.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
+          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortbildmarke-weiss-rot.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
         </a>
-        <p>Ingenieurbüro für Bauphysik &amp; Energieberatung in Köln. Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
+        <p>Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
       </div>
       <div>
         <h4>Leistungen</h4>
@@ -2464,7 +2609,7 @@ footer.site-footer {
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 aumann eco GmbH · Alle Rechte vorbehalten</span>
+      <span>© 2026 aumann eco · Alle Rechte vorbehalten</span>
       <a href="https://ostend.digital" target="_blank" rel="noopener" class="webdesign-credit">Webdesign by Ostend Digital</a>
     </div>
   </div>
@@ -2626,5 +2771,75 @@ footer.site-footer {
 })();
 </script>
 
+<script>
+  // ─── Geförderte Vorhaben: Process-Tabs (wie Homepage „Warum") ───
+  (function(){
+    const root = document.querySelector('[data-process]');
+    if (!root) return;
+    const tabs = root.querySelectorAll('.process-tab');
+    const panels = root.querySelectorAll('.process-panel');
+    const progress = root.querySelector('.process-progress');
+    const fill = root.querySelector('.process-progress-fill');
+    const total = tabs.length;
+    const STEP_DURATION = 7000;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const autoplayEnabled = !!fill && !prefersReducedMotion && typeof fill.animate === 'function';
+    let currentAnim = null, isInViewport = false, isHovered = false, isFocused = false;
+    const getActiveStep = () => [...tabs].findIndex(t => t.classList.contains('active')) + 1;
+    function activate(step) {
+      tabs.forEach(t => { const a = +t.dataset.step === step; t.classList.toggle('active', a); t.setAttribute('aria-selected', a ? 'true' : 'false'); t.tabIndex = a ? 0 : -1; });
+      panels.forEach(p => { const a = +p.dataset.step === step; p.classList.toggle('active', a); if (a) p.removeAttribute('hidden'); else p.setAttribute('hidden', ''); });
+      if (progress) progress.style.transform = `translateX(${(step - 1) * 100}%)`;
+      restartAutoplay();
+    }
+    function restartAutoplay() {
+      if (!autoplayEnabled) return;
+      if (currentAnim) currentAnim.cancel();
+      currentAnim = fill.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: STEP_DURATION, easing: 'linear', fill: 'forwards' });
+      currentAnim.onfinish = () => { const c = getActiveStep(); activate(c >= total ? 1 : c + 1); };
+      updatePlayState();
+    }
+    function updatePlayState() {
+      if (!currentAnim) return;
+      const shouldPlay = autoplayEnabled && isInViewport && !isHovered && !isFocused;
+      if (shouldPlay && currentAnim.playState !== 'running') currentAnim.play();
+      else if (!shouldPlay && currentAnim.playState === 'running') currentAnim.pause();
+    }
+    tabs.forEach(tab => tab.addEventListener('click', () => { activate(+tab.dataset.step); tab.focus(); }));
+    root.addEventListener('keydown', (e) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+      if (!e.target.classList.contains('process-tab')) return;
+      e.preventDefault();
+      const c = getActiveStep();
+      let next = c;
+      if (e.key === 'ArrowRight') next = c >= total ? 1 : c + 1;
+      else if (e.key === 'ArrowLeft') next = c <= 1 ? total : c - 1;
+      else if (e.key === 'Home') next = 1;
+      else if (e.key === 'End') next = total;
+      activate(next); tabs[next - 1].focus();
+    });
+    root.addEventListener('pointerenter', () => { isHovered = true; updatePlayState(); });
+    root.addEventListener('pointerleave', () => { isHovered = false; updatePlayState(); });
+    root.addEventListener('focusin', () => { isFocused = true; updatePlayState(); });
+    root.addEventListener('focusout', (e) => { if (!root.contains(e.relatedTarget)) { isFocused = false; updatePlayState(); } });
+    const io = new IntersectionObserver((entries) => { entries.forEach(entry => { isInViewport = entry.isIntersecting; if (isInViewport && !currentAnim) restartAutoplay(); else updatePlayState(); }); }, { threshold: 0.3 });
+    io.observe(root);
+    document.addEventListener('visibilitychange', updatePlayState);
+  })();
+</script>
+
+
+<script>
+/* MOBILE NAV toggle */
+(function(){
+  var b=document.querySelector('.ae-burger'), m=document.getElementById('ae-mobile-menu');
+  if(!b||!m) return;
+  function open(){ m.classList.add('is-open'); b.setAttribute('aria-expanded','true'); b.setAttribute('aria-label','Men\u00fc schlie\u00dfen'); document.body.classList.add('ae-menu-open'); }
+  function close(){ m.classList.remove('is-open'); b.setAttribute('aria-expanded','false'); b.setAttribute('aria-label','Men\u00fc \u00f6ffnen'); document.body.classList.remove('ae-menu-open'); }
+  b.addEventListener('click', function(){ m.classList.contains('is-open')?close():open(); });
+  m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 </body>
 </html>

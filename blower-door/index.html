@@ -9,11 +9,11 @@
 /* ═══════════════════════════════════════════════
    VOLTE WEBFONT
 ═══════════════════════════════════════════════ */
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
 
 /* ═══════════════════════════════════════════════
    TOKENS
@@ -66,7 +66,7 @@ a { color:inherit; }
 
 .wrap { max-width:var(--ae-max); margin:0 auto; padding:0 var(--ae-s-6); }
 section { padding:var(--ae-s-9) 0; }
-@media (max-width:720px) { section { padding:var(--ae-s-8) 0; } }
+@media (max-width:720px) { section { padding:var(--ae-s-7) 0; } }
 
 /* ═══════════════════════════════════════════════
    HEADER
@@ -168,10 +168,17 @@ section { padding:var(--ae-s-9) 0; }
     drop-shadow(0 -0.8px 0 #FF634D)
     saturate(1.1);
 }
+.hero-still { display:none; }
 @media (max-width:960px) {
   .hero-grid { grid-template-columns:1fr; gap:var(--ae-s-6); }
   .hero-visual { max-width:520px; margin:0 auto; }
-  .hero-loop { width:100%; margin-right:0; }
+  .hero-loop { display:none; }
+  .hero-still { display:block; width:100%; height:auto; background:transparent;
+    filter: drop-shadow(0.8px 0 0 #FF634D) drop-shadow(-0.8px 0 0 #FF634D) drop-shadow(0 0.8px 0 #FF634D) drop-shadow(0 -0.8px 0 #FF634D) saturate(1.1); }
+}
+@media (max-width:560px) {
+  /* Hero-Headline: auf Mobile skalieren, damit die 3 gesetzten <br>-Zeilen je auf einer Zeile bleiben (statt 5+ Zeilen) */
+  .hero h1 { font-size:clamp(23px,7.4vw,32px); }
 }
 
 /* ═══════════════════════════════════════════════
@@ -229,17 +236,18 @@ section { padding:var(--ae-s-9) 0; }
 .erklaerung-section .section-head p { margin-top:0; }
 .erklaerung-grid {
   display:grid; grid-template-columns:1fr 1fr;
-  gap:var(--ae-s-6); align-items:stretch;
-  margin-top:var(--ae-s-4);
+  gap:var(--ae-s-8); align-items:stretch;
+  margin-top:var(--ae-s-7);
 }
 @media (max-width:900px) { .erklaerung-grid { grid-template-columns:1fr; } }
 .erklaerung-text h3 { font-size:22px; font-weight:600; margin-bottom:var(--ae-s-4); letter-spacing:var(--ae-headline); }
 .erklaerung-text p { font-size:16px; line-height:1.65; color:rgba(34,33,32,0.72); margin-bottom:var(--ae-s-4); }
 .erklaerung-text p:last-child { margin-bottom:0; }
 .erklaerung-visual {
+  position:relative;
   overflow:hidden;
   border-radius:var(--ae-r-md);
-  min-height:100%;
+  min-height:440px;
 }
 .erklaerung-visual img {
   width:100%; height:100%;
@@ -247,6 +255,17 @@ section { padding:var(--ae-s-9) 0; }
   transform:scale(1.25);
   transform-origin:center;
 }
+.bd-slider { position:absolute; inset:0; }
+.bd-slider img {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  transform:none; opacity:0; animation:bdfade 15s infinite;
+}
+.bd-slider img:nth-child(1){ animation-delay:0s; }
+.bd-slider img:nth-child(2){ animation-delay:5s; }
+.bd-slider img:nth-child(3){ animation-delay:10s; }
+@keyframes bdfade { 0%{opacity:0} 3%{opacity:1} 30%{opacity:1} 36%{opacity:0} 100%{opacity:0} }
+@media (prefers-reduced-motion:reduce){ .bd-slider img{ animation:none; } .bd-slider img:nth-child(1){ opacity:1; } }
 @media (max-width:900px) {
   .erklaerung-visual { aspect-ratio:5/4; min-height:0; }
 }
@@ -320,7 +339,7 @@ section { padding:var(--ae-s-9) 0; }
   gap:var(--ae-s-7); align-items:stretch;
   margin-top:var(--ae-s-6);
 }
-@media (max-width:900px) { .preise-grid { grid-template-columns:1fr; } }
+@media (max-width:900px) { .preise-grid { grid-template-columns:1fr; } .preise-card, .preise-inkl { min-width:0; } }
 .preise-card {
   background:var(--ae-white);
   border:1px solid rgba(34,33,32,0.08);
@@ -436,9 +455,8 @@ section { padding:var(--ae-s-9) 0; }
 .usp-row:not(:last-child)::after {
   content:""; position:absolute;
   left:calc(var(--num-col) / 2);
-  bottom:calc(-1 * var(--ae-s-7));
-  width:2px; height:calc(var(--ae-s-7) * 2);
-  transform:translateX(-50%);
+  top:calc(var(--ae-s-7) + clamp(44px,5.4vw,72px) + 12px); bottom:calc(-1 * (var(--ae-s-7) - 12px));
+  width:2px; transform:translateX(-50%);
   background-color:rgba(255,99,77,0.25);
   background-image:linear-gradient(var(--ae-coral),var(--ae-coral));
   background-size:100% var(--seg-progress,0%);
@@ -448,7 +466,7 @@ section { padding:var(--ae-s-9) 0; }
   transition:background-size .1s linear;
   pointer-events:none;
 }
-.usp-row.is-active .usp-num { opacity:0.9; transition:opacity .3s ease; }
+.usp-row.is-active .usp-num { text-align:center; opacity:0.9; transition:opacity .3s ease; }
 .usp-num {
   font-size:clamp(44px,5.4vw,72px); font-weight:300;
   color:var(--ae-near-black); line-height:0.95;
@@ -468,7 +486,7 @@ section { padding:var(--ae-s-9) 0; }
 @media (max-width:720px) {
   .usp-list { --num-col:48px; --usp-gap:var(--ae-s-4); }
   .usp-row { padding:var(--ae-s-5) 0; }
-  .usp-row:not(:last-child)::after { bottom:calc(-1 * var(--ae-s-5)); height:calc(var(--ae-s-5) * 2); }
+  .usp-row:not(:last-child)::after { top:calc(var(--ae-s-5) + 30px + 8px); bottom:calc(-1 * (var(--ae-s-5) - 8px)); }
   .usp-num { font-size:30px; }
   .usp-body h3 { font-size:19px; }
 }
@@ -842,6 +860,148 @@ section { padding:var(--ae-s-9) 0; }
   color:rgba(252,250,245,0.65);
 }
 
+/* ── Cockpit-Docs: Leckageprotokoll + Bilddokumentation ─── */
+.cockpit-docs-intro {
+  margin-top:var(--ae-s-6);
+  display:flex; align-items:center; gap:var(--ae-s-4); flex-wrap:wrap;
+  padding:var(--ae-s-4) var(--ae-s-5);
+  background:rgba(205,241,93,0.07);
+  border:1px solid rgba(205,241,93,0.22);
+  border-radius:var(--ae-r-md);
+}
+.cockpit-docs-badge {
+  flex:none; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em;
+  color:var(--ae-near-black); background:var(--ae-lime);
+  padding:5px 12px; border-radius:var(--ae-r-pill);
+}
+.cockpit-docs-intro p { flex:1; min-width:240px; margin:0; font-size:14px; line-height:1.55; color:rgba(252,250,245,0.8); }
+.cockpit-docs-intro strong { color:var(--ae-off-white); font-weight:600; }
+.cockpit-docs { margin-top:var(--ae-s-4); display:grid; grid-template-columns:1fr 1fr; gap:var(--ae-s-4); }
+@media (max-width:860px) { .cockpit-docs { grid-template-columns:1fr; } }
+.doc-card {
+  background:rgba(252,250,245,0.04);
+  border:1px solid rgba(252,250,245,0.10);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-6);
+  display:flex; flex-direction:column;
+  transition:border-color .25s;
+}
+.doc-card:hover { border-color:rgba(205,241,93,0.25); }
+.doc-card-head { display:flex; align-items:center; gap:var(--ae-s-3); margin-bottom:var(--ae-s-5); }
+.doc-card-icon {
+  width:42px; height:42px; flex:none; border-radius:var(--ae-r-sm);
+  background:rgba(205,241,93,0.10); border:1px solid rgba(205,241,93,0.22);
+  display:flex; align-items:center; justify-content:center;
+}
+.doc-card-icon svg { width:22px; height:22px; fill:none; stroke:var(--ae-lime); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.doc-card-head h3 { font-size:18px; font-weight:600; letter-spacing:var(--ae-headline); color:var(--ae-off-white); }
+.doc-list { list-style:none; display:flex; flex-direction:column; gap:var(--ae-s-3); margin:0; padding:0; }
+.doc-list li { position:relative; padding-left:28px; font-size:14px; line-height:1.5; color:rgba(252,250,245,0.78); }
+.doc-list li::before {
+  content:'✓'; position:absolute; left:0; top:1px;
+  width:18px; height:18px; border-radius:50%;
+  background:rgba(205,241,93,0.15); color:var(--ae-lime);
+  font-size:11px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+}
+.doc-shots { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--ae-s-3); }
+.doc-shot { margin:0; }
+.doc-shot-img {
+  aspect-ratio:4/3; border-radius:var(--ae-r-sm); position:relative; overflow:hidden;
+  border:1px solid rgba(252,250,245,0.12);
+}
+.doc-shot-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.doc-shot-tag {
+  position:absolute; top:6px; left:6px; z-index:1;
+  font-size:8px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ae-off-white); background:rgba(34,33,32,0.55); padding:2px 6px; border-radius:4px;
+}
+.doc-shot figcaption { margin-top:8px; font-size:11px; line-height:1.35; color:rgba(252,250,245,0.62); }
+.doc-shots-note { margin-top:var(--ae-s-4); font-size:12px; line-height:1.5; color:rgba(252,250,245,0.5); }
+
+/* ── Section 02: Wann nötig — Process-Tabs (wie Homepage) ─── */
+.process { margin-top:var(--ae-s-7); }
+.process-tabs { position:relative; display:grid; grid-template-columns:repeat(2,1fr); gap:var(--ae-s-3); padding-bottom:var(--ae-s-4); border-bottom:1px solid var(--ae-grey-300); }
+.process-tab { position:relative; display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto auto; column-gap:var(--ae-s-4); row-gap:2px; padding:var(--ae-s-4) var(--ae-s-5); background:transparent; border:1px solid var(--ae-grey-300); border-radius:var(--ae-r-md); color:var(--ae-near-black); font-family:inherit; text-align:left; cursor:pointer; transition:background .25s, border-color .25s, color .25s, transform .25s; }
+.process-tab .num { grid-row:1 / 3; align-self:center; display:flex; align-items:center; justify-content:center; width:40px; height:40px; color:var(--ae-grey-500); transition:color .25s; }
+.process-tab .num svg { width:28px; height:28px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.process-tab .label { font-size:15px; font-weight:600; line-height:1.2; letter-spacing:-0.01em; }
+.process-tab .dur { font-size:11px; font-weight:500; color:var(--ae-grey-500); text-transform:uppercase; letter-spacing:0.08em; transition:color .25s; }
+.process-tab:hover:not(.active) { border-color:var(--ae-near-black); transform:translateY(-2px); }
+.process-tab.active { background:var(--ae-near-black); border-color:var(--ae-near-black); color:var(--ae-off-white); }
+.process-tab.active .num { color:var(--ae-coral); }
+.process-tab.active .dur { color:rgba(252,250,245,0.6); }
+.process-tab:focus-visible { outline:2px solid var(--ae-coral); outline-offset:3px; }
+.process-progress { position:absolute; bottom:-1px; left:0; height:2px; width:50%; background:rgba(255,99,77,0.18); transform:translateX(0); transition:transform .45s cubic-bezier(0.22,0.61,0.36,1); pointer-events:none; overflow:hidden; }
+.process-progress-fill { display:block; height:100%; width:100%; background:var(--ae-coral); transform-origin:left center; }
+.process-panels { position:relative; margin-top:var(--ae-s-7); background:var(--ae-white); border:1px solid var(--ae-grey-300); border-radius:var(--ae-r-lg); padding:var(--ae-s-8); overflow:hidden; }
+.process-panels::before { content:""; position:absolute; top:-80px; right:-80px; width:360px; height:360px; background:radial-gradient(circle, rgba(255,99,77,0.08) 0%, transparent 65%); pointer-events:none; }
+.process-panel { display:none; position:relative; }
+.process-panel.active { display:block; animation:panelIn .45s cubic-bezier(0.22,0.61,0.36,1); }
+@keyframes panelIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+.panel-head { display:grid; grid-template-columns:auto 1fr; gap:var(--ae-s-6); align-items:start; margin-bottom:var(--ae-s-6); padding-bottom:var(--ae-s-6); border-bottom:1px solid var(--ae-grey-300); }
+.panel-head .big-num { display:flex; align-items:center; justify-content:center; width:clamp(80px,9vw,104px); height:clamp(80px,9vw,104px); border-radius:var(--ae-r-md); background:rgba(255,99,77,0.08); color:var(--ae-coral); flex-shrink:0; }
+.panel-head .big-num svg { width:60%; height:60%; stroke:currentColor; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.panel-head h3 { font-size:clamp(22px,2.2vw,28px); font-weight:600; letter-spacing:var(--ae-headline); margin-bottom:var(--ae-s-3); }
+.panel-head p { font-size:16px; line-height:1.55; color:#444; max-width:60ch; }
+.check-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:12px var(--ae-s-7); }
+.check-list li { position:relative; padding-left:32px; font-size:15px; line-height:1.5; }
+.check-list li::before { content:""; position:absolute; left:0; top:2px; width:20px; height:20px; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='10' r='10' fill='%23CDF15D'/><path d='M5.8 10.2 L8.8 13 L14.3 7.2' stroke='%23222120' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>"); background-size:100%; background-repeat:no-repeat; }
+@media (prefers-reduced-motion: reduce) { .process-progress { transition:none; } .process-panel.active { animation:none; } }
+@media (max-width:760px) {
+  .process-panels { padding:var(--ae-s-6); }
+  .panel-head { grid-template-columns:1fr; gap:var(--ae-s-3); }
+  .panel-head .big-num { width:64px; height:64px; }
+  .check-list { grid-template-columns:1fr; }
+}
+@media (max-width:560px) { .process-tabs { grid-template-columns:1fr; } .process-progress { display:none; } }
+
+/* ── Grenzwerte-Section ─── */
+.grenzwerte-section { background:var(--ae-grey-100); }
+.gw-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--ae-s-4); margin-top:var(--ae-s-7); text-align:left; }
+@media (max-width:900px) { .gw-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px) { .gw-grid { grid-template-columns:1fr; } }
+.gw-card { background:var(--ae-white); border:1px solid rgba(34,33,32,0.08); border-radius:var(--ae-r-lg); padding:var(--ae-s-6); display:flex; flex-direction:column; }
+.gw-card-cat { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--ae-coral); }
+.gw-card-name { font-size:16px; font-weight:600; margin:6px 0 var(--ae-s-4); letter-spacing:var(--ae-headline); }
+.gw-card-value { font-size:clamp(30px,3.2vw,40px); font-weight:700; letter-spacing:var(--ae-tight); line-height:1; font-variant-numeric:tabular-nums; }
+.gw-card-unit { font-size:13px; color:var(--ae-grey-500); margin-top:8px; }
+.gw-card-note { font-size:12px; line-height:1.45; color:rgba(34,33,32,0.55); margin-top:auto; padding-top:var(--ae-s-4); }
+.gw-foot { margin-top:var(--ae-s-5); font-size:13px; color:rgba(34,33,32,0.6); text-align:center; }
+
+/* ── Vorteile luftdichte Hülle ─── */
+.vorteile-luft-section { background:var(--ae-off-white); }
+.vt-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--ae-s-5); margin-top:var(--ae-s-7); text-align:left; }
+@media (max-width:900px) { .vt-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px) { .vt-grid { grid-template-columns:1fr; } }
+.vt-card { background:var(--ae-white); border:1px solid rgba(34,33,32,0.08); border-radius:var(--ae-r-lg); padding:var(--ae-s-6); transition:border-color .2s, transform .2s, box-shadow .2s; }
+.vt-card:hover { border-color:rgba(34,33,32,0.16); transform:translateY(-2px); box-shadow:0 12px 32px -14px rgba(34,33,32,0.14); }
+.vt-card-icon { width:48px; height:48px; border-radius:var(--ae-r-sm); background:rgba(255,99,77,0.10); display:flex; align-items:center; justify-content:center; margin-bottom:var(--ae-s-4); }
+.vt-card-icon svg { width:24px; height:24px; fill:none; stroke:var(--ae-coral); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.vt-card h3 { font-size:18px; font-weight:600; margin-bottom:var(--ae-s-3); letter-spacing:var(--ae-headline); }
+.vt-card p { font-size:14px; line-height:1.6; color:rgba(34,33,32,0.65); }
+.bd-subhead { font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--ae-coral); margin:var(--ae-s-7) 0 0; }
+.bd-subhead + .vt-grid, .bd-subhead + .leckage-grid { margin-top:var(--ae-s-5); }
+
+/* ── Luftdichte Hülle: zweispaltig (Warum | Wo) ─── */
+.lh-cols { display:grid; grid-template-columns:1fr 1fr; gap:var(--ae-s-5); margin-top:var(--ae-s-7); text-align:left; }
+@media (max-width:820px) { .lh-cols { grid-template-columns:1fr; } }
+.lh-col { background:var(--ae-white); border:1px solid rgba(34,33,32,0.08); border-radius:var(--ae-r-lg); padding:var(--ae-s-6); }
+.lh-col-title { display:flex; align-items:center; gap:var(--ae-s-3); font-size:18px; font-weight:600; letter-spacing:var(--ae-headline); margin-bottom:var(--ae-s-5); padding-bottom:var(--ae-s-4); border-bottom:1px solid rgba(34,33,32,0.08); }
+.lh-col-title svg { flex:none; width:20px; height:20px; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.lh-list { list-style:none; display:flex; flex-direction:column; gap:var(--ae-s-4); margin:0; padding:0; }
+.lh-list li { display:flex; gap:var(--ae-s-3); align-items:flex-start; }
+.lh-ic { flex:none; width:34px; height:34px; border-radius:var(--ae-r-sm); display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.lh-ic svg { width:18px; height:18px; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.lh-txt b { display:block; font-size:15px; font-weight:600; color:var(--ae-near-black); letter-spacing:var(--ae-headline); margin-bottom:2px; }
+.lh-txt p { font-size:13px; line-height:1.5; color:rgba(34,33,32,0.6); margin:0; }
+.lh-col--pro .lh-col-title svg { stroke:#056C7F; }
+.lh-col--pro .lh-ic { background:rgba(5,108,127,0.10); }
+.lh-col--pro .lh-ic svg { stroke:#056C7F; }
+.lh-col--con .lh-col-title svg { stroke:var(--ae-coral); }
+.lh-col--con .lh-ic { background:rgba(255,99,77,0.10); }
+.lh-col--con .lh-ic svg { stroke:var(--ae-coral); }
+
 /* ═══════════════════════════════════════════════
    VORBEREITUNGS-CHECKLISTE
 ═══════════════════════════════════════════════ */
@@ -1192,7 +1352,7 @@ section { padding:var(--ae-s-9) 0; }
   letter-spacing:var(--ae-tight); color:var(--ae-near-black);
   display:flex; align-items:baseline; justify-content:center;
 }
-.stat .num .unit { color:var(--ae-coral); font-weight:500; margin-left:4px; }
+.stat .num .unit { color:var(--ae-coral); font-weight:500; font-size:0.5em; align-self:flex-start; margin-top:0.4em; margin-left:2px; }
 .stat .label {
   font-size:13px; color:var(--ae-grey-500);
   text-transform:uppercase; letter-spacing:0.08em; font-weight:600;
@@ -1238,7 +1398,7 @@ section { padding:var(--ae-s-9) 0; }
   z-index:2;
   box-shadow:0 30px 80px -20px rgba(34,33,32,0.45);
   display:grid;
-  grid-template-columns:260px 1fr;
+  grid-template-columns:300px 1fr;
   gap:var(--ae-s-8);
   align-items:center;
 }
@@ -1260,7 +1420,7 @@ section { padding:var(--ae-s-9) 0; }
   align-items:center; gap:var(--ae-s-4);
 }
 .cta-portrait-frame {
-  width:200px; height:200px;
+  width:100%;
   border-radius:var(--ae-r-md);
   overflow:hidden;
   background:var(--ae-near-black);
@@ -1268,8 +1428,7 @@ section { padding:var(--ae-s-9) 0; }
   box-shadow:0 16px 40px -12px rgba(34,33,32,0.45);
 }
 .cta-portrait-frame img {
-  width:100%; height:100%;
-  object-fit:cover; object-position:center 18%;
+  width:100%; height:auto;
   display:block;
 }
 .cta-sign { text-align:center; display:grid; gap:2px; }
@@ -1384,7 +1543,7 @@ footer.site-footer {
   padding:var(--ae-s-8) 0 var(--ae-s-7);
   display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:var(--ae-s-7);
 }
-.footer-inner .brand .logo img { height:44px; margin-bottom:var(--ae-s-4); }
+.footer-inner .brand .logo img { width:100%; max-width:210px; height:auto; margin-bottom:var(--ae-s-4); }
 .footer-inner .brand p { font-size:14px; color:rgba(252,250,245,0.6); line-height:1.6; max-width:34ch; }
 .site-footer h4 { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; margin-bottom:var(--ae-s-4); color:rgba(252,250,245,0.5); }
 .site-footer ul { list-style:none; display:grid; gap:10px; }
@@ -1429,6 +1588,40 @@ footer.site-footer {
   .footer-inner { grid-template-columns:1fr 1fr; gap:var(--ae-s-6); }
 }
 @media (max-width:560px) { .footer-inner { grid-template-columns:1fr; } }
+
+/* ===== MOBILE NAV (Hamburger) — added in mobile-optimization pass ===== */
+.ae-burger{ display:none; }
+.ae-mobile-menu{
+  position:fixed; inset:0; z-index:1000; background:#FCFAF5;
+  padding:92px 28px 40px; display:flex; flex-direction:column; overflow-y:auto;
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity .25s ease, transform .25s ease, visibility .25s;
+}
+.ae-mobile-menu.is-open{ opacity:1; visibility:visible; transform:none; }
+.ae-mm-inner{ display:flex; flex-direction:column; gap:2px; max-width:420px; margin:0 auto; width:100%; }
+.ae-mm-label{ font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#FF634D; margin-bottom:8px; }
+.ae-mobile-menu a{ font-size:22px; font-weight:600; color:#222120; text-decoration:none;
+  padding:13px 2px; border-bottom:1px solid rgba(34,33,32,0.08); letter-spacing:-0.02em; }
+.ae-mobile-menu a.is-current{ color:#FF634D; }
+.ae-mm-divider{ height:16px; }
+.ae-mobile-menu a.ae-mm-cta{ margin-top:24px; background:#FF634D; color:#222120; text-align:center;
+  border:none; border-radius:999px; padding:16px; font-size:16px; }
+.ae-mobile-menu a.ae-mm-phone{ text-align:center; border:none; color:#222120; opacity:0.7;
+  font-size:16px; font-weight:500; padding-top:16px; }
+body.ae-menu-open{ overflow:hidden; }
+@media (max-width:900px){
+  .ae-burger{ display:flex; flex-direction:column; justify-content:center; gap:5px;
+    position:fixed; top:14px; right:16px; z-index:1001; width:46px; height:46px; padding:11px;
+    border:none; border-radius:12px; background:#FCFAF5; box-shadow:0 4px 16px rgba(34,33,32,0.16); cursor:pointer; }
+  .ae-burger span{ display:block; height:2px; width:100%; background:#222120; border-radius:2px;
+    transition:transform .25s ease, opacity .2s ease; }
+  .ae-burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .ae-burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .ae-burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  /* hide desktop header nav + cta/phone on mobile (menu replaces them) */
+  .site-header .nav > ul, .header .header-inner nav, .nav > ul{ display:none !important; }
+  .nav .phone, .nav .nav-cta, .site-header .btn.nav-cta, .header-right{ display:none !important; }
+}
 </style>
 <style id="dropdown-nav-style">
   @font-face {
@@ -1766,9 +1959,64 @@ footer.site-footer {
 
 
 
+
+/* ===== MOBILE NAV: hide desktop header CTA/phone/nav (override, must be last) ===== */
+@media (max-width:900px){
+  .site-header .nav .phone, .site-header .nav .nav-cta, .site-header .btn.nav-cta,
+  .header .header-right, .header-right, .header .header-phone, .header .btn-primary,
+  .header .header-inner nav, .site-header .nav > ul, .nav > ul { display:none !important; }
+}
+
+/* ===== MOBILE: no horizontal scroll + long-word wrapping (safeguard) ===== */
+html{ overflow-x:clip; }
+h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-word; }
+
+@media (max-width:960px){ .hero-grid > *, .hero-content{ min-width:0; } }
+
+/* ===== Ostend Digital On-Page SEO-Credit (blends with adjacent sections) ===== */
+.ostend-seo-strip{ background:#F3F1EC; padding:26px 24px; }
+.ostend-seo-strip p{ max-width:1000px; margin:0 auto; text-align:center; font-size:12.5px; line-height:1.55; color:rgba(34,33,32,0.45); }
+.ostend-seo-strip a{ color:rgba(34,33,32,0.62); text-decoration:none; border-bottom:1px solid rgba(34,33,32,0.22); }
+.ostend-seo-strip a:hover{ color:#FF634D; border-bottom-color:#FF634D; }
+
+/* center step numbers under the connector line */
+.usp-row > .usp-num{ text-align:center; }
+
+/* Final CTA: Mobile overflow-fix (unbreakable &nbsp;-Phrasen + grid 1fr min-content) */
+@media (max-width:860px) {
+  .final-cta > * { min-width:0; }
+  .cta-content { min-width:0; }
+  .cta-content h2, .cta-content p { overflow-wrap:anywhere; word-break:break-word; max-width:100%; }
+}
+@media (max-width:560px) {
+  .final-cta { padding:var(--ae-s-7) var(--ae-s-5); }
+  .cta-content .btn-group { flex-direction:column; align-items:stretch; gap:var(--ae-s-3); }
+  .cta-content .btn-group .btn { width:100%; text-align:center; justify-content:center; }
+  .cta-trust { gap:var(--ae-s-3); justify-content:flex-start; }
+}
 </style>
 </head>
 <body>
+<!-- ===== MOBILE NAV (Hamburger) ===== -->
+<button class="ae-burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="ae-mobile-menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="ae-mobile-menu" id="ae-mobile-menu">
+  <nav class="ae-mm-inner" aria-label="Mobile Navigation">
+    <span class="ae-mm-label">Leistungen</span>
+    <a href="/aumann-eco-preview/sanierungsfahrplan/" data-slug="sanierungsfahrplan">Sanierungsfahrplan</a>
+    <a href="/aumann-eco-preview/bauphysik/" data-slug="bauphysik">Bauphysik &amp; Nachweise</a>
+    <a href="/aumann-eco-preview/blower-door/" class="is-current" data-slug="blower-door">Blower Door Test</a>
+    <a href="/aumann-eco-preview/foerderberatung/" data-slug="foerderberatung">Förderberatung</a>
+    <span class="ae-mm-divider"></span>
+    <a href="/aumann-eco-preview/ueber-uns/" data-slug="ueber-uns">Über uns</a>
+    <a href="/aumann-eco-preview/karriere/" data-slug="karriere">Karriere</a>
+    <a href="/aumann-eco-preview/kontakt/" data-slug="kontakt">Kontakt</a>
+    <a class="ae-mm-cta" href="/aumann-eco-preview/kontakt/">Kostenloses Erstgespräch</a>
+    <a class="ae-mm-phone" href="tel:+491755697551">0175 569 75 51</a>
+  </nav>
+</div>
+
 
 <!-- ═════════════════════ HEADER ═════════════════════ -->
 <header class="site-header">
@@ -1785,7 +2033,7 @@ footer.site-footer {
               <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-4 4 4 7-7"/><path d="M14 6h6v6"/><path d="M3 21h18"/></svg></span>
               <span class="nav-mega-content">
                 <span class="nav-mega-title">Sanierungsfahrplan</span>
-                <span class="nav-mega-sub">iSFP nach BAFA · bis 80&nbsp;% Förderung</span>
+                <span class="nav-mega-sub">iSFP nach BAFA · bis 50&nbsp;% Förderung</span>
               </span>
             </a></li>
             <li role="none"><a class="nav-mega-item" role="menuitem" href="/aumann-eco-preview/bauphysik/">
@@ -1806,13 +2054,13 @@ footer.site-footer {
               <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8h6"/><path d="M8 11h7a3 3 0 010 6h-3.5"/><path d="M11.5 8v9"/></svg></span>
               <span class="nav-mega-content">
                 <span class="nav-mega-title">Förderberatung</span>
-                <span class="nav-mega-sub">KfW · BAFA · NRW.BANK</span>
+                <span class="nav-mega-sub">KfW · BAFA</span>
               </span>
             </a></li>
           </ul>
           <a class="nav-mega-footer" href="/aumann-eco-preview/kontakt/">
             <span class="nav-mega-footer-text">
-              <strong>Unsicher, was du brauchst?</strong>
+              <strong>Unsicher, was Sie brauchen?</strong>
               <span>Kostenloses Erstgespräch — 15&nbsp;Min</span>
             </span>
             <span class="nav-mega-footer-cta">
@@ -1839,11 +2087,11 @@ footer.site-footer {
     <div class="hero-content">
       <div class="ae-eyebrow">
         <span class="hero-dots" aria-hidden="true"><span></span><span></span><span></span></span>
-        Luftdichtheitsmessung · KfW-konform
+        Luft&shy;dichtheits&shy;messung · KfW-konform
       </div>
-      <h1 class="ae-h1">Blower Door Test —<br>Luftdichtheit messen,<br>GEG-Nachweis sichern.</h1>
+      <h1 class="ae-h1">Blower Door Test —<br>Luftdichtheit messen,<br>Förderung sichern.</h1>
       <p class="ae-lead">
-        Mit dem Differenzdruck-Verfahren prüfen wir die Luftdichtheit deines Gebäudes nach DIN&nbsp;EN&nbsp;ISO&nbsp;9972 — KfW-anerkannt, mit Leckageortung und Protokoll innerhalb von 5&nbsp;Werktagen.
+        Mit dem Differenzdruck-Verfahren prüfen wir die Luftdichtheit Ihres Gebäudes nach DIN&nbsp;EN&nbsp;ISO&nbsp;9972 — anerkannt bei KfW, GEG und BEG, inklusive Leckageortung und Messprotokoll innerhalb von 5&nbsp;Werktagen. Blower Door Test in Köln, im Rheinland und bundesweit.
       </p>
       <div class="btn-group">
         <a href="/aumann-eco-preview/kontakt/" class="btn btn--primary">Festpreis anfragen →</a>
@@ -1858,6 +2106,10 @@ footer.site-footer {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
           Festpreis-Garantie
         </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Zertifizierter Messdienstleister
+        </span>
       </div>
     </div>
 
@@ -1866,6 +2118,7 @@ footer.site-footer {
         <source src="/aumann-eco-preview/assets/media/blower-door-hero-loop.webm" type="video/webm">
         <source src="/aumann-eco-preview/assets/media/blower-door-hero-source.mp4" type="video/mp4">
       </video>
+      <img class="hero-still" src="/aumann-eco-preview/assets/media/blower-door-hero-anim.webp" width="960" height="960" alt="" aria-hidden="true" loading="lazy">
     </div>
   </div>
 </section>
@@ -1894,86 +2147,133 @@ footer.site-footer {
   <div class="wrap">
     <div class="section-head">
       <span class="ae-eyebrow">01 · So funktioniert's</span>
-      <h2 class="ae-h2">Wie funktioniert eine Luftdichtheitsmessung?</h2>
-      <p>Ein normgerechtes Differenzdruck-Verfahren — in der Praxis erklärt.</p>
+      <h2 class="ae-h2">Wie funktioniert eine<br>Luftdichtheitsmessung?</h2>
+      <p>Eine normgerechte Messung mittels Differenzdruck-Verfahren — in der Praxis erklärt.</p>
     </div>
 
     <div class="erklaerung-grid">
       <div class="erklaerung-text">
-        <h3>Differenzdruck statt Bauchgefühl.</h3>
-        <p>Wir setzen einen kalibrierten Mess-Lüfter in eine deiner Außentüren ein und erzeugen sowohl <strong>50&nbsp;Pa Unterdruck</strong> als auch <strong>50&nbsp;Pa Überdruck</strong> im Gebäude. Das simuliert in etwa Windstärke 5.</p>
-        <p>Das Mess-System misst, wie viel Luft nachströmen muss, um den Druck zu halten — dieser Volumenstrom geteilt durch das Gebäudevolumen ergibt den <strong>n50-Wert</strong> (Luftwechsel pro Stunde bei 50&nbsp;Pa).</p>
-        <p>Während der Messung machen wir mit einer Nebelmaschine und Anemometer alle Leckagen <a href="/aumann-eco-preview/bauphysik/" class="inline-link">sichtbar</a> — von der undichten Fensterleibung bis zur Steckdose in der Außenwand. Du erhältst ein Protokoll mit n50-Wert, Foto-Doku der Leckagen und Maßnahmenempfehlung.</p>
+        <h3>Blower Door Test mit Leckageortung statt Bauchgefühl.</h3>
+        <p>Wir setzen kalibrierte Messlüfter ein, die in eine geeignete Außentür eingesetzt werden, und erzeugen damit <strong>Unter- und Überdruck</strong> im Gebäude. Der Prüfdruck von <strong>50&nbsp;Pa</strong> entspricht einem starken Winddruck auf die Gebäudehülle — so können Einströmungen durch Undichtheiten einfach und schnell lokalisiert werden.</p>
+        <p>Das Messsystem erfasst, wie viel Luft nachströmen muss, um den Prüfdruck zu halten. Aus diesem Volumenstrom und dem Gebäudevolumen wird der <strong>n50-Wert</strong> berechnet — die Luftwechselrate bei 50&nbsp;Pa.</p>
+        <p>Während der Messung können <a href="/aumann-eco-preview/bauphysik/" class="inline-link">Leckagen</a> mittels Hitzedrahtanemometer, Thermografiekamera oder Kunstnebel lokalisiert werden, zum Beispiel an Fensteranschlüssen oder Bauteilfugen. Sie erhalten einen Prüfbericht mit Messprotokoll, n50-Wert und Fotodokumentation der Leckagen mit Hinweisen zur Nachbesserung.</p>
       </div>
       <div class="erklaerung-visual">
-        <img src="/aumann-eco-preview/assets/media/blower-door-render.webp" alt="Coral-Line Illustration: Blower-Door-Tür mit Lüftereinheit und Druckmess-Setup">
+        <div class="bd-slider">
+          <img src="/aumann-eco-preview/assets/images/bd-slide1.jpg" alt="Blower-Door-Messung: roter Messrahmen mit Gebläse in der Tür" width="1100" height="733" loading="lazy">
+          <img src="/aumann-eco-preview/assets/images/bd-slide2.jpg" alt="Thermografie und Leckageortung während der Blower-Door-Messung" width="1100" height="733" loading="lazy">
+          <img src="/aumann-eco-preview/assets/images/bd-slide3.jpg" alt="Aufbau der Messtechnik beim Blower Door Test vor Ort" width="1100" height="733" loading="lazy">
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═════════════════════ PFLICHT-MATRIX ═════════════════════ -->
+<!-- ═════════════════════ WANN NÖTIG — PFLICHT / EMPFEHLUNG ═════════════════════ -->
 <section class="pflicht-section">
   <div class="wrap">
     <div class="section-head-center">
-      <span class="ae-eyebrow">02 · Wann Pflicht?</span>
-      <h2 class="ae-h2">Brauchst du den Test überhaupt?</h2>
-      <p>Pflicht oder Empfehlung — abhängig von Förderung, Lüftung und Gebäudetyp. Hier hast du die Übersicht.</p>
+      <span class="ae-eyebrow">02 · Wann nötig?</span>
+      <h2 class="ae-h2">Wann ist ein Blower Door Test Pflicht?</h2>
+      <p>Pflicht oder Empfehlung — abhängig von Förderung, Lüftung und Gebäudetyp.</p>
     </div>
 
-    <div class="pflicht-table-wrap">
-      <table class="pflicht-table">
-        <thead>
-          <tr>
-            <th>Projekt-Konstellation</th>
-            <th>Test nötig?</th>
-            <th>Grenzwert n50</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Neubau mit Lüftungsanlage (KWL)</td>
-            <td><span class="pflicht-status pflicht-status--pflicht">Pflicht · GEG § 26</span></td>
-            <td>≤ 1,5 1/h</td>
-          </tr>
-          <tr>
-            <td>Neubau ohne Lüftungsanlage</td>
-            <td><span class="pflicht-status pflicht-status--optional">empfohlen</span></td>
-            <td>≤ 3,0 1/h</td>
-          </tr>
-          <tr>
-            <td>KfW-Effizienzhaus 70 / 55</td>
-            <td><span class="pflicht-status pflicht-status--pflicht">Pflicht · KfW-TMA</span></td>
-            <td>≤ 1,5 1/h</td>
-          </tr>
-          <tr>
-            <td>KfW-Effizienzhaus 40 / 40 EE</td>
-            <td><span class="pflicht-status pflicht-status--pflicht">Pflicht · KfW-TMA</span></td>
-            <td>≤ 1,0 1/h</td>
-          </tr>
-          <tr>
-            <td>Passivhaus-Zertifizierung</td>
-            <td><span class="pflicht-status pflicht-status--pflicht">Pflicht</span></td>
-            <td>≤ 0,6 1/h</td>
-          </tr>
-          <tr>
-            <td>progres.nrw — Neubau</td>
-            <td><span class="pflicht-status pflicht-status--pflicht">Pflicht</span></td>
-            <td>≤ 1,5 1/h</td>
-          </tr>
-          <tr>
-            <td>progres.nrw — Bestandssanierung</td>
-            <td><span class="pflicht-status pflicht-status--pflicht">Pflicht</span></td>
-            <td>≤ 2,0 1/h</td>
-          </tr>
-          <tr>
-            <td>Sanierung ohne <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">Förderung</a></td>
-            <td><span class="pflicht-status pflicht-status--optional">optional</span></td>
-            <td>—</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="process" data-process>
+      <div class="process-tabs" role="tablist" aria-label="Pflicht oder Empfehlung">
+        <button class="process-tab active" role="tab" aria-selected="true" aria-controls="bd-panel-1" id="bd-tab-1" data-step="1">
+          <span class="num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+          <span class="label">Pflicht</span>
+          <span class="dur">Gesetz &amp; Förderung</span>
+        </button>
+        <button class="process-tab" role="tab" aria-selected="false" aria-controls="bd-panel-2" id="bd-tab-2" data-step="2" tabindex="-1">
+          <span class="num" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg></span>
+          <span class="label">Empfohlen</span>
+          <span class="dur">Qualität &amp; Sicherheit</span>
+        </button>
+        <span class="process-progress" aria-hidden="true"><span class="process-progress-fill"></span></span>
+      </div>
+
+      <div class="process-panels">
+        <article class="process-panel active" id="bd-panel-1" role="tabpanel" aria-labelledby="bd-tab-1" data-step="1">
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+            <div>
+              <h3>Wann ist ein Blower Door Test erforderlich?</h3>
+              <p>Bei diesen Konstellationen ist die Luft&shy;dichtheits&shy;messung durch das Gebäudeenergiegesetz oder das Förderprogramm verbindlich vorgeschrieben.</p>
+            </div>
+          </div>
+          <ul class="check-list">
+            <li>Gebäude mit bilanzierter Lüftungsanlage / verminderter Luftwechselrate nach § 28 GEG</li>
+            <li>Nachhaltigkeits-Zertifizierung mit Dichtheitsprüfung &amp; Leckageortung (DGNB, LEED, BREEAM)</li>
+            <li>KfW-Effizienzhaus 40, 40 EE, 55 &amp; 70 — KfW-TMA</li>
+            <li>Passivhaus-Zertifizierung — PHI</li>
+            <li>Kommunale &amp; programmspezifische Förderanforderungen wie progres.nrw oder Stadt Köln — Neubau</li>
+            <li>Kommunale &amp; programmspezifische Förderanforderungen wie progres.nrw oder Stadt Köln — Bestandssanierung</li>
+          </ul>
+        </article>
+
+        <article class="process-panel" id="bd-panel-2" role="tabpanel" aria-labelledby="bd-tab-2" data-step="2" hidden>
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg></span>
+            <div>
+              <h3>Wann ist er empfehlenswert?</h3>
+              <p>Auch ohne Pflicht lohnt sich die Messung — für Qualitätssicherung, Wohnkomfort und als Schutz vor späteren Bauschäden.</p>
+            </div>
+          </div>
+          <ul class="check-list">
+            <li>Neubau ohne Lüftungsanlage</li>
+            <li>Sanierung ohne Förderung</li>
+            <li>Qualitätskontrolle nach der Bauphase</li>
+            <li>Vor Ablauf der Gewährleistung</li>
+            <li>Bei Zugluft- oder Schimmelverdacht</li>
+          </ul>
+        </article>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ GRENZWERTE ═════════════════════ -->
+<section class="grenzwerte-section">
+  <div class="wrap">
+    <div class="section-head-center">
+      <span class="ae-eyebrow">03 · Grenzwerte</span>
+      <h2 class="ae-h2">Welche Grenzwerte muss ich einhalten?</h2>
+      <p>Die zulässigen Grenzwerte wie n50- und q50-Wert hängen vom Regelwerk und der Lüftungssituation ab — die wichtigsten Anforderungen im Überblick.</p>
+    </div>
+
+    <div class="gw-grid">
+      <article class="gw-card">
+        <span class="gw-card-cat">GEG</span>
+        <span class="gw-card-name">Gebäude mit Lüftungsanlage</span>
+        <span class="gw-card-value">≤ 1,5</span>
+        <span class="gw-card-unit">nl50 · 1/h*</span>
+        <span class="gw-card-note">Mit ventilatorgestützter Lüftung (KWL) nach GEG §&nbsp;26. Bei Gebäuden ≥ 1.500 m³: qe50 ≤ 2,5 m³/(h·m²).</span>
+      </article>
+      <article class="gw-card">
+        <span class="gw-card-cat">GEG</span>
+        <span class="gw-card-name">Gebäude ohne Lüftungsanlage</span>
+        <span class="gw-card-value">≤ 3,0</span>
+        <span class="gw-card-unit">nl50 · 1/h*</span>
+        <span class="gw-card-note">Ohne ventilatorgestützte Lüftung (Fensterlüftung). Bei Gebäuden ≥ 1.500 m³: qe50 ≤ 4,5 m³/(h·m²).</span>
+      </article>
+      <article class="gw-card">
+        <span class="gw-card-cat">Passivhausinstitut</span>
+        <span class="gw-card-name">Passivhaus-Zertifizierung</span>
+        <span class="gw-card-value">≤ 0,6</span>
+        <span class="gw-card-unit">nl50 · 1/h*</span>
+        <span class="gw-card-note">Strengste Anforderung — verpflichtend für die PHI-Zertifizierung.</span>
+      </article>
+      <article class="gw-card">
+        <span class="gw-card-cat">Individuell</span>
+        <span class="gw-card-name">Projekt &amp; Förderprogramm</span>
+        <span class="gw-card-value">1,0–2,0</span>
+        <span class="gw-card-unit">nl50 · 1/h · je Programm*</span>
+        <span class="gw-card-note">Je nach Stufe und Programm.</span>
+      </article>
+    </div>
+    <p class="gw-foot" style="font-size:13px; opacity:0.7;">* Vereinfacht spricht man vom n50- und q50-Wert.</p>
+    <p class="gw-foot">Unsicher, welcher Wert für Ihr Projekt gilt? <a href="/aumann-eco-preview/kontakt/" class="inline-link">Wir klären das im Erstgespräch.</a></p>
   </div>
 </section>
 
@@ -1981,7 +2281,7 @@ footer.site-footer {
 <section id="kosten" class="preise-section">
   <div class="wrap">
     <div class="section-head">
-      <span class="ae-eyebrow">03 · Kosten</span>
+      <span class="ae-eyebrow">04 · Kosten</span>
       <h2 class="ae-h2">Was kostet ein Blower Door Test in&nbsp;Köln?</h2>
       <p>Festpreise nach Gebäudetyp — Anfahrt, Leckageortung und Protokoll inklusive. Keine versteckten Kosten.</p>
     </div>
@@ -1991,17 +2291,18 @@ footer.site-footer {
         <span class="preise-badge">Festpreise</span>
         <table class="preise-table">
           <thead>
-            <tr><th>Gebäudetyp</th><th>Preis (brutto)</th></tr>
+            <tr><th>Gebäudetyp</th><th>Preis (netto)</th></tr>
           </thead>
           <tbody>
-            <tr><td>Einfamilienhaus (bis 1.500&nbsp;m³)</td><td>350 €</td></tr>
-            <tr><td>Zweifamilienhaus</td><td>450 €</td></tr>
-            <tr><td>Reihen-/Doppelhaushälfte</td><td>350 €</td></tr>
-            <tr><td>Mehrfamilienhaus (3–6 WE)</td><td>590 €</td></tr>
-            <tr><td>Mehrfamilienhaus (7+ WE)</td><td>auf Anfrage</td></tr>
-            <tr class="highlight-row"><td>Nachmessung nach Mängelbeseitigung</td><td>−30 %</td></tr>
+            <tr><td>Einzelraum, Laubengang, je WE</td><td>185 €</td></tr>
+            <tr><td>Ein-/Zweifamilienhäuser (1–2 WE)</td><td>370 €</td></tr>
+            <tr><td>Reihen-/Doppelhaushälfte</td><td>290 €</td></tr>
+            <tr><td>Mehrfamilienhaus (3–6 WE)</td><td>420 €</td></tr>
+            <tr><td>Mehrfamilienhaus (7+ WE)</td><td>ab 500 € · auf Anfrage</td></tr>
+            <tr class="highlight-row"><td>Nichtwohngebäude (Schulen, Bürogebäude, Logistik- und Lagerhallen)</td><td>auf Anfrage</td></tr>
           </tbody>
         </table>
+        <p style="font-size:12.5px; color:rgba(34,33,32,0.55); margin-top:var(--ae-s-3);">zzgl. 19 % USt. · Anfahrt bis 50&nbsp;km frei</p>
         <div class="preise-card-cta">
           <a href="/aumann-eco-preview/kontakt/" class="btn btn--primary">Festpreis anfragen →</a>
         </div>
@@ -2013,14 +2314,14 @@ footer.site-footer {
         <ul>
           <li>Anfahrt im Großraum Köln &amp; Rheinland</li>
           <li>Differenzdruckmessung mit Über- und Unterdruck (je 50&nbsp;Pa)</li>
-          <li>Leckageortung mit Nebelmaschine und Anemometer</li>
+          <li>Leckageortung mit Anemometer und Thermografie</li>
           <li>Foto-Dokumentation aller gefundenen Schwachstellen</li>
           <li>PDF-Protokoll innerhalb 5&nbsp;Werktagen</li>
           <li>Beratung zu Maßnahmen zur Mängelbeseitigung</li>
           <li>Vorlagefähig bei <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">KfW und BAFA</a></li>
         </ul>
         <div class="preise-inkl-note">
-          <strong>Förderhinweis:</strong> Im Rahmen einer KfW-geförderten Baubegleitung ist die Messung mit <strong>50&nbsp;%</strong> über BAFA bezuschussbar — dein Eigenanteil sinkt entsprechend.
+          <strong>Förderhinweis:</strong> Im Rahmen einer KfW-geförderten Baubegleitung ist die Messung mit <strong>50&nbsp;%</strong> über BAFA bezuschussbar — Ihr Eigenanteil sinkt entsprechend.
         </div>
       </div>
     </div>
@@ -2031,37 +2332,37 @@ footer.site-footer {
 <section id="ablauf" class="ablauf-section">
   <div class="wrap">
     <div class="section-head-center">
-      <span class="ae-eyebrow">04 · Ablauf</span>
+      <span class="ae-eyebrow">05 · Ablauf</span>
       <h2 class="ae-h2">In 4 Schritten zum Protokoll.</h2>
-      <p>Vom ersten Anruf bis zur fertigen PDF — transparent und planbar.</p>
+      <p>Vom ersten Anruf bis zum fertigen Messbericht — transparent und planbar.</p>
     </div>
     <div class="usp-list">
       <article class="usp-row">
         <span class="usp-num">01</span>
         <div class="usp-body">
           <h3>Anfrage &amp; Festpreis-Angebot</h3>
-          <p>Du nennst uns Gebäudetyp, Adresse und Wunschtermin. Innerhalb von 48&nbsp;Stunden erhältst du ein verbindliches Festpreis-Angebot — keine versteckten Aufschläge im Nachhinein.</p>
+          <p>Sie nennen uns Gebäudetyp, Adresse und Wunschtermin. Innerhalb von 48&nbsp;Stunden erhalten Sie ein verbindliches Festpreis-Angebot — keine versteckten Aufschläge im Nachhinein.</p>
         </div>
       </article>
       <article class="usp-row">
         <span class="usp-num">02</span>
         <div class="usp-body">
           <h3>Terminvereinbarung</h3>
-          <p>Wir vereinbaren einen Termin, der zu deinem Bauzeitplan passt — auch samstags möglich. Bei KfW-Förderung melden wir die Messung formgerecht an.</p>
+          <p>Wir vereinbaren einen Termin, der zu Ihrem Bauzeitplan passt — auch abends und am Wochenende möglich. Bei KfW-Förderung erhalten Sie das Messprotokoll fristgerecht zur Einreichung.</p>
         </div>
       </article>
       <article class="usp-row">
         <span class="usp-num">03</span>
         <div class="usp-body">
           <h3>Messung &amp; Leckageortung vor Ort</h3>
-          <p>Vor Ort dauert die Messung ca. 2–3&nbsp;Stunden: Vorbereitung, Über- und Unterdruckmessung bei 50&nbsp;Pa, Leckageortung mit Nebelmaschine, Foto-Doku aller Schwachstellen.</p>
+          <p>Vor Ort dauert die Messung zwischen 1,5&nbsp;h und 3&nbsp;Stunden, je nach Größe und Objekt: Vorbereitung, Auf- und Abbau, Unter- und Überdruckmessung inklusive Leckageortung mit Anemometer und Thermografie und Fotodokumentation aller Schwachstellen.</p>
         </div>
       </article>
       <article class="usp-row">
         <span class="usp-num">04</span>
         <div class="usp-body">
           <h3>Protokoll &amp; Übergabe</h3>
-          <p>Innerhalb von 5&nbsp;Werktagen erhältst du das PDF-Protokoll — mit n50-Wert, Leckage-Doku, Maßnahmenempfehlung und formal korrekt für <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">KfW/BAFA-Antrag</a>.</p>
+          <p>Innerhalb von 5&nbsp;Werktagen erhalten Sie das Messprotokoll — mit n50- und q50-Wert, Bildbericht und Leckagedokumentation, normgerecht und fristgerecht zum Nachweis gemäß GEG/BEG — für <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">BAFA und KfW</a>.</p>
         </div>
       </article>
     </div>
@@ -2072,59 +2373,35 @@ footer.site-footer {
 <section class="leckage-section">
   <div class="wrap">
     <div class="section-head">
-      <span class="ae-eyebrow">05 · Typische Schwachstellen</span>
-      <h2 class="ae-h2">Diese Leckagen finden wir am häufigsten.</h2>
-      <p>Sechs Stellen, an denen es bei fast jeder Messung zieht — und die sich mit kleinem Aufwand abdichten lassen.</p>
+      <span class="ae-eyebrow">06 · Luftdichte Hülle</span>
+      <h2 class="ae-h2">Was eine luftdichte Hülle bringt — und wo es zieht.</h2>
+      <p>Luftdichtheit zahlt gleichzeitig auf Energie, Bauschutz und Wohnkomfort ein. Und genau diese sechs Stellen sind dabei die häufigsten Schwachstellen.</p>
     </div>
 
-    <div class="leckage-grid">
-      <article class="leckage-card">
-        <div class="leckage-card-icon">
-          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></svg>
-        </div>
-        <h3>Fensterleibungen &amp; Anschlussfugen</h3>
-        <p>Übergänge zwischen Fenster und Mauerwerk — oft unsauber abgedichtet oder mit alter Bauschaum-Fuge.</p>
-      </article>
+    <div class="lh-cols">
+      <div class="lh-col lh-col--pro">
+        <h3 class="lh-col-title"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Warum luftdicht bauen?</h3>
+        <ul class="lh-list">
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><path d="M14 14.76V4a2 2 0 1 0-4 0v10.76a4 4 0 1 0 4 0z"/></svg></span><div class="lh-txt"><b>Wärmeschutz</b><p>Verhindert Wärmeverluste durch unkontrollierten Luftwechsel.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></span><div class="lh-txt"><b>Feuchteschutz</b><p>Schützt vor Tauwasserausfall im Inneren des Bauteils.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><div class="lh-txt"><b>Energieeinsparung</b><p>Weniger Lüftungsverluste — niedrigere Heizkosten.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span><div class="lh-txt"><b>Brandschutz</b><p>Dichte Bauteile vermeiden Rauch- und Feuerübertragung.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></span><div class="lh-txt"><b>Schallschutz</b><p>Dichte Anschlüsse senken die Luftschallübertragung.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span><div class="lh-txt"><b>Komfort</b><p>Behagliches Raumklima, keine Zugluft.</p></div></li>
+        </ul>
+      </div>
 
-      <article class="leckage-card">
-        <div class="leckage-card-icon">
-          <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="6" rx="1"/><rect x="3" y="9" width="18" height="3"/><line x1="6" y1="12" x2="6" y2="20"/><line x1="18" y1="12" x2="18" y2="20"/></svg>
-        </div>
-        <h3>Rollladenkästen</h3>
-        <p>Klassische Schwachstelle: ungedämmte oder undichte Rollladenkästen, die im Querschnitt direkt mit der Außenluft verbunden sind.</p>
-      </article>
-
-      <article class="leckage-card">
-        <div class="leckage-card-icon">
-          <svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><circle cx="9.5" cy="12" r="1.2"/><circle cx="14.5" cy="12" r="1.2"/></svg>
-        </div>
-        <h3>Steckdosen &amp; Schalter in&nbsp;Außenwand</h3>
-        <p>Hinter Schalterdosen in der Außenwand fehlt oft die Luftdichtheits-Manschette — die Dose wird zur Kaltluft-Brücke.</p>
-      </article>
-
-      <article class="leckage-card">
-        <div class="leckage-card-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 18 L12 6 L21 18"/><line x1="3" y1="18" x2="21" y2="18"/><path d="M6 18 L6 13 L18 13 L18 18"/></svg>
-        </div>
-        <h3>Dachgeschoss-Drempel &amp; Kniestock</h3>
-        <p>Der Übergang Dachschräge → Kniestock-Wand → Decke ist eine 3D-Knick-Zone — hier passieren die meisten Fehler bei der Sanierung.</p>
-      </article>
-
-      <article class="leckage-card">
-        <div class="leckage-card-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M3 12 L9 12 M15 12 L21 12 M12 3 L12 9 M12 15 L12 21"/></svg>
-        </div>
-        <h3>Rohr- &amp; Kabeldurchführungen</h3>
-        <p>Heizungs-, Wasser- und Kabelrohre durch Decken und Außenwände — meist nur grob abgedichtet, oft mit jahrelangen Setzrissen.</p>
-      </article>
-
-      <article class="leckage-card">
-        <div class="leckage-card-icon">
-          <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="5" y1="11" x2="19" y2="11"/><circle cx="16" cy="14" r="0.8" fill="currentColor"/></svg>
-        </div>
-        <h3>Türen zwischen beheizt/unbeheizt</h3>
-        <p>Türen zum unbeheizten Speicher oder Keller — Dichtungen porös, Türschwelle undicht, Briefkastenklappe als versteckte Falle.</p>
-      </article>
+      <div class="lh-col lh-col--con">
+        <h3 class="lh-col-title"><svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Typische Undichtheiten</h3>
+        <ul class="lh-list">
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></svg></span><div class="lh-txt"><b>Fensterleibungen &amp; Anschlussfugen</b><p>Übergänge Fenster ↔ Mauerwerk, oft unsauber abgedichtet.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="6" rx="1"/><rect x="3" y="9" width="18" height="3"/><line x1="6" y1="12" x2="6" y2="20"/><line x1="18" y1="12" x2="18" y2="20"/></svg></span><div class="lh-txt"><b>Rollladenkästen</b><p>Ungedämmt, im Querschnitt direkt mit der Außenluft verbunden.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><circle cx="9.5" cy="12" r="1.2"/><circle cx="14.5" cy="12" r="1.2"/></svg></span><div class="lh-txt"><b>Steckdosen in der Außenwand</b><p>Fehlende Luftdichtheits-Manschette wird zur Kaltluft-Brücke.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><path d="M3 18 L12 6 L21 18"/><line x1="3" y1="18" x2="21" y2="18"/><path d="M6 18 L6 13 L18 13 L18 18"/></svg></span><div class="lh-txt"><b>Drempel &amp; Kniestock</b><p>Dachanschluss — hier passieren die meisten Sanierungsfehler.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M3 12 L9 12 M15 12 L21 12 M12 3 L12 9 M12 15 L12 21"/></svg></span><div class="lh-txt"><b>Rohr- &amp; Kabeldurchführungen</b><p>Meist nur grob abgedichtet, oft mit Setzrissen.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="5" y1="11" x2="19" y2="11"/></svg></span><div class="lh-txt"><b>Außentüren beheizt/unbeheizt</b><p>Fehlende Dichtungen, undichte Türschwellen.</p></div></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -2133,7 +2410,7 @@ footer.site-footer {
 <section class="cockpit-section">
   <div class="wrap">
     <div class="section-head">
-      <span class="ae-eyebrow">06 · Mess-Cockpit</span>
+      <span class="ae-eyebrow">07 · Mess-Cockpit</span>
       <h2 class="ae-h2">So sieht ein bestandenes Mess&#8209;Protokoll aus.</h2>
       <p>Vier Kennwerte aus einem typischen EFH-Neubau mit Lüftungsanlage in&nbsp;Köln-Sülz — alle innerhalb der GEG-/KfW-Grenzwerte.</p>
     </div>
@@ -2176,7 +2453,7 @@ footer.site-footer {
 
         <div class="live-display-norm">
           <span>Norm</span>
-          <strong>DIN EN ISO 9972 · Verfahren A</strong>
+          <strong>DIN EN ISO 9972 · Verfahren 3</strong>
         </div>
       </article>
 
@@ -2278,10 +2555,54 @@ footer.site-footer {
       </article>
     </div>
 
+    <!-- USP: all-inkl. Leckageortung dokumentiert -->
+    <div class="cockpit-docs-intro">
+      <span class="cockpit-docs-badge">all inkl.</span>
+      <p>Die Messung endet nicht bei der Zahl: <strong>Leckageortung, Protokoll und Bildbericht sind bei jedem Termin dabei</strong> — Sie bekommen die Schwachstellen schwarz auf weiß, nicht nur einen n50-Wert.</p>
+    </div>
+
+    <div class="cockpit-docs">
+      <article class="doc-card">
+        <div class="doc-card-head">
+          <div class="doc-card-icon"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h4"/></svg></div>
+          <h3>Leckageprotokoll</h3>
+        </div>
+        <ul class="doc-list">
+          <li>Jede Leckage mit Ort &amp; Bauteil erfasst</li>
+          <li>Leckagedoku mit Strömungsmessung</li>
+          <li>Foto je Schwachstelle, eindeutig verortet</li>
+          <li>Konkrete Handlungsempfehlungen</li>
+          <li>PDF-Protokoll innerhalb von 5 Werktagen</li>
+        </ul>
+      </article>
+
+      <article class="doc-card">
+        <div class="doc-card-head">
+          <div class="doc-card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+          <h3>Bilddokumentation</h3>
+        </div>
+        <div class="doc-shots">
+          <figure class="doc-shot">
+            <div class="doc-shot-img"><img src="/aumann-eco-preview/assets/images/bd-doc-leckage.jpg" alt="Blower-Door-Messung im Einsatz: Leckageortung an der Gebäudehülle" loading="lazy"></div>
+            <figcaption>Anemometer · Leckageortung</figcaption>
+          </figure>
+          <figure class="doc-shot">
+            <div class="doc-shot-img"><img src="/aumann-eco-preview/assets/images/bd-doc-thermo2.webp" alt="Wärmebild am Fensteranschluss (Thermografie)" loading="lazy"></div>
+            <figcaption>Thermografie · Fensteranschluss</figcaption>
+          </figure>
+          <figure class="doc-shot">
+            <div class="doc-shot-img"><img src="/aumann-eco-preview/assets/images/bd-doc-blowerdoor.webp" alt="Blower-Door-Messaufbau mit rotem Lüfter in einer Haustür" loading="lazy"></div>
+            <figcaption>Blower-Door im Einsatz</figcaption>
+          </figure>
+        </div>
+        <p class="doc-shots-note">Auszug aus einem Bildbericht — Thermografie und Messung dokumentieren jede Schwachstelle.</p>
+      </article>
+    </div>
+
     <div class="cockpit-cta">
       <div class="cockpit-cta-text">
-        <h3>Auch dein Gebäude soll messbar dicht sein?</h3>
-        <p>Wir kommen vor Ort, messen, dokumentieren — Festpreis-Angebot innerhalb von 48&nbsp;Stunden.</p>
+        <h3>Sie möchten die Luftdichtheit Ihres Gebäudes prüfen lassen?</h3>
+        <p>Vor-Ort-Termin mit Messung inkl. Dokumentation — Festpreis-Angebot innerhalb von 48&nbsp;Stunden.</p>
       </div>
       <a href="/aumann-eco-preview/kontakt/" class="btn btn--lime">Termin vereinbaren →</a>
     </div>
@@ -2293,10 +2614,9 @@ footer.site-footer {
   <div class="wrap">
     <div class="vorbereitung-grid">
       <div>
-        <span class="ae-eyebrow" style="color:var(--ae-coral); display:block; margin-bottom:var(--ae-s-3);">07 · Vorbereitung</span>
-        <h2 class="ae-h2" style="margin-bottom:var(--ae-s-4);">So bereitest du dich auf den Messtag vor.</h2>
-        <p style="font-size:17px; line-height:1.65; color:rgba(34,33,32,0.7); margin-bottom:var(--ae-s-5);">Damit die Messung normgerecht abläuft und du das beste Ergebnis bekommst — eine kurze Checkliste für deinen Bauleiter oder dich.</p>
-        <p style="font-size:15px; line-height:1.6; color:rgba(34,33,32,0.65);">Wenn etwas unklar ist, gehen wir das im Vorgespräch durch — und am Messtag selbst nochmal kurz mit dir vor Ort.</p>
+        <span class="ae-eyebrow" style="color:var(--ae-coral); display:block; margin-bottom:var(--ae-s-3);">08 · Vorbereitung</span>
+        <h2 class="ae-h2" style="margin-bottom:var(--ae-s-4);">Gebäudepräparation und Vorbereitung auf den Messtag.</h2>
+        <p style="font-size:17px; line-height:1.65; color:rgba(34,33,32,0.7); margin-bottom:var(--ae-s-5);">Damit die Messung normgerecht abläuft und das Ergebnis stimmt — mit der Checkliste zur bestandenen Messung. Bauleiter und Projektbeteiligte erhalten diese als PDF zur optimalen Vorbereitung am Messtag.</p>
       </div>
 
       <div class="checkliste-list" data-checkliste>
@@ -2375,12 +2695,12 @@ footer.site-footer {
   <div class="wrap">
     <div class="ueber-grid">
       <div class="ueber-content">
-        <span class="ae-eyebrow ueber-eyebrow">08 · Über mich</span>
-        <h2 class="ae-h2 ueber-headline">Messung von Mensch zu Mensch.</h2>
-        <p class="ueber-lead">Seit über 16&nbsp;Jahren führe ich Blower-Door-Messungen in Köln und dem Rheinland durch — als Mitglied im <em>FLiB&nbsp;e.V.</em> und mit eigenem Mess-System. Du bekommst nicht nur eine Zahl, sondern eine ehrliche Einschätzung.</p>
+        <span class="ae-eyebrow ueber-eyebrow">09 · Über aumann eco</span>
+        <h2 class="ae-h2 ueber-headline">Ihr Messpartner für luftdichte Gebäude.</h2>
+        <p class="ueber-lead">Als Mitglied im <em>FLiB&nbsp;e.V.</em> ist aumann eco Ihr Partner für normgerechte Luft&shy;dichtheits&shy;messungen in Köln und dem Rheinland. Mit eigenen Mess-Systemen messen wir nach DIN — für Bauunternehmen, Planer und private Bauherren. Sie erhalten nicht nur eine Zahl, sondern eine belastbare Einschätzung.</p>
 
         <div class="ueber-cta-group">
-          <a href="/aumann-eco-preview/ueber-uns/" class="btn btn--primary">Mehr über Benedikt →</a>
+          <a href="/aumann-eco-preview/ueber-uns/" class="btn btn--primary">Mehr über aumann eco →</a>
           <a href="/aumann-eco-preview/kontakt/" class="btn btn--outline">Termin vereinbaren</a>
         </div>
 
@@ -2391,11 +2711,11 @@ footer.site-footer {
           </div>
           <div class="ueber-qual">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg>
-            <span>Ingenieurkammer NRW</span>
+            <span>Zertifizierter Messdienstleister</span>
           </div>
           <div class="ueber-qual">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>BAFA-Energieberater</span>
+            <span>Energieeffizienz-Experte</span>
           </div>
         </div>
       </div>
@@ -2403,10 +2723,7 @@ footer.site-footer {
       <aside class="ueber-aside">
         <div class="founder-card">
           <div class="founder-visual">
-            <div class="founder-dots-stack" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
-            <img class="founder-portrait" src="/aumann-eco-preview/assets/images/img-benedikt-jot00269-cutout.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco">
+            <img class="founder-portrait" src="/aumann-eco-preview/assets/images/img-benedikt-jot00258-cutout.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco">
           </div>
           <div class="founder-plaque">
             <div class="brand-badge" aria-hidden="true">
@@ -2423,7 +2740,7 @@ footer.site-footer {
             </div>
             <div>
               <div class="founder-name">Benedikt Aumann</div>
-              <div class="founder-title">Dipl.-Ing. · Geschäftsführer</div>
+              <div class="founder-title">Ingenieur, M.A. · Inhaber</div>
             </div>
           </div>
         </div>
@@ -2441,7 +2758,7 @@ footer.site-footer {
     </div>
     <div class="stats">
       <div class="stat">
-        <div class="num"><span class="counter" data-target="16">0</span><span class="unit">+</span></div>
+        <div class="num"><span class="counter" data-target="11">0</span><span class="unit">+</span></div>
         <div class="label">Jahre Erfahrung</div>
       </div>
       <div class="stat">
@@ -2450,7 +2767,7 @@ footer.site-footer {
       </div>
       <div class="stat">
         <div class="num"><span class="counter" data-target="5">0</span></div>
-        <div class="label">Werktage bis Protokoll</div>
+        <div class="label">Werktage bis zum Protokoll</div>
       </div>
       <div class="stat">
         <div class="num"><span class="counter" data-target="50">0</span><span class="unit">%</span></div>
@@ -2464,37 +2781,37 @@ footer.site-footer {
 <section id="faq" style="background:var(--ae-grey-100);">
   <div class="wrap">
     <div class="section-head" style="margin:0 auto var(--ae-s-7); text-align:center; max-width:640px;">
-      <span class="ae-eyebrow">09 · Häufige Fragen</span>
+      <span class="ae-eyebrow">10 · Häufige Fragen</span>
       <h2 class="ae-h2">Häufig gefragt.</h2>
     </div>
     <div class="faq">
       <details open>
         <summary>Wann ist ein Blower Door Test Pflicht?</summary>
-        <p>Pflicht ist die Messung bei jeder <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">KfW-geförderten</a> Maßnahme (Effizienzhaus 70/55/40), beim Einbau einer Lüftungsanlage mit Wärmerückgewinnung, bei progres.nrw-Anträgen sowie für Passivhaus-Zertifizierungen. Beim Standard-Bauantrag ohne Förderung ist er empfohlen, aber nicht verpflichtend — siehe Pflicht-Matrix oben.</p>
+        <p>Pflicht ist die Messung bei jeder <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">KfW-geförderten</a> Maßnahme (Effizienzhaus 70/55/40), beim Einbau einer Lüftungsanlage mit Wärmerückgewinnung, bei kommunalen Förderanträgen sowie für Passivhaus-Zertifizierungen. Beim Standard-Bauantrag ohne Förderung ist er empfohlen, aber nicht verpflichtend — siehe Pflicht-Matrix oben.</p>
       </details>
       <details>
         <summary>Was kostet ein Blower Door Test in Köln?</summary>
-        <p>Bei aumann eco gilt ein Festpreis: 350 € brutto für ein Einfamilienhaus inkl. Anfahrt im Großraum Köln, Leckageortung mit Nebelmaschine und PDF-Protokoll. Für Mehrfamilienhäuser ab 590 €. Bei KfW-Baubegleitung ist die Messung mit 50 % über BAFA bezuschussbar.</p>
+        <p>Bei aumann eco gilt ein Festpreis: 440 € brutto für ein Einfamilienhaus inkl. Anfahrt im Großraum Köln, Leckageortung mit Anemometer und Thermografie sowie Messprotokoll. Mehrfamilienhäuser und Nichtwohngebäude auf Anfrage. Bei KfW-Baubegleitung ist die Messung mit 50 % über BAFA bezuschussbar.</p>
       </details>
       <details>
         <summary>Wie lange dauert die Messung vor Ort?</summary>
-        <p>Eine typische Messung dauert 2–3 Stunden: ca. 30 Min Vorbereitung (Gebäude präparieren, Lüfter in Tür einsetzen), 60–90 Min Messung mit Über- und Unterdruck plus Leckageortung, 15 Min Abbau. Bei Mehrfamilienhäusern entsprechend länger.</p>
+        <p>Eine typische Messung dauert 1,5 bis maximal 2,5 Stunden: ca. 30 Min Vorbereitung (Gebäude präparieren, Aufbau der Messgeräte), 30–90 Min Messung mit Über- und Unterdruck plus Leckageortung, 15 Min Abbau. Der Zeitaufwand variiert je nach Komplexität und Größe des Projekts.</p>
       </details>
       <details>
         <summary>Welche Norm gilt für den Blower Door Test?</summary>
-        <p>Maßgeblich ist seit 2021 die <strong>DIN EN ISO 9972</strong> (Verfahren A oder B), die die alte DIN EN 13829 abgelöst hat. Wir messen normgerecht mit kalibriertem Minneapolis-Mess-System und dokumentieren alle Eingangsgrößen lückenlos.</p>
+        <p>Seit dem Inkrafttreten des Gebäudeenergiegesetzes gilt die <strong>DIN EN ISO 9972</strong>, die die alte DIN EN 13829 abgelöst hat. Unsere kalibrierten Messgeräte garantieren normgerechte und präzise Messungen — dokumentiert und lückenlos.</p>
       </details>
       <details>
         <summary>Was passiert, wenn der Test nicht besteht?</summary>
-        <p>Kein Drama. Wir orten die Leckagen während der Messung mit Nebel und Anemometer, dokumentieren sie und geben dir konkrete Empfehlungen zur Mängelbeseitigung. Nach der Sanierung kommen wir zur Nachmessung — mit 30 % Rabatt auf den Festpreis.</p>
+        <p>Kein Drama — dafür sind wir vor Ort. Wenn die Grenzwerte mal nicht passen, gibt es dafür immer Gründe — und wir finden diese. Wir orten alle Leckagen während der Messung mit Hitzedrahtanemometer und Thermografie, in speziellen Fällen mit Nebel, dokumentieren sie und geben Ihnen konkrete Empfehlungen zur Mängelbeseitigung. Nach der Sanierung kommen wir zur Nachmessung — mit Rabatt auf den Festpreis.</p>
       </details>
       <details>
         <summary>Wird der Test gefördert?</summary>
-        <p>Ja — im Rahmen einer KfW-geförderten Baubegleitung ist die Messung als förderfähige Leistung anerkannt. Die BAFA übernimmt 50 % der Beratungskosten. Bei KfW-Effizienzhaus-Vorhaben gehört der Test ohnehin zum Pflichtprogramm und wird über die Baubegleitung mitgefördert.</p>
+        <p>Die Messung wird sowohl bei BAFA wie auch bei KfW-Effizienzhaus-Vorhaben im Rahmen der Baubegleitung mit 50 % der förderfähigen Kosten gefördert.</p>
       </details>
       <details>
         <summary>Brauche ich einen Blower Door Test, wenn ich nicht fördern lasse?</summary>
-        <p>Pflicht ist er dann nicht. Aber bei jedem energetisch ambitionierten Neubau lohnt sich die Messung trotzdem: Sie deckt Bauschäden auf, bevor sie zu Schimmel oder Energieverlusten führen — und ist die einzige objektive Qualitätskontrolle der Bauhülle.</p>
+        <p>Siehe „Wann ist ein Blower Door Test Pflicht?" — je nach Bilanzierung kann der Blower Door Test auch für den GEG-Nachweis erforderlich sein. Doch auch wenn keine Dichtheitsprüfung berücksichtigt ist — die Messung lohnt sich trotzdem: Sie deckt Bauschäden auf und verhindert Schimmel oder Energieverluste — und ist eine objektive Qualitätskontrolle der Gebäudehülle.</p>
       </details>
       <details>
         <summary>Wie wird der n50-Wert berechnet?</summary>
@@ -2505,22 +2822,25 @@ footer.site-footer {
 </section>
 
 <!-- ═════════════════════ FINAL CTA ═════════════════════ -->
+<div class="ostend-seo-strip">
+  <p>Mit Ostend Digital als <a href="https://ostend.digital" target="_blank" rel="noopener">Werbeagentur Stuttgart</a> haben wir, die aumann eco, unsere Online-Präsenz mit kreativen Webdesigns und effektiven SEO-Maßnahmen optimiert.</p>
+</div>
 <section class="cta-section">
   <div class="wrap">
     <div class="final-cta">
       <div class="cta-portrait">
         <div class="cta-portrait-frame">
-          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco" width="200" height="200">
+          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco" width="200" height="200" loading="lazy">
         </div>
         <div class="cta-sign">
           <span class="cta-sign-name">Benedikt Aumann</span>
-          <span class="cta-sign-title">Dipl.-Ing. · Geschäftsführer</span>
+          <span class="cta-sign-title">Ingenieur, M.A. · Inhaber</span>
         </div>
       </div>
       <div class="cta-content">
         <span class="ae-eyebrow">Festpreis-Angebot</span>
-        <h2 class="ae-h2">Blower Door Test in&nbsp;Köln —<br>Festpreis innerhalb 48&nbsp;Stunden.</h2>
-        <p>Sag uns kurz Gebäudetyp, Adresse und Wunschtermin — wir antworten mit einem verbindlichen Angebot. Inklusive Leckageortung, Protokoll und Förderhinweisen.</p>
+        <h2 class="ae-h2">Blower Door Test —<br>Festpreis in&nbsp;Köln.</h2>
+        <p>Sagen Sie uns kurz Gebäudetyp, Adresse und Wunschtermin — wir antworten mit einem verbindlichen Angebot. Inklusive Leckageortung, Protokoll und Förderhinweisen.</p>
         <div class="btn-group">
           <a href="mailto:info@aumann-ing.de" class="btn btn--dark">Festpreis anfragen →</a>
           <a href="tel:+491755697551" class="btn btn--outline">0175 569 75 51</a>
@@ -2540,9 +2860,9 @@ footer.site-footer {
   <div class="wrap">
     <div class="footer-claim">
       <div>
-        <span class="eyebrow">Ingenieurbüro Köln · seit 2010</span>
+        <span class="eyebrow">Ingenieurbüro Köln</span>
         <h2>Nachhaltig. <em>Messbar.</em> Ehrlich.</h2>
-        <p class="lead">Wir planen Gebäude nicht nach Bauchgefühl, sondern mit Messdaten. Bauphysik, Energieberatung und eigene Messtechnik aus einer Hand — damit Förderung, Qualität und Klimaziel zusammenpassen.</p>
+        <p class="lead">Wir planen Gebäude nicht nach Bauchgefühl, sondern auf Basis verlässlicher Daten. Bauphysik, Energieberatung und eigene Messungen aus einer Hand — damit Förderung, Ausführung und Qualität zusammenpassen.</p>
       </div>
       <aside class="office-card" aria-label="Kontakt & Öffnungszeiten">
         <span class="status">Heute erreichbar bis 18:00</span>
@@ -2566,9 +2886,9 @@ footer.site-footer {
     <div class="footer-inner">
       <div class="brand">
         <a href="/aumann-eco-preview/" class="logo">
-          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortmarke-mitClaim-weiss.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
+          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortbildmarke-weiss-rot.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
         </a>
-        <p>Ingenieurbüro für Bauphysik &amp; Energieberatung in Köln. Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
+        <p>Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
       </div>
       <div>
         <h4>Leistungen</h4>
@@ -2609,7 +2929,7 @@ footer.site-footer {
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 aumann eco GmbH · Alle Rechte vorbehalten</span>
+      <span>© 2026 aumann eco · Alle Rechte vorbehalten</span>
       <a href="https://ostend.digital" target="_blank" rel="noopener" class="webdesign-credit">Webdesign by Ostend Digital</a>
     </div>
   </div>
@@ -2749,7 +3069,48 @@ footer.site-footer {
     counters.forEach(animate);
   }
 })();
+
+// ─── Wann nötig: Process-Tabs (wie Homepage) ───
+(function(){
+  const root = document.querySelector('[data-process]');
+  if (!root) return;
+  const tabs = root.querySelectorAll('.process-tab');
+  const panels = root.querySelectorAll('.process-panel');
+  const progress = root.querySelector('.process-progress');
+  const total = tabs.length;
+  function activate(step){
+    tabs.forEach((t) => { const a = +t.dataset.step === step; t.classList.toggle('active', a); t.setAttribute('aria-selected', a ? 'true' : 'false'); t.tabIndex = a ? 0 : -1; });
+    panels.forEach((p) => { const a = +p.dataset.step === step; p.classList.toggle('active', a); if (a) p.removeAttribute('hidden'); else p.setAttribute('hidden', ''); });
+    if (progress) progress.style.transform = `translateX(${(step - 1) * 100}%)`;
+  }
+  tabs.forEach((tab) => tab.addEventListener('click', () => { activate(+tab.dataset.step); tab.focus(); }));
+  root.addEventListener('keydown', (e) => {
+    if (!['ArrowLeft','ArrowRight','Home','End'].includes(e.key)) return;
+    if (!e.target.classList.contains('process-tab')) return;
+    e.preventDefault();
+    const current = [...tabs].findIndex((t) => t.classList.contains('active')) + 1;
+    let next = current;
+    if (e.key === 'ArrowRight') next = current >= total ? 1 : current + 1;
+    else if (e.key === 'ArrowLeft') next = current <= 1 ? total : current - 1;
+    else if (e.key === 'Home') next = 1;
+    else if (e.key === 'End') next = total;
+    activate(next); tabs[next - 1].focus();
+  });
+})();
 </script>
 
+
+<script>
+/* MOBILE NAV toggle */
+(function(){
+  var b=document.querySelector('.ae-burger'), m=document.getElementById('ae-mobile-menu');
+  if(!b||!m) return;
+  function open(){ m.classList.add('is-open'); b.setAttribute('aria-expanded','true'); b.setAttribute('aria-label','Men\u00fc schlie\u00dfen'); document.body.classList.add('ae-menu-open'); }
+  function close(){ m.classList.remove('is-open'); b.setAttribute('aria-expanded','false'); b.setAttribute('aria-label','Men\u00fc \u00f6ffnen'); document.body.classList.remove('ae-menu-open'); }
+  b.addEventListener('click', function(){ m.classList.contains('is-open')?close():open(); });
+  m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 </body>
 </html>

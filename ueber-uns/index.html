@@ -11,38 +11,38 @@
 
   @font-face {
     font-family: 'Volte';
-    src: url('../05-design-system/assets/fonts/Volte-Light.woff2') format('woff2'),
-         url('../05-design-system/assets/fonts/Volte-Light.woff') format('woff');
+    src: url('/aumann-eco-preview/assets/fonts/Volte-Light.woff2') format('woff2'),
+         url('/aumann-eco-preview/assets/fonts/Volte-Light.woff') format('woff');
     font-weight: 300; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: 'Volte';
-    src: url('../05-design-system/assets/fonts/Volte-LightItalic.woff2') format('woff2'),
-         url('../05-design-system/assets/fonts/Volte-LightItalic.woff') format('woff');
+    src: url('/aumann-eco-preview/assets/fonts/Volte-LightItalic.woff2') format('woff2'),
+         url('/aumann-eco-preview/assets/fonts/Volte-LightItalic.woff') format('woff');
     font-weight: 300; font-style: italic; font-display: swap;
   }
   @font-face {
     font-family: 'Volte';
-    src: url('../05-design-system/assets/fonts/Volte-Regular.woff2') format('woff2'),
-         url('../05-design-system/assets/fonts/Volte-Regular.woff') format('woff');
+    src: url('/aumann-eco-preview/assets/fonts/Volte-Regular.woff2') format('woff2'),
+         url('/aumann-eco-preview/assets/fonts/Volte-Regular.woff') format('woff');
     font-weight: 400; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: 'Volte';
-    src: url('../05-design-system/assets/fonts/Volte-Medium.woff2') format('woff2'),
-         url('../05-design-system/assets/fonts/Volte-Medium.woff') format('woff');
+    src: url('/aumann-eco-preview/assets/fonts/Volte-Medium.woff2') format('woff2'),
+         url('/aumann-eco-preview/assets/fonts/Volte-Medium.woff') format('woff');
     font-weight: 500; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: 'Volte';
-    src: url('../05-design-system/assets/fonts/Volte-Semibold.woff2') format('woff2'),
-         url('../05-design-system/assets/fonts/Volte-Semibold.woff') format('woff');
+    src: url('/aumann-eco-preview/assets/fonts/Volte-Semibold.woff2') format('woff2'),
+         url('/aumann-eco-preview/assets/fonts/Volte-Semibold.woff') format('woff');
     font-weight: 600; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: 'Volte';
-    src: url('../05-design-system/assets/fonts/Volte-Bold.woff2') format('woff2'),
-         url('../05-design-system/assets/fonts/Volte-Bold.woff') format('woff');
+    src: url('/aumann-eco-preview/assets/fonts/Volte-Bold.woff2') format('woff2'),
+         url('/aumann-eco-preview/assets/fonts/Volte-Bold.woff') format('woff');
     font-weight: 700; font-style: normal; font-display: swap;
   }
 
@@ -451,6 +451,17 @@
     background: var(--warm-white);
     padding: 72px 0 0;
     overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background-image:
+      linear-gradient(rgba(34,33,32,0.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(34,33,32,0.045) 1px,transparent 1px),
+      linear-gradient(rgba(34,33,32,0.10) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(34,33,32,0.10) 1px,transparent 1px);
+    background-size:16px 16px,16px 16px,96px 96px,96px 96px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 100% at 80% 40%, #000 8%, rgba(0,0,0,0.4) 40%, transparent 78%);
+    mask-image: radial-gradient(ellipse 70% 100% at 80% 40%, #000 8%, rgba(0,0,0,0.4) 40%, transparent 78%);
   }
   .hero-grid {
     display: grid;
@@ -1037,18 +1048,6 @@
     height: 100%;
     object-fit: cover;
   }
-  /* Coral-Akzentpunkt rechts oben */
-  .messtechnik-visual-dot {
-    position: absolute;
-    top: -14px;
-    right: -14px;
-    width: 56px;
-    height: 56px;
-    background: var(--coral);
-    border-radius: 50%;
-    z-index: 3;
-  }
-
   /* ========================================
      S6 · WERTE (Number-Led Rows, mit Verlauf-Bar darüber)
      ======================================== */
@@ -1622,8 +1621,8 @@
       linear-gradient(rgba(252,250,245,0.07) 1px, transparent 1px),
       linear-gradient(90deg, rgba(252,250,245,0.07) 1px, transparent 1px);
     background-size: 16px 16px, 16px 16px, 96px 96px, 96px 96px;
-    -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 75%);
-    mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 75%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 300px, #000 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 300px, #000 70%, transparent 100%);
   }
   .site-footer::after {
     content: '';
@@ -1637,6 +1636,8 @@
     border-radius: 50%;
     background: radial-gradient(circle, rgba(255,99,77,0.12) 0%, transparent 65%);
     filter: blur(60px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 180px, #000 440px);
+    mask-image: linear-gradient(to bottom, transparent 180px, #000 440px);
   }
   .site-footer .wrap {
     position: relative;
@@ -1879,7 +1880,7 @@
     .hero-text { padding-bottom: 0; max-width: none; }
     .hero-portrait-wrap { max-width: 440px; margin-bottom: 56px; }
     .bio-grid { grid-template-columns: 1fr; gap: 48px; }
-    .bio-card { position: static; max-width: 320px; }
+    .bio-card { position: static; max-width: 320px; justify-self: center; margin-inline: auto; }
     .obligations-grid { grid-template-columns: 1fr; gap: 56px; }
     .messtechnik-grid { grid-template-columns: 1fr; gap: 48px; }
     .cred-row { grid-template-columns: 1fr; gap: 12px; }
@@ -1967,6 +1968,40 @@
     line-height: 1.5;
   }
   .design-note strong { color: var(--coral); }
+
+/* ===== MOBILE NAV (Hamburger) — added in mobile-optimization pass ===== */
+.ae-burger{ display:none; }
+.ae-mobile-menu{
+  position:fixed; inset:0; z-index:1000; background:#FCFAF5;
+  padding:92px 28px 40px; display:flex; flex-direction:column; overflow-y:auto;
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity .25s ease, transform .25s ease, visibility .25s;
+}
+.ae-mobile-menu.is-open{ opacity:1; visibility:visible; transform:none; }
+.ae-mm-inner{ display:flex; flex-direction:column; gap:2px; max-width:420px; margin:0 auto; width:100%; }
+.ae-mm-label{ font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#FF634D; margin-bottom:8px; }
+.ae-mobile-menu a{ font-size:22px; font-weight:600; color:#222120; text-decoration:none;
+  padding:13px 2px; border-bottom:1px solid rgba(34,33,32,0.08); letter-spacing:-0.02em; }
+.ae-mobile-menu a.is-current{ color:#FF634D; }
+.ae-mm-divider{ height:16px; }
+.ae-mobile-menu a.ae-mm-cta{ margin-top:24px; background:#FF634D; color:#222120; text-align:center;
+  border:none; border-radius:999px; padding:16px; font-size:16px; }
+.ae-mobile-menu a.ae-mm-phone{ text-align:center; border:none; color:#222120; opacity:0.7;
+  font-size:16px; font-weight:500; padding-top:16px; }
+body.ae-menu-open{ overflow:hidden; }
+@media (max-width:900px){
+  .ae-burger{ display:flex; flex-direction:column; justify-content:center; gap:5px;
+    position:fixed; top:14px; right:16px; z-index:1001; width:46px; height:46px; padding:11px;
+    border:none; border-radius:12px; background:#FCFAF5; box-shadow:0 4px 16px rgba(34,33,32,0.16); cursor:pointer; }
+  .ae-burger span{ display:block; height:2px; width:100%; background:#222120; border-radius:2px;
+    transition:transform .25s ease, opacity .2s ease; }
+  .ae-burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .ae-burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .ae-burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  /* hide desktop header nav + cta/phone on mobile (menu replaces them) */
+  .site-header .nav > ul, .header .header-inner nav, .nav > ul{ display:none !important; }
+  .nav .phone, .nav .nav-cta, .site-header .btn.nav-cta, .header-right{ display:none !important; }
+}
 </style>
 <style id="dropdown-nav-style">
   @font-face {
@@ -2304,9 +2339,63 @@
 
 
 
+
+/* ===== MOBILE NAV: hide desktop header CTA/phone/nav (override, must be last) ===== */
+@media (max-width:900px){
+  .site-header .nav .phone, .site-header .nav .nav-cta, .site-header .btn.nav-cta,
+  .header .header-right, .header-right, .header .header-phone, .header .btn-primary,
+  .header .header-inner nav, .site-header .nav > ul, .nav > ul { display:none !important; }
+}
+
+/* ===== MOBILE: no horizontal scroll + long-word wrapping (safeguard) ===== */
+html{ overflow-x:clip; }
+h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-word; }
+ (max-width:768px){
+}
+
+@media (max-width:960px){ .hero-grid > *, .hero-content{ min-width:0; } }
+
+/* ===== Ostend Digital On-Page SEO-Credit (blends with adjacent sections) ===== */
+.ostend-seo-strip{ background:#222120; padding:26px 24px; }
+.ostend-seo-strip p{ max-width:1000px; margin:0 auto; text-align:center; font-size:12.5px; line-height:1.55; color:rgba(252,250,245,0.45); }
+.ostend-seo-strip a{ color:rgba(252,250,245,0.62); text-decoration:none; border-bottom:1px solid rgba(252,250,245,0.25); }
+.ostend-seo-strip a:hover{ color:#FF634D; border-bottom-color:#FF634D; }
+
+/* Final CTA: Mobile overflow-fix (unbreakable &nbsp;-Phrasen + grid 1fr min-content) */
+@media (max-width:860px) {
+  .final-cta > * { min-width:0; }
+  .cta-content { min-width:0; }
+  .cta-content h2, .cta-content p { overflow-wrap:anywhere; word-break:break-word; max-width:100%; }
+}
+@media (max-width:560px) {
+  .final-cta { padding:var(--ae-s-7) var(--ae-s-5); }
+  .cta-content .btn-group { flex-direction:column; align-items:stretch; gap:var(--ae-s-3); }
+  .cta-content .btn-group .btn { width:100%; text-align:center; justify-content:center; }
+  .cta-trust { gap:var(--ae-s-3); justify-content:flex-start; }
+}
 </style>
 </head>
 <body>
+<!-- ===== MOBILE NAV (Hamburger) ===== -->
+<button class="ae-burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="ae-mobile-menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="ae-mobile-menu" id="ae-mobile-menu">
+  <nav class="ae-mm-inner" aria-label="Mobile Navigation">
+    <span class="ae-mm-label">Leistungen</span>
+    <a href="/aumann-eco-preview/sanierungsfahrplan/" data-slug="sanierungsfahrplan">Sanierungsfahrplan</a>
+    <a href="/aumann-eco-preview/bauphysik/" data-slug="bauphysik">Bauphysik &amp; Nachweise</a>
+    <a href="/aumann-eco-preview/blower-door/" data-slug="blower-door">Blower Door Test</a>
+    <a href="/aumann-eco-preview/foerderberatung/" data-slug="foerderberatung">Förderberatung</a>
+    <span class="ae-mm-divider"></span>
+    <a href="/aumann-eco-preview/ueber-uns/" class="is-current" data-slug="ueber-uns">Über uns</a>
+    <a href="/aumann-eco-preview/karriere/" data-slug="karriere">Karriere</a>
+    <a href="/aumann-eco-preview/kontakt/" data-slug="kontakt">Kontakt</a>
+    <a class="ae-mm-cta" href="/aumann-eco-preview/kontakt/">Kostenloses Erstgespräch</a>
+    <a class="ae-mm-phone" href="tel:+491755697551">0175 569 75 51</a>
+  </nav>
+</div>
+
 
 <!-- ======== DESIGN ANNOTATION ======== -->
 <div class="design-note" aria-hidden="true">
@@ -2417,8 +2506,8 @@
         <div class="hero-dots-motif" aria-hidden="true">
           <span></span><span></span><span></span>
         </div>
-        <h1 id="hero-h1">Ein Büro.<br>Ein <span class="accent">Ingenieur.</span><br>Eine Haltung.</h1>
-        <p class="hero-sub">Aumann Eco ist ein Ingenieurbüro für Bauphysik &amp; Energieberatung in Köln — geführt von Benedikt Aumann. Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
+        <h1 id="hero-h1">Ein Ingenieurbüro.<br>Mit <span class="accent">Gesicht.</span><br>Mit Haltung.</h1>
+        <p class="hero-sub">Aumann Eco ist ein unabhängiges Ingenieurbüro für Bauphysik &amp; Energieberatung in Köln und dem Rheinland — für private Bauherren wie für Gewerbe, gegründet und geführt von Benedikt Aumann. Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
 
         <div class="hero-trust-mini">
           <span class="label">Geprüft, gelistet, anerkannt</span>
@@ -2433,10 +2522,10 @@
 
       <div class="hero-visual">
         <div class="hero-portrait-wrap">
-          <img src="/aumann-eco-preview/assets/images/JOT00132.webp" alt="Benedikt Aumann — Ingenieur (M.Sc.), Inhaber Aumann Eco">
+          <img src="/aumann-eco-preview/assets/images/JOT00132.webp" alt="Benedikt Aumann — Ingenieur (M.Sc.), Geschäftsführer von Aumann Eco">
           <div class="hero-portrait-meta">
             <strong>Benedikt Aumann</strong>
-            <span>M.Sc. Bauing. · Inhaber</span>
+            <span>M.Sc. Bauing. · Geschäftsführer</span>
           </div>
         </div>
       </div>
@@ -2471,7 +2560,7 @@
         </div>
         <div class="bio-card-meta">
           <div class="name">Benedikt Aumann</div>
-          <div class="role">Inhaber &amp; Ingenieur</div>
+          <div class="role">Gründer &amp; Geschäftsführer</div>
           <dl>
             <div><dt>Abschluss</dt><dd>M.Sc. Bauing.</dd></div>
             <div><dt>Schwerpunkt</dt><dd>Bauphysik</dd></div>
@@ -2527,8 +2616,8 @@
   <div class="container">
     <header class="obligations-header">
       <span class="section-label">03 · Was uns verpflichtet</span>
-      <h2 id="oblig-h2">Drei Pflichten, die ich erfüllen muss.</h2>
-      <p class="obligations-lead">Der Beruf „Energieberater" ist in Deutschland nicht geschützt. Als Mitglied der Ingenieurkammer-Bau NRW und gelisteter dena-Experte unterliege ich klaren Verpflichtungen — die in einem Vergleichsangebot oft fehlen.</p>
+      <h2 id="oblig-h2">Drei Pflichten, die wir erfüllen.</h2>
+      <p class="obligations-lead">Der Beruf „Energieberater" ist in Deutschland nicht geschützt. Als Ingenieurbüro — Mitglied der Ingenieurkammer-Bau NRW und gelistet als dena-Energieeffizienz-Experte — sind wir klaren Verpflichtungen unterworfen, die in einem Vergleichsangebot oft fehlen.</p>
     </header>
 
     <div class="obligations-grid">
@@ -2543,7 +2632,7 @@
       <article class="obligation">
         <span class="number">02</span>
         <h3>Unabhängige &amp; neutrale Beratung</h3>
-        <p>Keine Provisionen von Heizungs-, Dämmstoff- oder Fenster-Herstellern. Empfehlungen folgen der Bauphysik, nicht der Marge. Konkret: ich beziehe keine Vermittlerprovision für Produkte, die ich Ihnen empfehle.</p>
+        <p>Keine Provisionen von Heizungs-, Dämmstoff- oder Fenster-Herstellern. Empfehlungen folgen der Bauphysik, nicht der Marge. Konkret: wir beziehen keine Vermittlerprovision für Produkte, die wir empfehlen.</p>
         <span class="source">§ Berufspflichten IK-Bau NRW</span>
       </article>
 
@@ -2588,13 +2677,12 @@
           </div>
         </div>
 
-        <a href="#" class="messtechnik-link">Mehr zum Blower-Door-Test
+        <a href="/aumann-eco-preview/blower-door/" class="messtechnik-link">Mehr zum Blower-Door-Test
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
       <div class="messtechnik-visual">
-        <div class="messtechnik-visual-dot" aria-hidden="true"></div>
         <div class="messtechnik-visual-frame">
           <img src="/aumann-eco-preview/assets/images/JOT01124.webp" alt="Benedikt Aumann mit Blower-Door-Prüfgerät vor Einsatzfahrzeug">
         </div>
@@ -2758,6 +2846,9 @@
 </section>
 
 <!-- ═════════════════════ FINAL CTA (1:1 aumann-eco-luca) ═════════════════════ -->
+<div class="ostend-seo-strip">
+  <p>Mit Ostend Digital als <a href="https://ostend.digital" target="_blank" rel="noopener">Werbeagentur Stuttgart</a> haben wir, die aumann eco GmbH, unsere Online-Präsenz mit kreativen Webdesigns und effektiven SEO-Maßnahmen optimiert.</p>
+</div>
 <section class="cta-section" id="kontakt">
   <div class="wrap">
     <div class="final-cta">
@@ -2978,6 +3069,19 @@
    VALUE-ROW NUMBER: Color shift on hover
    (CSS-only; nothing to do here, just a comment)
    ======================================== */
+</script>
+
+<script>
+/* MOBILE NAV toggle */
+(function(){
+  var b=document.querySelector('.ae-burger'), m=document.getElementById('ae-mobile-menu');
+  if(!b||!m) return;
+  function open(){ m.classList.add('is-open'); b.setAttribute('aria-expanded','true'); b.setAttribute('aria-label','Men\u00fc schlie\u00dfen'); document.body.classList.add('ae-menu-open'); }
+  function close(){ m.classList.remove('is-open'); b.setAttribute('aria-expanded','false'); b.setAttribute('aria-label','Men\u00fc \u00f6ffnen'); document.body.classList.remove('ae-menu-open'); }
+  b.addEventListener('click', function(){ m.classList.contains('is-open')?close():open(); });
+  m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
 </script>
 </body>
 </html>

@@ -9,11 +9,11 @@
 /* ═══════════════════════════════════════════════
    VOLTE WEBFONT
 ═══════════════════════════════════════════════ */
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
 
 /* ═══════════════════════════════════════════════
    TOKENS
@@ -66,7 +66,7 @@ a { color:inherit; }
 
 .wrap { max-width:var(--ae-max); margin:0 auto; padding:0 var(--ae-s-6); }
 section { padding:var(--ae-s-9) 0; }
-@media (max-width:720px) { section { padding:var(--ae-s-8) 0; } }
+@media (max-width:720px) { section { padding:var(--ae-s-7) 0; } }
 
 /* ═══════════════════════════════════════════════
    HEADER
@@ -140,7 +140,7 @@ section { padding:var(--ae-s-9) 0; }
 .hero-grid {
   position:relative; z-index:1;
   max-width:var(--ae-max); margin:0 auto; padding:0 var(--ae-s-6);
-  display:grid; grid-template-columns:1fr 1.9fr; gap:var(--ae-s-4); align-items:center;
+  display:grid; grid-template-columns:1.4fr 1fr; gap:var(--ae-s-7); align-items:center;
 }
 .hero .ae-eyebrow { display:inline-flex; align-items:center; gap:13px; opacity:0.75; }
 .hero-dots { display:inline-flex; align-items:center; gap:6px; }
@@ -166,8 +166,11 @@ section { padding:var(--ae-s-9) 0; }
   margin-right:-8%;
   background:transparent;
 }
+.hero-still { display:none; }
 @media (max-width:960px) {
-  .hero-3d-render { width:100%; margin-right:0; }
+  .hero-3d-render { display:none; }
+  .hero-still { display:block; width:100%; height:auto; background:transparent;
+    filter: drop-shadow(0.8px 0 0 #FF634D) drop-shadow(-0.8px 0 0 #FF634D) drop-shadow(0 0.8px 0 #FF634D) drop-shadow(0 -0.8px 0 #FF634D) saturate(1.1); }
 }
 @media (max-width:960px) {
   .hero-grid { grid-template-columns:1fr; gap:var(--ae-s-6); }
@@ -276,6 +279,79 @@ section { padding:var(--ae-s-9) 0; }
   color:rgba(34,33,32,0.65);
 }
 
+/* ── Stufenplan-Treppe (Korall-Abstufungen) ──────────── */
+.stufenplan { margin-top:var(--ae-s-8); }
+.stufenplan-head { margin-bottom:var(--ae-s-6); }
+.stufenplan-badge {
+  display:inline-block; font-size:12px; font-weight:600;
+  letter-spacing:0.04em; text-transform:uppercase;
+  color:var(--ae-deep-teal); background:rgba(5,108,127,0.08);
+  padding:6px 12px; border-radius:var(--ae-r-pill);
+  margin-bottom:var(--ae-s-3);
+}
+.stufenplan-sub {
+  font-size:15px; line-height:1.6;
+  color:rgba(34,33,32,0.65); max-width:60ch;
+}
+.sp-track {
+  display:grid; grid-template-columns:repeat(5,1fr);
+  gap:var(--ae-s-3); align-items:end;
+}
+.sp-step { display:flex; flex-direction:column; min-width:0; }
+.sp-house {
+  display:flex; justify-content:center;
+  margin-bottom:var(--ae-s-2); color:var(--c);
+}
+.sp-house svg { width:40px; height:40px; }
+.sp-riser {
+  height:var(--h); min-height:74px; background:var(--c);
+  border-radius:var(--ae-r-sm) var(--ae-r-sm) 0 0;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  align-items:center; gap:2px; text-align:center;
+  padding:var(--ae-s-3) var(--ae-s-2);
+  color:#fff; box-shadow:inset 0 -3px 0 rgba(0,0,0,0.10);
+}
+.sp-num { font-size:clamp(20px,2vw,28px); font-weight:600; line-height:1; letter-spacing:var(--ae-headline); }
+.sp-unit { font-size:10.5px; font-weight:500; opacity:0.85; }
+.sp-base {
+  background:var(--ae-white); border:1px solid rgba(34,33,32,0.08);
+  border-top:none; border-radius:0 0 var(--ae-r-sm) var(--ae-r-sm);
+  padding:var(--ae-s-3); min-height:108px;
+  display:flex; flex-direction:column; gap:4px;
+}
+.sp-label { font-size:14px; font-weight:600; color:var(--ae-near-black); letter-spacing:var(--ae-headline); }
+.sp-pe { display:none; }
+.sp-measures { font-size:12px; line-height:1.45; color:rgba(34,33,32,0.55); }
+.sp-mini { margin-top:auto; font-size:11.5px; font-weight:600; color:var(--c); }
+.sp-axis {
+  margin-top:var(--ae-s-5); height:6px; border-radius:var(--ae-r-pill);
+  background:linear-gradient(90deg, #C73E29 0%, #E07B3C 50%, #4F9E33 100%);
+}
+.sp-axis-labels {
+  display:flex; justify-content:space-between; gap:var(--ae-s-4);
+  margin-top:var(--ae-s-2); font-size:12px; font-weight:600;
+  color:rgba(34,33,32,0.6);
+}
+.sp-axis-labels span:last-child { text-align:right; }
+@media (max-width:900px) {
+  .sp-track { grid-template-columns:1fr; gap:0; align-items:stretch; }
+  .sp-step {
+    flex-direction:row; align-items:center; gap:var(--ae-s-4);
+    padding:var(--ae-s-4) 0; border-bottom:1px solid rgba(34,33,32,0.08);
+  }
+  .sp-step:last-child { border-bottom:none; }
+  .sp-house { margin:0; flex-shrink:0; }
+  .sp-house svg { width:32px; height:32px; }
+  .sp-riser {
+    height:auto; min-height:0; align-self:stretch; width:5px; flex-shrink:0;
+    padding:0; border-radius:var(--ae-r-pill); box-shadow:none;
+  }
+  .sp-num, .sp-unit { display:none; }
+  .sp-base { border:none; min-height:0; padding:var(--ae-s-4); flex:1; border-radius:var(--ae-r-sm); }
+  .sp-label { display:flex; justify-content:space-between; align-items:baseline; gap:var(--ae-s-3); font-size:15px; }
+  .sp-pe { display:inline; font-size:13px; font-weight:600; color:var(--c); white-space:nowrap; }
+}
+
 /* ═══════════════════════════════════════════════
    SECTION HEADS
 ═══════════════════════════════════════════════ */
@@ -315,9 +391,8 @@ section { padding:var(--ae-s-9) 0; }
 .usp-row:not(:last-child)::after {
   content:""; position:absolute;
   left:calc(var(--num-col) / 2);
-  bottom:calc(-1 * var(--ae-s-7));
-  width:2px; height:calc(var(--ae-s-7) * 2);
-  transform:translateX(-50%);
+  top:calc(var(--ae-s-7) + clamp(44px,5.4vw,72px) + 12px); bottom:calc(-1 * (var(--ae-s-7) - 12px));
+  width:2px; transform:translateX(-50%);
   background-color:rgba(255,99,77,0.25);
   background-image:linear-gradient(var(--ae-coral),var(--ae-coral));
   background-size:100% var(--seg-progress,0%);
@@ -327,7 +402,7 @@ section { padding:var(--ae-s-9) 0; }
   transition:background-size .1s linear;
   pointer-events:none;
 }
-.usp-row.is-active .usp-num { opacity:0.9; transition:opacity .3s ease; }
+.usp-row.is-active .usp-num { text-align:center; opacity:0.9; transition:opacity .3s ease; }
 .usp-num {
   font-size:clamp(44px,5.4vw,72px); font-weight:300;
   color:var(--ae-near-black); line-height:0.95;
@@ -347,7 +422,7 @@ section { padding:var(--ae-s-9) 0; }
 @media (max-width:720px) {
   .usp-list { --num-col:48px; --usp-gap:var(--ae-s-4); }
   .usp-row { padding:var(--ae-s-5) 0; }
-  .usp-row:not(:last-child)::after { bottom:calc(-1 * var(--ae-s-5)); height:calc(var(--ae-s-5) * 2); }
+  .usp-row:not(:last-child)::after { top:calc(var(--ae-s-5) + 30px + 8px); bottom:calc(-1 * (var(--ae-s-5) - 8px)); }
   .usp-num { font-size:30px; }
   .usp-body h3 { font-size:19px; }
 }
@@ -387,7 +462,12 @@ section { padding:var(--ae-s-9) 0; }
   margin-top:auto;
   padding-top:var(--ae-s-6);
 }
-@media (max-width:900px) { .kosten-layout { grid-template-columns:1fr; } }
+@media (max-width:900px) { .kosten-layout { grid-template-columns:1fr; } .kosten-layout > * { min-width:0; } }
+@media (max-width:560px) { .kosten-table-card { padding:var(--ae-s-5); } }
+@media (max-width:900px) {
+  /* CTA-Button vollbreit & einzeilig — Pfeil bleibt in derselben Zeile (kein Umbruch) */
+  .kosten-table-cta .btn { display:flex; width:100%; justify-content:center; white-space:nowrap; padding:14px 18px; }
+}
 
 /* Schichten-Visualisierung — frei stehend, ohne Container */
 .kosten-schichten {
@@ -605,6 +685,89 @@ section { padding:var(--ae-s-9) 0; }
 .kosten-section .section-head .ae-eyebrow { color:var(--ae-lime); }
 .kosten-section .section-head h2 { color:var(--ae-off-white); }
 .kosten-section .section-head p { color:rgba(252,250,245,0.75); }
+/* Querverweis-Box (dunkel) */
+.xref { margin-top:var(--ae-s-7); display:flex; align-items:center; gap:var(--ae-s-5); flex-wrap:wrap; padding:var(--ae-s-5) var(--ae-s-6); background:rgba(252,250,245,0.04); border:1px solid rgba(252,250,245,0.12); border-radius:var(--ae-r-lg); }
+.xref-icon { flex:none; width:44px; height:44px; border-radius:var(--ae-r-sm); background:rgba(205,241,93,0.12); display:flex; align-items:center; justify-content:center; }
+.xref-icon svg { width:22px; height:22px; fill:none; stroke:var(--ae-lime); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.xref-text { flex:1; min-width:260px; margin:0; font-size:15px; line-height:1.55; color:rgba(252,250,245,0.8); }
+.xref-text strong { color:var(--ae-off-white); }
+.xref .btn { flex:none; }
+
+/* ── Ohne vs. Mit iSFP — Förder-Vergleich ───────────── */
+.isfp-vs {
+  margin-top:var(--ae-s-8);
+  padding-top:var(--ae-s-8);
+  border-top:1px dashed rgba(252,250,245,0.14);
+}
+.isfp-vs-head { margin-bottom:var(--ae-s-6); }
+.isfp-vs-head .kosten-schichten-badge { display:inline-block; margin-bottom:var(--ae-s-3); }
+.isfp-vs-sub {
+  font-size:16px; line-height:1.6;
+  color:rgba(252,250,245,0.75); max-width:62ch;
+}
+.vs-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--ae-s-5); }
+@media (max-width:640px) { .vs-grid { grid-template-columns:1fr; } }
+.vs-card { border-radius:var(--ae-r-lg); padding:var(--ae-s-6); }
+.vs-card--ohne {
+  background:rgba(252,250,245,0.04);
+  border:1px solid rgba(252,250,245,0.10);
+}
+.vs-card--mit {
+  background:rgba(205,241,93,0.08);
+  border:1.5px solid rgba(205,241,93,0.35);
+  box-shadow:0 12px 40px -16px rgba(205,241,93,0.25);
+}
+.vs-card-head {
+  display:flex; align-items:center; justify-content:space-between; gap:var(--ae-s-3);
+  margin-bottom:var(--ae-s-5); padding-bottom:var(--ae-s-4);
+  border-bottom:1px solid rgba(252,250,245,0.10);
+}
+.vs-card-title { font-size:18px; font-weight:600; letter-spacing:var(--ae-headline); color:var(--ae-off-white); }
+.vs-card--ohne .vs-card-title { color:rgba(252,250,245,0.6); }
+.vs-card-tag {
+  font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em;
+  color:var(--ae-near-black); background:var(--ae-lime);
+  padding:4px 10px; border-radius:var(--ae-r-pill); white-space:nowrap;
+}
+.vs-rows { list-style:none; display:flex; flex-direction:column; gap:var(--ae-s-3); }
+.vs-rows li { display:flex; align-items:baseline; justify-content:space-between; gap:var(--ae-s-4); }
+.vs-row-label { font-size:14px; color:rgba(252,250,245,0.65); }
+.vs-row-val { font-size:20px; font-weight:700; color:var(--ae-off-white); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.vs-up { color:var(--ae-lime); }
+.vs-foot { margin-top:var(--ae-s-3); font-size:12.5px; color:rgba(252,250,245,0.45); text-align:center; }
+
+.vs-example {
+  margin-top:var(--ae-s-6);
+  background:rgba(255,99,77,0.06);
+  border:1.5px solid rgba(255,99,77,0.22);
+  border-radius:var(--ae-r-lg); padding:var(--ae-s-6);
+}
+.vs-example-head { display:flex; align-items:center; gap:var(--ae-s-3); margin-bottom:var(--ae-s-5); flex-wrap:wrap; }
+.vs-example-badge {
+  font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em;
+  color:var(--ae-coral); padding:5px 12px;
+  border:1px solid var(--ae-coral); border-radius:var(--ae-r-pill);
+}
+.vs-example-type { font-size:14px; color:rgba(252,250,245,0.6); }
+.vs-calc { display:grid; grid-template-columns:1fr auto 1fr; gap:var(--ae-s-5); align-items:center; }
+@media (max-width:560px) {
+  .vs-calc { grid-template-columns:1fr; gap:var(--ae-s-4); }
+  .vs-calc-arrow { transform:rotate(90deg); justify-self:center; }
+}
+.vs-calc-col { display:flex; flex-direction:column; gap:6px; }
+.vs-calc-label { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:rgba(252,250,245,0.55); }
+.vs-calc-col--mit .vs-calc-label { color:var(--ae-lime); }
+.vs-calc-formula { font-size:14px; color:rgba(252,250,245,0.7); font-variant-numeric:tabular-nums; }
+.vs-calc-result { font-size:28px; font-weight:700; color:rgba(252,250,245,0.85); letter-spacing:var(--ae-tight); font-variant-numeric:tabular-nums; line-height:1; }
+.vs-calc-result--big { font-size:clamp(34px,4vw,44px); color:var(--ae-lime); }
+.vs-calc-arrow { font-size:24px; color:rgba(252,250,245,0.4); }
+.vs-delta {
+  margin-top:var(--ae-s-5); padding-top:var(--ae-s-5);
+  border-top:1px dashed rgba(252,250,245,0.14);
+  display:flex; align-items:baseline; gap:var(--ae-s-4); flex-wrap:wrap;
+}
+.vs-delta-plus { font-size:24px; font-weight:700; color:var(--ae-coral); letter-spacing:var(--ae-tight); white-space:nowrap; }
+.vs-delta-text { font-size:14px; line-height:1.5; color:rgba(252,250,245,0.7); flex:1; min-width:220px; }
 
 .kosten-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--ae-s-6); }
 @media (max-width:900px) { .kosten-grid { grid-template-columns:1fr; } }
@@ -653,7 +816,7 @@ section { padding:var(--ae-s-9) 0; }
   letter-spacing:var(--ae-tight); color:var(--ae-near-black);
   display:flex; align-items:baseline; justify-content:center;
 }
-.stat .num .unit { color:var(--ae-coral); font-weight:500; margin-left:4px; }
+.stat .num .unit { color:var(--ae-coral); font-weight:500; font-size:0.5em; align-self:flex-start; margin-top:0.4em; margin-left:2px; }
 .stat .label {
   font-size:13px; color:var(--ae-grey-500);
   text-transform:uppercase; letter-spacing:0.08em; font-weight:600;
@@ -862,7 +1025,7 @@ section { padding:var(--ae-s-9) 0; }
   padding:var(--ae-s-7);
   display:flex; flex-direction:column;
   box-shadow:0 12px 30px -14px rgba(34,33,32,0.16);
-  transition:transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease, filter 0.5s ease;
+  transition:transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease, filter 0.7s ease;
   cursor:pointer;
   transform-style:preserve-3d;
   backface-visibility:hidden;
@@ -883,7 +1046,7 @@ section { padding:var(--ae-s-9) 0; }
   background:rgba(252,250,245,0.06);
   border-color:rgba(252,250,245,0.12);
 }
-.carousel-card[data-state="active"] .carousel-card-stat strong { color:var(--ae-coral); }
+.carousel-card[data-state="active"] .carousel-card-stat strong { color:var(--ae-lime); }
 .carousel-card[data-state="active"] .carousel-card-stat span { color:rgba(252,250,245,0.6); }
 
 /* Adjacent cards (Left/Right of active) */
@@ -963,7 +1126,7 @@ section { padding:var(--ae-s-9) 0; }
 }
 .carousel-card-stat strong {
   font-size:22px; font-weight:700;
-  color:var(--ae-coral);
+  color:#5FA833;
   letter-spacing:var(--ae-tight);
   line-height:1;
   white-space:nowrap;
@@ -1233,7 +1396,7 @@ footer.site-footer {
   padding:var(--ae-s-8) 0 var(--ae-s-7);
   display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:var(--ae-s-7);
 }
-.footer-inner .brand .logo img { height:44px; margin-bottom:var(--ae-s-4); }
+.footer-inner .brand .logo img { width:100%; max-width:210px; height:auto; margin-bottom:var(--ae-s-4); }
 .footer-inner .brand p { font-size:14px; color:rgba(252,250,245,0.6); line-height:1.6; max-width:34ch; }
 .site-footer h4 { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; margin-bottom:var(--ae-s-4); color:rgba(252,250,245,0.5); }
 .site-footer ul { list-style:none; display:grid; gap:10px; }
@@ -1283,6 +1446,40 @@ footer.site-footer {
   .footer-inner { grid-template-columns:1fr 1fr; gap:var(--ae-s-6); }
 }
 @media (max-width:560px) { .footer-inner { grid-template-columns:1fr; } }
+
+/* ===== MOBILE NAV (Hamburger) — added in mobile-optimization pass ===== */
+.ae-burger{ display:none; }
+.ae-mobile-menu{
+  position:fixed; inset:0; z-index:1000; background:#FCFAF5;
+  padding:92px 28px 40px; display:flex; flex-direction:column; overflow-y:auto;
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity .25s ease, transform .25s ease, visibility .25s;
+}
+.ae-mobile-menu.is-open{ opacity:1; visibility:visible; transform:none; }
+.ae-mm-inner{ display:flex; flex-direction:column; gap:2px; max-width:420px; margin:0 auto; width:100%; }
+.ae-mm-label{ font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#FF634D; margin-bottom:8px; }
+.ae-mobile-menu a{ font-size:22px; font-weight:600; color:#222120; text-decoration:none;
+  padding:13px 2px; border-bottom:1px solid rgba(34,33,32,0.08); letter-spacing:-0.02em; }
+.ae-mobile-menu a.is-current{ color:#FF634D; }
+.ae-mm-divider{ height:16px; }
+.ae-mobile-menu a.ae-mm-cta{ margin-top:24px; background:#FF634D; color:#222120; text-align:center;
+  border:none; border-radius:999px; padding:16px; font-size:16px; }
+.ae-mobile-menu a.ae-mm-phone{ text-align:center; border:none; color:#222120; opacity:0.7;
+  font-size:16px; font-weight:500; padding-top:16px; }
+body.ae-menu-open{ overflow:hidden; }
+@media (max-width:900px){
+  .ae-burger{ display:flex; flex-direction:column; justify-content:center; gap:5px;
+    position:fixed; top:14px; right:16px; z-index:1001; width:46px; height:46px; padding:11px;
+    border:none; border-radius:12px; background:#FCFAF5; box-shadow:0 4px 16px rgba(34,33,32,0.16); cursor:pointer; }
+  .ae-burger span{ display:block; height:2px; width:100%; background:#222120; border-radius:2px;
+    transition:transform .25s ease, opacity .2s ease; }
+  .ae-burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .ae-burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .ae-burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  /* hide desktop header nav + cta/phone on mobile (menu replaces them) */
+  .site-header .nav > ul, .header .header-inner nav, .nav > ul{ display:none !important; }
+  .nav .phone, .nav .nav-cta, .site-header .btn.nav-cta, .header-right{ display:none !important; }
+}
 </style>
 <style id="dropdown-nav-style">
   @font-face {
@@ -1620,9 +1817,69 @@ footer.site-footer {
 
 
 
+
+/* ===== MOBILE NAV: hide desktop header CTA/phone/nav (override, must be last) ===== */
+@media (max-width:900px){
+  .site-header .nav .phone, .site-header .nav .nav-cta, .site-header .btn.nav-cta,
+  .header .header-right, .header-right, .header .header-phone, .header .btn-primary,
+  .header .header-inner nav, .site-header .nav > ul, .nav > ul { display:none !important; }
+}
+
+/* ===== MOBILE: no horizontal scroll + long-word wrapping (safeguard) ===== */
+html{ overflow-x:clip; }
+h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-word; }
+ (max-width:768px){
+}
+
+@media (max-width:960px){ .hero-grid > *, .hero-content{ min-width:0; } }
+
+/* ===== Ostend Digital On-Page SEO-Credit (blends with adjacent sections) ===== */
+.ostend-seo-strip{ background:#F3F1EC; padding:26px 24px; }
+.ostend-seo-strip p{ max-width:1000px; margin:0 auto; text-align:center; font-size:12.5px; line-height:1.55; color:rgba(34,33,32,0.45); }
+.ostend-seo-strip a{ color:rgba(34,33,32,0.62); text-decoration:none; border-bottom:1px solid rgba(34,33,32,0.22); }
+.ostend-seo-strip a:hover{ color:#FF634D; border-bottom-color:#FF634D; }
+
+/* center step numbers under the connector line */
+.usp-row > .usp-num{ text-align:center; }
+
+/* small-screen hero headline: scale down so long words (Sanierungsfahrplan) fit */
+@media (max-width:560px){ .hero .ae-h1{ font-size:clamp(24px, 8.5vw, 36px); } }
+
+/* Final CTA: Mobile overflow-fix (unbreakable &nbsp;-Phrasen + grid 1fr min-content) */
+@media (max-width:860px) {
+  .final-cta > * { min-width:0; }
+  .cta-content { min-width:0; }
+  .cta-content h2, .cta-content p { overflow-wrap:anywhere; word-break:break-word; max-width:100%; }
+}
+@media (max-width:560px) {
+  .final-cta { padding:var(--ae-s-7) var(--ae-s-5); }
+  .cta-content .btn-group { flex-direction:column; align-items:stretch; gap:var(--ae-s-3); }
+  .cta-content .btn-group .btn { width:100%; text-align:center; justify-content:center; }
+  .cta-trust { gap:var(--ae-s-3); justify-content:flex-start; }
+}
 </style>
 </head>
 <body>
+<!-- ===== MOBILE NAV (Hamburger) ===== -->
+<button class="ae-burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="ae-mobile-menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="ae-mobile-menu" id="ae-mobile-menu">
+  <nav class="ae-mm-inner" aria-label="Mobile Navigation">
+    <span class="ae-mm-label">Leistungen</span>
+    <a href="/aumann-eco-preview/sanierungsfahrplan/" class="is-current" data-slug="sanierungsfahrplan">Sanierungsfahrplan</a>
+    <a href="/aumann-eco-preview/bauphysik/" data-slug="bauphysik">Bauphysik &amp; Nachweise</a>
+    <a href="/aumann-eco-preview/blower-door/" data-slug="blower-door">Blower Door Test</a>
+    <a href="/aumann-eco-preview/foerderberatung/" data-slug="foerderberatung">Förderberatung</a>
+    <span class="ae-mm-divider"></span>
+    <a href="/aumann-eco-preview/ueber-uns/" data-slug="ueber-uns">Über uns</a>
+    <a href="/aumann-eco-preview/karriere/" data-slug="karriere">Karriere</a>
+    <a href="/aumann-eco-preview/kontakt/" data-slug="kontakt">Kontakt</a>
+    <a class="ae-mm-cta" href="/aumann-eco-preview/kontakt/">Kostenloses Erstgespräch</a>
+    <a class="ae-mm-phone" href="tel:+491755697551">0175 569 75 51</a>
+  </nav>
+</div>
+
 
 <!-- ═════════════════════ HEADER ═════════════════════ -->
 <header class="site-header">
@@ -1660,7 +1917,7 @@ footer.site-footer {
               <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8h6"/><path d="M8 11h7a3 3 0 010 6h-3.5"/><path d="M11.5 8v9"/></svg></span>
               <span class="nav-mega-content">
                 <span class="nav-mega-title">Förderberatung</span>
-                <span class="nav-mega-sub">KfW · BAFA · NRW.BANK</span>
+                <span class="nav-mega-sub">KfW · BAFA</span>
               </span>
             </a></li>
           </ul>
@@ -1695,15 +1952,19 @@ footer.site-footer {
         <span class="hero-dots" aria-hidden="true"><span></span><span></span><span></span></span>
         Sanierungsfahrplan · BAFA-gefördert
       </div>
-      <h1 class="ae-h1">Individueller Sanierungsfahrplan&nbsp;(iSFP)</h1>
+      <h1 class="ae-h1">Individueller Sanierungsfahrplan (iSFP)</h1>
       <p class="ae-lead">
-        Schritt für Schritt zum energieeffizienten Gebäude — mit bis zu 50 % BAFA-Förderung und 5 % iSFP-Bonus bei der Umsetzung.
+        Schritt für Schritt zum energieeffizienten Gebäude — mit bis zu 50 % BAFA-Förderung und 5 % iSFP-Bonus auf geplante Einzelmaßnahmen bei der Umsetzung.
       </p>
       <div class="btn-group">
         <a href="/aumann-eco-preview/kontakt/" class="btn btn--primary">Sanierungsfahrplan anfragen →</a>
         <a href="#kosten" class="btn btn--outline">Kosten &amp; Förderung</a>
       </div>
       <div class="hero-meta">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+          Energieberatung für Wohngebäude
+        </span>
         <span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-10 8-14a8 8 0 0 0-16 0c0 4 8 14 8 14z"/><circle cx="12" cy="10" r="3"/></svg>
           BAFA-zertifiziert
@@ -1714,15 +1975,16 @@ footer.site-footer {
         </span>
         <span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12M4 14h9M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg>
-          Ab 1.200 € (vor Förderung)
+          Ab 1.200 € (Eigenanteil nach Förderung)
         </span>
       </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
       <!-- Higgsfield Motion-Graphics Hero — transparente WebM Ping-Pong-Loop -->
-      <video class="hero-3d-render" autoplay muted loop playsinline aria-label="Animation: drei Markenpunkte formen einen Sanierungsfahrplan">
+      <video class="hero-3d-render" autoplay muted loop playsinline poster="/aumann-eco-preview/assets/media/sanierungsfahrplan-hero-still.png" aria-label="Animation: drei Markenpunkte formen einen Sanierungsfahrplan">
         <source src="/aumann-eco-preview/assets/media/hero-loop.webm" type="video/webm">
       </video>
+      <img class="hero-still" src="/aumann-eco-preview/assets/media/sanierungsfahrplan-hero-anim.webp" width="960" height="960" alt="" aria-hidden="true" loading="lazy">
     </div>
   </div>
 </section>
@@ -1916,6 +2178,68 @@ footer.site-footer {
         <p>Nur mit iSFP erhalten Sie den 5 %-Bonus auf alle <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">BEG-Einzelmaßnahmen</a>. Bei einer Fassadendämmung (30.000 €) sind das 1.500 € zusätzlicher Zuschuss — der iSFP refinanziert sich mit der ersten Umsetzung.</p>
       </div>
     </div>
+
+    <!-- Stufenplan-Treppe: so sieht das Produkt aus -->
+    <div class="stufenplan">
+      <div class="stufenplan-head">
+        <span class="stufenplan-badge">So sieht Ihr Stufenplan aus</span>
+        <p class="stufenplan-sub">Vom unsanierten Ist-Zustand bis zum Effizienzhaus — Schritt für Schritt, in Maßnahmenpaketen oder in einem Zug, nach Ihren individuellen Bedürfnissen. Im Beispiel sehen Sie die Einsparungen des Primärenergiebedarfs in Sanierungsschritten.</p>
+      </div>
+
+      <div class="sp-track">
+        <!-- Stufe 0 — Heute (höchster Verbrauch → höchster, dunkelroter Balken) -->
+        <div class="sp-step" style="--c:#C73E29; --h:238px;">
+          <div class="sp-riser"><span class="sp-num">298</span><span class="sp-unit">kWh/m²a</span></div>
+          <div class="sp-base">
+            <span class="sp-label">Ihr Haus heute<span class="sp-pe">298 kWh/m²a</span></span>
+            <span class="sp-measures">Ist-Zustand · unsaniert</span>
+            <span class="sp-mini">4.875 €/a · 93 kg CO₂</span>
+          </div>
+        </div>
+        <!-- Stufe 1 — Paket 1 -->
+        <div class="sp-step" style="--c:#E0512F; --h:178px;">
+          <div class="sp-riser"><span class="sp-num">210</span><span class="sp-unit">kWh/m²a</span></div>
+          <div class="sp-base">
+            <span class="sp-label">Paket 1<span class="sp-pe">210 kWh/m²a</span></span>
+            <span class="sp-measures">Heizungstausch &amp; Kellerdämmung</span>
+            <span class="sp-mini">3.900 €/a · 70 kg CO₂</span>
+          </div>
+        </div>
+        <!-- Stufe 2 — Paket 2 -->
+        <div class="sp-step" style="--c:#E07B3C; --h:124px;">
+          <div class="sp-riser"><span class="sp-num">130</span><span class="sp-unit">kWh/m²a</span></div>
+          <div class="sp-base">
+            <span class="sp-label">Paket 2<span class="sp-pe">130 kWh/m²a</span></span>
+            <span class="sp-measures">Fenster &amp; Lüftungsanlage</span>
+            <span class="sp-mini">2.800 €/a · 44 kg CO₂</span>
+          </div>
+        </div>
+        <!-- Stufe 3 — Paket 3 -->
+        <div class="sp-step" style="--c:#7BA83C; --h:96px;">
+          <div class="sp-riser"><span class="sp-num">55</span><span class="sp-unit">kWh/m²a</span></div>
+          <div class="sp-base">
+            <span class="sp-label">Paket 3<span class="sp-pe">55 kWh/m²a</span></span>
+            <span class="sp-measures">Dämmung Dach, Gaube &amp; Außenwände</span>
+            <span class="sp-mini">1.900 €/a · 24 kg CO₂</span>
+          </div>
+        </div>
+        <!-- Stufe 4 — Ziel (niedrigster Verbrauch → niedrigster, grüner Balken) -->
+        <div class="sp-step" style="--c:#4F9E33; --h:74px;">
+          <div class="sp-riser"><span class="sp-num">20</span><span class="sp-unit">kWh/m²a</span></div>
+          <div class="sp-base">
+            <span class="sp-label">Ziel · Effizienzhaus<span class="sp-pe">20 kWh/m²a</span></span>
+            <span class="sp-measures">Sanierung abgeschlossen</span>
+            <span class="sp-mini">1.541 €/a · 15 kg CO₂</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-axis"></div>
+      <div class="sp-axis-labels">
+        <span>Heute · 298 kWh/m²a · hoher Verbrauch</span>
+        <span>Ziel · 20 kWh/m²a · −66 % Energiekosten</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1931,22 +2255,22 @@ footer.site-footer {
       <article class="usp-row">
         <span class="usp-num">01</span>
         <div class="usp-body">
-          <h3>Erstgespräch &amp; Datenaufnahme</h3>
-          <p>Wir besprechen Ihr Gebäude, Ihre Ziele und Ihren Zeithorizont. Sie erhalten eine erste Einschätzung, ob ein iSFP für Ihre Situation sinnvoll ist — kostenlos und unverbindlich.</p>
+          <h3>Erstgespräch</h3>
+          <p>Wir besprechen Ihre Ziele, Ihr Gebäude und Ihren Zeithorizont. Dabei klären wir, ob ein iSFP für Ihre Situation sinnvoll ist und welche Unterlagen für den nächsten Schritt benötigt werden — kostenlos und unverbindlich.</p>
         </div>
       </article>
       <article class="usp-row">
         <span class="usp-num">02</span>
         <div class="usp-body">
-          <h3>Vor-Ort-Analyse</h3>
-          <p>Wir kommen zu Ihnen und erfassen die Gebäudehülle, Anlagentechnik und <a href="/aumann-eco-preview/bauphysik/" class="inline-link">energetische Schwachstellen</a>. Dauer: ca. 2–3 Stunden. Keine Standardwerte — wir messen, wo es notwendig ist.</p>
+          <h3>Vor-Ort-Begehung &amp; Bestandsaufnahme</h3>
+          <p>Wir kommen zu Ihnen und erfassen Gebäudehülle, Anlagentechnik und <a href="/aumann-eco-preview/bauphysik/" class="inline-link">energetische Schwachstellen</a> vor Ort. Dauer ca. 2 Stunden. Klare Bewertung statt Fernanalyse.</p>
         </div>
       </article>
       <article class="usp-row">
         <span class="usp-num">03</span>
         <div class="usp-body">
           <h3>Berechnung &amp; Maßnahmenplan</h3>
-          <p>Auf Basis der Vor-Ort-Daten berechnen wir die Sanierungsschritte, priorisieren nach Kosten-Nutzen und ermitteln die passenden <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">Fördermöglichkeiten</a> — realistisch, nicht optimistisch.</p>
+          <p>Auf Basis der Vor-Ort-Angaben erstellen wir die Sanierungsschritte für einen klaren Stufenplan, priorisieren nach Kosten-Nutzen und ermitteln die passenden <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">Fördermöglichkeiten</a> — realistisch, nicht optimistisch.</p>
         </div>
       </article>
       <article class="usp-row">
@@ -1976,11 +2300,11 @@ footer.site-footer {
           <span class="kosten-schichten-type">Festpreise · transparent</span>
         </div>
         <table class="kosten-table">
-          <thead><tr><th>Gebäudetyp</th><th>Preis (brutto)</th></tr></thead>
+          <thead><tr><th>Gebäudetyp</th><th>Eigenanteil nach Förderung</th></tr></thead>
           <tbody>
-            <tr><td>Einfamilienhaus</td><td>1.200–1.800 €</td></tr>
-            <tr><td>Zweifamilienhaus</td><td>1.400–2.000 €</td></tr>
-            <tr><td>Mehrfamilienhaus (3+ WE)</td><td>1.800–2.500 €</td></tr>
+            <tr><td>Einfamilienhaus</td><td>ab 1.200 €</td></tr>
+            <tr><td>Zweifamilienhaus</td><td>ab 1.500 €</td></tr>
+            <tr><td>Mehrfamilienhaus (3+ WE)</td><td>ab 1.800 €</td></tr>
             <tr class="highlight-row"><td>BAFA-Zuschuss</td><td>bis zu 50 %</td></tr>
             <tr class="highlight-row"><td>Max. Förderung (EFH/ZFH)</td><td>650 €</td></tr>
             <tr class="highlight-row"><td>Max. Förderung (MFH 3+ WE)</td><td>850 €</td></tr>
@@ -1995,7 +2319,7 @@ footer.site-footer {
       <div class="kosten-schichten">
         <div class="kosten-schichten-header">
           <span class="kosten-schichten-badge">Rechenbeispiel</span>
-          <span class="kosten-schichten-type">Einfamilienhaus · 1.500 € Gesamtkosten</span>
+          <span class="kosten-schichten-type">Einfamilienhaus · 1.850 € Gesamtkosten</span>
         </div>
 
         <div class="layer-stack">
@@ -2005,7 +2329,7 @@ footer.site-footer {
               <span class="layer-block-label">Gesamtkosten iSFP</span>
               <span class="layer-block-note">Bruttopreis · Analyse + Maßnahmenplan</span>
             </div>
-            <span class="layer-block-value">1.500&nbsp;€</span>
+            <span class="layer-block-value">1.850&nbsp;€</span>
           </div>
 
           <!-- Layer 2: BAFA-Zuschuss (Lime) -->
@@ -2023,7 +2347,7 @@ footer.site-footer {
               <span class="layer-block-label">Ihr Eigenanteil</span>
               <span class="layer-block-note">nach Förderung · steuerlich absetzbar</span>
             </div>
-            <span class="layer-block-value layer-block-value--big">850&nbsp;€</span>
+            <span class="layer-block-value layer-block-value--big">1.200&nbsp;€</span>
           </div>
 
           <!-- Layer 4: Bonus -->
@@ -2036,6 +2360,69 @@ footer.site-footer {
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Ohne vs. Mit iSFP — Förder-Vergleich -->
+    <div class="isfp-vs">
+      <div class="isfp-vs-head">
+        <span class="kosten-schichten-badge">Ohne vs. Mit iSFP</span>
+        <p class="isfp-vs-sub">Der iSFP hebt nicht nur die Förderquote — er verdoppelt auch die förderfähigen Kosten. Schon eine einzige Maßnahme spielt ihn wieder ein.</p>
+      </div>
+
+      <div class="vs-grid">
+        <div class="vs-card vs-card--ohne">
+          <div class="vs-card-head">
+            <span class="vs-card-title">Ohne iSFP</span>
+          </div>
+          <ul class="vs-rows">
+            <li><span class="vs-row-label">Förderfähige Kosten</span><span class="vs-row-val">30.000 €</span></li>
+            <li><span class="vs-row-label">Förderquote</span><span class="vs-row-val">15 %</span></li>
+            <li><span class="vs-row-label">Max. Zuschuss</span><span class="vs-row-val">4.500 €</span></li>
+          </ul>
+        </div>
+        <div class="vs-card vs-card--mit">
+          <div class="vs-card-head">
+            <span class="vs-card-title">Mit iSFP</span>
+            <span class="vs-card-tag">+5 % Bonus</span>
+          </div>
+          <ul class="vs-rows">
+            <li><span class="vs-row-label">Förderfähige Kosten</span><span class="vs-row-val vs-up">bis 60.000 €</span></li>
+            <li><span class="vs-row-label">Förderquote</span><span class="vs-row-val vs-up">20 %</span></li>
+            <li><span class="vs-row-label">Max. Zuschuss</span><span class="vs-row-val vs-up">12.000 €</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="vs-foot">pro Wohneinheit und Jahr · BEG-Einzelmaßnahmen an Gebäudehülle &amp; Anlagentechnik</p>
+
+      <div class="vs-example">
+        <div class="vs-example-head">
+          <span class="vs-example-badge">Rechenbeispiel</span>
+          <span class="vs-example-type">Fenstertausch · 36.500 € Investition</span>
+        </div>
+        <div class="vs-calc">
+          <div class="vs-calc-col">
+            <span class="vs-calc-label">Ohne iSFP</span>
+            <span class="vs-calc-formula">30.000 € (gedeckelt) × 15 %</span>
+            <span class="vs-calc-result">4.500 €</span>
+          </div>
+          <div class="vs-calc-arrow">→</div>
+          <div class="vs-calc-col vs-calc-col--mit">
+            <span class="vs-calc-label">Mit iSFP</span>
+            <span class="vs-calc-formula">36.500 € (voll förderfähig) × 20 %</span>
+            <span class="vs-calc-result vs-calc-result--big">7.300 €</span>
+          </div>
+        </div>
+        <div class="vs-delta">
+          <span class="vs-delta-plus">+ 2.800 €</span>
+          <span class="vs-delta-text">mehr Zuschuss — allein beim Fenstertausch. Damit refinanziert sich Ihr iSFP schon mit der ersten Maßnahme.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="xref">
+      <div class="xref-icon"><svg viewBox="0 0 24 24"><path d="M4 10h12M4 14h9M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg></div>
+      <p class="xref-text">Welche Förderprogramme deine Sanierung finanzieren — <strong>BEG, KfW, BAFA &amp; Co.</strong> — bündeln wir auf einer Seite, inklusive Antragstellung und Baubegleitung.</p>
+      <a href="/aumann-eco-preview/foerderberatung/" class="btn btn--lime">Zur Förderberatung →</a>
     </div>
   </div>
 </section>
@@ -2061,20 +2448,20 @@ footer.site-footer {
           <article class="carousel-card" data-card="0">
             <div class="carousel-card-num">01</div>
             <h3>5&nbsp;% iSFP-Bonus auf jede Maßnahme</h3>
-            <p>Bei jeder Umsetzung einer empfohlenen Sanierungsmaßnahme erhalten Sie automatisch 5&nbsp;% zusätzliche <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">BEG-Förderung</a>. Der iSFP refinanziert sich mit der ersten Maßnahme.</p>
+            <p>Bei jeder Umsetzung einer empfohlenen Sanierungsmaßnahme erhalten Sie 5&nbsp;% zusätzliche <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">BEG-Förderung</a>. Der iSFP refinanziert sich mit der ersten Maßnahme.</p>
             <div class="carousel-card-stat">
-              <strong>+1.500&nbsp;€</strong>
-              <span>typischer Bonus pro Maßnahme</span>
+              <strong>+1.500&nbsp;€&nbsp;Zuschuss</strong>
+              <span>bei 30.000&nbsp;€ Invest</span>
             </div>
           </article>
 
           <article class="carousel-card" data-card="1">
             <div class="carousel-card-num">02</div>
-            <h3>Aufeinander abgestimmt</h3>
+            <h3>Abgestimmte Maßnahmen</h3>
             <p>Dämmung, Heizung und Lüftung passen zusammen — kein Flickwerk, sondern ein durchdachter Gesamtplan.</p>
             <div class="carousel-card-stat">
               <strong>1 Plan</strong>
-              <span>statt 4 Berater im Widerspruch</span>
+              <span>ohne Widersprüche</span>
             </div>
           </article>
 
@@ -2090,21 +2477,21 @@ footer.site-footer {
 
           <article class="carousel-card" data-card="3">
             <div class="carousel-card-num">04</div>
-            <h3>Wertsteigerung dokumentiert</h3>
-            <p>Käufer, Mieter und Banken sehen schwarz auf weiß, welches energetische Potenzial Ihr Gebäude hat.</p>
+            <h3>Werterhalt &amp; Energiekosten senken</h3>
+            <p>Der iSFP zeigt, welche Maßnahmen den Energieverbrauch senken und langfristig zum Werterhalt Ihrer Immobilie beitragen können.</p>
             <div class="carousel-card-stat">
-              <strong>Nachweis</strong>
-              <span>für Käufer und Banken</span>
+              <strong>Werterhalt</strong>
+              <span>nachweisbare Effizienzsteigerung</span>
             </div>
           </article>
 
           <article class="carousel-card" data-card="4">
             <div class="carousel-card-num">05</div>
-            <h3>Maximale Förderung sichern</h3>
-            <p>Ohne iSFP gehen schnell 3.000–5.000&nbsp;€ Förderung verloren. Wir holen <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">BAFA, KfW und NRW.BANK</a> heraus.</p>
+            <h3>Fördermöglichkeiten sinnvoll ausschöpfen</h3>
+            <p>Mit dem iSFP können Sie Investitionen und Förderungen sinnvoll aufeinander abstimmen. Wir zeigen Ihnen, wie Sie die <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">Fördermöglichkeiten</a> bestmöglich nutzen und kombinieren.</p>
             <div class="carousel-card-stat">
-              <strong>−5.000&nbsp;€</strong>
-              <span>ohne iSFP verschenkt</span>
+              <strong>−7.500&nbsp;€</strong>
+              <span>ohne iSFP an Zuschuss weniger</span>
             </div>
           </article>
         </div>
@@ -2131,12 +2518,12 @@ footer.site-footer {
     <div class="ueber-grid">
       <!-- LINKS: Content (wie Hero) -->
       <div class="ueber-content">
-        <span class="ae-eyebrow ueber-eyebrow">05 · Über mich</span>
-        <h2 class="ae-h2 ueber-headline">Beratung von Mensch zu Mensch.</h2>
-        <p class="ueber-lead">Seit über 16 Jahren begleite ich Sanierungs- und Neubauprojekte in Köln und dem Rheinland. Mein Anspruch: Empfehlungen, die auf <a href="/aumann-eco-preview/bauphysik/" class="inline-link"><em>Messdaten</em></a> basieren — nicht auf Tabellenwerten.</p>
+        <span class="ae-eyebrow ueber-eyebrow">05 · Über aumann eco</span>
+        <h2 class="ae-h2 ueber-headline">Ihr Ingenieurbüro für ehrliche Sanierung.</h2>
+        <p class="ueber-lead">aumann eco ist Ihr Ingenieurbüro für Bauphysik und Energieberatung in Köln und dem Rheinland. Seit über 11 Jahren begleiten wir Sanierungs- und Neubauprojekte — von der Planung bis zur Umsetzung, messtechnisch geprüft. Sie erhalten kein Pauschalrezept, sondern eine Strategie, die zu Ihrem Gebäude passt.</p>
 
         <div class="ueber-cta-group">
-          <a href="/aumann-eco-preview/ueber-uns/" class="btn btn--primary">Mehr über Benedikt →</a>
+          <a href="/aumann-eco-preview/ueber-uns/" class="btn btn--primary">Mehr über aumann eco →</a>
           <a href="/aumann-eco-preview/kontakt/" class="btn btn--outline">Erstgespräch vereinbaren</a>
         </div>
 
@@ -2160,10 +2547,7 @@ footer.site-footer {
       <aside class="ueber-aside">
         <div class="founder-card">
           <div class="founder-visual">
-            <div class="founder-dots-stack" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
-            <img class="founder-portrait" src="/aumann-eco-preview/assets/images/img-benedikt-jot00269-cutout.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco">
+            <img class="founder-portrait" src="/aumann-eco-preview/assets/images/img-benedikt-jot00258-cutout.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco">
           </div>
           <div class="founder-plaque">
             <div class="brand-badge" aria-hidden="true">
@@ -2180,7 +2564,7 @@ footer.site-footer {
             </div>
             <div>
               <div class="founder-name">Benedikt Aumann</div>
-              <div class="founder-title">Dipl.-Ing. · Geschäftsführer</div>
+              <div class="founder-title">Ingenieur, M.A. · Inhaber</div>
             </div>
           </div>
         </div>
@@ -2198,20 +2582,20 @@ footer.site-footer {
     </div>
     <div class="stats">
       <div class="stat">
-        <div class="num"><span class="counter" data-target="16">0</span><span class="unit">+</span></div>
+        <div class="num"><span class="counter" data-target="11">0</span><span class="unit">+</span></div>
         <div class="label">Jahre Erfahrung</div>
       </div>
       <div class="stat">
-        <div class="num"><span class="counter" data-target="250">0</span><span class="unit">+</span></div>
-        <div class="label">Begleitete Projekte</div>
+        <div class="num"><span class="counter" data-target="1">0</span></div>
+        <div class="label">Ansprechpartner</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="counter" data-target="3">0</span></div>
+        <div class="label">Fachbereiche</div>
       </div>
       <div class="stat">
         <div class="num"><span class="counter" data-target="5">0</span></div>
         <div class="label">Fachqualifikationen</div>
-      </div>
-      <div class="stat">
-        <div class="num"><span class="counter" data-target="50">0</span><span class="unit">%</span></div>
-        <div class="label">BAFA-Förderung</div>
       </div>
     </div>
   </div>
@@ -2227,11 +2611,11 @@ footer.site-footer {
     <div class="faq">
       <details open>
         <summary>Was kostet ein individueller Sanierungsfahrplan?</summary>
-        <p>Für ein Einfamilienhaus zwischen 1.200 und 1.800 €, für ein Mehrfamilienhaus ab 3 WE zwischen 1.800 und 2.500 €. Die <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">BAFA</a> übernimmt 50 % — maximal 650 € (EFH/ZFH) bzw. 850 € (MFH). Ihr tatsächlicher Eigenanteil liegt damit bei 550–1.150 €.</p>
+        <p>Der Bruttopreis liegt bei 1.850 € für ein Einfamilienhaus, 2.150 € für ein Zweifamilienhaus und ab 2.650 € für Mehrfamilienhäuser (ab 3 WE). Die <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">BAFA</a> übernimmt 50 % — maximal 650 € (EFH/ZFH) bzw. 850 € (MFH). Ihr Eigenanteil liegt damit bei ab 1.200 € (EFH), ab 1.500 € (ZFH) bzw. ab 1.800 € (MFH).</p>
       </details>
       <details>
         <summary>Wie lange dauert die Erstellung eines iSFP?</summary>
-        <p>Vom Erstgespräch bis zum fertigen Sanierungsfahrplan planen wir 4–6 Wochen. Die Vor-Ort-Aufnahme dauert ca. 2–3 Stunden. Bei dringenden Fristen beschleunigen wir den Ablauf nach Absprache.</p>
+        <p>Vom Erstgespräch bis zum fertigen Sanierungsfahrplan planen wir 4–6 Wochen. Die Vor-Ort-Aufnahme dauert ca. 2 Stunden. Bei dringenden Fristen beschleunigen wir den Ablauf nach Absprache.</p>
       </details>
       <details>
         <summary>Ist ein Sanierungsfahrplan Pflicht?</summary>
@@ -2239,7 +2623,7 @@ footer.site-footer {
       </details>
       <details>
         <summary>Was ist der Unterschied zwischen iSFP und Energieausweis?</summary>
-        <p>Der Energieausweis ist ein Pflichtdokument bei Verkauf oder Vermietung. Er zeigt den Ist-Zustand, aber keine Maßnahmen. Der iSFP ist eine Sanierungsstrategie mit konkretem Stufenplan, Kosten-Nutzen-Analyse und Förderempfehlungen — und bringt den 5 %-Bonus.</p>
+        <p>Der Energieausweis ist ein Pflichtdokument bei Verkauf oder Vermietung. Er zeigt den Energiebedarf, aber keine Maßnahmen. Der iSFP ist eine Sanierungsstrategie mit konkretem Stufenplan, Kosten-Nutzen-Analyse und Förderempfehlungen — und bringt den 5 %-Bonus.</p>
       </details>
       <details>
         <summary>Wie funktioniert der 5 %-iSFP-Bonus?</summary>
@@ -2250,16 +2634,19 @@ footer.site-footer {
 </section>
 
 <!-- ═════════════════════ FINAL CTA ═════════════════════ -->
+<div class="ostend-seo-strip">
+  <p>Mit Ostend Digital als <a href="https://ostend.digital" target="_blank" rel="noopener">Werbeagentur Stuttgart</a> haben wir, die aumann eco, unsere Online-Präsenz mit kreativen Webdesigns und effektiven SEO-Maßnahmen optimiert.</p>
+</div>
 <section class="cta-section">
   <div class="wrap">
     <div class="final-cta">
       <div class="cta-portrait">
         <div class="cta-portrait-frame">
-          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco" width="200" height="200">
+          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco" width="200" height="200">
         </div>
         <div class="cta-sign">
           <span class="cta-sign-name">Benedikt Aumann</span>
-          <span class="cta-sign-title">Dipl.-Ing. · Geschäftsführer</span>
+          <span class="cta-sign-title">Ingenieur, M.A. · Inhaber</span>
         </div>
       </div>
       <div class="cta-content">
@@ -2314,7 +2701,7 @@ footer.site-footer {
     <div class="footer-inner">
       <div class="brand">
         <a href="/aumann-eco-preview/" class="logo">
-          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortmarke-mitClaim-weiss.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
+          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortbildmarke-weiss-rot.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
         </a>
         <p>Ingenieurbüro für Bauphysik &amp; Energieberatung in Köln. Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
       </div>
@@ -2358,7 +2745,7 @@ footer.site-footer {
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 aumann eco GmbH · Alle Rechte vorbehalten</span>
+      <span>© 2026 aumann eco · Alle Rechte vorbehalten</span>
       <a href="https://ostend.digital" target="_blank" rel="noopener" class="webdesign-credit">Webdesign by Ostend Digital</a>
     </div>
   </div>
@@ -2439,7 +2826,7 @@ footer.site-footer {
     const total = cards.length;
     let active = 0;
     let autoplayTimer = null;
-    const AUTOPLAY_DELAY = 4000;
+    const AUTOPLAY_DELAY = 6000;
 
     function update() {
       cards.forEach((card, i) => {
@@ -2534,5 +2921,18 @@ footer.site-footer {
   })();
 </script>
 
+
+<script>
+/* MOBILE NAV toggle */
+(function(){
+  var b=document.querySelector('.ae-burger'), m=document.getElementById('ae-mobile-menu');
+  if(!b||!m) return;
+  function open(){ m.classList.add('is-open'); b.setAttribute('aria-expanded','true'); b.setAttribute('aria-label','Men\u00fc schlie\u00dfen'); document.body.classList.add('ae-menu-open'); }
+  function close(){ m.classList.remove('is-open'); b.setAttribute('aria-expanded','false'); b.setAttribute('aria-label','Men\u00fc \u00f6ffnen'); document.body.classList.remove('ae-menu-open'); }
+  b.addEventListener('click', function(){ m.classList.contains('is-open')?close():open(); });
+  m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 </body>
 </html>

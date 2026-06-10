@@ -9,11 +9,11 @@
 /* ═══════════════════════════════════════════════
    VOLTE WEBFONT
 ═══════════════════════════════════════════════ */
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
 
 /* ═══════════════════════════════════════════════
    TOKENS
@@ -66,7 +66,7 @@ a { color:inherit; }
 
 .wrap { max-width:var(--ae-max); margin:0 auto; padding:0 var(--ae-s-6); }
 section { padding:var(--ae-s-9) 0; }
-@media (max-width:720px) { section { padding:var(--ae-s-8) 0; } }
+@media (max-width:720px) { section { padding:var(--ae-s-7) 0; } }
 
 /* ═══════════════════════════════════════════════
    HEADER
@@ -310,6 +310,71 @@ section { padding:var(--ae-s-9) 0; }
 .leistung-card-link:hover { gap:8px; transition:gap .2s; }
 
 /* ═══════════════════════════════════════════════
+   NACHWEISE — Coverflow-Carousel
+═══════════════════════════════════════════════ */
+.carousel-wrap { position:relative; margin-top:var(--ae-s-8); padding:0 var(--ae-s-7); }
+.carousel { position:relative; height:var(--carousel-h, 480px); overflow:hidden; perspective:1400px; transition:height 0.3s ease; }
+.carousel-track { position:relative; width:100%; height:100%; display:flex; align-items:center; justify-content:center; transform-style:preserve-3d; }
+.carousel-card {
+  position:absolute; width:380px;
+  background:var(--ae-white); border:1px solid var(--ae-grey-300);
+  border-radius:var(--ae-r-lg); padding:var(--ae-s-6) var(--ae-s-7);
+  display:flex; flex-direction:column;
+  box-shadow:0 12px 30px -14px rgba(34,33,32,0.16);
+  transition:transform 1s cubic-bezier(0.22,1,0.36,1), opacity 0.85s ease, filter 0.85s ease, background 0.85s ease, border-color 0.85s ease;
+  cursor:pointer; transform-style:preserve-3d; backface-visibility:hidden;
+}
+.carousel-card[data-state="active"] { transform:translateX(0) translateZ(0) scale(1); opacity:1; z-index:5; background:var(--ae-near-black); border-color:var(--ae-near-black); box-shadow:0 14px 36px -18px rgba(34,33,32,0.28); }
+.carousel-card[data-state="active"] h3 { color:var(--ae-off-white); }
+.carousel-card[data-state="active"] p { color:rgba(252,250,245,0.7); }
+.carousel-card[data-state="active"] p strong { color:var(--ae-off-white); }
+.carousel-card[data-state="active"] .carousel-card-tag { background:var(--ae-coral); color:var(--ae-near-black); }
+.carousel-card[data-state="active"] .leistung-card-icon { background:rgba(255,99,77,0.18); }
+.carousel-card[data-state="active"] .inline-link { color:var(--ae-coral); }
+.carousel-card[data-state="prev"]   { transform:translateX(-280px) translateZ(-200px) scale(0.85); opacity:0.5; z-index:3; filter:blur(0.5px); }
+.carousel-card[data-state="next"]   { transform:translateX(280px) translateZ(-200px) scale(0.85); opacity:0.5; z-index:3; filter:blur(0.5px); }
+.carousel-card[data-state="prev-2"] { transform:translateX(-480px) translateZ(-400px) scale(0.7); opacity:0.2; z-index:1; filter:blur(1px); }
+.carousel-card[data-state="next-2"] { transform:translateX(480px) translateZ(-400px) scale(0.7); opacity:0.2; z-index:1; filter:blur(1px); }
+.carousel-card[data-state="hidden"] { transform:translateX(0) translateZ(-600px) scale(0.5); opacity:0; z-index:0; pointer-events:none; }
+.carousel-card .leistung-card-icon { transition:background 0.5s ease; margin-bottom:var(--ae-s-5); }
+.carousel-card-tag {
+  display:inline-flex; align-items:center; gap:6px; align-self:flex-start;
+  font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em;
+  padding:5px 12px; border-radius:var(--ae-r-pill);
+  background:rgba(255,99,77,0.10); color:var(--ae-coral);
+  margin-bottom:var(--ae-s-5); transition:background 0.5s ease, color 0.5s ease;
+}
+.carousel-card-tag::before { content:''; width:6px; height:6px; border-radius:50%; background:currentColor; }
+.carousel-card h3 { font-size:24px; font-weight:600; letter-spacing:var(--ae-headline); margin-bottom:var(--ae-s-3); color:var(--ae-near-black); line-height:1.2; transition:color 0.5s ease; }
+.carousel-card p { font-size:15px; line-height:1.6; color:#444; margin:0; transition:color 0.5s ease; }
+.carousel-card p strong { color:var(--ae-near-black); font-weight:600; transition:color 0.5s ease; }
+.carousel-arrow {
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:48px; height:48px; border-radius:50%;
+  background:var(--ae-white); border:1px solid var(--ae-grey-300); color:var(--ae-near-black);
+  display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:10;
+  transition:transform 0.2s, background 0.2s, border-color 0.2s; box-shadow:0 4px 12px rgba(0,0,0,0.06);
+}
+.carousel-arrow:hover { transform:translateY(-50%) scale(1.05); background:var(--ae-near-black); color:var(--ae-off-white); border-color:var(--ae-near-black); }
+.carousel-arrow svg { width:20px; height:20px; }
+.carousel-arrow--prev { left:0; }
+.carousel-arrow--next { right:0; }
+.carousel-pagination { display:flex; justify-content:center; gap:8px; margin-top:var(--ae-s-6); }
+.carousel-dot { width:8px; height:8px; border-radius:50%; background:var(--ae-grey-300); border:none; cursor:pointer; transition:all 0.3s; padding:0; }
+.carousel-dot:hover { background:var(--ae-grey-500); }
+.carousel-dot.active { width:28px; border-radius:4px; background:var(--ae-coral); }
+@media (max-width:760px) {
+  .carousel-wrap { padding:0; }
+  .carousel-card { width:300px; padding:var(--ae-s-5); }
+  .carousel-card[data-state="prev"]   { transform:translateX(-220px) translateZ(-150px) scale(0.85); }
+  .carousel-card[data-state="next"]   { transform:translateX(220px) translateZ(-150px) scale(0.85); }
+  .carousel-card[data-state="prev-2"] { transform:translateX(-360px) translateZ(-300px) scale(0.7); }
+  .carousel-card[data-state="next-2"] { transform:translateX(360px) translateZ(-300px) scale(0.7); }
+  .carousel-arrow { width:40px; height:40px; }
+  .carousel-card h3 { font-size:18px; }
+}
+
+/* ═══════════════════════════════════════════════
    BLOWER DOOR & THERMOGRAFIE — 2-Spalten
 ═══════════════════════════════════════════════ */
 .verfahren-section { background:var(--ae-off-white); }
@@ -343,6 +408,9 @@ section { padding:var(--ae-s-9) 0; }
   letter-spacing:var(--ae-headline); margin-bottom:var(--ae-s-4);
 }
 .verfahren-card p { font-size:15px; line-height:1.65; color:rgba(34,33,32,0.7); margin-bottom:var(--ae-s-4); }
+.verfahren-photo { margin-bottom:var(--ae-s-5); border-radius:var(--ae-r-sm); overflow:hidden; }
+.verfahren-photo img { width:100%; height:200px; object-fit:cover; display:block; }
+.verfahren-cta { margin-top:var(--ae-s-5); align-self:flex-start; }
 .verfahren-pflicht {
   margin-top:auto; padding-top:var(--ae-s-5);
   border-top:1px solid rgba(34,33,32,0.08);
@@ -545,6 +613,36 @@ section { padding:var(--ae-s-9) 0; }
   color:rgba(252,250,245,0.65);
 }
 
+/* ── Von der Norm zum Nachweis (Flow) ───────────────── */
+.flow { display:flex; align-items:stretch; gap:var(--ae-s-3); margin-top:var(--ae-s-7); }
+@media (max-width:860px) { .flow { flex-direction:column; } }
+.flow-step {
+  flex:1; min-width:0;
+  background:rgba(252,250,245,0.04);
+  border:1px solid rgba(252,250,245,0.10);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-6);
+  display:flex; flex-direction:column;
+  opacity:0; transform:translateY(16px);
+  transition:opacity .5s ease, transform .5s cubic-bezier(.22,1,.36,1), border-color .25s, background .25s;
+  transition-delay:calc(var(--i,0) * 220ms);
+}
+.flow.is-visible .flow-step { opacity:1; transform:none; }
+.flow-step:hover { border-color:rgba(205,241,93,0.30); }
+.flow-step--final { border-color:rgba(205,241,93,0.30); background:rgba(205,241,93,0.06); }
+.flow-step-num { font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:rgba(252,250,245,0.4); margin-bottom:var(--ae-s-4); }
+.flow-step-icon { width:52px; height:52px; border-radius:var(--ae-r-md); background:rgba(205,241,93,0.10); border:1px solid rgba(205,241,93,0.22); display:flex; align-items:center; justify-content:center; margin-bottom:var(--ae-s-5); }
+.flow-step-icon svg { width:26px; height:26px; fill:none; stroke:var(--ae-lime); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.flow-step h3 { font-size:19px; font-weight:600; letter-spacing:var(--ae-headline); margin-bottom:var(--ae-s-3); color:var(--ae-off-white); }
+.flow-step p { font-size:14px; line-height:1.6; color:rgba(252,250,245,0.65); margin-bottom:var(--ae-s-5); }
+.flow-tags { margin-top:auto; display:flex; flex-wrap:wrap; gap:6px; }
+.flow-tags span { font-size:11px; font-weight:500; color:rgba(252,250,245,0.7); padding:4px 10px; background:rgba(252,250,245,0.06); border:1px solid rgba(252,250,245,0.12); border-radius:var(--ae-r-pill); }
+.flow-step--final .flow-tags span { color:var(--ae-lime); background:rgba(205,241,93,0.08); border-color:rgba(205,241,93,0.25); }
+.flow-arrow { display:flex; align-items:center; justify-content:center; flex:0 0 auto; color:rgba(205,241,93,0.55); opacity:0; transition:opacity .5s ease; transition-delay:calc(var(--i,0) * 220ms + 160ms); }
+.flow.is-visible .flow-arrow { opacity:1; }
+.flow-arrow svg { width:26px; height:26px; }
+@media (max-width:860px) { .flow-arrow { transform:rotate(90deg); padding:var(--ae-s-1) 0; } }
+
 /* ═══════════════════════════════════════════════
    GEG-CHECKLISTE
 ═══════════════════════════════════════════════ */
@@ -553,7 +651,7 @@ section { padding:var(--ae-s-9) 0; }
   display:grid; grid-template-columns:1.1fr 1fr;
   gap:var(--ae-s-8); align-items:start;
 }
-@media (max-width:900px) { .geg-grid { grid-template-columns:1fr; } }
+@media (max-width:900px) { .geg-grid { grid-template-columns:1fr; } .geg-grid > * { min-width:0; } }
 .geg-list {
   background:var(--ae-white);
   border:1px solid rgba(34,33,32,0.08);
@@ -561,7 +659,7 @@ section { padding:var(--ae-s-9) 0; }
   padding:var(--ae-s-6);
 }
 .geg-list-row {
-  display:grid; grid-template-columns:auto 1fr auto;
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto;
   gap:var(--ae-s-4); align-items:center;
   padding:var(--ae-s-4) 0;
   border-bottom:1px solid rgba(34,33,32,0.06);
@@ -581,6 +679,11 @@ section { padding:var(--ae-s-9) 0; }
   color:var(--ae-grey-500);
   font-variant-numeric:tabular-nums;
 }
+/* Mobile: Norm-Tag unter das Label statt 3-Spalten-Grid (sonst kollabiert es) */
+@media (max-width:560px) {
+  .geg-list-row { grid-template-columns:auto 1fr; row-gap:4px; }
+  .geg-list-norm { grid-column:2; justify-self:start; opacity:0.8; }
+}
 
 /* ═══════════════════════════════════════════════
    ABLAUF — vertikale Linie
@@ -598,9 +701,8 @@ section { padding:var(--ae-s-9) 0; }
 .usp-row:not(:last-child)::after {
   content:""; position:absolute;
   left:calc(var(--num-col) / 2);
-  bottom:calc(-1 * var(--ae-s-7));
-  width:2px; height:calc(var(--ae-s-7) * 2);
-  transform:translateX(-50%);
+  top:calc(var(--ae-s-7) + clamp(44px,5.4vw,72px) + 12px); bottom:calc(-1 * (var(--ae-s-7) - 12px));
+  width:2px; transform:translateX(-50%);
   background-color:rgba(255,99,77,0.25);
   background-image:linear-gradient(var(--ae-coral),var(--ae-coral));
   background-size:100% var(--seg-progress,0%);
@@ -610,7 +712,7 @@ section { padding:var(--ae-s-9) 0; }
   transition:background-size .1s linear;
   pointer-events:none;
 }
-.usp-row.is-active .usp-num { opacity:0.9; transition:opacity .3s ease; }
+.usp-row.is-active .usp-num { text-align:center; opacity:0.9; transition:opacity .3s ease; }
 .usp-num {
   font-size:clamp(44px,5.4vw,72px); font-weight:300;
   color:var(--ae-near-black); line-height:0.95;
@@ -630,7 +732,7 @@ section { padding:var(--ae-s-9) 0; }
 @media (max-width:720px) {
   .usp-list { --num-col:48px; --usp-gap:var(--ae-s-4); }
   .usp-row { padding:var(--ae-s-5) 0; }
-  .usp-row:not(:last-child)::after { bottom:calc(-1 * var(--ae-s-5)); height:calc(var(--ae-s-5) * 2); }
+  .usp-row:not(:last-child)::after { top:calc(var(--ae-s-5) + 30px + 8px); bottom:calc(-1 * (var(--ae-s-5) - 8px)); }
   .usp-num { font-size:30px; }
   .usp-body h3 { font-size:19px; }
 }
@@ -787,7 +889,7 @@ section { padding:var(--ae-s-9) 0; }
   letter-spacing:var(--ae-tight); color:var(--ae-near-black);
   display:flex; align-items:baseline; justify-content:center;
 }
-.stat .num .unit { color:var(--ae-coral); font-weight:500; margin-left:4px; }
+.stat .num .unit { color:var(--ae-coral); font-weight:500; font-size:0.5em; align-self:flex-start; margin-top:0.4em; margin-left:2px; }
 .stat .label {
   font-size:13px; color:var(--ae-grey-500);
   text-transform:uppercase; letter-spacing:0.08em; font-weight:600;
@@ -982,7 +1084,7 @@ footer.site-footer {
   padding:var(--ae-s-8) 0 var(--ae-s-7);
   display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:var(--ae-s-7);
 }
-.footer-inner .brand .logo img { height:44px; margin-bottom:var(--ae-s-4); }
+.footer-inner .brand .logo img { width:100%; max-width:210px; height:auto; margin-bottom:var(--ae-s-4); }
 .footer-inner .brand p { font-size:14px; color:rgba(252,250,245,0.6); line-height:1.6; max-width:34ch; }
 .site-footer h4 { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; margin-bottom:var(--ae-s-4); color:rgba(252,250,245,0.5); }
 .site-footer ul { list-style:none; display:grid; gap:10px; }
@@ -1029,6 +1131,40 @@ footer.site-footer {
   .footer-inner { grid-template-columns:1fr 1fr; gap:var(--ae-s-6); }
 }
 @media (max-width:560px) { .footer-inner { grid-template-columns:1fr; } }
+
+/* ===== MOBILE NAV (Hamburger) — added in mobile-optimization pass ===== */
+.ae-burger{ display:none; }
+.ae-mobile-menu{
+  position:fixed; inset:0; z-index:1000; background:#FCFAF5;
+  padding:92px 28px 40px; display:flex; flex-direction:column; overflow-y:auto;
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity .25s ease, transform .25s ease, visibility .25s;
+}
+.ae-mobile-menu.is-open{ opacity:1; visibility:visible; transform:none; }
+.ae-mm-inner{ display:flex; flex-direction:column; gap:2px; max-width:420px; margin:0 auto; width:100%; }
+.ae-mm-label{ font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#FF634D; margin-bottom:8px; }
+.ae-mobile-menu a{ font-size:22px; font-weight:600; color:#222120; text-decoration:none;
+  padding:13px 2px; border-bottom:1px solid rgba(34,33,32,0.08); letter-spacing:-0.02em; }
+.ae-mobile-menu a.is-current{ color:#FF634D; }
+.ae-mm-divider{ height:16px; }
+.ae-mobile-menu a.ae-mm-cta{ margin-top:24px; background:#FF634D; color:#222120; text-align:center;
+  border:none; border-radius:999px; padding:16px; font-size:16px; }
+.ae-mobile-menu a.ae-mm-phone{ text-align:center; border:none; color:#222120; opacity:0.7;
+  font-size:16px; font-weight:500; padding-top:16px; }
+body.ae-menu-open{ overflow:hidden; }
+@media (max-width:900px){
+  .ae-burger{ display:flex; flex-direction:column; justify-content:center; gap:5px;
+    position:fixed; top:14px; right:16px; z-index:1001; width:46px; height:46px; padding:11px;
+    border:none; border-radius:12px; background:#FCFAF5; box-shadow:0 4px 16px rgba(34,33,32,0.16); cursor:pointer; }
+  .ae-burger span{ display:block; height:2px; width:100%; background:#222120; border-radius:2px;
+    transition:transform .25s ease, opacity .2s ease; }
+  .ae-burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .ae-burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .ae-burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  /* hide desktop header nav + cta/phone on mobile (menu replaces them) */
+  .site-header .nav > ul, .header .header-inner nav, .nav > ul{ display:none !important; }
+  .nav .phone, .nav .nav-cta, .site-header .btn.nav-cta, .header-right{ display:none !important; }
+}
 </style>
 <style id="dropdown-nav-style">
   @font-face {
@@ -1366,9 +1502,64 @@ footer.site-footer {
 
 
 
+
+/* ===== MOBILE NAV: hide desktop header CTA/phone/nav (override, must be last) ===== */
+@media (max-width:900px){
+  .site-header .nav .phone, .site-header .nav .nav-cta, .site-header .btn.nav-cta,
+  .header .header-right, .header-right, .header .header-phone, .header .btn-primary,
+  .header .header-inner nav, .site-header .nav > ul, .nav > ul { display:none !important; }
+}
+
+/* ===== MOBILE: no horizontal scroll + long-word wrapping (safeguard) ===== */
+html{ overflow-x:clip; }
+h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-word; }
+
+@media (max-width:960px){ .hero-grid > *, .hero-content{ min-width:0; } }
+
+/* ===== Ostend Digital On-Page SEO-Credit (blends with adjacent sections) ===== */
+.ostend-seo-strip{ background:#F3F1EC; padding:26px 24px; }
+.ostend-seo-strip p{ max-width:1000px; margin:0 auto; text-align:center; font-size:12.5px; line-height:1.55; color:rgba(34,33,32,0.45); }
+.ostend-seo-strip a{ color:rgba(34,33,32,0.62); text-decoration:none; border-bottom:1px solid rgba(34,33,32,0.22); }
+.ostend-seo-strip a:hover{ color:#FF634D; border-bottom-color:#FF634D; }
+
+/* center step numbers under the connector line */
+.usp-row > .usp-num{ text-align:center; }
+
+/* Final CTA: Mobile overflow-fix (unbreakable &nbsp;-Phrasen + grid 1fr min-content) */
+@media (max-width:860px) {
+  .final-cta > * { min-width:0; }
+  .cta-content { min-width:0; }
+  .cta-content h2, .cta-content p { overflow-wrap:anywhere; word-break:break-word; max-width:100%; }
+}
+@media (max-width:560px) {
+  .final-cta { padding:var(--ae-s-7) var(--ae-s-5); }
+  .cta-content .btn-group { flex-direction:column; align-items:stretch; gap:var(--ae-s-3); }
+  .cta-content .btn-group .btn { width:100%; text-align:center; justify-content:center; }
+  .cta-trust { gap:var(--ae-s-3); justify-content:flex-start; }
+}
 </style>
 </head>
 <body>
+<!-- ===== MOBILE NAV (Hamburger) ===== -->
+<button class="ae-burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="ae-mobile-menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="ae-mobile-menu" id="ae-mobile-menu">
+  <nav class="ae-mm-inner" aria-label="Mobile Navigation">
+    <span class="ae-mm-label">Leistungen</span>
+    <a href="/aumann-eco-preview/sanierungsfahrplan/" data-slug="sanierungsfahrplan">Sanierungsfahrplan</a>
+    <a href="/aumann-eco-preview/bauphysik/" class="is-current" data-slug="bauphysik">Bauphysik &amp; Nachweise</a>
+    <a href="/aumann-eco-preview/blower-door/" data-slug="blower-door">Blower Door Test</a>
+    <a href="/aumann-eco-preview/foerderberatung/" data-slug="foerderberatung">Förderberatung</a>
+    <span class="ae-mm-divider"></span>
+    <a href="/aumann-eco-preview/ueber-uns/" data-slug="ueber-uns">Über uns</a>
+    <a href="/aumann-eco-preview/karriere/" data-slug="karriere">Karriere</a>
+    <a href="/aumann-eco-preview/kontakt/" data-slug="kontakt">Kontakt</a>
+    <a class="ae-mm-cta" href="/aumann-eco-preview/kontakt/">Kostenloses Erstgespräch</a>
+    <a class="ae-mm-phone" href="tel:+491755697551">0175 569 75 51</a>
+  </nav>
+</div>
+
 
 <!-- ═════════════════════ HEADER ═════════════════════ -->
 <header class="site-header">
@@ -1385,7 +1576,7 @@ footer.site-footer {
               <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-4 4 4 7-7"/><path d="M14 6h6v6"/><path d="M3 21h18"/></svg></span>
               <span class="nav-mega-content">
                 <span class="nav-mega-title">Sanierungsfahrplan</span>
-                <span class="nav-mega-sub">iSFP nach BAFA · bis 80&nbsp;% Förderung</span>
+                <span class="nav-mega-sub">iSFP nach BAFA · bis 50&nbsp;% Förderung</span>
               </span>
             </a></li>
             <li role="none"><a class="nav-mega-item" role="menuitem" href="/aumann-eco-preview/bauphysik/" aria-current="page">
@@ -1406,13 +1597,13 @@ footer.site-footer {
               <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8h6"/><path d="M8 11h7a3 3 0 010 6h-3.5"/><path d="M11.5 8v9"/></svg></span>
               <span class="nav-mega-content">
                 <span class="nav-mega-title">Förderberatung</span>
-                <span class="nav-mega-sub">KfW · BAFA · NRW.BANK</span>
+                <span class="nav-mega-sub">KfW · BAFA</span>
               </span>
             </a></li>
           </ul>
           <a class="nav-mega-footer" href="/aumann-eco-preview/kontakt/">
             <span class="nav-mega-footer-text">
-              <strong>Unsicher, was du brauchst?</strong>
+              <strong>Unsicher, was Sie brauchen?</strong>
               <span>Kostenloses Erstgespräch — 15&nbsp;Min</span>
             </span>
             <span class="nav-mega-footer-cta">
@@ -1477,20 +1668,6 @@ footer.site-footer {
           </pattern>
         </defs>
 
-        <!-- Haus-Silhouette als Anker (oben rechts) -->
-        <g class="house-mini" stroke="#FF634D" stroke-width="1.4" fill="none" stroke-linejoin="round" stroke-linecap="round" opacity="0.5">
-          <path d="M468 32 L508 12 L548 32 L548 76 L468 76 Z"/>
-          <line x1="488" y1="48" x2="488" y2="76"/>
-          <line x1="528" y1="48" x2="528" y2="76"/>
-          <line x1="478" y1="56" x2="498" y2="56"/>
-        </g>
-
-        <!-- LABEL: innen warm / außen kalt -->
-        <g font-family="Volte, system-ui, sans-serif" fill="#222120" opacity="0.55">
-          <text x="60" y="98" font-size="11" font-weight="500" letter-spacing="2.6">INNEN · 21&#176;C</text>
-          <text x="430" y="98" font-size="11" font-weight="500" letter-spacing="2.6">AUSSEN · 0&#176;C</text>
-        </g>
-
         <!-- Wandquerschnitt (Mauerwerk + Dämmung + Putz innen/außen) -->
         <g class="wall-cross-section">
           <!-- Hintergrund Temperaturverlauf -->
@@ -1516,14 +1693,6 @@ footer.site-footer {
           <!-- Putz außen -->
           <rect x="354" y="140" width="10" height="240" fill="none" stroke="#FF634D" stroke-width="1.4" opacity="0.7"/>
           <rect x="364" y="140" width="16" height="240" fill="none" stroke="#FF634D" stroke-width="1.4" opacity="0.4"/>
-
-          <!-- Beschriftungen unter der Wand -->
-          <g font-family="Volte, system-ui, sans-serif" fill="#222120" opacity="0.5" font-size="9" letter-spacing="1.6" text-anchor="middle">
-            <text x="225" y="400">PUTZ</text>
-            <text x="258" y="400">MAUERWERK</text>
-            <text x="320" y="400">DÄMMUNG</text>
-            <text x="372" y="400">AUSSEN</text>
-          </g>
         </g>
 
         <!-- Drei Marken-Dots als Wärmequelle (links neben Wand, innen) -->
@@ -1757,71 +1926,116 @@ footer.site-footer {
 <section id="leistungen" class="leistungen-section">
   <div class="wrap">
     <div class="section-head">
-      <span class="ae-eyebrow">01 · Leistungen</span>
-      <h2 class="ae-h2">Bauphysikalische Leistungen.</h2>
-      <p>Sechs Nachweise, ein Ansprechpartner. Keine Schnittstellen, keine Verzögerungen.</p>
+      <span class="ae-eyebrow">01 · Nachweise</span>
+      <h2 class="ae-h2">Bauphysikalische Nachweise.</h2>
+      <p>Alle Nachweise aus einer Hand — ein Ansprechpartner, keine Schnittstellen, keine Verzögerungen.</p>
     </div>
 
-    <div class="leistungen-grid">
-      <article class="leistung-card">
-        <div class="leistung-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
-        </div>
-        <span class="leistung-card-norm">GEG · § 10 ff.</span>
-        <h3>Wärmeschutznachweis</h3>
-        <p>Berechnung von Transmissionswärmeverlust, Primärenergiebedarf und U-Werten gemäß Gebäudeenergiegesetz. Pflicht für jeden Bauantrag.</p>
-        <a href="#" class="leistung-card-link">Mehr erfahren →</a>
-      </article>
+    <div class="carousel-wrap">
+      <button class="carousel-arrow carousel-arrow--prev" aria-label="Vorheriger Nachweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
 
-      <article class="leistung-card">
-        <div class="leistung-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3M19 12h3M12 2v3M12 19v3"/><circle cx="12" cy="12" r="6"/><path d="M8 12a4 4 0 0 1 8 0"/></svg>
-        </div>
-        <span class="leistung-card-norm">DIN 4109</span>
-        <h3>Schallschutznachweis</h3>
-        <p>Luft-, Tritt- und Außenlärmschutz nach DIN&nbsp;4109. Schutz vor Beschwerden, vor allem bei Mehrfamilienhäusern und Reihenhäusern unverzichtbar.</p>
-        <a href="#" class="leistung-card-link">Mehr erfahren →</a>
-      </article>
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <article class="carousel-card" data-card="0">
+            <span class="carousel-card-tag">GEG-UVO &amp; BauO NRW</span>
+            <div class="leistung-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+            </div>
+            <h3>Wärme&shy;schutz&shy;nachweis</h3>
+            <p>Der bautechnische Nachweis zum Wärmeschutz dient der Vorlage beim Bauamt bei genehmigungspflichtigen Bauvorhaben und umfasst die Nachweise zur Einhaltung des GEG sowie bauordnungsrechtlicher Vorgaben wie der Bauordnung NRW (BauO NRW).</p>
+          </article>
 
-      <article class="leistung-card">
-        <div class="leistung-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
-        </div>
-        <span class="leistung-card-norm">DIN 4108-2</span>
-        <h3>Sommerlicher Wärmeschutz</h3>
-        <p>Nachweis, dass dein Gebäude im Sommer nicht überhitzt. Pflichtbestandteil des GEG-Nachweises — und entscheidend für Wohnkomfort.</p>
-        <a href="#" class="leistung-card-link">Mehr erfahren →</a>
-      </article>
+          <article class="carousel-card" data-card="1">
+            <span class="carousel-card-tag">DIN 4109</span>
+            <div class="leistung-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3M19 12h3M12 2v3M12 19v3"/><circle cx="12" cy="12" r="6"/><path d="M8 12a4 4 0 0 1 8 0"/></svg>
+            </div>
+            <h3>Schall&shy;schutz&shy;nachweis</h3>
+            <p>Der bautechnische Nachweis des Schallschutzes dient der Vorlage beim Bauamt bei genehmigungspflichtigen Bauvorhaben und umfasst die Nachweisführung zur Einhaltung des Luft-, Tritt- und Außenlärmschallschutzes von Gebäuden und Anlagen.</p>
+          </article>
 
-      <article class="leistung-card">
-        <div class="leistung-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/><path d="M3 12h2M19 12h2"/></svg>
-        </div>
-        <span class="leistung-card-norm">DIN EN 13829</span>
-        <h3>Blower Door Test</h3>
-        <p>Luftdichtheitsmessung mit normgerechter Differenzdruck-Methode. Voraussetzung für <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">KfW-Förderung</a> und Qualitätsnachweis nach GEG.</p>
-        <a href="#" class="leistung-card-link">Mehr erfahren →</a>
-      </article>
+          <article class="carousel-card" data-card="2">
+            <span class="carousel-card-tag">DIN 4108-2</span>
+            <div class="leistung-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+            </div>
+            <h3>Sommerlicher Wärmeschutz</h3>
+            <p>Nachweis, dass Ihr Gebäude im Sommer nicht überhitzt. Pflichtbestandteil des GEG-Nachweises — und entscheidend für Wohnkomfort.</p>
+          </article>
 
-      <article class="leistung-card">
-        <div class="leistung-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M6 10h2M6 14h2M16 10h2M16 14h2"/><circle cx="12" cy="13" r="3"/></svg>
-        </div>
-        <span class="leistung-card-norm">DIN EN 13187</span>
-        <h3>Thermografie</h3>
-        <p>Wärmebildaufnahmen decken Wärmebrücken, Dämmlücken und Luftundichtheiten auf — bevor sie zum Bauschaden werden.</p>
-        <a href="#" class="leistung-card-link">Mehr erfahren →</a>
-      </article>
+          <article class="carousel-card" data-card="3">
+            <span class="carousel-card-tag">DIN 4108-2</span>
+            <div class="leistung-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Mindest&shy;wärme&shy;schutz&shy;nachweis</h3>
+            <p>Nachweis des Mindestwärmeschutzes der Bauteile — schützt vor Tauwasser und Schimmel an Innenoberflächen. Grundanforderung nach DIN&nbsp;4108-2.</p>
+          </article>
 
-      <article class="leistung-card">
-        <div class="leistung-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+          <article class="carousel-card" data-card="4">
+            <span class="carousel-card-tag">DIN 4108-3</span>
+            <div class="leistung-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <h3>Feuchte&shy;schutz&shy;nachweis</h3>
+            <p>Tauwasser- und Feuchteschutznachweis (Glaser-Verfahren) für Außenbauteile — verhindert Bauschäden durch Kondensat im Bauteilinneren.</p>
+          </article>
+
+          <article class="carousel-card" data-card="5">
+            <span class="carousel-card-tag">DIN 4108-2 Beiblatt&nbsp;2</span>
+            <div class="leistung-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 0 1 1-1h3"/><path d="M16 4h3a1 1 0 0 1 1 1v3"/><path d="M20 16v3a1 1 0 0 1-1 1h-3"/><path d="M8 20H5a1 1 0 0 1-1-1v-3"/></svg>
+            </div>
+            <h3>Wärme&shy;brücken&shy;nachweis</h3>
+            <p>Umfasst die rechnerische Bewertung von Wärmebrücken bei der Berechnung der Transmissionswärmeverluste der Gebäudehülle. Nachweis mittels detaillierter Berechnungen oder als Gleichwertigkeitsnachweis.</p>
+          </article>
+
+          <article class="carousel-card" data-card="6">
+            <span class="carousel-card-tag">DIN 1946-6</span>
+            <div class="leistung-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 11.41A2 2 0 1 0 14 15H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+            </div>
+            <h3>Lüftungs&shy;konzept</h3>
+            <p>Rechnerischer Nachweis nach DIN&nbsp;1946-6 zur Sicherstellung des notwendigen Mindestluftwechsels für den Feuchteschutz. Pflicht bei Neubauten sowie bei energetischen Sanierungen, die die Dichtheit der Gebäudehülle wesentlich verändern.</p>
+          </article>
+
+          <article class="carousel-card" data-card="7">
+            <span class="carousel-card-tag">DIN 4108-7</span>
+            <div class="leistung-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21H3z"/><polyline points="9 14 11 16 15 12"/></svg>
+            </div>
+            <h3>Luftdichtheits&shy;konzept</h3>
+            <p>Planung der luftdichten Gebäudehülle nach DIN&nbsp;4108-7 — definiert Luftdichtheitsebene und Anschlussdetails schon vor der Ausführung.</p>
+          </article>
+
+          <article class="carousel-card" data-card="8">
+            <span class="carousel-card-tag">Gebäudeenergiegesetz (GEG)</span>
+            <div class="leistung-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+            </div>
+            <h3>GEG-Nachweis</h3>
+            <p>Nachweisführung gemäß Gebäudeenergiegesetz (GEG) für Neubauten und bestehende Gebäude sowie für Effizienzhaus-Nachweise bei der <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">KfW-Förderung</a>. Umfasst die Berechnung des Gesamtenergiebedarfs sowie des Wärme- und Feuchteschutzes von Gebäuden.</p>
+          </article>
         </div>
-        <span class="leistung-card-norm">GEG · § 23 ff.</span>
-        <h3>GEG-Nachweis</h3>
-        <p>Vollständige Nachweisführung nach Gebäudeenergiegesetz für Neubau und Bestand. Inkl. Effizienzhaus-Berechnung für <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">KfW-Förderung</a>.</p>
-        <a href="#" class="leistung-card-link">Mehr erfahren →</a>
-      </article>
+      </div>
+
+      <button class="carousel-arrow carousel-arrow--next" aria-label="Nächster Nachweis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <div class="carousel-pagination" data-carousel-pagination>
+        <button class="carousel-dot active" data-dot="0" aria-label="Nachweis 1"></button>
+        <button class="carousel-dot" data-dot="1" aria-label="Nachweis 2"></button>
+        <button class="carousel-dot" data-dot="2" aria-label="Nachweis 3"></button>
+        <button class="carousel-dot" data-dot="3" aria-label="Nachweis 4"></button>
+        <button class="carousel-dot" data-dot="4" aria-label="Nachweis 5"></button>
+        <button class="carousel-dot" data-dot="5" aria-label="Nachweis 6"></button>
+        <button class="carousel-dot" data-dot="6" aria-label="Nachweis 7"></button>
+        <button class="carousel-dot" data-dot="7" aria-label="Nachweis 8"></button>
+        <button class="carousel-dot" data-dot="8" aria-label="Nachweis 9"></button>
+      </div>
     </div>
   </div>
 </section>
@@ -1832,7 +2046,7 @@ footer.site-footer {
     <div class="section-head">
       <span class="ae-eyebrow">02 · Messverfahren</span>
       <h2 class="ae-h2">Blower Door &amp;<br>Thermografie in&nbsp;Köln.</h2>
-      <p>Zwei messbare Verfahren — verbindlich für KfW-Förderung und Qualitätskontrolle.</p>
+      <p>Zwei Verfahren zur Qualitätssicherung — zur Prüfung von Luftdichtheit, Wärmebrücken und Ausführungsqualität. Bei KfW-Förderung, Passivhaus- und Nachhaltigkeitszertifizierung.</p>
     </div>
 
     <div class="verfahren-grid">
@@ -1840,160 +2054,102 @@ footer.site-footer {
         <div class="verfahren-visual">
           <img src="/aumann-eco-preview/assets/media/blower-door-render.webp" alt="3D-Render eines Blower-Door-Test-Aufbaus mit Türrahmen, Membran und Lüftereinheit">
         </div>
-        <span class="ae-eyebrow">Luftdichtheitsmessung</span>
+        <span class="ae-eyebrow">Luftdichtheitsmessung · DIN EN ISO 9972</span>
         <h3>Blower Door Test</h3>
-        <p>Mit einem Differenzdruck-Lüfter erzeugen wir 50 Pa Über- und Unterdruck und messen den n50-Wert. Pflicht bei <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">KfW-Förderung</a> und kontrollierter Wohnraumlüftung.</p>
+        <p>Mit unserem Differenzdruck-Verfahren spüren wir Undichtigkeiten in der Gebäudehülle präzise auf. So senken Sie Heizkosten, vermeiden Schimmel und erfüllen wichtige <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">KfW-</a> und GEG-Vorgaben.</p>
+        <div class="verfahren-photo"><img src="/aumann-eco-preview/assets/images/bp-blowerdoor.jpg" alt="Blower-Door-Test: roter Messrahmen mit Gebläse zur Luftdichtheitsmessung" width="1000" height="1500" loading="lazy"></div>
         <div class="verfahren-pflicht">
           <div class="verfahren-pflicht-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Pflicht bei:</strong> KfW-Effizienzhaus, Lüftungsanlage mit WRG, GEG-Nachweis</span>
+            <span><strong>Energiekosten senken:</strong> reduziert unkontrollierte Wärmeverluste über die Gebäudehülle</span>
           </div>
           <div class="verfahren-pflicht-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Grenzwert:</strong> n50 ≤ 1,5 1/h (mit Lüftungsanlage: ≤ 1,0 1/h)</span>
+            <span><strong>Grenzwerte:</strong> Nachweis der Gebäudedichtheit für GEG, KfW, PHPP, DGNB u.&nbsp;v.&nbsp;m.</span>
+          </div>
+          <div class="verfahren-pflicht-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Qualitätssicherung:</strong> Vermeidung von Bauschäden und Schimmel, luftdichte Ausführung der Bauteile in der Bauphase</span>
+          </div>
+          <div class="verfahren-pflicht-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Komfort:</strong> Vermeidung von Zugluft sowie Luft- und Schallübertragung</span>
           </div>
         </div>
+        <a href="/aumann-eco-preview/blower-door/" class="btn btn--outline verfahren-cta">Mehr zum Blower Door Test →</a>
       </article>
 
       <article class="verfahren-card">
         <div class="verfahren-visual">
           <img src="/aumann-eco-preview/assets/media/thermografie-render.webp" alt="3D-Render einer Thermografie-Aufnahme mit Wärmebild-Overlay an Fenster- und Wandanschlüssen">
         </div>
-        <span class="ae-eyebrow">Wärmebildaufnahmen</span>
+        <span class="ae-eyebrow">Wärmebildaufnahmen · DIN EN 13187</span>
         <h3>Thermografie</h3>
-        <p>Mit Infrarotkamera machen wir Wärmebrücken sichtbar — sei es schlechte Dämmung, undichte Fugen oder Feuchteschäden. Ideal vor und nach Sanierungsmaßnahmen.</p>
+        <p>Mit der Infrarotkamera machen wir Wärmebrücken sichtbar und lokalisieren so Schwachstellen in der Gebäudehülle — präzise und zerstörungsfrei. Nach DIN EN 13187 und den Qualitätsstandards der VATH-Richtlinie.</p>
+        <div class="verfahren-photo"><img src="/aumann-eco-preview/assets/images/bp-thermografie.jpg" alt="Thermografie mit Infrarotkamera: Wärmebild macht Wärmebrücken sichtbar" width="1000" height="1500" loading="lazy"></div>
         <div class="verfahren-pflicht">
           <div class="verfahren-pflicht-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Empfohlen bei:</strong> Schimmelverdacht, Bauabnahme, Energieberatung, Förderprojekten</span>
+            <span><strong>Wärmebrücken vermeiden:</strong> Identifizierung von energetischen Schwachstellen</span>
           </div>
           <div class="verfahren-pflicht-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Bedingungen:</strong> Außentemperatur < 5 °C, Heizperiode</span>
+            <span><strong>Bauschäden &amp; Schimmel vermeiden:</strong> Feuchtigkeit und Temperaturverläufe rechtzeitig feststellen</span>
+          </div>
+          <div class="verfahren-pflicht-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Bedingungen:</strong> ausreichende Temperaturdifferenz, keine störenden Witterungs- und Strahlungseinflüsse</span>
           </div>
         </div>
+        <a href="/aumann-eco-preview/kontakt/" class="btn btn--outline verfahren-cta">Thermografie anfragen →</a>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ═════════════════════ MESS-COCKPIT (DUNKLE SECTION) ═════════════════════ -->
+<!-- ═════════════════════ VON DER NORM ZUM NACHWEIS (DUNKLE SECTION) ═════════════════════ -->
 <section class="cockpit-section">
   <div class="wrap">
     <div class="section-head">
-      <span class="ae-eyebrow">03 · Mess-Cockpit</span>
-      <h2 class="ae-h2">Was wir messen, was wir liefern.</h2>
-      <p>Vier Kennwerte aus einem typischen Effizienzhaus-Projekt — Soll-Werte sind Mindestanforderungen nach GEG, KfW oder DIN.</p>
+      <span class="ae-eyebrow">03 · Von der Norm zum Nachweis</span>
+      <h2 class="ae-h2">Von der Anforderung zum prüffähigen Nachweis.</h2>
+      <p>Jeder Nachweis folgt demselben klaren Weg — von der gesetzlichen Anforderung bis zum geprüften Dokument. Welche Werte gelten, hängt vom Projekt ab; der Weg dorthin bleibt gleich.</p>
     </div>
 
-    <div class="cockpit-statusbar">
-      <span class="cockpit-statusbar-item"><strong>Projekt:</strong>&nbsp;EFH Köln-Sülz · Sanierung 2026</span>
-      <span class="cockpit-statusbar-item"><strong>Status:</strong>&nbsp;4 / 4 Messungen abgeschlossen</span>
-      <span class="cockpit-statusbar-item ts">12.05.2026 · 14:32</span>
-    </div>
-
-    <div class="cockpit-grid">
-      <article class="gauge-card" data-fill="78" data-bar="68">
-        <div class="gauge-card-head">
-          <span class="gauge-card-label">Blower Door</span>
-          <span class="gauge-card-status">bestanden</span>
-        </div>
-        <div class="gauge-radial">
-          <svg viewBox="0 0 120 120">
-            <circle class="gauge-radial-track" cx="60" cy="60" r="50"/>
-            <circle class="gauge-radial-fill" cx="60" cy="60" r="50"/>
-          </svg>
-          <div class="gauge-radial-center">
-            <span class="gauge-radial-value">1,2</span>
-            <span class="gauge-radial-unit">n50 · 1/h</span>
-          </div>
-        </div>
-        <div class="gauge-card-name">Luftwechselrate</div>
-        <div class="gauge-card-soll">Soll: ≤ 1,5 · Ist: 1,2</div>
-        <div class="gauge-card-bar"></div>
-        <div class="gauge-card-norm">
-          <span>Norm</span>
-          <strong>DIN EN ISO 9972</strong>
-        </div>
+    <div class="flow">
+      <article class="flow-step" style="--i:0;">
+        <div class="flow-step-num">Schritt 01</div>
+        <div class="flow-step-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg></div>
+        <h3>Anforderungen ermitteln</h3>
+        <p>GEG, BauO, DIN-Normen und Förderprogramme definieren die Anforderungen — je nach Bauvorhaben, Gebäudetyp und Zielstandard.</p>
+        <div class="flow-tags"><span>DIN 4108</span><span>DIN 4109</span><span>BEG/KfW</span></div>
       </article>
 
-      <article class="gauge-card" data-fill="86" data-bar="78">
-        <div class="gauge-card-head">
-          <span class="gauge-card-label">U-Wert Wand</span>
-          <span class="gauge-card-status">bestanden</span>
-        </div>
-        <div class="gauge-radial">
-          <svg viewBox="0 0 120 120">
-            <circle class="gauge-radial-track" cx="60" cy="60" r="50"/>
-            <circle class="gauge-radial-fill" cx="60" cy="60" r="50"/>
-          </svg>
-          <div class="gauge-radial-center">
-            <span class="gauge-radial-value">0,18</span>
-            <span class="gauge-radial-unit">W/m²K</span>
-          </div>
-        </div>
-        <div class="gauge-card-name">Wärmedurchgang</div>
-        <div class="gauge-card-soll">Soll: ≤ 0,24 · Ist: 0,18</div>
-        <div class="gauge-card-bar"></div>
-        <div class="gauge-card-norm">
-          <span>Norm</span>
-          <strong>GEG · Anl. 7</strong>
-        </div>
+      <div class="flow-arrow" style="--i:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></div>
+
+      <article class="flow-step" style="--i:1;">
+        <div class="flow-step-num">Schritt 02</div>
+        <div class="flow-step-icon"><svg viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></div>
+        <h3>Berechnung &amp; Auslegung</h3>
+        <p>Wir bewerten und berechnen die erforderlichen Kennwerte für Schall- und Wärmeschutz für alle relevanten Bauteilaufbauten und Anlagen.</p>
+        <div class="flow-tags"><span>U-Wert</span><span>H'<sub>t</sub></span><span>R'<sub>w</sub> | L'<sub>n,w</sub></span><span>Q<sub>P</sub></span></div>
       </article>
 
-      <article class="gauge-card" data-fill="92" data-bar="84">
-        <div class="gauge-card-head">
-          <span class="gauge-card-label">Schallschutz</span>
-          <span class="gauge-card-status">bestanden</span>
-        </div>
-        <div class="gauge-radial">
-          <svg viewBox="0 0 120 120">
-            <circle class="gauge-radial-track" cx="60" cy="60" r="50"/>
-            <circle class="gauge-radial-fill" cx="60" cy="60" r="50"/>
-          </svg>
-          <div class="gauge-radial-center">
-            <span class="gauge-radial-value">52</span>
-            <span class="gauge-radial-unit">dB · R'w</span>
-          </div>
-        </div>
-        <div class="gauge-card-name">Bewertetes Schalldämm-Maß</div>
-        <div class="gauge-card-soll">Soll: ≥ 47 · Ist: 52</div>
-        <div class="gauge-card-bar"></div>
-        <div class="gauge-card-norm">
-          <span>Norm</span>
-          <strong>DIN 4109</strong>
-        </div>
-      </article>
+      <div class="flow-arrow" style="--i:1;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></div>
 
-      <article class="gauge-card" data-fill="80" data-bar="72">
-        <div class="gauge-card-head">
-          <span class="gauge-card-label">GEG · QP</span>
-          <span class="gauge-card-status">bestanden</span>
-        </div>
-        <div class="gauge-radial">
-          <svg viewBox="0 0 120 120">
-            <circle class="gauge-radial-track" cx="60" cy="60" r="50"/>
-            <circle class="gauge-radial-fill" cx="60" cy="60" r="50"/>
-          </svg>
-          <div class="gauge-radial-center">
-            <span class="gauge-radial-value">28</span>
-            <span class="gauge-radial-unit">kWh/m²a</span>
-          </div>
-        </div>
-        <div class="gauge-card-name">Primärenergiebedarf</div>
-        <div class="gauge-card-soll">Soll: ≤ 35 · Ist: 28</div>
-        <div class="gauge-card-bar"></div>
-        <div class="gauge-card-norm">
-          <span>Norm</span>
-          <strong>GEG · § 15</strong>
-        </div>
+      <article class="flow-step flow-step--final" style="--i:2;">
+        <div class="flow-step-num">Schritt 03</div>
+        <div class="flow-step-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg></div>
+        <h3>Prüfen &amp; Nachweisen</h3>
+        <p>Sie erhalten die fertigen Nachweise für Bauantrag, Förderantrag oder Ausführungsplanung — vollständig, termingerecht und prüffähig.</p>
+        <div class="flow-tags"><span>prüffähig</span><span>termintreu</span><span>aus einer Hand</span><span>staatl. anerkannt</span></div>
       </article>
     </div>
 
     <div class="cockpit-cta">
       <div class="cockpit-cta-text">
-        <h3>Auch dein Projekt soll grün durchgemessen sein?</h3>
-        <p>Wir liefern alle Nachweise als Ingenieurbüro aus einer Hand — termingerecht zum Bauantrag oder Förderantrag.</p>
+        <h3>Welche Nachweise braucht Ihr Projekt?</h3>
+        <p>Im Erstgespräch klären wir, welche Nachweise Ihr Bauvorhaben verlangt — und liefern sie termingerecht aus einer Hand.</p>
       </div>
       <a href="/aumann-eco-preview/kontakt/" class="btn btn--lime">Nachweise anfragen →</a>
     </div>
@@ -2006,9 +2162,9 @@ footer.site-footer {
     <div class="geg-grid">
       <div>
         <span class="ae-eyebrow" style="color:var(--ae-coral); display:block; margin-bottom:var(--ae-s-3);">04 · GEG-Nachweis</span>
-        <h2 class="ae-h2" style="margin-bottom:var(--ae-s-4);">Anforderungen des Gebäudeenergiegesetzes.</h2>
+        <h2 class="ae-h2" style="margin-bottom:var(--ae-s-4);">Anforderungen des Gebäude&shy;energie&shy;gesetzes.</h2>
         <p style="font-size:17px; line-height:1.65; color:rgba(34,33,32,0.7); margin-bottom:var(--ae-s-5);">Das GEG (seit 2020 in Kraft) bündelt EnEV, EEWärmeG und EnEG. Es regelt Anforderungen an Wärmeschutz, Anlagentechnik und erneuerbare Energien — für Neubau und Sanierung.</p>
-        <p style="font-size:15px; line-height:1.6; color:rgba(34,33,32,0.65);">Wir prüfen alle relevanten Punkte und stellen die Nachweise so auf, dass dein Bauantrag ohne Rückfragen durchgeht.</p>
+        <p style="font-size:15px; line-height:1.6; color:rgba(34,33,32,0.65);">Wir prüfen alle relevanten Punkte und stellen die Nachweise so auf, dass der Bauantrag ohne Rückfragen durchgeht.</p>
       </div>
 
       <div class="geg-list">
@@ -2024,28 +2180,28 @@ footer.site-footer {
         </div>
         <div class="geg-list-row">
           <div class="geg-list-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <span class="geg-list-label">U-Werte Bauteile (Wand, Dach, Boden)</span>
-          <span class="geg-list-norm">§ 19 GEG</span>
+          <span class="geg-list-label">U-Werte Bauteile (Gebäudehülle)</span>
+          <span class="geg-list-norm">§ 16/19/49 GEG, Anlage 7</span>
         </div>
         <div class="geg-list-row">
           <div class="geg-list-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
           <span class="geg-list-label">Sommerlicher Wärmeschutz</span>
-          <span class="geg-list-norm">DIN 4108-2</span>
+          <span class="geg-list-norm">§ 14 GEG · DIN 4108-2</span>
         </div>
         <div class="geg-list-row">
           <div class="geg-list-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <span class="geg-list-label">Wärmebrückenzuschlag &amp; -nachweis</span>
-          <span class="geg-list-norm">DIN 4108-Bbl 2</span>
+          <span class="geg-list-label">Wärmebrückennachweis</span>
+          <span class="geg-list-norm">§ 12 GEG · DIN 4108 Bbl 2</span>
         </div>
         <div class="geg-list-row">
           <div class="geg-list-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <span class="geg-list-label">Anteil erneuerbarer Energien (65 %)</span>
+          <span class="geg-list-label">Anlagentechnik &amp; erneuerbare Energien</span>
           <span class="geg-list-norm">§ 71 GEG</span>
         </div>
         <div class="geg-list-row">
           <div class="geg-list-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <span class="geg-list-label">Luftdichtheit (Blower Door optional)</span>
-          <span class="geg-list-norm">§ 26 GEG</span>
+          <span class="geg-list-label">Luftdichtheit / Blower Door Test</span>
+          <span class="geg-list-norm">§ 13, 26, 28 GEG · ISO 9972</span>
         </div>
       </div>
     </div>
@@ -2065,28 +2221,28 @@ footer.site-footer {
         <span class="usp-num">01</span>
         <div class="usp-body">
           <h3>Erstgespräch &amp; Anforderung</h3>
-          <p>Wir besprechen dein Projekt und welche Nachweise für deinen Bauantrag oder <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">Förderantrag</a> konkret nötig sind. Festpreis-Angebot innerhalb von 48&nbsp;Stunden.</p>
+          <p>Wir besprechen das Projekt und welche Nachweise für den Bauantrag oder <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">Förderantrag</a> konkret nötig sind.</p>
         </div>
       </article>
       <article class="usp-row">
         <span class="usp-num">02</span>
         <div class="usp-body">
           <h3>Planung &amp; Berechnung</h3>
-          <p>Auf Basis deiner Bauplanung erstellen wir die rechnerischen Nachweise — Wärmeschutz, Schallschutz, GEG. Mit ZUB-Argos-Software und Hottgenroth.</p>
+          <p>Auf Basis der vorliegenden Planung erstellen wir die rechnerischen Nachweise — Wärmeschutz, Schallschutz, GEG.</p>
         </div>
       </article>
       <article class="usp-row">
         <span class="usp-num">03</span>
         <div class="usp-body">
-          <h3>Messung vor Ort</h3>
-          <p>Wenn nötig, führen wir Blower Door Test und Thermografie direkt am Gebäude durch — ein Termin, ein Ansprechpartner, ein Bericht.</p>
+          <h3>Kontrolle der Bauausführung &amp; Messungen vor Ort</h3>
+          <p>Ergänzend zur Nachweisführung führen wir die notwendigen stichprobenhaften Kontrollen während der Bauausführung durch — ergänzt durch Blower-Door- und Thermografiemessung vor Ort. Ein Ansprechpartner, ein Bericht, kurzfristige Terminvergabe.</p>
         </div>
       </article>
       <article class="usp-row">
         <span class="usp-num">04</span>
         <div class="usp-body">
           <h3>Dokumentation &amp; Übergabe</h3>
-          <p>Du erhältst alle Nachweise als unterschriebene PDF — formal korrekt für Bauantrag, Förderantrag oder Qualitätssicherung. Auf Wunsch reichen wir direkt ein.</p>
+          <p>Alle Nachweise und Bescheinigungen erhalten Sie fristgerecht zum Bauantrag, Förderantrag oder zur Qualitätssicherung. Auf Wunsch unterstützen wir bei der Abstimmung mit den Behörden.</p>
         </div>
       </article>
     </div>
@@ -2098,27 +2254,27 @@ footer.site-footer {
   <div class="wrap">
     <div class="ueber-grid">
       <div class="ueber-content">
-        <span class="ae-eyebrow ueber-eyebrow">06 · Über mich</span>
-        <h2 class="ae-h2 ueber-headline">Beratung von Mensch zu Mensch.</h2>
-        <p class="ueber-lead">Seit über 16 Jahren begleite ich <a href="/aumann-eco-preview/sanierungsfahrplan/" class="inline-link">Sanierungs</a>- und Neubauprojekte in Köln und dem Rheinland. Mein Anspruch: Nachweise, die auf <em>Messdaten</em> basieren — nicht auf Tabellenwerten.</p>
+        <span class="ae-eyebrow ueber-eyebrow">06 · Über aumann eco</span>
+        <h2 class="ae-h2 ueber-headline">Ihr Ingenieurbüro für belastbare Nachweise.</h2>
+        <p class="ueber-lead">aumann eco ist Ihr Ingenieurbüro für Bauphysik und Energieberatung in Köln und dem Rheinland. Für Bauherren, Architekten, Planer und Bauunternehmen erstellen wir Nachweise auf Basis <em>belastbarer Daten</em> — prüffähig, termingerecht und auf Wunsch direkt in den Planungsprozess eingebunden.</p>
 
         <div class="ueber-cta-group">
-          <a href="/aumann-eco-preview/ueber-uns/" class="btn btn--primary">Mehr über Benedikt →</a>
+          <a href="/aumann-eco-preview/ueber-uns/" class="btn btn--primary">Mehr über aumann eco →</a>
           <a href="/aumann-eco-preview/kontakt/" class="btn btn--outline">Erstgespräch vereinbaren</a>
         </div>
 
         <div class="ueber-quals">
           <div class="ueber-qual">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-10 8-14a8 8 0 0 0-16 0c0 4 8 14 8 14z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Ingenieurkammer NRW</span>
+            <span>Ingenieurkammer-Bau NRW</span>
           </div>
           <div class="ueber-qual">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg>
-            <span>Staatl. Sachverständiger</span>
+            <span>Staatlich anerkannter Sachverständiger für Schall- und Wärmeschutz</span>
           </div>
           <div class="ueber-qual">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>BAFA-Experte</span>
+            <span>Energieeffizienz-Experte</span>
           </div>
         </div>
       </div>
@@ -2126,10 +2282,7 @@ footer.site-footer {
       <aside class="ueber-aside">
         <div class="founder-card">
           <div class="founder-visual">
-            <div class="founder-dots-stack" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
-            <img class="founder-portrait" src="/aumann-eco-preview/assets/images/img-benedikt-jot00269-cutout.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco">
+            <img class="founder-portrait" src="/aumann-eco-preview/assets/images/img-benedikt-jot00258-cutout.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco">
           </div>
           <div class="founder-plaque">
             <div class="brand-badge" aria-hidden="true">
@@ -2146,39 +2299,11 @@ footer.site-footer {
             </div>
             <div>
               <div class="founder-name">Benedikt Aumann</div>
-              <div class="founder-title">Dipl.-Ing. · Geschäftsführer</div>
+              <div class="founder-title">Ingenieur, M.A. · Inhaber</div>
             </div>
           </div>
         </div>
       </aside>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════════════ ZAHLEN & FAKTEN ═════════════════════ -->
-<section>
-  <div class="wrap">
-    <div class="section-head-center">
-      <span class="ae-eyebrow">Zahlen &amp; Fakten</span>
-      <h2 class="ae-h2">aumann eco in Zahlen.</h2>
-    </div>
-    <div class="stats">
-      <div class="stat">
-        <div class="num"><span class="counter" data-target="16">0</span><span class="unit">+</span></div>
-        <div class="label">Jahre Erfahrung</div>
-      </div>
-      <div class="stat">
-        <div class="num"><span class="counter" data-target="500">0</span><span class="unit">+</span></div>
-        <div class="label">Erstellte Nachweise</div>
-      </div>
-      <div class="stat">
-        <div class="num"><span class="counter" data-target="6">0</span></div>
-        <div class="label">Nachweise aus einer Hand</div>
-      </div>
-      <div class="stat">
-        <div class="num"><span class="counter" data-target="48">0</span><span class="unit">h</span></div>
-        <div class="label">Festpreis-Angebot</div>
-      </div>
     </div>
   </div>
 </section>
@@ -2193,49 +2318,52 @@ footer.site-footer {
     <div class="faq">
       <details open>
         <summary>Was kostet ein Wärmeschutznachweis?</summary>
-        <p>Für ein Einfamilienhaus liegen Wärmeschutznachweise typischerweise zwischen 800 und 1.500 € — abhängig von Gebäudegröße, Komplexität und ob KfW-Förderung beantragt wird. Wir geben dir nach dem Erstgespräch einen verbindlichen Festpreis.</p>
+        <p>Für ein Einfamilienhaus im üblichen Umfang liegen sie zwischen 800 und 1.500 €. Bei Mehrfamilienhäusern und Nichtwohngebäuden ab 1.500 € — je nach Komplexität und erforderlichem Umfang. Nach Sichtung der Unterlagen erhalten Sie ein transparentes Festpreisangebot.</p>
       </details>
       <details>
         <summary>Wann ist ein Blower Door Test Pflicht?</summary>
-        <p>Pflicht ist der <a href="/aumann-eco-preview/blower-door/" class="inline-link">Blower Door Test</a> bei jeder <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">KfW-geförderten</a> Maßnahme (Effizienzhaus oder Einzelmaßnahme mit Lüftungsanlage), bei kontrollierter Wohnraumlüftung mit Wärmerückgewinnung und für den GEG-Bonus auf den Wärmebrückenzuschlag. Beim Standard-Bauantrag ohne Förderung ist er empfohlen, aber nicht verpflichtend.</p>
+        <p>Verpflichtend durchzuführen ist der <a href="/aumann-eco-preview/blower-door/" class="inline-link">Blower Door Test</a>, wenn für das Gebäude in der energetischen Bilanzierung ein reduzierter Luftwechsel bzw. eine erhöhte Luftdichtheit angesetzt wurde — etwa beim Nachweis von <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">KfW-Effizienzhäusern</a>, bei Einzelmaßnahmen mit Lüftungsanlage oder Gebäuden mit raumlufttechnischen Anlagen mit Wärmerückgewinnung. Standardmäßig ist der Test nicht vorgeschrieben, zur Qualitätssicherung aber sinnvoll.</p>
       </details>
       <details>
         <summary>Wer darf bauphysikalische Nachweise erstellen?</summary>
-        <p>Wärmeschutz- und GEG-Nachweise dürfen nur staatlich anerkannte Sachverständige oder eingetragene Mitglieder der Ingenieurkammer-Bau erstellen — sowie Architekten und Bauingenieure mit entsprechender Qualifikation. <a href="/aumann-eco-preview/ueber-uns/" class="inline-link">Aumann Eco</a> ist eingetragenes Mitglied der Ingenieurkammer-Bau NRW und staatlich anerkannter Sachverständiger.</p>
+        <p>Wärmeschutz- und GEG-Nachweise dürfen nur staatlich anerkannte Sachverständige für Schall- und Wärmeschutz als eingetragene Mitglieder der Ingenieurkammer-Bau erstellen — sowie Architekten und Bauingenieure mit entsprechender Qualifikation. <a href="/aumann-eco-preview/ueber-uns/" class="inline-link">Aumann Eco</a> ist eingetragenes Mitglied der Ingenieurkammer-Bau NRW und staatlich anerkannter Sachverständiger für Schall- und Wärmeschutz.</p>
       </details>
       <details>
         <summary>Was ist der Unterschied zwischen GEG-Nachweis und Energieausweis?</summary>
-        <p>Der <strong>GEG-Nachweis</strong> ist die rechnerische Grundlage für deinen Bauantrag — er belegt, dass dein Gebäude die gesetzlichen Mindestanforderungen erfüllt. Der <strong>Energieausweis</strong> ist ein Dokument, das du beim Verkauf oder Vermieten brauchst und das Käufern/Mietern den Energiebedarf zeigt. Beide basieren auf ähnlichen Berechnungen, haben aber unterschiedliche Zwecke.</p>
+        <p>Der <strong>GEG-Nachweis</strong> belegt rechnerisch, dass ein Gebäude oder eine geplante Baumaßnahme die energetischen Anforderungen des Gebäudeenergiegesetzes erfüllt — zum Beispiel für Bauantrag, Ausführung oder Förderung. Der <strong>Energieausweis</strong> informiert über die energetische Qualität eines Gebäudes und macht Gebäude vergleichbar. Er gibt den Energiebedarf oder Energieverbrauch an und ist bei Neubau, Verkauf, Vermietung oder Verpachtung erforderlich.</p>
       </details>
       <details>
-        <summary>Wie lange dauert eine Thermografie?</summary>
-        <p>Eine Thermografie-Begehung dauert je nach Gebäudegröße 1–2 Stunden. Die Auswertung mit Bericht erhältst du innerhalb einer Woche. Wichtig: Thermografie ist nur bei einer Innen-/Außentemperaturdifferenz von mindestens 15&nbsp;°C aussagekräftig — also in den Heizperioden zwischen Oktober und März.</p>
+        <summary>Wie lange dauert eine Thermografie / Blower Door Messung?</summary>
+        <p>Eine Thermografie oder Blower Door Messung vor Ort dauert je nach Gebäudegröße 1–2 Stunden. Die Auswertung mit Bericht erhalten Sie innerhalb einer Woche. Wichtig: Thermografie ist bei einer Innen-/Außentemperaturdifferenz von mindestens 15&nbsp;°C durchzuführen — also in den Heizperioden zwischen Oktober und März.</p>
       </details>
       <details>
         <summary>Erstellt ihr auch Nachweise für die KfW-Förderung?</summary>
-        <p>Ja. Wir sind Energieeffizienz-Experte für <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">Bundesförderung</a> (dena-Liste) und erstellen alle Nachweise für KfW-Programme — von der „Bestätigung zum Antrag" bis zur „Bestätigung nach Durchführung". Inkl. <a href="/aumann-eco-preview/blower-door/" class="inline-link">Blower Door Test</a> und Effizienzhaus-Nachweis.</p>
+        <p>Ja. Wir sind Energieeffizienz-Experte für die <a href="/aumann-eco-preview/foerderberatung/" class="inline-link">Bundesförderung für effiziente Gebäude (BEG)</a> (dena-Liste) und erstellen alle Nachweise für BAFA- und KfW-Programme — von der „Bestätigung zum Antrag" bis zur „Bestätigung nach Durchführung". Inkl. <a href="/aumann-eco-preview/blower-door/" class="inline-link">Blower Door Test</a> und Effizienzhaus-Nachweis.</p>
       </details>
     </div>
   </div>
 </section>
 
 <!-- ═════════════════════ FINAL CTA ═════════════════════ -->
+<div class="ostend-seo-strip">
+  <p>Mit Ostend Digital als <a href="https://ostend.digital" target="_blank" rel="noopener">Werbeagentur Stuttgart</a> haben wir, die aumann eco, unsere Online-Präsenz mit kreativen Webdesigns und effektiven SEO-Maßnahmen optimiert.</p>
+</div>
 <section class="cta-section">
   <div class="wrap">
     <div class="final-cta">
       <div class="cta-portrait">
         <div class="cta-portrait-frame">
-          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco" width="200" height="200">
+          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco" width="200" height="200">
         </div>
         <div class="cta-sign">
           <span class="cta-sign-name">Benedikt Aumann</span>
-          <span class="cta-sign-title">Dipl.-Ing. · Geschäftsführer</span>
+          <span class="cta-sign-title">Ingenieur, M.A. · Inhaber</span>
         </div>
       </div>
       <div class="cta-content">
         <span class="ae-eyebrow">Kostenloses Erstgespräch</span>
-        <h2 class="ae-h2">Alle Nachweise.<br>Termingerecht&nbsp;zum&nbsp;Bauantrag.</h2>
-        <p>30 Minuten, unverbindlich, ohne Verkaufsdruck. Wir hören zu, sagen dir welche Nachweise du brauchst — und liefern alles aus einer Hand.</p>
+        <h2 class="ae-h2">Alle Nachweise.<br>Termingerecht&nbsp;zum Bauantrag.</h2>
+        <p>30 Minuten, unverbindlich, ohne Verkaufsdruck. Wir hören zu, sagen Ihnen, welche Nachweise Sie benötigen — und liefern alles aus einer Hand.</p>
         <div class="btn-group">
           <a href="mailto:info@aumann-ing.de" class="btn btn--dark">Erstgespräch vereinbaren →</a>
           <a href="tel:+491755697551" class="btn btn--outline">0175 569 75 51</a>
@@ -2256,9 +2384,9 @@ footer.site-footer {
 
     <div class="footer-claim">
       <div>
-        <span class="eyebrow">Ingenieurbüro Köln · seit 2010</span>
+        <span class="eyebrow">Ingenieurbüro Köln</span>
         <h2>Nachhaltig. <em>Messbar.</em> Ehrlich.</h2>
-        <p class="lead">Wir planen Gebäude nicht nach Bauchgefühl, sondern mit Messdaten. Bauphysik, Energieberatung und eigene Messtechnik aus einer Hand — damit Förderung, Qualität und Klimaziel zusammenpassen.</p>
+        <p class="lead">Bauphysik, Energieberatung und Messungen aus einer Hand — damit Förderung, Planung und Qualität zusammenpassen.</p>
       </div>
       <aside class="office-card" aria-label="Kontakt & Öffnungszeiten">
         <span class="status">Heute erreichbar bis 18:00</span>
@@ -2282,9 +2410,9 @@ footer.site-footer {
     <div class="footer-inner">
       <div class="brand">
         <a href="/aumann-eco-preview/" class="logo">
-          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortmarke-mitClaim-weiss.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
+          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortbildmarke-weiss-rot.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
         </a>
-        <p>Ingenieurbüro für Bauphysik &amp; Energieberatung in Köln. Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
+        <p>Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
       </div>
       <div>
         <h4>Leistungen</h4>
@@ -2325,7 +2453,7 @@ footer.site-footer {
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 aumann eco GmbH · Alle Rechte vorbehalten</span>
+      <span>© 2026 aumann eco · Alle Rechte vorbehalten</span>
       <a href="https://ostend.digital" target="_blank" rel="noopener" class="webdesign-credit">Webdesign by Ostend Digital</a>
     </div>
   </div>
@@ -2361,6 +2489,22 @@ footer.site-footer {
     cards.forEach((c) => io.observe(c));
   } else {
     cards.forEach(setGauge);
+  }
+})();
+
+// ─── Von der Norm zum Nachweis – Flow Reveal ───
+(function(){
+  const flow = document.querySelector('.flow');
+  if (!flow) return;
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.25 });
+    io.observe(flow);
+  } else {
+    flow.classList.add('is-visible');
   }
 })();
 
@@ -2421,7 +2565,90 @@ footer.site-footer {
     counters.forEach(animate);
   }
 })();
+
+// ─── Nachweise Coverflow-Carousel ───
+(function(){
+  const carousel = document.querySelector('[data-carousel]');
+  if (!carousel) return;
+  const cards = Array.from(carousel.querySelectorAll('.carousel-card'));
+  const dots = Array.from(document.querySelectorAll('[data-carousel-pagination] .carousel-dot'));
+  const prevBtn = document.querySelector('.carousel-arrow--prev');
+  const nextBtn = document.querySelector('.carousel-arrow--next');
+  const total = cards.length;
+  let active = 0;
+  let autoplayTimer = null;
+  const AUTOPLAY_DELAY = 6500;
+
+  function adjustHeight() {
+    let max = 0;
+    cards.forEach((card) => {
+      const prevPos = card.style.position;
+      const prevTransform = card.style.transform;
+      const prevOpacity = card.style.opacity;
+      card.style.position = 'relative';
+      card.style.transform = 'none';
+      card.style.opacity = '0';
+      max = Math.max(max, card.offsetHeight);
+      card.style.position = prevPos;
+      card.style.transform = prevTransform;
+      card.style.opacity = prevOpacity;
+    });
+    carousel.style.setProperty('--carousel-h', `${max + 120}px`);
+  }
+  adjustHeight();
+  window.addEventListener('load', adjustHeight);
+  window.addEventListener('resize', adjustHeight);
+
+  function update() {
+    cards.forEach((card, i) => {
+      const diff = ((i - active) % total + total) % total;
+      let state = 'hidden';
+      if (diff === 0) state = 'active';
+      else if (diff === 1) state = 'next';
+      else if (diff === total - 1) state = 'prev';
+      else if (diff === 2) state = 'next-2';
+      else if (diff === total - 2) state = 'prev-2';
+      card.dataset.state = state;
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === active));
+  }
+  function go(idx) {
+    active = ((idx % total) + total) % total;
+    update();
+    restartAutoplay();
+  }
+  function next() { go(active + 1); }
+  function prev() { go(active - 1); }
+  function startAutoplay() { autoplayTimer = setInterval(next, AUTOPLAY_DELAY); }
+  function restartAutoplay() { if (autoplayTimer) clearInterval(autoplayTimer); startAutoplay(); }
+
+  cards.forEach((card, i) => {
+    card.addEventListener('click', () => { if (i === active) return; go(i); });
+  });
+  dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+  if (prevBtn) prevBtn.addEventListener('click', prev);
+  if (nextBtn) nextBtn.addEventListener('click', next);
+
+  carousel.addEventListener('mouseenter', () => { if (autoplayTimer) clearInterval(autoplayTimer); });
+  carousel.addEventListener('mouseleave', startAutoplay);
+
+  update();
+  startAutoplay();
+})();
 </script>
 
+
+<script>
+/* MOBILE NAV toggle */
+(function(){
+  var b=document.querySelector('.ae-burger'), m=document.getElementById('ae-mobile-menu');
+  if(!b||!m) return;
+  function open(){ m.classList.add('is-open'); b.setAttribute('aria-expanded','true'); b.setAttribute('aria-label','Men\u00fc schlie\u00dfen'); document.body.classList.add('ae-menu-open'); }
+  function close(){ m.classList.remove('is-open'); b.setAttribute('aria-expanded','false'); b.setAttribute('aria-label','Men\u00fc \u00f6ffnen'); document.body.classList.remove('ae-menu-open'); }
+  b.addEventListener('click', function(){ m.classList.contains('is-open')?close():open(); });
+  m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 </body>
 </html>

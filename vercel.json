@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/aumann-eco-preview", "destination": "/index.html" },
+    { "source": "/aumann-eco-preview/", "destination": "/index.html" },
+    { "source": "/aumann-eco-preview/:path+/", "destination": "/:path+/index.html" },
+    { "source": "/aumann-eco-preview/:path+", "destination": "/:path+" }
+  ]
+}

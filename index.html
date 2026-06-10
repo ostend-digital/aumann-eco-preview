@@ -9,12 +9,12 @@
 /* ═══════════════════════════════════════════════
    VOLTE WEBFONT
 ═══════════════════════════════════════════════ */
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-RegularItalic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
-@font-face { font-family:'Volte'; src:url('../05-design-system/assets/fonts/Volte-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-RegularItalic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('/aumann-eco-preview/assets/fonts/Volte-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
 
 /* ═══════════════════════════════════════════════
    TOKENS
@@ -68,7 +68,7 @@ a { color:inherit; }
 
 .wrap { max-width:var(--ae-max); margin:0 auto; padding:0 var(--ae-s-6); }
 section { padding:var(--ae-s-9) 0; }
-@media (max-width:720px) { section { padding:var(--ae-s-8) 0; } }
+@media (max-width:720px) { section { padding:var(--ae-s-7) 0; } }
 
 /* ═══════════════════════════════════════════════
    HEADER / NAV
@@ -151,13 +151,11 @@ section { padding:var(--ae-s-9) 0; }
 .hero .ae-lead { max-width:54ch; margin-bottom:var(--ae-s-6); font-size:17px; }
 .hero .btn-group { margin-bottom:var(--ae-s-6); }
 .hero-meta {
-  display:flex; flex-wrap:nowrap; gap:18px;
-  font-size:12px; opacity:0.8;
+  display:flex; flex-direction:column; gap:10px;
+  font-size:13px; opacity:0.85;
 }
-.hero-meta span { white-space:nowrap; }
-@media (max-width:960px) {
-  .hero-meta { flex-wrap:wrap; }
-}
+.hero-meta span { display:flex; align-items:flex-start; gap:8px; line-height:1.4; }
+.hero-meta span svg { flex:none; width:17px; height:17px; margin-top:1px; color:var(--ae-coral); }
 
 /* Founder Card — Editorial */
 .founder-card {
@@ -438,10 +436,8 @@ section { padding:var(--ae-s-9) 0; }
   content:"";
   position:absolute;
   left:calc(var(--num-col) / 2);
-  bottom:calc(-1 * var(--ae-s-7));
-  width:2px;
-  height:calc(var(--ae-s-7) * 2);
-  transform:translateX(-50%);
+  top:calc(var(--ae-s-7) + clamp(44px,5.4vw,72px) + 12px); bottom:calc(-1 * (var(--ae-s-7) - 12px));
+  width:2px; transform:translateX(-50%);
   background-color:rgba(255,99,77,0.25);
   background-image:linear-gradient(var(--ae-coral),var(--ae-coral));
   background-size:100% var(--seg-progress,0%);
@@ -451,7 +447,7 @@ section { padding:var(--ae-s-9) 0; }
   transition:background-size .1s linear;
   pointer-events:none;
 }
-.usp-num {
+.usp-num { text-align:center;
   font-size:clamp(44px,5.4vw,72px);
   font-weight:300;
   color:var(--ae-near-black);
@@ -489,13 +485,17 @@ section { padding:var(--ae-s-9) 0; }
   color:rgba(34,33,32,0.72);
   margin:0;
 }
+.usp-figure {
+  margin-top:var(--ae-s-4);
+  max-width:520px;
+  border-radius:var(--ae-r-sm);
+  overflow:hidden;
+}
+.usp-figure img { width:100%; height:210px; object-fit:cover; display:block; }
 @media (max-width:720px) {
   .usp-list { --num-col:48px; --usp-gap:var(--ae-s-4); }
   .usp-row { padding:var(--ae-s-5) 0; }
-  .usp-row:not(:last-child)::after {
-    bottom:calc(-1 * var(--ae-s-5));
-    height:calc(var(--ae-s-5) * 2);
-  }
+  .usp-row:not(:last-child)::after { top:calc(var(--ae-s-5) + 30px + 8px); bottom:calc(-1 * (var(--ae-s-5) - 8px)); }
   .usp-num { font-size:30px; }
   .usp-body h3 { font-size:19px; }
   .usp-body h3::before { width:7px; height:7px; }
@@ -765,11 +765,7 @@ section { padding:var(--ae-s-9) 0; }
   align-items:baseline;
   justify-content:center;
 }
-.stat .num .unit {
-  color:var(--ae-coral);
-  font-weight:500;
-  margin-left:4px;
-}
+.stat .num .unit { color:var(--ae-coral); font-weight:500; font-size:0.5em; align-self:flex-start; margin-top:0.4em; margin-left:2px; }
 .stat .label {
   font-size:13px;
   color:var(--ae-grey-500);
@@ -909,29 +905,20 @@ section { padding:var(--ae-s-9) 0; }
   color:var(--ae-near-black);
 }
 .compare-col--neubau {
-  background:var(--ae-near-black);
-  color:var(--ae-off-white);
+  background:var(--ae-white);
+  border:1px solid var(--ae-grey-300);
+  color:var(--ae-near-black);
 }
-.compare-col--neubau::before {
-  content:'';
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(252,250,245,0.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(252,250,245,0.03) 1px,transparent 1px),
-    linear-gradient(rgba(252,250,245,0.07) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(252,250,245,0.07) 1px,transparent 1px);
-  background-size:16px 16px,16px 16px,96px 96px,96px 96px;
-  mask-image:radial-gradient(ellipse at top right,black 10%,transparent 70%);
-  -webkit-mask-image:radial-gradient(ellipse at top right,black 10%,transparent 70%);
-  pointer-events:none;
-}
+.compare-col--neubau::before { display:none; }
 .compare-col > * { position:relative; }
 .compare-illustration {
   width:100%;
-  height:120px;
-  display:flex; align-items:center; justify-content:center;
+  height:200px;
+  border-radius:var(--ae-r-sm);
+  overflow:hidden;
   margin-bottom:var(--ae-s-5);
 }
+.compare-illustration img { width:100%; height:100%; object-fit:cover; display:block; }
 .compare-illustration svg { height:100%; width:auto; max-width:100%; }
 .compare-tag {
   display:inline-block; align-self:flex-start;
@@ -949,7 +936,7 @@ section { padding:var(--ae-s-9) 0; }
   line-height:1.1;
   margin-bottom:var(--ae-s-3);
 }
-.compare-col--neubau h3 { color:var(--ae-off-white); }
+.compare-col--neubau h3 { color:var(--ae-near-black); }
 .compare-lead {
   font-size:15px;
   line-height:1.55;
@@ -1294,7 +1281,7 @@ footer.site-footer {
   display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr;
   gap:var(--ae-s-7);
 }
-.footer-inner .brand .logo img { height:44px; margin-bottom:var(--ae-s-4); }
+.footer-inner .brand .logo img { width:100%; max-width:210px; height:auto; margin-bottom:var(--ae-s-4); }
 .footer-inner .brand p {
   font-size:14px; color:rgba(252,250,245,0.6); line-height:1.6; max-width:34ch;
 }
@@ -1579,6 +1566,40 @@ footer.site-footer {
 @media (max-width:480px) {
   .calc-form, .calc-results { padding:var(--ae-s-5); }
   .calc-result-grid { grid-template-columns:1fr; }
+}
+
+/* ===== MOBILE NAV (Hamburger) — added in mobile-optimization pass ===== */
+.ae-burger{ display:none; }
+.ae-mobile-menu{
+  position:fixed; inset:0; z-index:1000; background:#FCFAF5;
+  padding:92px 28px 40px; display:flex; flex-direction:column; overflow-y:auto;
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity .25s ease, transform .25s ease, visibility .25s;
+}
+.ae-mobile-menu.is-open{ opacity:1; visibility:visible; transform:none; }
+.ae-mm-inner{ display:flex; flex-direction:column; gap:2px; max-width:420px; margin:0 auto; width:100%; }
+.ae-mm-label{ font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#FF634D; margin-bottom:8px; }
+.ae-mobile-menu a{ font-size:22px; font-weight:600; color:#222120; text-decoration:none;
+  padding:13px 2px; border-bottom:1px solid rgba(34,33,32,0.08); letter-spacing:-0.02em; }
+.ae-mobile-menu a.is-current{ color:#FF634D; }
+.ae-mm-divider{ height:16px; }
+.ae-mobile-menu a.ae-mm-cta{ margin-top:24px; background:#FF634D; color:#222120; text-align:center;
+  border:none; border-radius:999px; padding:16px; font-size:16px; }
+.ae-mobile-menu a.ae-mm-phone{ text-align:center; border:none; color:#222120; opacity:0.7;
+  font-size:16px; font-weight:500; padding-top:16px; }
+body.ae-menu-open{ overflow:hidden; }
+@media (max-width:900px){
+  .ae-burger{ display:flex; flex-direction:column; justify-content:center; gap:5px;
+    position:fixed; top:14px; right:16px; z-index:1001; width:46px; height:46px; padding:11px;
+    border:none; border-radius:12px; background:#FCFAF5; box-shadow:0 4px 16px rgba(34,33,32,0.16); cursor:pointer; }
+  .ae-burger span{ display:block; height:2px; width:100%; background:#222120; border-radius:2px;
+    transition:transform .25s ease, opacity .2s ease; }
+  .ae-burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .ae-burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .ae-burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  /* hide desktop header nav + cta/phone on mobile (menu replaces them) */
+  .site-header .nav > ul, .header .header-inner nav, .nav > ul{ display:none !important; }
+  .nav .phone, .nav .nav-cta, .site-header .btn.nav-cta, .header-right{ display:none !important; }
 }
 </style>
 <style id="dropdown-nav-style">
@@ -1913,13 +1934,125 @@ footer.site-footer {
     color: rgba(252,250,245,0.8) !important;
   }
 
+/* ── Energie-Cockpit (dunkle Section) ───────────────── */
+.cockpit-section { background:var(--ae-near-black); color:var(--ae-off-white); position:relative; overflow:hidden; }
+.cockpit-section::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(252,250,245,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(252,250,245,0.025) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 70% 80% at 50% 40%,#000 10%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 70% 80% at 50% 40%,#000 10%,transparent 80%);
+  pointer-events:none;
+}
+.cockpit-section::after {
+  content:''; position:absolute; z-index:0; pointer-events:none;
+  width:600px; height:600px; left:-180px; top:-180px; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,99,77,0.10) 0%, transparent 60%); filter:blur(60px);
+}
+.cockpit-section > .wrap { position:relative; z-index:1; }
+.cockpit-section .section-head .ae-eyebrow { color:var(--ae-lime); }
+.cockpit-section .section-head h2 { color:var(--ae-off-white); }
+.cockpit-section .section-head p { color:rgba(252,250,245,0.75); }
+.cockpit-statusbar { display:flex; flex-wrap:wrap; gap:var(--ae-s-5); padding:var(--ae-s-4) var(--ae-s-5); margin:var(--ae-s-6) 0; background:rgba(252,250,245,0.04); border:1px solid rgba(252,250,245,0.10); border-radius:var(--ae-r-md); font-size:12px; font-weight:500; color:rgba(252,250,245,0.65); }
+.cockpit-statusbar-item { display:inline-flex; align-items:center; gap:8px; }
+.cockpit-statusbar-item::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--ae-lime); box-shadow:0 0 6px rgba(205,241,93,0.6); }
+.cockpit-statusbar-item strong { color:var(--ae-off-white); font-weight:600; }
+.cockpit-statusbar-item .ts { margin-left:auto; padding-left:var(--ae-s-4); font-variant-numeric:tabular-nums; opacity:0.4; }
+.cockpit-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--ae-s-4); }
+@media (max-width:900px) { .cockpit-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:540px) { .cockpit-grid { grid-template-columns:1fr; } }
+.gauge-card { position:relative; background:rgba(252,250,245,0.04); border:1px solid rgba(252,250,245,0.10); border-radius:var(--ae-r-lg); padding:var(--ae-s-6); display:flex; flex-direction:column; transition:border-color .25s, background .25s, transform .25s; }
+.gauge-card:hover { border-color:rgba(205,241,93,0.30); background:rgba(252,250,245,0.06); transform:translateY(-2px); }
+.gauge-card-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--ae-s-5); }
+.gauge-card-label { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:rgba(252,250,245,0.55); }
+.gauge-card-status { display:inline-flex; align-items:center; gap:6px; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--ae-lime); padding:4px 10px; background:rgba(205,241,93,0.10); border:1px solid rgba(205,241,93,0.25); border-radius:var(--ae-r-pill); }
+.gauge-card-status::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--ae-lime); }
+.gauge-radial { position:relative; width:140px; height:140px; margin:0 auto var(--ae-s-5); }
+.gauge-radial svg { width:100%; height:100%; transform:rotate(-90deg); }
+.gauge-radial-track { fill:none; stroke:rgba(252,250,245,0.08); stroke-width:8; }
+.gauge-radial-fill { fill:none; stroke:var(--ae-lime); stroke-width:8; stroke-linecap:round; stroke-dasharray:0 999; filter:drop-shadow(0 0 6px rgba(205,241,93,0.4)); transition:stroke-dasharray 1.4s cubic-bezier(.22,1,.36,1); }
+.gauge-radial-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; pointer-events:none; }
+.gauge-radial-value { font-size:32px; font-weight:700; letter-spacing:var(--ae-tight); line-height:1; font-variant-numeric:tabular-nums; color:var(--ae-off-white); }
+.gauge-radial-unit { font-size:11px; font-weight:500; color:rgba(252,250,245,0.55); margin-top:4px; letter-spacing:0.04em; }
+.gauge-card-name { font-size:15px; font-weight:600; letter-spacing:var(--ae-headline); margin-bottom:8px; text-align:center; }
+.gauge-card-soll { font-size:11px; font-weight:500; color:rgba(252,250,245,0.55); text-align:center; margin-bottom:var(--ae-s-4); font-variant-numeric:tabular-nums; }
+.gauge-card-bar { height:3px; border-radius:2px; background:rgba(252,250,245,0.08); position:relative; overflow:hidden; }
+.gauge-card-bar::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,var(--ae-lime),var(--ae-coral)); transform:translateX(-100%); transition:transform 1.6s cubic-bezier(.22,1,.36,1); }
+.gauge-card.is-visible .gauge-card-bar::after { transform:translateX(var(--bar-x,-30%)); }
+.gauge-card-norm { margin-top:var(--ae-s-4); padding-top:var(--ae-s-4); border-top:1px dashed rgba(252,250,245,0.12); font-size:11px; color:rgba(252,250,245,0.55); font-weight:500; letter-spacing:0.02em; display:flex; justify-content:space-between; align-items:center; }
+.gauge-card-norm strong { color:rgba(252,250,245,0.78); font-weight:600; }
+.cockpit-cta { margin-top:var(--ae-s-7); padding:var(--ae-s-6); background:rgba(252,250,245,0.04); border:1px solid rgba(252,250,245,0.10); border-radius:var(--ae-r-lg); display:flex; align-items:center; justify-content:space-between; gap:var(--ae-s-5); flex-wrap:wrap; }
+.cockpit-cta-text { flex:1; min-width:240px; }
+.cockpit-cta-text h3 { font-size:20px; font-weight:600; margin-bottom:6px; letter-spacing:var(--ae-headline); color:var(--ae-off-white); }
+.cockpit-cta-text p { font-size:14px; line-height:1.55; color:rgba(252,250,245,0.65); }
+.cockpit-cta-value { font-size:clamp(28px,4vw,40px); font-weight:700; color:var(--ae-lime); letter-spacing:var(--ae-tight); font-variant-numeric:tabular-nums; line-height:1; white-space:nowrap; }
 
 
 
 
+
+
+/* ===== MOBILE NAV: hide desktop header CTA/phone/nav (override, must be last) ===== */
+@media (max-width:900px){
+  .site-header .nav .phone, .site-header .nav .nav-cta, .site-header .btn.nav-cta,
+  .header .header-right, .header-right, .header .header-phone, .header .btn-primary,
+  .header .header-inner nav, .site-header .nav > ul, .nav > ul { display:none !important; }
+}
+
+/* ===== MOBILE: no horizontal scroll + long-word wrapping (safeguard) ===== */
+html{ overflow-x:clip; }
+h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-word; }
+ (max-width:768px){
+}
+
+@media (max-width:960px){ .hero-grid > *, .hero-content{ min-width:0; } }
+
+/* ===== Ostend Digital On-Page SEO-Credit (blends with adjacent sections) ===== */
+.ostend-seo-strip{ background:#F3F1EC; padding:26px 24px; }
+.ostend-seo-strip p{ max-width:1000px; margin:0 auto; text-align:center; font-size:12.5px; line-height:1.55; color:rgba(34,33,32,0.45); }
+.ostend-seo-strip a{ color:rgba(34,33,32,0.62); text-decoration:none; border-bottom:1px solid rgba(34,33,32,0.22); }
+.ostend-seo-strip a:hover{ color:#FF634D; border-bottom-color:#FF634D; }
+
+/* center step numbers under the connector line */
+.usp-row > .usp-num{ text-align:center; }
+
+/* Final CTA: Mobile overflow-fix (unbreakable &nbsp;-Phrasen + grid 1fr min-content) */
+@media (max-width:860px) {
+  .final-cta > * { min-width:0; }
+  .cta-content { min-width:0; }
+  .cta-content h2, .cta-content p { overflow-wrap:anywhere; word-break:break-word; max-width:100%; }
+}
+@media (max-width:560px) {
+  .final-cta { padding:var(--ae-s-7) var(--ae-s-5); }
+  .cta-content .btn-group { flex-direction:column; align-items:stretch; gap:var(--ae-s-3); }
+  .cta-content .btn-group .btn { width:100%; text-align:center; justify-content:center; }
+  .cta-trust { gap:var(--ae-s-3); justify-content:flex-start; }
+}
 </style>
 </head>
 <body id="top">
+<!-- ===== MOBILE NAV (Hamburger) ===== -->
+<button class="ae-burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="ae-mobile-menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="ae-mobile-menu" id="ae-mobile-menu">
+  <nav class="ae-mm-inner" aria-label="Mobile Navigation">
+    <span class="ae-mm-label">Leistungen</span>
+    <a href="/aumann-eco-preview/sanierungsfahrplan/" data-slug="sanierungsfahrplan">Sanierungsfahrplan</a>
+    <a href="/aumann-eco-preview/bauphysik/" data-slug="bauphysik">Bauphysik &amp; Nachweise</a>
+    <a href="/aumann-eco-preview/blower-door/" data-slug="blower-door">Blower Door Test</a>
+    <a href="/aumann-eco-preview/foerderberatung/" data-slug="foerderberatung">Förderberatung</a>
+    <span class="ae-mm-divider"></span>
+    <a href="/aumann-eco-preview/ueber-uns/" data-slug="ueber-uns">Über uns</a>
+    <a href="/aumann-eco-preview/karriere/" data-slug="karriere">Karriere</a>
+    <a href="/aumann-eco-preview/kontakt/" data-slug="kontakt">Kontakt</a>
+    <a class="ae-mm-cta" href="/aumann-eco-preview/kontakt/">Kostenloses Erstgespräch</a>
+    <a class="ae-mm-phone" href="tel:+491755697551">0175 569 75 51</a>
+  </nav>
+</div>
+
 
 <!-- ═════════════════════ HEADER ═════════════════════ -->
 <header class="site-header">
@@ -1936,7 +2069,7 @@ footer.site-footer {
               <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-4 4 4 7-7"/><path d="M14 6h6v6"/><path d="M3 21h18"/></svg></span>
               <span class="nav-mega-content">
                 <span class="nav-mega-title">Sanierungsfahrplan</span>
-                <span class="nav-mega-sub">iSFP nach BAFA · bis 80&nbsp;% Förderung</span>
+                <span class="nav-mega-sub">iSFP nach BAFA · bis 50&nbsp;% Förderung</span>
               </span>
             </a></li>
             <li role="none"><a class="nav-mega-item" role="menuitem" href="/aumann-eco-preview/bauphysik/">
@@ -1957,7 +2090,7 @@ footer.site-footer {
               <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8h6"/><path d="M8 11h7a3 3 0 010 6h-3.5"/><path d="M11.5 8v9"/></svg></span>
               <span class="nav-mega-content">
                 <span class="nav-mega-title">Förderberatung</span>
-                <span class="nav-mega-sub">KfW · BAFA · NRW.BANK</span>
+                <span class="nav-mega-sub">KfW · BAFA</span>
               </span>
             </a></li>
           </ul>
@@ -1990,28 +2123,27 @@ footer.site-footer {
     <div class="hero-content">
       <div class="ae-eyebrow">
         <span class="hero-dots" aria-hidden="true"><span></span><span></span><span></span></span>
-        Energieberatung Köln · Transparent &amp; ehrlich
+        Bauphysik &amp; Energieberatung Köln · termingerecht, transparent &amp; ehrlich
       </div>
       <h1 class="ae-h1">Ihr Ingenieurbüro<br>&amp; Energieberater<br>in Köln</h1>
       <p class="ae-lead">
-        Sanierungsfahrplan, Bauphysik-Nachweise und Qualitätssicherung aus einer Hand. Blower-Door ab 900 €, Thermografie ab 390 € — unabhängig, ohne Provisionen.
+        Sanierungsfahrplan, Bauphysik-Nachweise und Qualitätssicherung aus einer Hand. Blower-Door-Test ab 390 €, Wärmeschutznachweis ab 650 €, Thermografie ab 900 € — unabhängig, ohne Provisionen.
       </p>
       <div class="btn-group">
         <a href="#kontakt" class="btn btn--primary">Kostenloses Erstgespräch →</a>
         <a href="#leistungen" class="btn btn--outline">Leistungen ansehen</a>
       </div>
       <div class="hero-meta">
-        <span><strong>✓ BAFA-Förderung</strong> sichert 50 % Zuschuss auf Beratung &amp; Messung.</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Zertifizierte Energieeffizienz-Experten (dena)</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Zugelassen für Förderprogramme des Bundes</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>KfW- und BAFA-konform</span>
       </div>
     </div>
 
     <aside class="hero-aside">
       <div class="founder-card">
         <div class="founder-visual">
-          <div class="founder-dots-stack" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
-          <img class="founder-portrait-cutout" src="/aumann-eco-preview/assets/images/img-benedikt-jot00269-cutout.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco" width="1600" height="1600">
+          <img class="founder-portrait-cutout" src="/aumann-eco-preview/assets/images/img-benedikt-jot00258-cutout.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco" width="1200" height="1200">
         </div>
         <div class="founder-plaque">
           <div class="brand-badge" aria-hidden="true">
@@ -2028,7 +2160,7 @@ footer.site-footer {
           </div>
           <div>
             <div class="founder-name">Benedikt Aumann</div>
-            <div class="founder-title">Dipl.-Ing. · Geschäftsführer</div>
+            <div class="founder-title">Ingenieur, M.A. · Inhaber</div>
           </div>
         </div>
       </div>
@@ -2038,7 +2170,7 @@ footer.site-footer {
 
 <!-- ═════════════════════ LOGO SLIDER ═════════════════════ -->
 <div class="logo-slider">
-  <div class="slider-label">Vertrauen von Bauherren, Architekten und Hausverwaltungen im Rheinland</div>
+  <div class="slider-label">Zertifiziert und gelistet bei:</div>
   <div class="logo-slider-inner">
   <div class="logo-track">
     <!-- Set 1 -->
@@ -2140,7 +2272,7 @@ footer.site-footer {
     <div class="section-head">
       <span class="ae-eyebrow">01 · Kernleistungen</span>
       <h2 class="ae-h2">Energieberatung, Bauphysik und Messung — aus einer Hand.</h2>
-      <p>Vier Leistungen, ein Ansprechpartner. Kein Outsourcing, keine Koordinationsverluste zwischen verschiedenen Büros.</p>
+      <p>Ein Ansprechpartner für Planung, Förderung und Qualitätssicherung. Vier Wege zur Umsetzung.</p>
     </div>
     <div class="grid grid-4">
 
@@ -2153,7 +2285,7 @@ footer.site-footer {
             <path d="M30 17l-2 2 2 2" stroke="#FF634D"/>
           </svg>
         </div>
-        <div class="eyebrow">Sanierung</div>
+        <div class="eyebrow">Energieberatung</div>
         <h3>Individueller Sanierungsfahrplan (iSFP)</h3>
         <p>Klarer Plan, welche Maßnahmen sich wann lohnen — mit realistischen Kosten und Fördermöglichkeiten.</p>
         <a href="/aumann-eco-preview/sanierungsfahrplan/" class="link-row">iSFP anfragen →</a>
@@ -2167,8 +2299,8 @@ footer.site-footer {
           </svg>
         </div>
         <div class="eyebrow">Nachweise</div>
-        <h3>Bauphysik &amp; Energieausweise</h3>
-        <p>Wärmeschutz-, Schallschutz- und Feuchteschutznachweise nach GEG und DIN — termingerecht, behördenkonform.</p>
+        <h3>Bauphysik &amp; Nachweise</h3>
+        <p>Wärme-, Schall- und Feuchteschutznachweise nach GEG und DIN, inkl. Energieausweisen — termingerecht, behördenkonform.</p>
         <a href="/aumann-eco-preview/bauphysik/" class="link-row">Nachweis beauftragen →</a>
       </div>
 
@@ -2182,9 +2314,9 @@ footer.site-footer {
             <circle cx="20" cy="15" r="1.5" fill="#FF634D" stroke="#FF634D"/>
           </svg>
         </div>
-        <div class="eyebrow">Neubau</div>
-        <h3>Energetische Förderungen</h3>
-        <p>KfW-40-Planung, QNG-Lebenszyklusanalyse (LCA) und Baubegleitung für Neubauten.</p>
+        <div class="eyebrow">Förderung</div>
+        <h3>Förderberatung für Neubau &amp; Sanierung</h3>
+        <p>Fachplanung und Baubegleitung für Klimafreundlichen Neubau (KfW 40), Lebenszyklusanalyse (LCA) gemäß QNG-Kriterien, Einzelmaßnahmen an Gebäudehülle &amp; Anlagentechnik sowie Komplettsanierung.</p>
         <a href="/aumann-eco-preview/foerderberatung/" class="link-row">Fachplanung anfragen →</a>
       </div>
 
@@ -2197,9 +2329,9 @@ footer.site-footer {
             <path d="M20 6v4M20 30v4M6 20h4M30 20h4"/>
           </svg>
         </div>
-        <div class="eyebrow">Messung</div>
-        <h3>Blower Door &amp; Thermografie</h3>
-        <p>Luftdichtheitsmessung nach DIN EN ISO 9972 und Thermografie mit Bildbericht. Eigene Messtechnik.</p>
+        <div class="eyebrow">Messungen &amp; Qualitätssicherung</div>
+        <h3>Blower Door Test &amp; Thermografie</h3>
+        <p>Thermografie- und Luftdichtheitsmessung inkl. Leckageortung. Für Wohn- und Nichtwohngebäude. Prüfbericht mit Bildbericht. Qualitätssicherung in der Bauphase.</p>
         <a href="/aumann-eco-preview/blower-door/" class="link-row">Messung anfragen →</a>
       </div>
 
@@ -2212,8 +2344,8 @@ footer.site-footer {
   <div class="wrap">
     <div class="section-head-center">
       <span class="ae-eyebrow">02 · So arbeiten wir</span>
-      <h2 class="ae-h2">Vier Schritte zum Sanierungsfahrplan.</h2>
-      <p>Vom kostenlosen Erstgespräch bis zum geförderten Bauvorhaben — transparent, termintreu, messbar.</p>
+      <h2 class="ae-h2">Vier Schritte von der Anfrage zur Umsetzung.</h2>
+      <p>Vom kostenlosen Erstgespräch bis zum geförderten Bauvorhaben — transparent, termintreu, normgerecht.</p>
     </div>
 
     <div class="usp-list">
@@ -2221,32 +2353,35 @@ footer.site-footer {
       <article class="usp-row">
         <span class="usp-num">01</span>
         <div class="usp-body">
-          <h3>Erstgespräch</h3>
-          <p>30 Minuten Tacheles statt Vertriebs-Pitch. Wir hören zu, stellen präzise Fragen und sagen Ihnen am Ende ehrlich, ob wir der passende Partner sind — oder nicht.</p>
+          <h3>Anfrage &amp; Erstgespräch</h3>
+          <p>Wir klären, worum es geht: Sanierung, Neubau, Nachweis, Förderung oder Messung — und welche Unterlagen, Ziele und Fristen relevant sind.</p>
+          <div class="usp-figure"><img src="/aumann-eco-preview/assets/images/ablauf-unterlagen.jpg" alt="Erstgespräch und Unterlagen für das Bauvorhaben" width="1100" height="733" loading="lazy"></div>
         </div>
       </article>
 
       <article class="usp-row">
         <span class="usp-num">02</span>
         <div class="usp-body">
-          <h3>Vor-Ort-Analyse</h3>
-          <p>Wir kommen mit eigener Messtechnik — Blower Door, Thermografie, Datenlogger. Keine Standardwerte, keine Ferndiagnose. Nach der Aufnahme kennen wir Ihr Gebäude exakt.</p>
+          <h3>Projekt-Analyse</h3>
+          <p>Wir analysieren Pläne, Gebäudedaten, Bauteile, Fördervorgaben oder Messanforderungen und schaffen eine belastbare Grundlage.</p>
+          <div class="usp-figure"><img src="/aumann-eco-preview/assets/images/ablauf-planung.jpg" alt="Bauphysikalische Fachplanung und Nachweise" width="900" height="1200" loading="lazy"></div>
         </div>
       </article>
 
       <article class="usp-row">
         <span class="usp-num">03</span>
         <div class="usp-body">
-          <h3>Bericht &amp; iSFP</h3>
-          <p>Kein 80-seitiges Fachchinesisch. Sie bekommen einen klaren Maßnahmenplan mit Kosten, Einsparung und Fördermitteln — so, dass Sie Entscheidungen treffen können.</p>
+          <h3>Fachplanung &amp; Nachweise</h3>
+          <p>Je nach Projekt erstellen wir Sanierungsfahrplan, Förderstrategie, bauphysikalische Nachweise oder ein passendes Messkonzept.</p>
+          <div class="usp-figure"><img src="/aumann-eco-preview/assets/images/ablauf-messung.jpg" alt="Blower-Door-Messung zur Qualitätssicherung vor Ort" width="1100" height="1650" loading="lazy"></div>
         </div>
       </article>
 
       <article class="usp-row">
         <span class="usp-num">04</span>
         <div class="usp-body">
-          <h3>Umsetzung &amp; QS</h3>
-          <p>Wir begleiten den Bau bis zur Abnahme und messen die Qualität am Ende — mit Blower Door und Thermografie. Kein „wird schon halten", sondern nachgewiesen.</p>
+          <h3>Umsetzung &amp; Qualitätssicherung</h3>
+          <p>Wir begleiten das Bauvorhaben bis zur Abnahme, dokumentieren Ergebnisse, begleiten Antragstellung und Ausführung, liefern bautechnische Nachweise und Berichte und führen Messungen zur Qualitätssicherung durch.</p>
         </div>
       </article>
 
@@ -2260,7 +2395,7 @@ footer.site-footer {
     <div class="section-head">
       <span class="ae-eyebrow">03 · Warum aumann eco</span>
       <h2 class="ae-h2">Der Unterschied zwischen Zertifikat und echter Beratung.</h2>
-      <p>Energieberatung gibt es an jeder Ecke. Was uns unterscheidet: Wir rechnen nicht am Schreibtisch, sondern messen vor Ort — und liefern Nachweise, die vor Bauamt und BAFA bestehen.</p>
+      <p>Was uns von Online-Anbietern unterscheidet: Wir kennen Ihr Projekt von der Bestandsaufnahme, Beratung und Messung vor Ort — und liefern Nachweise, die vor Bauamt, BAFA und KfW bestehen.</p>
     </div>
 
     <div class="process" data-process>
@@ -2268,31 +2403,31 @@ footer.site-footer {
       <div class="process-tabs" role="tablist" aria-label="Warum aumann eco">
         <button class="process-tab active" role="tab" aria-selected="true" aria-controls="process-panel-1" id="process-tab-1" data-step="1">
           <span class="num" aria-hidden="true">
-            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M7 27a13 13 0 0 1 26 0"/><line x1="20" y1="27" x2="27" y2="16"/><circle cx="20" cy="27" r="2" fill="currentColor" stroke="none"/><line x1="11" y1="27" x2="9" y2="27"/><line x1="29" y1="27" x2="31" y2="27"/><line x1="20" y1="15" x2="20" y2="13"/></svg>
-          </span>
-          <span class="label">Messdaten</span>
-          <span class="dur">Eigene Messtechnik</span>
-        </button>
-        <button class="process-tab" role="tab" aria-selected="false" aria-controls="process-panel-2" id="process-tab-2" data-step="2" tabindex="-1">
-          <span class="num" aria-hidden="true">
             <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="4"/><circle cx="8" cy="8" r="3"/><circle cx="32" cy="8" r="3"/><circle cx="8" cy="32" r="3"/><circle cx="32" cy="32" r="3"/><line x1="10.5" y1="10.5" x2="17" y2="17"/><line x1="29.5" y1="10.5" x2="23" y2="17"/><line x1="10.5" y1="29.5" x2="17" y2="23"/><line x1="29.5" y1="29.5" x2="23" y2="23"/></svg>
           </span>
           <span class="label">Aus einer Hand</span>
           <span class="dur">Ein Ansprechpartner</span>
         </button>
-        <button class="process-tab" role="tab" aria-selected="false" aria-controls="process-panel-3" id="process-tab-3" data-step="3" tabindex="-1">
+        <button class="process-tab" role="tab" aria-selected="false" aria-controls="process-panel-2" id="process-tab-2" data-step="2" tabindex="-1">
           <span class="num" aria-hidden="true">
             <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="16" r="9"/><path d="M14 22.5l-3.5 12 9.5-5 9.5 5-3.5-12"/><path d="M20 11l1.5 3 3.2 0.5-2.3 2.3 0.5 3.2-2.9-1.5-2.9 1.5 0.5-3.2-2.3-2.3 3.2-0.5z"/></svg>
           </span>
           <span class="label">Zertifiziert</span>
-          <span class="dur">Seit 2010 in Köln</span>
+          <span class="dur">Ingenieurkammer · dena</span>
         </button>
-        <button class="process-tab" role="tab" aria-selected="false" aria-controls="process-panel-4" id="process-tab-4" data-step="4" tabindex="-1">
+        <button class="process-tab" role="tab" aria-selected="false" aria-controls="process-panel-3" id="process-tab-3" data-step="3" tabindex="-1">
           <span class="num" aria-hidden="true">
             <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="14"/><path d="M26 14c-1.3-1.5-3.3-2.4-5.7-2.4-4.4 0-8 3.6-8 8.4s3.6 8.4 8 8.4c2.4 0 4.4-0.9 5.7-2.4"/><line x1="10" y1="18" x2="22" y2="18"/><line x1="10" y1="22" x2="22" y2="22"/></svg>
           </span>
           <span class="label">Förderung</span>
           <span class="dur">Bis zu 50 % BAFA</span>
+        </button>
+        <button class="process-tab" role="tab" aria-selected="false" aria-controls="process-panel-4" id="process-tab-4" data-step="4" tabindex="-1">
+          <span class="num" aria-hidden="true">
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M7 27a13 13 0 0 1 26 0"/><line x1="20" y1="27" x2="27" y2="16"/><circle cx="20" cy="27" r="2" fill="currentColor" stroke="none"/><line x1="11" y1="27" x2="9" y2="27"/><line x1="29" y1="27" x2="31" y2="27"/><line x1="20" y1="15" x2="20" y2="13"/></svg>
+          </span>
+          <span class="label">Qualitätssicherung</span>
+          <span class="dur">Eigene Messtechnik</span>
         </button>
         <span class="process-progress" aria-hidden="true"><span class="process-progress-fill"></span></span>
       </div>
@@ -2302,44 +2437,10 @@ footer.site-footer {
         <article class="process-panel active" id="process-panel-1" role="tabpanel" aria-labelledby="process-tab-1" data-step="1">
           <div class="panel-head">
             <span class="big-num" aria-hidden="true">
-              <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M7 27a13 13 0 0 1 26 0"/><line x1="20" y1="27" x2="27" y2="16"/><circle cx="20" cy="27" r="2" fill="currentColor" stroke="none"/><line x1="11" y1="27" x2="9" y2="27"/><line x1="29" y1="27" x2="31" y2="27"/><line x1="20" y1="15" x2="20" y2="13"/></svg>
-            </span>
-            <div>
-              <h3>Messdaten statt Tabellenwerte</h3>
-              <p>Wir kommen mit eigener Messtechnik zu Ihnen — Blower Door, Thermografie, Datenlogger. Keine Ferndiagnose, keine Standardwerte aus der Software.</p>
-            </div>
-          </div>
-          <div class="panel-grid">
-            <div class="panel-col">
-              <h4>Konkret heißt das</h4>
-              <ul class="check-list">
-                <li>Luftdichtheitsmessung nach DIN EN ISO 9972 (Blower Door)</li>
-                <li>Thermografie nach DIN EN 13187 für Wärmebrücken</li>
-                <li>Kalibrierte Datenlogger (Kl. A) für Langzeit-Messungen</li>
-                <li>Foto- und Maßprotokoll als digitale Gebäudeakte</li>
-              </ul>
-            </div>
-            <div class="panel-col">
-              <h4>Ihr Vorteil</h4>
-              <div class="deliverable-card">
-                <p>Förderanträge stehen auf Messdaten, nicht auf Schätzungen — keine Rückfragen vom BAFA, keine nachträglichen Mehrkosten durch fehlerhafte Annahmen.</p>
-                <div class="panel-meta">
-                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Blower Door</span>
-                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Thermografie</span>
-                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> DIN-konform</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="process-panel" id="process-panel-2" role="tabpanel" aria-labelledby="process-tab-2" data-step="2" hidden>
-          <div class="panel-head">
-            <span class="big-num" aria-hidden="true">
               <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="4"/><circle cx="8" cy="8" r="3"/><circle cx="32" cy="8" r="3"/><circle cx="8" cy="32" r="3"/><circle cx="32" cy="32" r="3"/><line x1="10.5" y1="10.5" x2="17" y2="17"/><line x1="29.5" y1="10.5" x2="23" y2="17"/><line x1="10.5" y1="29.5" x2="17" y2="23"/><line x1="29.5" y1="29.5" x2="23" y2="23"/></svg>
             </span>
             <div>
-              <h3>Bauphysik, Energie &amp; Messung aus einer Hand</h3>
+              <h3>Energieberatung, Bauphysik &amp; Qualitätssicherung aus einer Hand</h3>
               <p>Ein Büro, alle Leistungen. Bauphysik, Energieberatung, Messung und Förderantrag — ohne Koordinationsverluste zwischen verschiedenen Fachplanern.</p>
             </div>
           </div>
@@ -2367,14 +2468,14 @@ footer.site-footer {
           </div>
         </article>
 
-        <article class="process-panel" id="process-panel-3" role="tabpanel" aria-labelledby="process-tab-3" data-step="3" hidden>
+        <article class="process-panel" id="process-panel-2" role="tabpanel" aria-labelledby="process-tab-2" data-step="2" hidden>
           <div class="panel-head">
             <span class="big-num" aria-hidden="true">
               <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="16" r="9"/><path d="M14 22.5l-3.5 12 9.5-5 9.5 5-3.5-12"/><path d="M20 11l1.5 3 3.2 0.5-2.3 2.3 0.5 3.2-2.9-1.5-2.9 1.5 0.5-3.2-2.3-2.3 3.2-0.5z"/></svg>
             </span>
             <div>
-              <h3>Zertifiziert seit 2010</h3>
-              <p>Mitglied der Ingenieurkammer-Bau NRW, BAFA-Energieeffizienz-Experte, FliB-zertifizierter Prüfer. Haftpflichtversichert, weitergebildet, seit 2010 in Köln.</p>
+              <h3>Zertifiziert &amp; gelistet</h3>
+              <p>Mitglied der Ingenieurkammer-Bau NRW, BAFA-/KfW-gelisteter Energie-Effizienzexperte (dena), FliB-zertifizierter Prüfer. Berufshaftpflichtversichert und zur regelmäßigen Fortbildung verpflichtet.</p>
             </div>
           </div>
           <div class="panel-grid">
@@ -2382,26 +2483,27 @@ footer.site-footer {
               <h4>Konkret heißt das</h4>
               <ul class="check-list">
                 <li>Ingenieurkammer-Bau NRW · eingetragenes Kammermitglied</li>
-                <li>BAFA-Energieeffizienz-Experte · offizielle Listeneintragung</li>
+                <li>BAFA-/KfW-gelistete Energie-Effizienzexperten (EEE) bei der dena</li>
                 <li>FliB-zertifizierter Prüfer der Gebäudedichtheit</li>
-                <li>Haftpflichtversichert · regelmäßige Fortbildung</li>
+                <li>Berufshaftpflichtversichert nach Vorgaben der Ingenieurkammer-Bau</li>
+                <li>Regelmäßige Weiterbildung — durch Eintragung zur Fortbildung verpflichtet</li>
               </ul>
             </div>
             <div class="panel-col">
               <h4>Ihr Vorteil</h4>
               <div class="deliverable-card">
-                <p>Rechtssichere Nachweise, förderfähige Anträge und unabhängige Beratung — statt „Energieberater" mit Wochenend-Zertifikat und Excel-Tabelle.</p>
+                <p>Rechtssichere Nachweise, förderfähige Anträge und unabhängige Beratung — statt ungeschützter „Energieberatung".</p>
                 <div class="panel-meta">
                   <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-10 8-14a8 8 0 0 0-16 0c0 4 8 14 8 14z"/><circle cx="12" cy="10" r="3"/></svg> Kammer NRW</span>
-                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg> BAFA · FliB</span>
-                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Seit 2010</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg> dena · FliB</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-10 8-14a8 8 0 0 0-16 0c0 4 8 14 8 14z"/><polyline points="9 11 11 13 15 9"/></svg> Versichert</span>
                 </div>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="process-panel" id="process-panel-4" role="tabpanel" aria-labelledby="process-tab-4" data-step="4" hidden>
+        <article class="process-panel" id="process-panel-3" role="tabpanel" aria-labelledby="process-tab-3" data-step="3" hidden>
           <div class="panel-head">
             <span class="big-num" aria-hidden="true">
               <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="14"/><path d="M26 14c-1.3-1.5-3.3-2.4-5.7-2.4-4.4 0-8 3.6-8 8.4s3.6 8.4 8 8.4c2.4 0 4.4-0.9 5.7-2.4"/><line x1="10" y1="18" x2="22" y2="18"/><line x1="10" y1="22" x2="22" y2="22"/></svg>
@@ -2415,20 +2517,55 @@ footer.site-footer {
             <div class="panel-col">
               <h4>Konkret heißt das</h4>
               <ul class="check-list">
-                <li>BAFA-Energieberatung: 50 % Zuschuss bis 650 €</li>
-                <li>iSFP-Bonus: 5 % auf alle Folgemaßnahmen der Sanierung</li>
-                <li>KfW-Fachplaner-Anerkennung für Neubauten</li>
-                <li>Begleitung bis zum Verwendungsnachweis</li>
+                <li>BAFA-Energieberatung: 50 % Zuschuss (650 € EFH/ZFH, 850 € MFH)</li>
+                <li>KfW-Fachplanung für klimafreundliche Neubauten</li>
+                <li>50 % Zuschuss für Fachplanung &amp; Baubegleitung (BAFA &amp; KfW)</li>
+                <li>iSFP-Bonus: 5 % auf alle Folgemaßnahmen</li>
+                <li>ergänzend 20 % Steuerbonus nach §&nbsp;35c EStG</li>
               </ul>
             </div>
             <div class="panel-col">
               <h4>Ihr Vorteil</h4>
               <div class="deliverable-card">
-                <p>Jeder Antrag wird von einem BAFA-gelisteten Experten gestellt — kein Antrag scheitert bei uns an Formfehlern oder fehlenden Nachweisen.</p>
+                <p>Wir erstellen alle notwendigen Antragsdokumente — Verwendungsnachweis, TPB, BzA, TPN und BnD. Jeder Antrag wird von einem gelisteten Experten gestellt — kein Scheitern an Formfehlern.</p>
                 <div class="panel-meta">
                   <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12M4 14h9M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg> BAFA 50 %</span>
                   <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg> iSFP 5 %</span>
-                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> KfW-Fachplaner</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 9h4.5a2 2 0 0 1 0 4H9M9 12h5M10 8v8"/></svg> §&nbsp;35c · 20 %</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-panel" id="process-panel-4" role="tabpanel" aria-labelledby="process-tab-4" data-step="4" hidden>
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true">
+              <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M7 27a13 13 0 0 1 26 0"/><line x1="20" y1="27" x2="27" y2="16"/><circle cx="20" cy="27" r="2" fill="currentColor" stroke="none"/><line x1="11" y1="27" x2="9" y2="27"/><line x1="29" y1="27" x2="31" y2="27"/><line x1="20" y1="15" x2="20" y2="13"/></svg>
+            </span>
+            <div>
+              <h3>Qualitätssicherung</h3>
+              <p>Wir kommen mit eigener Messtechnik zu Ihnen — Blower Door Test &amp; Thermografie — zur Qualitätssicherung in der Bauphase oder zur Abnahme nach Fertigstellung.</p>
+            </div>
+          </div>
+          <div class="panel-grid">
+            <div class="panel-col">
+              <h4>Konkret heißt das</h4>
+              <ul class="check-list">
+                <li>Luftdichtheitsmessung nach DIN EN ISO 9972 (Blower Door)</li>
+                <li>Thermografie nach DIN EN 13187 für Wärmebrücken</li>
+                <li>Door Fan Test mit Haltezeitberechnung für Gaslöschanlagen</li>
+                <li>Foto- und Maßprotokoll als digitale Gebäudeakte</li>
+              </ul>
+            </div>
+            <div class="panel-col">
+              <h4>Ihr Vorteil</h4>
+              <div class="deliverable-card">
+                <p>Förderanträge stehen auf Messdaten, nicht auf Schätzungen — keine Rückfragen vom BAFA, keine nachträglichen Mehrkosten durch fehlerhafte Annahmen.</p>
+                <div class="panel-meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Blower Door</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Thermografie</span>
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> DIN-konform</span>
                 </div>
               </div>
             </div>
@@ -2587,29 +2724,129 @@ footer.site-footer {
   })();
 </script>
 
+<!-- ═════════════════════ ENERGIE-COCKPIT (DUNKLE SECTION) ═════════════════════ -->
+<section class="cockpit-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="ae-eyebrow">04 · Sanierung im Beispiel</span>
+      <h2 class="ae-h2">Was eine Sanierung wirklich bringt.</h2>
+      <p>Beispielwerte für eine Sanierung zum KfW-Effizienzhaus, begleitet durch individuellen Sanierungsfahrplan, Fachplanung und Baubegleitung.</p>
+    </div>
+
+    <div class="cockpit-statusbar">
+      <span class="cockpit-statusbar-item"><strong>Projekt:</strong>&nbsp;EFH Köln-Sülz · Komplettsanierung</span>
+      <span class="cockpit-statusbar-item"><strong>Grundlage:</strong>&nbsp;individueller Sanierungsfahrplan (iSFP)</span>
+      <span class="cockpit-statusbar-item ts">Beispielwerte</span>
+    </div>
+
+    <div class="cockpit-grid">
+      <article class="gauge-card" data-fill="68" data-bar="32">
+        <div class="gauge-card-head">
+          <span class="gauge-card-label">Energiekosten</span>
+          <span class="gauge-card-status">−68 %</span>
+        </div>
+        <div class="gauge-radial">
+          <svg viewBox="0 0 120 120"><circle class="gauge-radial-track" cx="60" cy="60" r="50"/><circle class="gauge-radial-fill" cx="60" cy="60" r="50"/></svg>
+          <div class="gauge-radial-center">
+            <span class="gauge-radial-value">1.541</span>
+            <span class="gauge-radial-unit">€/a heute</span>
+          </div>
+        </div>
+        <div class="gauge-card-name">Energiekosten / Jahr</div>
+        <div class="gauge-card-soll">Vorher: 4.875 · Heute: 1.541 €/a</div>
+        <div class="gauge-card-bar"></div>
+        <div class="gauge-card-norm"><span>nach Sanierung</span><strong>1.541 €/a</strong></div>
+      </article>
+
+      <article class="gauge-card" data-fill="84" data-bar="16">
+        <div class="gauge-card-head">
+          <span class="gauge-card-label">CO₂-Emission</span>
+          <span class="gauge-card-status">−84 %</span>
+        </div>
+        <div class="gauge-radial">
+          <svg viewBox="0 0 120 120"><circle class="gauge-radial-track" cx="60" cy="60" r="50"/><circle class="gauge-radial-fill" cx="60" cy="60" r="50"/></svg>
+          <div class="gauge-radial-center">
+            <span class="gauge-radial-value">15</span>
+            <span class="gauge-radial-unit">kg/m²a heute</span>
+          </div>
+        </div>
+        <div class="gauge-card-name">CO₂-Emission</div>
+        <div class="gauge-card-soll">Vorher: 93 · Heute: 15 kg/m²a</div>
+        <div class="gauge-card-bar"></div>
+        <div class="gauge-card-norm"><span>nach Sanierung</span><strong>15 kg/m²a</strong></div>
+      </article>
+
+      <article class="gauge-card" data-fill="73" data-bar="27">
+        <div class="gauge-card-head">
+          <span class="gauge-card-label">Endenergie</span>
+          <span class="gauge-card-status">−73 %</span>
+        </div>
+        <div class="gauge-radial">
+          <svg viewBox="0 0 120 120"><circle class="gauge-radial-track" cx="60" cy="60" r="50"/><circle class="gauge-radial-fill" cx="60" cy="60" r="50"/></svg>
+          <div class="gauge-radial-center">
+            <span class="gauge-radial-value">4.936</span>
+            <span class="gauge-radial-unit">kWh/a heute</span>
+          </div>
+        </div>
+        <div class="gauge-card-name">Endenergiebedarf</div>
+        <div class="gauge-card-soll">Vorher: 18.471 · Heute: 4.936 kWh/a</div>
+        <div class="gauge-card-bar"></div>
+        <div class="gauge-card-norm"><span>nach Sanierung</span><strong>4.936 kWh/a</strong></div>
+      </article>
+
+      <article class="gauge-card" data-fill="93" data-bar="7">
+        <div class="gauge-card-head">
+          <span class="gauge-card-label">Primärenergie</span>
+          <span class="gauge-card-status">−93 %</span>
+        </div>
+        <div class="gauge-radial">
+          <svg viewBox="0 0 120 120"><circle class="gauge-radial-track" cx="60" cy="60" r="50"/><circle class="gauge-radial-fill" cx="60" cy="60" r="50"/></svg>
+          <div class="gauge-radial-center">
+            <span class="gauge-radial-value">20</span>
+            <span class="gauge-radial-unit">kWh/m²a heute</span>
+          </div>
+        </div>
+        <div class="gauge-card-name">Primärenergiebedarf</div>
+        <div class="gauge-card-soll">Vorher: 298 · Heute: 20 kWh/m²a</div>
+        <div class="gauge-card-bar"></div>
+        <div class="gauge-card-norm"><span>nach Sanierung</span><strong>20 kWh/m²a</strong></div>
+      </article>
+    </div>
+
+    <div class="cockpit-cta">
+      <div class="cockpit-cta-text">
+        <h3>Und die Förderung?</h3>
+        <p>Bei diesem Beispiel sichern wir über BAFA, KfW &amp; Co. rund 36.200 € Zuschuss — plus 5 % iSFP-Bonus auf jede Maßnahme.</p>
+      </div>
+      <span class="cockpit-cta-value">36.200 €</span>
+      <a href="/aumann-eco-preview/foerderberatung/" class="btn btn--lime">Förderung berechnen →</a>
+    </div>
+  </div>
+</section>
+
 <!-- ═════════════════════ STATS / ZERTIFIZIERUNGEN ═════════════════════ -->
 <section>
   <div class="wrap">
     <div class="section-head-center">
-      <span class="ae-eyebrow">04 · Zahlen &amp; Fakten</span>
+      <span class="ae-eyebrow">05 · Zahlen &amp; Fakten</span>
       <h2 class="ae-h2">aumann eco in Zahlen.</h2>
     </div>
     <div class="stats">
       <div class="stat">
-        <div class="num"><span class="counter" data-target="16">0</span><span class="unit">+</span></div>
+        <div class="num"><span class="counter" data-target="11">0</span><span class="unit">+</span></div>
         <div class="label">Jahre Erfahrung</div>
       </div>
       <div class="stat">
-        <div class="num"><span class="counter" data-target="250">0</span><span class="unit">+</span></div>
-        <div class="label">Begleitete Projekte</div>
+        <div class="num"><span class="counter" data-target="1">0</span></div>
+        <div class="label">Ansprechpartner</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="counter" data-target="3">0</span></div>
+        <div class="label">Fachbereiche</div>
       </div>
       <div class="stat">
         <div class="num"><span class="counter" data-target="5">0</span></div>
         <div class="label">Fachqualifikationen</div>
-      </div>
-      <div class="stat">
-        <div class="num"><span class="counter" data-target="50">0</span><span class="unit">%</span></div>
-        <div class="label">BAFA-Förderung</div>
       </div>
     </div>
   </div>
@@ -2666,9 +2903,9 @@ footer.site-footer {
   <div class="wrap">
     <div class="foerder">
       <div>
-        <span class="ae-eyebrow">05 · Förderung</span>
+        <span class="ae-eyebrow">06 · Förderung</span>
         <h2 class="ae-h2">Bis zu 50 % Förderung für Ihre Energieberatung.</h2>
-        <p>Die BAFA übernimmt 50 % der förderfähigen Beratungskosten — maximal 650 € für Ein- und Zweifamilienhäuser. Unabhängige Qualitätssicherung durch Blower Door im Rahmen der Baubegleitung wird mit weiteren 50 % BAFA-gefördert. Messen zahlt sich aus.</p>
+        <p>Das BAFA übernimmt 50 % der Beratungskosten — maximal 650 € für Ein- und Zweifamilienhäuser, maximal 850 € für Mehrfamilienhäuser — sowie 50 % der förderfähigen Kosten für Fachplanung und Baubegleitung, inklusive der unabhängigen Qualitätssicherung mit Blower Door Test und Thermografie.</p>
         <div class="btn-group">
           <a href="/aumann-eco-preview/foerderberatung/" class="btn btn--lime">Fördercheck starten →</a>
           <a href="#kontakt" class="btn btn--outline-light">Erstgespräch vereinbaren</a>
@@ -2688,12 +2925,12 @@ footer.site-footer {
           </svg>
           <div class="foerder-donut-content">
             <span class="foerder-donut-top">bis zu</span>
-            <span class="foerder-donut-value">650 €</span>
+            <span class="foerder-donut-value">650 €*</span>
             <span class="foerder-donut-bottom">BAFA-Zuschuss</span>
           </div>
           <div class="foerder-donut-chip" aria-hidden="true">50 %</div>
         </div>
-        <p class="big-num-label">Für den individuellen Sanierungsfahrplan bei Ein- und Zweifamilienhäusern.</p>
+        <p class="big-num-label">Für den individuellen Sanierungsfahrplan bei Ein- und Zweifamilienhäusern. <br>* bis zu 850 € für Mehrfamilienhäuser.</p>
       </div>
     </div>
   </div>
@@ -2703,31 +2940,19 @@ footer.site-footer {
 <section>
   <div class="wrap">
     <div class="section-head">
-      <span class="ae-eyebrow">06 · Für wen</span>
-      <h2 class="ae-h2">Sanierung oder Neubau — wir liefern die passende Grundlage.</h2>
-      <p>Zwei Ausgangslagen, eine Herangehensweise: messbar, nachweisbar, gefördert.</p>
+      <span class="ae-eyebrow">07 · Für wen</span>
+      <h2 class="ae-h2">Sanierung oder Neubau — wir liefern für jedes Projekt die passende Grundlage.</h2>
+      <p>Für jede Ausgangslage eine Herangehensweise: Förderberatung, Planung und Baubegleitung aus einer Hand.</p>
     </div>
     <div class="compare">
 
       <article class="compare-col compare-col--sanierung">
-        <div class="compare-illustration" aria-hidden="true">
-          <svg viewBox="0 0 200 140" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-            <path d="M70 32 Q74 24 70 16" stroke="#FF634D" stroke-width="2.2"/>
-            <path d="M100 26 Q104 18 100 10" stroke="#FF634D" stroke-width="2.2"/>
-            <path d="M130 32 Q134 24 130 16" stroke="#FF634D" stroke-width="2.2"/>
-            <path d="M35 80 L100 40 L165 80" stroke="#222120" stroke-width="2.4"/>
-            <path d="M45 80 L45 122 L155 122 L155 80" stroke="#222120" stroke-width="2"/>
-            <rect x="60" y="88" width="22" height="22" stroke="#222120" stroke-width="1.6"/>
-            <path d="M71 88 L71 110 M60 99 L82 99" stroke="#222120" stroke-width="1.2"/>
-            <rect x="118" y="88" width="22" height="22" stroke="#222120" stroke-width="1.6"/>
-            <path d="M129 88 L129 110 M118 99 L140 99" stroke="#222120" stroke-width="1.2"/>
-            <rect x="90" y="96" width="20" height="26" stroke="#222120" stroke-width="1.6"/>
-            <circle cx="105" cy="109" r="1.2" fill="#222120"/>
-          </svg>
+        <div class="compare-illustration">
+          <img src="/aumann-eco-preview/assets/images/compare-sanierung.jpg" alt="Energieberatung mit individuellem Sanierungsfahrplan" width="1400" height="934" loading="lazy">
         </div>
         <span class="compare-tag">Bestandsgebäude</span>
         <h3>Sanierung</h3>
-        <p class="compare-lead">Ihr Gebäude steht — jetzt geht es um Sanierungsfahrplan, Förderung und messbar dokumentierte Qualität.</p>
+        <p class="compare-lead">Wir begleiten Sie — Eigentümer, Bauherren und Hausverwaltungen —, die Ihre Immobilien energetisch sanieren, Fördermittel optimal nutzen und Maßnahmen sinnvoll priorisieren möchten.</p>
         <div class="compare-stat">
           <strong>5&nbsp;%</strong>
           <span>iSFP-Bonus auf alle Folgemaßnahmen der BAFA-Förderung</span>
@@ -2736,35 +2961,24 @@ footer.site-footer {
           <li>Individueller Sanierungsfahrplan (iSFP) — BAFA-förderfähig</li>
           <li>GEG-konforme Energieausweise (Bedarf und Verbrauch)</li>
           <li>Baubegleitung mit Blower-Door-Messung</li>
-          <li>Förderberatung für BAFA, KfW und NRW.BANK</li>
+          <li>Förderberatung für BAFA und KfW</li>
           <li>Mängelbericht mit Bilddokumentation</li>
         </ul>
         <a href="/aumann-eco-preview/sanierungsfahrplan/" class="btn btn--outline compare-cta">Zur Sanierungsberatung →</a>
       </article>
 
-      <div class="compare-divider" aria-hidden="true"><span>oder</span></div>
+      <div class="compare-divider" aria-hidden="true"></div>
 
       <article class="compare-col compare-col--neubau">
-        <div class="compare-illustration" aria-hidden="true">
-          <svg viewBox="0 0 200 140" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 24 L180 24" stroke="#FF634D" stroke-width="1.3" stroke-dasharray="4 5"/>
-            <path d="M20 19 L20 29 M100 19 L100 29 M180 19 L180 29" stroke="#FF634D" stroke-width="1.5"/>
-            <text x="100" y="16" text-anchor="middle" fill="#FF634D" font-family="Volte,system-ui,sans-serif" font-size="8" font-weight="600" letter-spacing="1">18,40 m</text>
-            <path d="M35 122 L35 70 L95 45 L95 80 L145 60 L165 80 L165 122 Z" stroke="#FCFAF5" stroke-width="2.2"/>
-            <rect x="44" y="82" width="30" height="34" stroke="#FCFAF5" stroke-width="1.5"/>
-            <path d="M59 82 L59 116 M44 99 L74 99" stroke="#FCFAF5" stroke-width="1"/>
-            <rect x="103" y="88" width="22" height="28" stroke="#FCFAF5" stroke-width="1.5"/>
-            <rect x="135" y="92" width="22" height="24" stroke="#FCFAF5" stroke-width="1.5"/>
-            <rect x="47" y="54" width="22" height="8" fill="#FF634D" opacity="0.9"/>
-            <path d="M47 58 L69 58 M52 54 L52 62 M58 54 L58 62 M64 54 L64 62" stroke="#222120" stroke-width="0.6" opacity="0.6"/>
-          </svg>
+        <div class="compare-illustration">
+          <img src="/aumann-eco-preview/assets/images/compare-neubau.jpg" alt="Bauphysikalische Fachplanung am digitalen Bauplan" width="1400" height="934" loading="lazy">
         </div>
         <span class="compare-tag">Neubau</span>
-        <h3>Planung &amp; Nachweise</h3>
-        <p class="compare-lead">Ihr Projekt startet auf dem Reißbrett — wir liefern die bauphysikalische und energetische Datengrundlage.</p>
+        <h3>Effizienzhausplanung &amp; Nachweise</h3>
+        <p class="compare-lead">Wir liefern die bauphysikalische Fachplanung für Bauherren, Architekten, Planungsbüros und Generalunternehmen.</p>
         <div class="compare-stat">
           <strong>KfW 40</strong>
-          <span>Förderklasse mit Fachplanung und Nachweisen erreichbar</span>
+          <span>Klimafreundlicher Neubau (KfW 40) mit Fachplanung und Nachweisen</span>
         </div>
         <ul class="compare-list">
           <li>Energetische Fachplanung für KfW 40 und Effizienzhaus-Stufen</li>
@@ -2773,7 +2987,7 @@ footer.site-footer {
           <li>Baubegleitung mit Qualitätssicherung</li>
           <li>Unabhängige Abnahme-Messung</li>
         </ul>
-        <a href="/aumann-eco-preview/foerderberatung/" class="btn btn--outline-light compare-cta">Zur Fachplanung →</a>
+        <a href="/aumann-eco-preview/foerderberatung/" class="btn btn--outline compare-cta">Zur Fachplanung →</a>
       </article>
 
     </div>
@@ -2784,13 +2998,13 @@ footer.site-footer {
 <section id="faq" style="background:var(--ae-grey-100);">
   <div class="wrap">
     <div class="section-head" style="margin:0 auto var(--ae-s-7); text-align:center; max-width:640px;">
-      <span class="ae-eyebrow">07 · Häufige Fragen</span>
+      <span class="ae-eyebrow">08 · Häufige Fragen</span>
       <h2 class="ae-h2">Was Sie wissen sollten.</h2>
     </div>
     <div class="faq">
       <details open>
         <summary>Was kostet eine Energieberatung in Köln?</summary>
-        <p>Zwischen 400 € und 2.500 € je nach Umfang. Ein iSFP für ein Einfamilienhaus liegt bei 1.200–1.800 €. Die BAFA übernimmt 50 % (maximal 650 € für Ein- und Zweifamilienhäuser). Der Blower-Door-Test startet bei 900 €, Thermografie ab 390 €.</p>
+        <p>Der Eigenanteil für den individuellen Sanierungsfahrplan (iSFP) beträgt nach Förderung 1.200 € für ein Einfamilienhaus, 1.500 € für ein Zweifamilienhaus und ab 1.800 € für Mehrfamilienhäuser. Die BAFA übernimmt 50 % der Beratungskosten. Der Blower-Door-Test liegt bei 390 €, Thermografie ab 900 €.</p>
       </details>
       <details>
         <summary>Wie lange dauert eine Energieberatung bis zum fertigen iSFP?</summary>
@@ -2817,16 +3031,19 @@ footer.site-footer {
 </section>
 
 <!-- ═════════════════════ FINAL CTA (BRIDGE) ═════════════════════ -->
+<div class="ostend-seo-strip">
+  <p>Mit Ostend Digital als <a href="https://ostend.digital" target="_blank" rel="noopener">Werbeagentur Stuttgart</a> haben wir, die aumann eco, unsere Online-Präsenz mit kreativen Webdesigns und effektiven SEO-Maßnahmen optimiert.</p>
+</div>
 <section id="kontakt" class="cta-section">
   <div class="wrap">
     <div class="final-cta">
       <div class="cta-portrait">
         <div class="cta-portrait-frame">
-          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco" width="200" height="200">
+          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco" width="200" height="200">
         </div>
         <div class="cta-sign">
           <span class="cta-sign-name">Benedikt Aumann</span>
-          <span class="cta-sign-title">Dipl.-Ing. · Geschäftsführer</span>
+          <span class="cta-sign-title">Ingenieur, M.A. · Inhaber</span>
         </div>
       </div>
 
@@ -2855,9 +3072,9 @@ footer.site-footer {
     <!-- Claim + Office-Card -->
     <div class="footer-claim">
       <div>
-        <span class="eyebrow">Ingenieurbüro Köln · seit 2010</span>
+        <span class="eyebrow">Ingenieurbüro Köln</span>
         <h2>Nachhaltig. <em>Messbar.</em> Ehrlich.</h2>
-        <p class="lead">Wir planen Gebäude nicht nach Bauchgefühl, sondern mit Messdaten. Bauphysik, Energieberatung und eigene Messtechnik aus einer Hand — damit Förderung, Qualität und Klimaziel zusammenpassen.</p>
+        <p class="lead">Bauphysik, Energieberatung und Messungen aus einer Hand — damit Förderung, Planung und Qualität zusammenpassen.</p>
       </div>
       <aside class="office-card" aria-label="Kontakt & Öffnungszeiten">
         <span class="status">Heute erreichbar bis 18:00</span>
@@ -2882,9 +3099,9 @@ footer.site-footer {
     <div class="footer-inner">
       <div class="brand">
         <a href="/aumann-eco-preview/" class="logo">
-          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortmarke-mitClaim-weiss.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
+          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortbildmarke-weiss-rot.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
         </a>
-        <p>Ingenieurbüro für Bauphysik &amp; Energieberatung in Köln. Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
+        <p>Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
       </div>
       <div>
         <h4>Leistungen</h4>
@@ -2900,8 +3117,6 @@ footer.site-footer {
         <h4>Büro</h4>
         <ul>
           <li><a href="/aumann-eco-preview/ueber-uns/">Über uns</a></li>
-          <li><a href="/aumann-eco-preview/ueber-uns/">Team</a></li>
-          <li><a href="/aumann-eco-preview/projekte/">Referenzen</a></li>
           <li><a href="/aumann-eco-preview/karriere/">Karriere</a></li>
           <li><a href="/aumann-eco-preview/kontakt/">Kontakt</a></li>
         </ul>
@@ -2931,7 +3146,7 @@ footer.site-footer {
 
     <!-- Bottom-Bar -->
     <div class="footer-bottom">
-      <span>© 2026 aumann eco GmbH · Alle Rechte vorbehalten</span>
+      <span>© 2026 aumann eco · Alle Rechte vorbehalten</span>
       <a href="https://ostend.digital" target="_blank" rel="noopener" class="webdesign-credit">Webdesign by Ostend Digital</a>
       <div class="socials">
         <a href="#" aria-label="LinkedIn">
@@ -2947,5 +3162,52 @@ footer.site-footer {
   </div>
 </footer>
 
+<script>
+// ─── Energie-Cockpit Gauges Reveal ───
+(function(){
+  const cards = document.querySelectorAll('.gauge-card');
+  if (!cards.length) return;
+  const setGauge = (card) => {
+    const fill = parseInt(card.dataset.fill || '70', 10);
+    const bar = parseInt(card.dataset.bar || '60', 10);
+    const fillEl = card.querySelector('.gauge-radial-fill');
+    if (fillEl) {
+      const r = 50;
+      const C = 2 * Math.PI * r;
+      const dash = (fill / 100) * C;
+      fillEl.style.strokeDasharray = `${dash} ${C}`;
+    }
+    card.style.setProperty('--bar-x', `-${100 - bar}%`);
+    card.classList.add('is-visible');
+  };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setGauge(entry.target), i * 180);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.35 });
+    cards.forEach((c) => io.observe(c));
+  } else {
+    cards.forEach(setGauge);
+  }
+})();
+</script>
+
+
+<script>
+/* MOBILE NAV toggle */
+(function(){
+  var b=document.querySelector('.ae-burger'), m=document.getElementById('ae-mobile-menu');
+  if(!b||!m) return;
+  function open(){ m.classList.add('is-open'); b.setAttribute('aria-expanded','true'); b.setAttribute('aria-label','Men\u00fc schlie\u00dfen'); document.body.classList.add('ae-menu-open'); }
+  function close(){ m.classList.remove('is-open'); b.setAttribute('aria-expanded','false'); b.setAttribute('aria-label','Men\u00fc \u00f6ffnen'); document.body.classList.remove('ae-menu-open'); }
+  b.addEventListener('click', function(){ m.classList.contains('is-open')?close():open(); });
+  m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 </body>
 </html>

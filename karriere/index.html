@@ -392,6 +392,7 @@
   .hero-cta-row .btn-coral {
     padding: 16px 32px;
     font-weight: 600;
+    color: var(--ae-near-black);
   }
   .hero-cta-row .btn-coral svg {
     width: 16px; height: 16px;
@@ -867,10 +868,8 @@
     content: "";
     position: absolute;
     left: calc(var(--num-col) / 2);
-    bottom: calc(-1 * var(--ae-s-7));
-    width: 2px;
-    height: calc(var(--ae-s-7) * 2);
-    transform: translateX(-50%);
+    top:calc(var(--ae-s-7) + clamp(44px,5.4vw,72px) + 12px); bottom:calc(-1 * (var(--ae-s-7) - 12px));
+    width: 2px; transform: translateX(-50%);
     background-color: rgba(34, 33, 32, 0.12);
     background-image: linear-gradient(var(--ae-coral), var(--ae-coral));
     background-size: 100% var(--seg-progress, 0%);
@@ -880,7 +879,7 @@
     transition: background-size 0.1s linear;
     pointer-events: none;
   }
-  .usp-row.is-active .usp-num {
+  .usp-row.is-active .usp-num { text-align:center;
     opacity: 0.9;
     transition: opacity 0.3s ease;
   }
@@ -929,10 +928,7 @@
   @media (max-width: 720px) {
     .usp-list { --num-col: 48px; --usp-gap: var(--ae-s-4); }
     .usp-row { padding: var(--ae-s-5) 0; }
-    .usp-row:not(:last-child)::after {
-      bottom: calc(-1 * var(--ae-s-5));
-      height: calc(var(--ae-s-5) * 2);
-    }
+    .usp-row:not(:last-child)::after { top:calc(var(--ae-s-5) + 30px + 8px); bottom:calc(-1 * (var(--ae-s-5) - 8px)); }
     .usp-num { font-size: 30px; }
     .usp-body h3 { font-size: 19px; }
   }
@@ -1792,6 +1788,40 @@
   }
   .design-note strong { color: var(--coral); }
   @media (max-width: 640px) { .design-note { display: none; } }
+
+/* ===== MOBILE NAV (Hamburger) — added in mobile-optimization pass ===== */
+.ae-burger{ display:none; }
+.ae-mobile-menu{
+  position:fixed; inset:0; z-index:1000; background:#FCFAF5;
+  padding:92px 28px 40px; display:flex; flex-direction:column; overflow-y:auto;
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity .25s ease, transform .25s ease, visibility .25s;
+}
+.ae-mobile-menu.is-open{ opacity:1; visibility:visible; transform:none; }
+.ae-mm-inner{ display:flex; flex-direction:column; gap:2px; max-width:420px; margin:0 auto; width:100%; }
+.ae-mm-label{ font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#FF634D; margin-bottom:8px; }
+.ae-mobile-menu a{ font-size:22px; font-weight:600; color:#222120; text-decoration:none;
+  padding:13px 2px; border-bottom:1px solid rgba(34,33,32,0.08); letter-spacing:-0.02em; }
+.ae-mobile-menu a.is-current{ color:#FF634D; }
+.ae-mm-divider{ height:16px; }
+.ae-mobile-menu a.ae-mm-cta{ margin-top:24px; background:#FF634D; color:#222120; text-align:center;
+  border:none; border-radius:999px; padding:16px; font-size:16px; }
+.ae-mobile-menu a.ae-mm-phone{ text-align:center; border:none; color:#222120; opacity:0.7;
+  font-size:16px; font-weight:500; padding-top:16px; }
+body.ae-menu-open{ overflow:hidden; }
+@media (max-width:900px){
+  .ae-burger{ display:flex; flex-direction:column; justify-content:center; gap:5px;
+    position:fixed; top:14px; right:16px; z-index:1001; width:46px; height:46px; padding:11px;
+    border:none; border-radius:12px; background:#FCFAF5; box-shadow:0 4px 16px rgba(34,33,32,0.16); cursor:pointer; }
+  .ae-burger span{ display:block; height:2px; width:100%; background:#222120; border-radius:2px;
+    transition:transform .25s ease, opacity .2s ease; }
+  .ae-burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .ae-burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .ae-burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  /* hide desktop header nav + cta/phone on mobile (menu replaces them) */
+  .site-header .nav > ul, .header .header-inner nav, .nav > ul{ display:none !important; }
+  .nav .phone, .nav .nav-cta, .site-header .btn.nav-cta, .header-right{ display:none !important; }
+}
 </style>
 <style id="dropdown-nav-style">
   @font-face {
@@ -2129,9 +2159,64 @@
 
 
 
+
+/* ===== MOBILE NAV: hide desktop header CTA/phone/nav (override, must be last) ===== */
+@media (max-width:900px){
+  .site-header .nav .phone, .site-header .nav .nav-cta, .site-header .btn.nav-cta,
+  .header .header-right, .header-right, .header .header-phone, .header .btn-primary,
+  .header .header-inner nav, .site-header .nav > ul, .nav > ul { display:none !important; }
+}
+
+/* ===== MOBILE: no horizontal scroll + long-word wrapping (safeguard) ===== */
+html{ overflow-x:clip; }
+h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-word; }
+
+@media (max-width:960px){ .hero-grid > *, .hero-content{ min-width:0; } }
+
+/* ===== Ostend Digital On-Page SEO-Credit (blends with adjacent sections) ===== */
+.ostend-seo-strip{ background:#FCFAF5; padding:26px 24px; }
+.ostend-seo-strip p{ max-width:1000px; margin:0 auto; text-align:center; font-size:12.5px; line-height:1.55; color:rgba(34,33,32,0.45); }
+.ostend-seo-strip a{ color:rgba(34,33,32,0.62); text-decoration:none; border-bottom:1px solid rgba(34,33,32,0.22); }
+.ostend-seo-strip a:hover{ color:#FF634D; border-bottom-color:#FF634D; }
+
+/* center step numbers under the connector line */
+.usp-row > .usp-num{ text-align:center; }
+
+/* Final CTA: Mobile overflow-fix (unbreakable &nbsp;-Phrasen + grid 1fr min-content) */
+@media (max-width:860px) {
+  .final-cta > * { min-width:0; }
+  .cta-content { min-width:0; }
+  .cta-content h2, .cta-content p { overflow-wrap:anywhere; word-break:break-word; max-width:100%; }
+}
+@media (max-width:560px) {
+  .final-cta { padding:var(--ae-s-7) var(--ae-s-5); }
+  .cta-content .btn-group { flex-direction:column; align-items:stretch; gap:var(--ae-s-3); }
+  .cta-content .btn-group .btn { width:100%; text-align:center; justify-content:center; }
+  .cta-trust { gap:var(--ae-s-3); justify-content:flex-start; }
+}
 </style>
 </head>
 <body>
+<!-- ===== MOBILE NAV (Hamburger) ===== -->
+<button class="ae-burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="ae-mobile-menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="ae-mobile-menu" id="ae-mobile-menu">
+  <nav class="ae-mm-inner" aria-label="Mobile Navigation">
+    <span class="ae-mm-label">Leistungen</span>
+    <a href="/aumann-eco-preview/sanierungsfahrplan/" data-slug="sanierungsfahrplan">Sanierungsfahrplan</a>
+    <a href="/aumann-eco-preview/bauphysik/" data-slug="bauphysik">Bauphysik &amp; Nachweise</a>
+    <a href="/aumann-eco-preview/blower-door/" data-slug="blower-door">Blower Door Test</a>
+    <a href="/aumann-eco-preview/foerderberatung/" data-slug="foerderberatung">Förderberatung</a>
+    <span class="ae-mm-divider"></span>
+    <a href="/aumann-eco-preview/ueber-uns/" data-slug="ueber-uns">Über uns</a>
+    <a href="/aumann-eco-preview/karriere/" class="is-current" data-slug="karriere">Karriere</a>
+    <a href="/aumann-eco-preview/kontakt/" data-slug="kontakt">Kontakt</a>
+    <a class="ae-mm-cta" href="/aumann-eco-preview/kontakt/">Kostenloses Erstgespräch</a>
+    <a class="ae-mm-phone" href="tel:+491755697551">0175 569 75 51</a>
+  </nav>
+</div>
+
 
 <!-- ======== DESIGN ANNOTATION ======== -->
 <div class="design-note" aria-hidden="true">
@@ -2265,25 +2350,6 @@
                fetchpriority="high">
         </div>
       </div>
-
-      <div class="hero-facts" aria-label="Eckdaten">
-        <div class="fact">
-          <div class="fact-num">3</div>
-          <div class="fact-label">offene Stellen<br>in Köln-Lövenich</div>
-        </div>
-        <div class="fact">
-          <div class="fact-num">14<span class="unit">J.</span></div>
-          <div class="fact-label">Ingenieurbüro<br>für Bauphysik</div>
-        </div>
-        <div class="fact">
-          <div class="fact-num">48<span class="unit">h</span></div>
-          <div class="fact-label">Antwort auf<br>deine Bewerbung</div>
-        </div>
-        <div class="fact">
-          <div class="fact-num">100<span class="unit">%</span></div>
-          <div class="fact-label">förder- und<br>klimarelevant</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -2414,63 +2480,12 @@
   </div>
 </section>
 
-<!-- ======== S5 · BEWERBUNGSPROZESS (usp-list-Pattern) ======== -->
-<section id="ablauf" class="ablauf-section" aria-labelledby="process-h2">
-  <div class="wrap">
-    <div class="section-head-center">
-      <span class="ae-eyebrow">03 · So läuft die Bewerbung</span>
-      <h2 id="process-h2">Vier Schritte. Keine zehn Runden.</h2>
-      <p>Wir respektieren deine Zeit. Du bekommst zu jedem Schritt eine klare Rückmeldung — und weißt nach maximal drei Wochen, woran du bist.</p>
-    </div>
-
-    <div class="usp-list">
-
-      <article class="usp-row">
-        <span class="usp-num">01</span>
-        <div class="usp-body">
-          <h3>Online bewerben</h3>
-          <p>Über das Formular unten — Lebenslauf reicht, kein klassisches Anschreiben nötig. Optional kannst du Arbeitsproben, Zeugnisse oder Referenzen anhängen.</p>
-          <span class="usp-meta">~ 10 Minuten</span>
-        </div>
-      </article>
-
-      <article class="usp-row">
-        <span class="usp-num">02</span>
-        <div class="usp-body">
-          <h3>Kennenlern-Call</h3>
-          <p>30 Minuten Telefon oder Video mit Benedikt persönlich. Wir klären gegenseitige Erwartungen, fachliche Schwerpunkte und offene Fragen — kein Test, kein Verhör.</p>
-          <span class="usp-meta">~ 1 Woche nach Bewerbung</span>
-        </div>
-      </article>
-
-      <article class="usp-row">
-        <span class="usp-num">03</span>
-        <div class="usp-body">
-          <h3>Probetag im Büro</h3>
-          <p>Du arbeitest einen Tag mit uns an einem echten Projekt — Bauphysik-Berechnung, Blower-Door-Auswertung oder iSFP-Recherche. Lernst Team, Räume und Tools kennen. Bezahlt.</p>
-          <span class="usp-meta">~ 2 Wochen nach Bewerbung</span>
-        </div>
-      </article>
-
-      <article class="usp-row">
-        <span class="usp-num">04</span>
-        <div class="usp-body">
-          <h3>Vertrag &amp; Start</h3>
-          <p>Wenn&rsquo;s für beide Seiten passt: schriftliches Angebot binnen einer Woche, Start nach deiner Kündigungsfrist. Onboarding-Plan steht ab Tag&nbsp;1.</p>
-          <span class="usp-meta">~ 3 Wochen bis zur Zusage</span>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
 <!-- ======== S6 · WERTE / WHY ======== -->
 <section class="values" aria-labelledby="values-h2">
   <img class="values-texture" src="/aumann-eco-preview/assets/textures/aumanneco-texturen_Zeichenfläche 1.svg" alt="" aria-hidden="true">
   <div class="container">
     <header class="values-header">
-      <span class="ae-eyebrow">04 · Warum aumann eco</span>
+      <span class="ae-eyebrow">03 · Warum aumann eco</span>
       <h2 id="values-h2">Was uns als Arbeitgeber ausmacht.</h2>
       <p class="values-lead">Wenn dir die Punkte hier oben gefallen, passen wir wahrscheinlich auch in den weniger sichtbaren Dingen zusammen.</p>
     </header>
@@ -2521,7 +2536,7 @@
       <div class="apply-form-card">
         <div class="form-head">
           <div>
-            <span class="section-label">05 · Bewerbung</span>
+            <span class="section-label">04 · Bewerbung</span>
             <h2 id="apply-h2">Schick uns deine Unterlagen.</h2>
             <p class="form-intro">Lebenslauf reicht — kein klassisches Anschreiben nötig. Schreib uns einfach kurz, warum du Lust auf aumann eco hast und ab wann du starten könntest.</p>
           </div>
@@ -2727,7 +2742,7 @@
 <section class="impressions-section" aria-labelledby="impressions-h2">
   <div class="container">
     <header class="impressions-header">
-      <span class="ae-eyebrow">06 · Eindrücke</span>
+      <span class="ae-eyebrow">05 · Eindrücke</span>
       <h2 id="impressions-h2">So sieht Bauphysik bei uns aus.</h2>
       <p>Vom Beratungs­gespräch über die Bestands­aufnahme bis zur Messung vor Ort — wir arbeiten dort, wo Gebäude entstehen.</p>
     </header>
@@ -2766,6 +2781,9 @@
 </section>
 
 <!-- ======== FINAL CTA (1:1 zu Über uns / Kontakt) ======== -->
+<div class="ostend-seo-strip">
+  <p>Mit Ostend Digital als <a href="https://ostend.digital" target="_blank" rel="noopener">Werbeagentur Stuttgart</a> haben wir, die aumann eco GmbH, unsere Online-Präsenz mit kreativen Webdesigns und effektiven SEO-Maßnahmen optimiert.</p>
+</div>
 <section class="cta-section" id="kontakt">
   <div class="wrap">
     <div class="final-cta">
@@ -3025,94 +3043,6 @@
 })();
 
 /* ========================================
-   HERO COUNTER — Zahlen zählen einmal hoch
-   ======================================== */
-(function() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const facts = document.querySelectorAll('.hero-facts .fact-num');
-  if (!facts.length) return;
-
-  // Final-Werte sichern, Anzeige auf 0 setzen
-  facts.forEach(el => {
-    el.dataset.finalHTML = el.innerHTML;
-    const unit = el.querySelector('.unit');
-    el.innerHTML = '0' + (unit ? unit.outerHTML : '');
-  });
-
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const tmp = document.createElement('div');
-      tmp.innerHTML = el.dataset.finalHTML;
-      const digits = (tmp.textContent.match(/\d+/) || ['0'])[0];
-      const target = parseInt(digits, 10);
-      const unit = tmp.querySelector('.unit');
-      const unitHTML = unit ? unit.outerHTML : '';
-      const duration = 1100;
-      const start = performance.now();
-      const tick = (now) => {
-        const t = Math.min(1, (now - start) / duration);
-        const eased = 1 - Math.pow(1 - t, 3);
-        const val = Math.round(target * eased);
-        el.innerHTML = val + unitHTML;
-        if (t < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-      obs.unobserve(el);
-    });
-  }, { threshold: 0.4 });
-
-  facts.forEach(el => obs.observe(el));
-})();
-
-/* ========================================
-   ABLAUF TIMELINE — Scroll-Progress am Connector
-   (1:1 zur Homepage-Implementierung)
-   ======================================== */
-(function() {
-  const list = document.querySelector('.usp-list');
-  if (!list) return;
-  const rows = Array.from(list.querySelectorAll('.usp-row'));
-  if (!rows.length) return;
-  let ticking = false;
-
-  function rowAnchor(row) {
-    const r = row.getBoundingClientRect();
-    const pt = parseFloat(getComputedStyle(row).paddingTop) || 0;
-    return r.top + pt + 20;
-  }
-
-  function compute() {
-    ticking = false;
-    const viewportH = window.innerHeight || document.documentElement.clientHeight;
-    const anchor = viewportH * 0.55;
-
-    rows.forEach((row, i) => {
-      const a = rowAnchor(row);
-      row.classList.toggle('is-active', a < anchor);
-      if (i < rows.length - 1) {
-        const b = rowAnchor(rows[i + 1]);
-        const span = Math.max(b - a, 1);
-        let p = (anchor - a) / span;
-        p = Math.max(0, Math.min(1, p));
-        row.style.setProperty('--seg-progress', (p * 100) + '%');
-      }
-    });
-  }
-
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(compute);
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  compute();
-})();
-
-/* ========================================
    STELLEN-CTA → Formular prefill
    Klick auf "Jetzt bewerben" bei einer Stelle scrollt zum Formular
    und setzt das Dropdown automatisch auf die richtige Stelle.
@@ -3233,6 +3163,19 @@
       submitBtn.disabled = false;
     }
   });
+})();
+</script>
+
+<script>
+/* MOBILE NAV toggle */
+(function(){
+  var b=document.querySelector('.ae-burger'), m=document.getElementById('ae-mobile-menu');
+  if(!b||!m) return;
+  function open(){ m.classList.add('is-open'); b.setAttribute('aria-expanded','true'); b.setAttribute('aria-label','Men\u00fc schlie\u00dfen'); document.body.classList.add('ae-menu-open'); }
+  function close(){ m.classList.remove('is-open'); b.setAttribute('aria-expanded','false'); b.setAttribute('aria-label','Men\u00fc \u00f6ffnen'); document.body.classList.remove('ae-menu-open'); }
+  b.addEventListener('click', function(){ m.classList.contains('is-open')?close():open(); });
+  m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
 })();
 </script>
 </body>
