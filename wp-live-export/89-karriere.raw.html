@@ -657,6 +657,21 @@
     display: flex; flex-wrap: wrap;
     gap: 8px;
   }
+  .opening-status {
+    justify-self: start;
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 5px 12px 5px 11px;
+    border-radius: var(--ae-r-pill);
+    background: rgba(205,241,93,0.12);
+    border: 1px solid rgba(205,241,93,0.30);
+    color: var(--lime);
+    font-size: 12px; font-weight: 600;
+    letter-spacing: -0.05px;
+  }
+  .opening-status::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--lime); box-shadow: 0 0 0 3px rgba(205,241,93,0.18);
+  }
   .opening-tag {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 6px 12px;
@@ -2364,12 +2379,12 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
 
       <article class="opening lime-bordered reveal-stagger">
         <div class="opening-main">
+          <span class="opening-status">frei ab Oktober</span>
           <h3 class="opening-title">Werkstudent:in Bauphysik &amp; Energieberatung</h3>
           <p class="opening-summary">Unterstützung bei bauphysikalischen Nachweisen, energetischer Fachplanung und bei bautechnischen Messungen.</p>
         </div>
         <div class="opening-meta">
-          <span class="opening-tag">frei ab Oktober</span>
-          <span class="opening-tag">10–20 h/Woche</span>
+          <span class="opening-tag neutral">10–20 h/Woche</span>
           <span class="opening-tag neutral">Köln</span>
           <span class="opening-tag neutral">m/w/d</span>
         </div>
