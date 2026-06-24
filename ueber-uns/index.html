@@ -1157,10 +1157,7 @@
     bottom: 16px;
     left: 39px;
     width: 2px;
-    background: linear-gradient(180deg,
-      var(--coral) 0%,
-      var(--coral) 70%,
-      rgba(255, 99, 77, 0.2) 100%);
+    background: var(--coral);
     transform-origin: top;
     animation: expandLine 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.3s backwards;
   }
@@ -1185,11 +1182,11 @@
     position: absolute;
     left: 0;
     top: 50%;
-    transform: translateY(-50%) rotate(-10deg);
+    transform: translateY(-50%);
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 2px dashed var(--coral);
+    border: 2px solid var(--coral);
     background: var(--warm-white);
     display: flex;
     align-items: center;
@@ -1216,21 +1213,9 @@
     border: 1px solid var(--coral);
     opacity: 0.4;
   }
-  .cred-row:nth-child(even) .cred-stamp {
-    transform: translateY(-50%) rotate(10deg);
-    border-color: var(--teal);
-    color: var(--teal);
-  }
-  .cred-row:nth-child(even) .cred-stamp::after { border-color: var(--teal); }
-  .cred-row:nth-child(3n) .cred-stamp {
-    border-color: var(--dark);
-    color: var(--dark);
-  }
-  .cred-row:nth-child(3n) .cred-stamp::after { border-color: var(--dark); }
-
-  /* Hover: Stempel richtet sich auf + skaliert */
+  /* Hover: Stempel skaliert leicht (einheitlich coral, aufrecht) */
   .cred-row:hover .cred-stamp {
-    transform: translateY(-50%) rotate(0deg) scale(1.08);
+    transform: translateY(-50%) scale(1.06);
     background: var(--white);
   }
 
@@ -1290,17 +1275,12 @@
     animation: stampSet 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
   }
   @keyframes stampSet {
-    0% { transform: translateY(-50%) rotate(-45deg) scale(0.4); }
-    60% { transform: translateY(-50%) rotate(-5deg) scale(1.15); }
-    100% { transform: translateY(-50%) rotate(-10deg) scale(1); }
+    0% { transform: translateY(-50%) scale(0.4); }
+    60% { transform: translateY(-50%) scale(1.12); }
+    100% { transform: translateY(-50%) scale(1); }
   }
   .cred-row:nth-child(even).revealed .cred-stamp {
-    animation: stampSetEven 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
-  }
-  @keyframes stampSetEven {
-    0% { transform: translateY(-50%) rotate(45deg) scale(0.4); }
-    60% { transform: translateY(-50%) rotate(5deg) scale(1.15); }
-    100% { transform: translateY(-50%) rotate(10deg) scale(1); }
+    animation: stampSet 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
   }
 
   /* ========================================
@@ -1776,7 +1756,9 @@
     gap: var(--ae-s-7);
   }
   .footer-inner .brand .logo img {
-    height: 44px;
+    width: 100%;
+    max-width: 210px;
+    height: auto;
     margin-bottom: var(--ae-s-4);
   }
   .footer-inner .brand p {
@@ -2440,7 +2422,7 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
               <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-4 4 4 7-7"/><path d="M14 6h6v6"/><path d="M3 21h18"/></svg></span>
               <span class="nav-mega-content">
                 <span class="nav-mega-title">Sanierungsfahrplan</span>
-                <span class="nav-mega-sub">iSFP nach BAFA · bis 80&nbsp;% Förderung</span>
+                <span class="nav-mega-sub">iSFP nach BAFA · bis 50&nbsp;% Förderung</span>
               </span>
             </a></li>
             <li role="none"><a class="nav-mega-item" role="menuitem" href="/aumann-eco-preview/bauphysik/">
@@ -2461,13 +2443,13 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
               <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8h6"/><path d="M8 11h7a3 3 0 010 6h-3.5"/><path d="M11.5 8v9"/></svg></span>
               <span class="nav-mega-content">
                 <span class="nav-mega-title">Förderberatung</span>
-                <span class="nav-mega-sub">KfW · BAFA · NRW.BANK</span>
+                <span class="nav-mega-sub">KfW · BAFA</span>
               </span>
             </a></li>
           </ul>
           <a class="nav-mega-footer" href="/aumann-eco-preview/kontakt/">
             <span class="nav-mega-footer-text">
-              <strong>Unsicher, was du brauchst?</strong>
+              <strong>Unsicher, was Sie brauchen?</strong>
               <span>Kostenloses Erstgespräch — 15&nbsp;Min</span>
             </span>
             <span class="nav-mega-footer-cta">
@@ -2507,7 +2489,7 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
           <span></span><span></span><span></span>
         </div>
         <h1 id="hero-h1">Ein Ingenieurbüro.<br>Mit <span class="accent">Gesicht.</span><br>Mit Haltung.</h1>
-        <p class="hero-sub">Aumann Eco ist ein unabhängiges Ingenieurbüro für Bauphysik &amp; Energieberatung in Köln und dem Rheinland — für private Bauherren wie für Gewerbe, gegründet und geführt von Benedikt Aumann. Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
+        <p class="hero-sub">Aumann Eco ist ein unabhängiges Ingenieurbüro für Bauphysik, Energieberatung und bautechnische Messungen in Köln und dem Rheinland — gegründet und geführt von Benedikt Aumann. Wir begleiten Bauherren, Eigentümer, Planungsbüros und Unternehmen bei Neubau, Sanierung, Nachweisführung und Qualitätssicherung. Messbare Bauqualität, ehrliche Beratung, fachlich fundiert.</p>
 
         <div class="hero-trust-mini">
           <span class="label">Geprüft, gelistet, anerkannt</span>
@@ -2522,10 +2504,10 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
 
       <div class="hero-visual">
         <div class="hero-portrait-wrap">
-          <img src="/aumann-eco-preview/assets/images/JOT00132.webp" alt="Benedikt Aumann — Ingenieur (M.Sc.), Geschäftsführer von Aumann Eco">
+          <img src="/aumann-eco-preview/assets/images/JOT00132.webp" alt="Benedikt Aumann — Ingenieur M.A., Inhaber von Aumann Eco">
           <div class="hero-portrait-meta">
             <strong>Benedikt Aumann</strong>
-            <span>M.Sc. Bauing. · Geschäftsführer</span>
+            <span>Ingenieur, M.A. · Inhaber</span>
           </div>
         </div>
       </div>
@@ -2542,7 +2524,7 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
       <img class="pullquote-bg" src="/aumann-eco-preview/assets/textures/aumanneco-texturen_Zeichenfläche 9.svg" alt="" aria-hidden="true">
       <div class="pullquote-content">
         <div class="pullquote-mark" aria-hidden="true">„</div>
-        <p class="pullquote-text">Ich wollte ein Büro, das Bauqualität nicht behauptet, sondern misst. Mit eigenen Geräten, eigenen Berechnungen, eigener Haftung — und mit dem Mut, einem Kunden auch zu sagen, dass sich seine geplante Sanierung nicht rechnet.</p>
+        <p class="pullquote-text">Ich habe aumann eco gegründet, um Bauphysik und Energieberatung so anzubieten, wie ich sie selbst erwarten würde: fachlich fundiert, verständlich erklärt und ehrlich geprüft. Nachhaltigkeit versteht sich für mich nicht als Schlagwort, sondern als fachliche Aufgabe: Gebäude effizienter, langlebiger und zukunftsfähiger zu machen — dort, wo es sinnvoll ist.</p>
         <div class="pullquote-attribution">Benedikt Aumann, Gründer</div>
       </div>
     </div>
@@ -2560,10 +2542,12 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
         </div>
         <div class="bio-card-meta">
           <div class="name">Benedikt Aumann</div>
-          <div class="role">Gründer &amp; Geschäftsführer</div>
+          <div class="role">Gründer &amp; Inhaber</div>
           <dl>
-            <div><dt>Abschluss</dt><dd>M.Sc. Bauing.</dd></div>
-            <div><dt>Schwerpunkt</dt><dd>Bauphysik</dd></div>
+            <div><dt>Berufsbezeichnung</dt><dd>Ingenieur</dd></div>
+            <div><dt>Studium</dt><dd>Architektur</dd></div>
+            <div><dt>Abschluss</dt><dd>M.A.</dd></div>
+            <div><dt>Schwerpunkt</dt><dd>Bauphysik | Energieoptimiertes Bauen</dd></div>
             <div><dt>Mitglied</dt><dd>IK-Bau NRW</dd></div>
             <div><dt>Standort</dt><dd>Köln</dd></div>
           </dl>
@@ -2573,10 +2557,10 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
       <div class="bio-text">
         <span class="section-label">01 · Persönlich</span>
         <h2 id="bio-h2">Warum dieser Beruf?</h2>
-        <p class="lead-paragraph">Ich habe Bauingenieurwesen mit Schwerpunkt Bauphysik und Energieeffizienz studiert. Schon im Studium hat mich nicht die Theorie auf dem Papier interessiert, sondern die Frage: Stimmt das, was wir berechnen, am Ende auch im realen Gebäude?</p>
-        <p>Die Antwort ist oft: nur dann, wenn jemand vor Ort nachmisst. Genau dort sehen wir die größten Differenzen — zwischen dem, was Software-Standardwerte versprechen, und dem, was an einem konkreten Bauteil tatsächlich passiert. Diese Lücke wollte ich nicht ignorieren.</p>
-        <p>Aumann Eco habe ich gegründet, um Bauphysik und Energieberatung so anzubieten, wie ich sie selbst als Bauherr erwarten würde: mit eigener Messtechnik, mit nachvollziehbaren Berechnungen, mit klarer Sprache. Und mit der Bereitschaft, Ihnen zu sagen, wenn sich eine Maßnahme bei Ihnen nicht rechnet.</p>
-        <p>Nachhaltigkeit ist für mich keine Pose und kein Verkaufsargument. Es ist der Grund, warum ich diesen Beruf mache — aber sie funktioniert nur, wenn sie wirtschaftlich und bauphysikalisch tragfähig ist. Das prüfe ich mit Ihnen gemeinsam.</p>
+        <p class="lead-paragraph">Mich begeistert an meiner Arbeit die Abwechslung: neue Projekte, neue Gebäude, neue Baustellen und immer wieder andere Menschen, mit denen man gemeinsam an einer guten Lösung arbeitet. Ich mag es, mich in technische Zusammenhänge zu vertiefen, Varianten zu vergleichen und nach Optimierungsmöglichkeiten zu suchen — egal ob bei einer energetischen Bilanzierung am Schreibtisch, einem bauphysikalischen Nachweis oder einer Messung vor Ort.</p>
+        <p>Besonders reizvoll ist für mich die Verbindung aus Theorie und Praxis. Im Büro geht es um Berechnungen, Normen, Nachweise und Förderanforderungen. Auf der Baustelle zählt der Blick für das reale Gebäude, für Details, Anschlüsse und Situationen, die nicht immer exakt so sind wie im Plan. Genau diese Mischung macht die Arbeit für mich spannend.</p>
+        <p>aumann eco habe ich gegründet, um Bauphysik und Energieberatung so anzubieten, wie ich sie selbst erwarten würde: fachlich fundiert, verständlich erklärt und ehrlich eingeordnet. Nachhaltigkeit verstehe ich nicht als Schlagwort, sondern als fachliche Aufgabe — Gebäude effizienter, langlebiger und zukunftsfähiger zu machen.</p>
+        <p>Dazu gehört für mich auch, Maßnahmen kritisch zu hinterfragen, wenn sie technisch, wirtschaftlich oder ökologisch nicht sinnvoll sind. Denn gute Beratung bedeutet nicht, möglichst viel zu empfehlen, sondern die richtigen Schritte für das jeweilige Gebäude zu finden.</p>
       </div>
 
     </div>
@@ -2589,7 +2573,7 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
     <header class="glimpses-header">
       <span class="section-label">02 · Referenzen</span>
       <h2 id="ref-h2">Aus der Praxis. Mit Messdaten.</h2>
-      <p>Drei aktuelle Projekte aus Beratung, Bauphysik und Messung — anonymisiert, aber mit echten Zahlen. Ein vollständiges Foto-Update folgt nach dem Shooting im April 2026.</p>
+      <p>Drei aktuelle Projekte aus Beratung, Bauphysik und Messung — mit echten Zahlen.</p>
     </header>
     <div class="glimpses-row">
       <figure class="glimpse">
@@ -2598,7 +2582,7 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
       </figure>
       <figure class="glimpse">
         <img src="/aumann-eco-preview/assets/images/JOT00191.webp" alt="Dämmung und Bauphysik-Aufnahme auf der Baustelle">
-        <figcaption class="glimpse-caption">Bauphysik-Nachweis · Neubau MFH · KfW 40</figcaption>
+        <figcaption class="glimpse-caption">Bauphysik-Nachweis &amp; Förderung · Dachaufstockung EFH · BEG EM</figcaption>
       </figure>
       <figure class="glimpse">
         <img src="/aumann-eco-preview/assets/images/JOT01325.webp" alt="Thermografiekamera und Blower-Door-Messung im Einsatz">
@@ -2617,7 +2601,7 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
     <header class="obligations-header">
       <span class="section-label">03 · Was uns verpflichtet</span>
       <h2 id="oblig-h2">Drei Pflichten, die wir erfüllen.</h2>
-      <p class="obligations-lead">Der Beruf „Energieberater" ist in Deutschland nicht geschützt. Als Ingenieurbüro — Mitglied der Ingenieurkammer-Bau NRW und gelistet als dena-Energieeffizienz-Experte — sind wir klaren Verpflichtungen unterworfen, die in einem Vergleichsangebot oft fehlen.</p>
+      <p class="obligations-lead">Qualifikation, Unabhängigkeit und Verantwortung — als Mitglied der Ingenieurkammer-Bau NRW und gelistete Energieeffizienz-Experten sind wir fachlichen Anforderungen verpflichtet. Energieberatung per se ist in Deutschland nicht geschützt — deshalb folgen nicht alle Vergleichsangebote denselben fachlichen Anforderungen.</p>
     </header>
 
     <div class="obligations-grid">
@@ -2639,13 +2623,12 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
       <article class="obligation">
         <span class="number">03</span>
         <h3>Einhaltung aller Normen</h3>
-        <p>GEG, DIN-Normen, BAFA- und KfW-Vorgaben. Meine Nachweise sind behördenkonform und gerichtsfest — ein Pflicht-Standard, der bei nicht-geschützten „Energieberatern" nicht garantiert ist.</p>
+        <p>GEG, DIN-Normen, BAFA- und KfW-Vorgaben. Unsere Nachweise sind prüffähig, nachvollziehbar und abgestimmt auf Bauantrag, Förderung und Ausführungsplanung.</p>
         <span class="source">§ Berufspflichten IK-Bau NRW</span>
       </article>
 
     </div>
 
-    <p class="obligations-closer">Das ist mehr, als sich die meisten freien „Energieberater" auferlegen.</p>
   </div>
 </section>
 
@@ -2657,13 +2640,13 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
       <div class="messtechnik-text">
         <span class="section-label section-label--lime">04 · Eigene Messtechnik</span>
         <h2 id="mess-h2">Wir messen <span class="lime">selbst.</span><br>Kein Outsourcing.</h2>
-        <p>Wir arbeiten mit eigener Messtechnik — Blower-Door-Prüfgerät, Thermografiekamera, kalibrierte Vor-Ort-Messungen. Kein Outsourcing, kein Zeitverlust. Als zertifizierte Prüfer der Gebäudedichtheit (FliB) dokumentieren wir Bauqualität messbar.</p>
+        <p>Wir arbeiten mit eigenen Messgeräten — Blower Door, Thermografie — kalibriert, präzise, professionell. Kein Outsourcing, kein Zeitverlust. Als zertifizierter Prüfer der Gebäudedichtheit (FLiB) dokumentieren wir Bauqualität messbar.</p>
 
         <div class="equipment-row">
           <div class="equipment-item">
             <div class="equipment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/></svg></div>
             <div class="label">Blower-Door</div>
-            <div class="sub">DIN EN ISO 9972, Ein-Blatt-Messung</div>
+            <div class="sub">DIN EN ISO 9972, inkl. Leckageortung</div>
           </div>
           <div class="equipment-item">
             <div class="equipment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/><line x1="7" y1="3" x2="9" y2="6"/><line x1="17" y1="3" x2="15" y2="6"/></svg></div>
@@ -2673,7 +2656,7 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
           <div class="equipment-item">
             <div class="equipment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21h16"/><path d="M6 21V7l6-4 6 4v14"/><line x1="10" y1="9" x2="14" y2="9"/><line x1="10" y1="13" x2="14" y2="13"/></svg></div>
             <div class="label">Vor-Ort-Messung</div>
-            <div class="sub">U-Wert, Feuchte, Temperatur</div>
+            <div class="sub">Inspektion, Messung, stichprobenhafte Kontrollen</div>
           </div>
         </div>
 
@@ -2707,7 +2690,7 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 8h2M4 12h3M4 16h2M8 4v2M12 4v3M16 4v2"/><path d="M14 14l3-3 3 3"/></svg>
         </div>
         <h3>Messbar statt geschätzt</h3>
-        <p>Bauqualität belegen wir mit Zahlen. Wo andere mit Software-Standardwerten rechnen, prüfen wir am Bauteil — Blower Door, Thermografie, kalibrierte Messtechnik.</p>
+        <p>Bauqualität belegen wir mit Zahlen — Blower Door, Thermografie, kalibrierte Messtechnik.</p>
       </article>
 
       <article class="value-card">
@@ -2753,9 +2736,9 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
         <div class="cred-stamp" aria-hidden="true">IK-Bau<br>NRW</div>
         <div class="cred-left">
           <span class="cred-authority-label">Ingenieurkammer-Bau NRW</span>
-          <h3>Beratender Ingenieur</h3>
+          <h3>Mitglied als Ingenieur</h3>
         </div>
-        <p class="cred-benefit-text">Geprüfte Qualifikation, Berufshaftpflicht, Fortbildungspflicht und Verpflichtung zur unabhängigen Beratung. Der formal stärkste Trust-Anker, den ein Energieberater überhaupt haben kann.</p>
+        <p class="cred-benefit-text">Geprüfte Qualifikation, Berufshaftpflicht, Fortbildungspflicht und Verpflichtung zur unabhängigen Beratung.</p>
       </article>
 
       <article class="cred-row">
@@ -2770,10 +2753,10 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
       <article class="cred-row">
         <div class="cred-stamp" aria-hidden="true">Staatl.<br>aner-<br>kannt</div>
         <div class="cred-left">
-          <span class="cred-authority-label">Land NRW</span>
+          <span class="cred-authority-label">Ingenieurkammer-Bau NRW</span>
           <h3>Sachverständiger Schall- &amp; Wärmeschutz</h3>
         </div>
-        <p class="cred-benefit-text">Nachweise gelten gegenüber Behörden ohne zusätzliche Prüfung — keine Verzögerung beim Bauantrag, kein Doppel-Aufwand.</p>
+        <p class="cred-benefit-text">Qualifiziert zur Einreichung von Nachweisen gegenüber Behörden — keine Verzögerung beim Bauantrag, keine doppelte Prüfung.</p>
       </article>
 
       <article class="cred-row">
@@ -2804,7 +2787,7 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
     <header class="not-doing-header">
       <span class="section-label section-label--light">07 · Klartext</span>
       <h2 id="notdo-h2">Was wir nicht tun.</h2>
-      <p class="not-doing-lead">Ehrlichkeit gehört zur Beratung. Vier Dinge, die wir bewusst nicht anbieten — damit Sie nicht enttäuscht werden.</p>
+      <p class="not-doing-lead">Ehrlichkeit gehört zur Beratung. Vier Dinge, die wir nicht anbieten — damit Sie nicht enttäuscht werden.</p>
     </header>
 
     <div class="not-doing-grid">
@@ -2847,24 +2830,24 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
 
 <!-- ═════════════════════ FINAL CTA (1:1 aumann-eco-luca) ═════════════════════ -->
 <div class="ostend-seo-strip">
-  <p>Mit Ostend Digital als <a href="https://ostend.digital" target="_blank" rel="noopener">Werbeagentur Stuttgart</a> haben wir, die aumann eco GmbH, unsere Online-Präsenz mit kreativen Webdesigns und effektiven SEO-Maßnahmen optimiert.</p>
+  <p>Mit Ostend Digital als <a href="https://ostend.digital" target="_blank" rel="noopener">Werbeagentur Stuttgart</a> haben wir, die aumann eco, unsere Online-Präsenz mit kreativen Webdesigns und effektiven SEO-Maßnahmen optimiert.</p>
 </div>
 <section class="cta-section" id="kontakt">
   <div class="wrap">
     <div class="final-cta">
       <div class="cta-portrait">
         <div class="cta-portrait-frame">
-          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco" width="200" height="200">
+          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco" width="200" height="200">
         </div>
         <div class="cta-sign">
           <span class="cta-sign-name">Benedikt Aumann</span>
-          <span class="cta-sign-title">Dipl.-Ing. · Geschäftsführer</span>
+          <span class="cta-sign-title">Ingenieur, M.A. · Inhaber</span>
         </div>
       </div>
       <div class="cta-content">
         <span class="ae-eyebrow">Kostenloses Erstgespräch</span>
-        <h2 class="ae-h2">Alle Nachweise.<br>Termingerecht&nbsp;zum&nbsp;Bauantrag.</h2>
-        <p>30 Minuten, unverbindlich, ohne Verkaufsdruck. Wir hören zu, sagen dir welche Nachweise du brauchst — und liefern alles aus einer Hand.</p>
+        <h2 class="ae-h2">Alle Nachweise.<br>Termingerecht zum<br>Bauantrag.</h2>
+        <p>30 Minuten, unverbindlich, ohne Verkaufsdruck. Wir hören zu, sagen Ihnen, welche Nachweise Sie benötigen — und liefern alles aus einer Hand.</p>
         <div class="btn-group">
           <a href="mailto:info@aumann-ing.de" class="btn btn--dark">Erstgespräch vereinbaren →</a>
           <a href="tel:+491755697551" class="btn btn--outline">0175 569 75 51</a>
@@ -2887,9 +2870,9 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
 
     <div class="footer-claim">
       <div>
-        <span class="eyebrow">Ingenieurbüro Köln · seit 2010</span>
+        <span class="eyebrow">Ingenieurbüro Köln</span>
         <h2>Nachhaltig. <em>Messbar.</em> Ehrlich.</h2>
-        <p class="lead">Wir planen Gebäude nicht nach Bauchgefühl, sondern mit Messdaten. Bauphysik, Energieberatung und eigene Messtechnik aus einer Hand — damit Förderung, Qualität und Klimaziel zusammenpassen.</p>
+        <p class="lead">Bauphysik, Energieberatung und Messungen aus einer Hand — damit Förderung, Planung und Qualität zusammenpassen.</p>
       </div>
       <aside class="office-card" aria-label="Kontakt &amp; Öffnungszeiten">
         <span class="status">Heute erreichbar bis 18:00</span>
@@ -2913,9 +2896,9 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
     <div class="footer-inner">
       <div class="brand">
         <a href="/aumann-eco-preview/" class="logo">
-          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortmarke-mitClaim-weiss.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
+          <img src="/aumann-eco-preview/assets/logos/aumanneco_Wortbildmarke-weiss-rot.svg" alt="aumann eco — Ingenieurbüro für nachhaltiges Bauen">
         </a>
-        <p>Ingenieurbüro für Bauphysik &amp; Energieberatung in Köln. Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
+        <p>Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
       </div>
       <div>
         <h4>Leistungen</h4>
@@ -2956,7 +2939,7 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 aumann eco GmbH · Alle Rechte vorbehalten</span>
+      <span>© 2026 aumann eco · Alle Rechte vorbehalten</span>
       <a href="https://ostend.digital" target="_blank" rel="noopener" class="webdesign-credit">Webdesign by Ostend Digital</a>
     </div>
   </div>

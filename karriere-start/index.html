@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kontakt — Aumann Eco Ingenieurbüro Köln | Erstgespräch vereinbaren</title>
-<meta name="description" content="Kontaktieren Sie Aumann Eco in Köln: Kostenloses Erstgespräch für Bauphysik, Energieberatung und Blower Door. Telefon, E-Mail oder Kontaktformular.">
+<title>Karriere — Mit aumann eco wachsen | Ingenieurbüro Köln</title>
+<meta name="description" content="Komm ins Team aumann eco: Energieberatung, Bauphysik und eigene Messtechnik in Köln. Offene Stellen für Ingenieur:innen, Energieberater:innen und Werkstudent:innen — jetzt bewerben.">
 <style>
   /* ========================================
-     AUMANN ECO — DESIGN TOKENS (identisch zu Über uns)
+     AUMANN ECO — DESIGN TOKENS (identisch zu Über uns / Kontakt)
      ======================================== */
   @font-face { font-family: 'Volte'; src: url('/aumann-eco-preview/assets/fonts/Volte-Light.woff2') format('woff2'), url('/aumann-eco-preview/assets/fonts/Volte-Light.woff') format('woff'); font-weight: 300; font-style: normal; font-display: swap; }
   @font-face { font-family: 'Volte'; src: url('/aumann-eco-preview/assets/fonts/Volte-LightItalic.woff2') format('woff2'), url('/aumann-eco-preview/assets/fonts/Volte-LightItalic.woff') format('woff'); font-weight: 300; font-style: italic; font-display: swap; }
@@ -19,7 +19,7 @@
   :root {
     --coral: #FF634D;
     --coral-hover: #E8523D;
-    --coral-light: rgba(255, 99, 77, 0.08);
+    --coral-light: rgba(255, 99, 77, 0.10);
 
     --dark: #222120;
     --dark-soft: #333231;
@@ -103,12 +103,13 @@
     0%, 100% { box-shadow: 0 0 0 0 rgba(205,241,93,0.45); }
     50% { box-shadow: 0 0 0 10px rgba(205,241,93,0); }
   }
-  .hero .ae-eyebrow { animation: fadeInUp 0.6s ease-out 0.1s backwards; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .hero .hero-pulse { animation: fadeInUp 0.6s ease-out 0.1s backwards; }
   .hero h1 { animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s backwards; }
   .hero .hero-sub { animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s backwards; }
-  .hero .hero-quick { animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s backwards; }
-  .hero .hero-trust-mini { animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.65s backwards; }
-  .hero .hero-form-wrap { animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s backwards; }
+  .hero .hero-cta-row { animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s backwards; }
+  .hero .hero-facts { animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.65s backwards; }
 
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
   .reveal.revealed { opacity: 1; transform: translateY(0); }
@@ -127,7 +128,6 @@
   h4 { font-weight: 600; font-size: 16px; line-height: 1.35; letter-spacing: -0.2px; }
   p { font-size: 16px; line-height: 1.7; color: var(--gray-600); }
 
-  /* Eyebrow im Stil der Luca-Pages: "01 · Label" */
   .ae-eyebrow {
     font-size: 12px;
     font-weight: 600;
@@ -175,8 +175,10 @@
   .btn--dark:hover { background: #000; transform: translateY(-1px); }
   .btn--outline { background: transparent; color: var(--ae-near-black); border: 1.5px solid var(--ae-near-black); }
   .btn--outline:hover { background: var(--ae-near-black); color: var(--ae-off-white); transform: translateY(-1px); }
+  .btn--lime { background: var(--lime); color: var(--dark); font-weight: 600; }
+  .btn--lime:hover { background: #BFE54A; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(205,241,93,0.30); }
 
-  /* HEADER (1:1 zu Über uns) */
+  /* HEADER (1:1 zu Über uns / Kontakt) */
   .header {
     position: sticky; top: 0; z-index: 100;
     background: rgba(252, 250, 245, 0.92);
@@ -209,18 +211,16 @@
   .header-phone svg { width: 16px; height: 16px; color: var(--coral); }
 
   /* ========================================
-     S1 · CONTACT HERO
-     Asymmetric Magazine-Layout. Form direkt im Hero präsent.
-     Hintergrund: Textur, Coral- & Teal-Glow, Dot-Grid am Boden.
+     S1 · HERO — Editorial Centered, ruhiges Spacing
      ======================================== */
   .hero {
     position: relative;
     background: var(--warm-white);
-    padding: 80px 0 0;
+    padding: 96px 0 88px;
     overflow: hidden;
     isolation: isolate;
   }
-  /* Grid-Pattern subtil im Hintergrund (Brand-Signatur) */
+  .hero > .container { max-width: 1240px; }
   .hero::before {
     content: '';
     position: absolute;
@@ -233,20 +233,19 @@
       linear-gradient(rgba(34,33,32,0.10) 1px, transparent 1px),
       linear-gradient(90deg, rgba(34,33,32,0.10) 1px, transparent 1px);
     background-size: 16px 16px, 16px 16px, 96px 96px, 96px 96px;
-    -webkit-mask-image: radial-gradient(ellipse 70% 100% at 80% 40%, #000 8%, rgba(0,0,0,0.4) 40%, transparent 78%);
-    mask-image: radial-gradient(ellipse 70% 100% at 80% 40%, #000 8%, rgba(0,0,0,0.4) 40%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 100% at 78% 42%, #000 8%, rgba(0,0,0,0.4) 40%, transparent 78%);
+    mask-image: radial-gradient(ellipse 70% 100% at 78% 42%, #000 8%, rgba(0,0,0,0.4) 40%, transparent 78%);
   }
-  /* Coral-Glow links unten + Teal-Glow rechts oben */
   .hero::after {
     content: '';
     position: absolute;
     z-index: 0;
     pointer-events: none;
-    width: 700px; height: 700px;
-    left: -240px; bottom: -240px;
+    width: 720px; height: 720px;
+    right: -240px; top: -120px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,99,77,0.12) 0%, transparent 60%);
-    filter: blur(40px);
+    background: radial-gradient(circle, rgba(255,99,77,0.10) 0%, transparent 60%);
+    filter: blur(50px);
   }
   .hero-teal-glow {
     position: absolute;
@@ -255,198 +254,845 @@
     width: 540px; height: 540px;
     right: -200px; top: -160px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(5,108,127,0.10) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(5,108,127,0.08) 0%, transparent 65%);
     filter: blur(50px);
   }
   .hero-texture {
     position: absolute;
-    top: 40px; right: -80px;
+    top: 50%; right: -160px;
+    transform: translateY(-50%) rotate(-8deg);
     width: 460px;
-    opacity: 0.08;
+    opacity: 0.05;
     pointer-events: none;
-    transform: rotate(-8deg);
     z-index: 0;
   }
   .hero-texture img { width: 100%; height: auto; }
   .hero-inner {
     position: relative;
     z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
   }
-  .hero-grid {
+  .hero-top {
     display: grid;
-    grid-template-columns: 0.95fr 1.1fr;
+    grid-template-columns: 1.05fr 1fr;
     gap: var(--ae-s-8);
-    align-items: start;
-    padding-bottom: 80px;
+    align-items: center;
   }
-  .hero-text {
-    padding-top: 16px;
-    max-width: 540px;
-  }
-  .hero .ae-eyebrow { margin-bottom: 24px; }
-  .hero h1 { margin: 0; max-width: 12ch; }
-  .hero h1 .accent { color: var(--coral); font-style: italic; font-weight: 500; }
-  .hero-sub {
-    margin: 22px 0 0;
-    font-size: 19px;
-    line-height: 1.55;
-    color: var(--gray-700);
-    max-width: 480px;
-    font-weight: 300;
-  }
-  /* Quick-Contact Pills */
-  .hero-quick {
-    margin-top: 36px;
+  .hero-text { max-width: 560px; }
+  .hero-visual {
+    position: relative;
     display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
-  .quick-pill {
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: var(--ae-r-lg);
+    overflow: hidden;
+    box-shadow: 0 30px 70px -28px rgba(34, 33, 32, 0.30);
+  }
+  .hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    display: block;
+  }
+  /* Subtiler Coral-Akzent oben rechts auf dem Foto (Brand-Echo) */
+  .hero-visual::after {
+    content: '';
+    position: absolute;
+    top: 20px; right: 20px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--coral);
+    box-shadow: 0 0 0 4px rgba(252,250,245,0.95), 0 4px 14px rgba(255,99,77,0.4);
+  }
+  @media (max-width: 960px) {
+    .hero-top { grid-template-columns: 1fr; gap: var(--ae-s-7); }
+    .hero-text { max-width: none; }
+    .hero-visual { max-width: 680px; margin: 0 auto; width: 100%; }
+  }
+
+  /* Live-Pill mit Pulse */
+  .hero-pulse {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 20px 12px 14px;
+    padding: 8px 16px 8px 12px;
     background: var(--white);
     border: 1px solid var(--gray-200);
     border-radius: var(--ae-r-pill);
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.2s;
-  }
-  .quick-pill:hover {
-    border-color: var(--coral);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(255, 99, 77, 0.12);
-    background: var(--white);
-  }
-  .quick-pill .icon {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    background: var(--coral-light);
-    color: var(--coral);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .quick-pill .icon svg { width: 14px; height: 14px; }
-  .quick-pill .pill-content { display: grid; gap: 0; line-height: 1.2; }
-  .quick-pill .pill-label {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    color: var(--gray-500);
-  }
-  .quick-pill .pill-value {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 500;
     color: var(--dark);
     letter-spacing: -0.1px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 16px -8px rgba(34, 33, 32, 0.08);
   }
-  .hero-trust-mini {
-    margin-top: 36px;
-    padding-top: 22px;
-    border-top: 1px solid var(--gray-200);
-  }
-  .hero-trust-mini .label {
-    display: block;
-    font-size: 11px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 1.8px;
-    color: var(--gray-400);
-    margin-bottom: 12px;
-  }
-  .hero-trust-mini .items {
-    display: flex; flex-wrap: wrap;
-    align-items: center;
-    gap: 12px 14px;
-  }
-  .hero-trust-mini .item {
-    font-size: 13px; font-weight: 500;
-    color: var(--gray-700); letter-spacing: -0.1px;
-    display: inline-flex; align-items: center; gap: 14px;
-  }
-  .hero-trust-mini .item::after {
-    content: ''; width: 4px; height: 4px;
-    border-radius: 50%; background: var(--coral); opacity: 0.6;
-  }
-  .hero-trust-mini .item:last-child::after { display: none; }
-  /* Form-Wrap im Hero — Card mit kräftigerem Schatten und kompakterem Padding */
-  .hero-form-wrap { position: relative; }
-  .hero-form-wrap .contact-form-card {
-    padding: var(--ae-s-7) var(--ae-s-6);
-    box-shadow: 0 30px 80px -28px rgba(34, 33, 32, 0.25);
-  }
-
-  @media (max-width: 980px) {
-    .hero-grid { grid-template-columns: 1fr; gap: var(--ae-s-7); padding-bottom: 64px; }
-    .hero-text { max-width: none; }
-    .hero h1 { max-width: 16ch; }
-  }
-
-  /* Section-Divider Dots (Brand-Echo) */
-  .section-divider-dots {
-    display: flex; justify-content: center;
-    align-items: center; gap: 16px;
-    padding: 32px 0 0;
-    background: var(--warm-white);
-  }
-  .section-divider-dots span {
-    width: 10px; height: 10px;
+  .hero-pulse .pulse-dot {
+    position: relative;
+    width: 8px; height: 8px;
     border-radius: 50%;
     background: var(--coral);
-    display: inline-block;
+    flex-shrink: 0;
+  }
+  .hero-pulse .pulse-dot::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: var(--coral);
+    opacity: 0.5;
+    animation: heroPulse 2s ease-in-out infinite;
+  }
+  .hero-pulse strong { color: var(--coral); font-weight: 600; }
+  @keyframes heroPulse {
+    0%   { transform: scale(0.8); opacity: 0.5; }
+    70%  { transform: scale(2.2); opacity: 0; }
+    100% { transform: scale(2.2); opacity: 0; }
+  }
+
+  .hero h1 {
+    margin: 0;
+    max-width: 14ch;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.04;
+    letter-spacing: -2px;
+  }
+  .hero h1 .accent {
+    color: var(--coral);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .hero-sub {
+    margin: 28px 0 0;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--gray-700);
+    max-width: 540px;
+    font-weight: 300;
+  }
+
+  .hero-cta-row {
+    margin-top: 36px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero-cta-row .btn {
+    min-height: 54px;
+    padding: 16px 30px;
+    font-size: 15px;
+  }
+  .hero-cta-row .btn-coral {
+    padding: 16px 32px;
+    font-weight: 600;
+    color: var(--ae-near-black);
+  }
+  .hero-cta-row .btn-coral svg {
+    width: 16px; height: 16px;
+    margin-left: 4px;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hero-cta-row .btn-coral:hover svg { transform: translateX(4px); }
+  .hero-cta-row .btn-outline {
+    background: var(--white);
+    border-color: var(--gray-200);
+  }
+  .hero-cta-row .btn-outline:hover {
+    background: var(--white);
+    border-color: var(--dark);
+  }
+
+  /* Stats-Leiste unten — getrennt durch dünnen Strich */
+  .hero-facts {
+    margin: 72px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--gray-200);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: left;
+  }
+  .fact { display: flex; flex-direction: column; gap: 6px; }
+  .fact-num {
+    font-size: clamp(32px, 3.6vw, 44px);
+    font-weight: 600;
+    letter-spacing: -1.4px;
+    color: var(--dark);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .fact-num .unit {
+    color: var(--coral);
+    font-size: 0.65em;
+    font-weight: 500;
+    margin-left: 2px;
+  }
+  .fact-label {
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.45;
+    letter-spacing: -0.1px;
+  }
+
+  @media (max-width: 720px) {
+    .hero { padding: 80px 0 72px; }
+    .hero-pulse { margin-bottom: 24px; }
+    .hero h1 { letter-spacing: -1.6px; }
+    .hero-sub { margin-top: 24px; }
+    .hero-cta-row { margin-top: 36px; }
+    .hero-facts { margin-top: 56px; grid-template-columns: repeat(2, 1fr); gap: 28px; }
   }
 
   /* ========================================
-     S2 · KONTAKT (Formular + Info-Sidebar)
+     S2 · BENEFITS (Number-led, 3-Spalten)
      ======================================== */
-  .contact-section {
+  .benefits {
     position: relative;
-    padding: var(--ae-s-9) 0 var(--ae-s-9);
     background: var(--warm-white);
+    padding: var(--section-y) 0;
+    overflow: hidden;
   }
-  .contact-grid {
+  .benefits-texture {
+    position: absolute;
+    top: -120px; right: -160px;
+    width: 720px; height: 720px;
+    opacity: 0.045;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .benefits-texture img { width: 100%; height: 100%; object-fit: contain; }
+  .benefits .container { position: relative; z-index: 1; }
+  .benefits-header {
+    max-width: 720px;
+    margin-bottom: 72px;
+  }
+  .benefits-lead {
+    margin-top: 20px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--gray-600);
+    max-width: 580px;
+  }
+  .benefits-grid {
     display: grid;
-    grid-template-columns: 1.45fr 1fr;
-    gap: var(--ae-s-8);
-    align-items: stretch;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px 56px;
+  }
+  .benefit {
+    position: relative;
+    padding-top: 28px;
+    border-top: 1px solid var(--gray-300);
+  }
+  .benefit .number {
+    font-family: var(--font-main);
+    font-size: clamp(36px, 4.2vw, 56px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--ae-near-black);
+    opacity: 0.25;
+    margin-bottom: 18px;
+    display: block;
+    font-variant-numeric: tabular-nums;
+  }
+  .benefit h3 {
+    font-size: 21px;
+    letter-spacing: -0.4px;
+    margin-bottom: 12px;
+  }
+  .benefit p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-600);
+  }
+  .benefits-closer {
+    margin-top: 56px;
+    text-align: center;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gray-500);
+    font-weight: 300;
+  }
+  @media (max-width: 900px) {
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  }
+  @media (max-width: 600px) {
+    .benefits-grid { grid-template-columns: 1fr; }
   }
 
-  /* Form Card */
-  .contact-form-card {
+  /* ========================================
+     S3 · OFFENE STELLEN (Dark Section)
+     ======================================== */
+  .openings {
+    background: var(--ae-near-black);
+    color: var(--white);
+    padding: var(--section-y) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .openings::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 32px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 32px);
+  }
+  .openings::after {
+    content: '';
+    position: absolute; z-index: 0; pointer-events: none;
+    width: 620px; height: 620px;
+    right: -200px; top: -180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,99,77,0.14) 0%, transparent 65%);
+    filter: blur(60px);
+  }
+  .openings .container { position: relative; z-index: 2; }
+  .openings-header {
+    max-width: 980px;
+    margin-bottom: 56px;
+  }
+  .openings-header h2 {
+    color: var(--white);
+    white-space: nowrap;
+    font-size: clamp(28px, 3.4vw, 42px);
+  }
+  .openings-header h2 .lime {
+    color: var(--lime);
+    font-style: italic;
+    font-weight: 500;
+  }
+  @media (max-width: 720px) {
+    .openings-header h2 {
+      white-space: normal;
+      font-size: clamp(26px, 6vw, 36px);
+    }
+  }
+  .openings-lead {
+    margin-top: 18px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.7);
+    max-width: 580px;
+  }
+  .opening-list {
+    display: grid;
+    gap: 16px;
+  }
+  .opening {
+    position: relative;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--ae-r-md);
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr auto;
+    gap: 24px;
+    align-items: center;
+    transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  /* Shimmer-Sweep beim Reveal */
+  .opening::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: -60%;
+    width: 60%;
+    background: linear-gradient(110deg,
+      transparent 0%,
+      rgba(205, 241, 93, 0.06) 40%,
+      rgba(255, 255, 255, 0.10) 50%,
+      rgba(205, 241, 93, 0.06) 60%,
+      transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+    transform: skewX(-14deg);
+    transition: none;
+  }
+  .opening.revealed::before {
+    animation: openingShimmer 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes openingShimmer {
+    0%   { left: -60%; opacity: 0; }
+    20%  { opacity: 1; }
+    100% { left: 160%; opacity: 0; }
+  }
+  .opening > * { position: relative; z-index: 1; }
+
+  .opening:hover {
+    border-color: rgba(205,241,93,0.45);
+    background: rgba(255,255,255,0.06);
+    transform: translateY(-2px);
+  }
+
+  /* Stagger-Reveal */
+  .opening.reveal-stagger {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .opening.reveal-stagger.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .opening-main { display: grid; gap: 6px; }
+  .opening-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: -0.4px;
+    line-height: 1.25;
+  }
+  .opening-summary {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.55;
+    max-width: 44ch;
+  }
+  .opening-meta {
+    display: flex; flex-wrap: wrap;
+    gap: 8px;
+  }
+  .opening-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px;
+    border-radius: var(--ae-r-pill);
+    background: rgba(205,241,93,0.10);
+    border: 1px solid rgba(205,241,93,0.22);
+    color: var(--lime);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.05px;
+  }
+  .opening-tag.neutral {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.85);
+  }
+  .opening-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px;
+    border-radius: var(--ae-r-pill);
+    background: var(--lime);
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 600;
+    transition: gap 0.25s, background 0.25s;
+    white-space: nowrap;
+  }
+  .opening-cta:hover { gap: 14px; background: #BFE54A; }
+  .opening-cta svg { width: 14px; height: 14px; }
+
+  .opening.coral-bordered {
+    border-color: rgba(255,99,77,0.45);
+    box-shadow: 0 0 0 0 rgba(255,99,77,0.4);
+    animation: coralPulseRing 3.2s ease-out 1.8s infinite;
+  }
+  .opening.coral-bordered:hover {
+    border-color: rgba(255,99,77,0.7);
+    animation-play-state: paused;
+  }
+  .opening.lime-bordered {
+    border-color: rgba(205,241,93,0.55);
+    box-shadow: 0 0 0 0 rgba(205,241,93,0.4);
+    animation: limePulseRing 3.2s ease-out 1.8s infinite;
+  }
+  .opening.lime-bordered:hover {
+    border-color: rgba(205,241,93,0.85);
+    animation-play-state: paused;
+  }
+  @keyframes limePulseRing {
+    0%   { box-shadow: 0 0 0 0 rgba(205,241,93,0.45); }
+    70%  { box-shadow: 0 0 0 14px rgba(205,241,93,0); }
+    100% { box-shadow: 0 0 0 0 rgba(205,241,93,0); }
+  }
+
+  @keyframes coralPulseRing {
+    0%   { box-shadow: 0 0 0 0 rgba(255,99,77,0.35); }
+    70%  { box-shadow: 0 0 0 14px rgba(255,99,77,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,99,77,0); }
+  }
+  /* Live-Badge auf der hervorgehobenen Stelle (Lime-Akzent) */
+  .opening-live {
+    position: absolute;
+    top: 16px; right: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: var(--ae-r-pill);
+    background: rgba(205,241,93,0.14);
+    border: 1px solid rgba(205,241,93,0.40);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--lime);
+    z-index: 2;
+  }
+  .opening-live::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--lime);
+    box-shadow: 0 0 8px rgba(205,241,93,0.8);
+    animation: liveBlink 1.6s ease-in-out infinite;
+  }
+  @keyframes liveBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  /* Arrow-Bounce im Opening-CTA */
+  .opening-cta svg {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .opening:hover .opening-cta svg {
+    animation: ctaArrowNudge 1s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+  @keyframes ctaArrowNudge {
+    0%, 100% { transform: translateX(0); }
+    50%      { transform: translateX(4px); }
+  }
+
+  /* "Wir stellen aktiv ein"-Live-Pill im Section-Header */
+  .openings-live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px 8px 12px;
+    border-radius: var(--ae-r-pill);
+    background: rgba(205,241,93,0.10);
+    border: 1px solid rgba(205,241,93,0.28);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--lime);
+    letter-spacing: -0.1px;
+    margin-bottom: 20px;
+  }
+  .openings-live-pill .pulse {
+    position: relative;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--lime);
+    flex-shrink: 0;
+  }
+  .openings-live-pill .pulse::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: var(--lime);
+    opacity: 0.5;
+    animation: heroPulse 1.8s ease-in-out infinite;
+  }
+
+  .openings-foot {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    display: flex; justify-content: space-between; flex-wrap: wrap;
+    gap: 16px; align-items: center;
+  }
+  .openings-foot p {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    max-width: 54ch;
+  }
+  .openings-foot p strong { color: var(--white); font-weight: 600; }
+  .openings-foot .btn--lime { font-size: 14px; padding: 12px 24px; min-height: 44px; }
+
+  @media (max-width: 860px) {
+    .opening {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 24px;
+    }
+    .opening-cta { justify-self: start; }
+  }
+
+  /* ========================================
+     S5 · ABLAUF (Bewerbungsprozess) — usp-list-Pattern
+     (1:1 zu Förderberatung / Bauphysik)
+     ======================================== */
+  .ablauf-section {
+    background: var(--ae-grey-100);
+    padding: var(--section-y) 0;
+  }
+  .section-head-center {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto var(--ae-s-6);
+  }
+  .section-head-center .ae-eyebrow {
+    margin-bottom: 12px;
+  }
+  .section-head-center h2 {
+    margin: 0 0 16px;
+    font-size: clamp(30px, 3.6vw, 44px);
+    letter-spacing: var(--ae-headline);
+  }
+  .section-head-center p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--gray-600);
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .usp-list {
+    margin: var(--ae-s-8) auto 0;
+    max-width: 720px;
+    position: relative;
+    --num-col: 100px;
+    --usp-gap: var(--ae-s-6);
+  }
+  .usp-row {
+    display: grid;
+    grid-template-columns: var(--num-col) 1fr;
+    gap: var(--usp-gap);
+    padding: var(--ae-s-7) 0;
+    align-items: start;
+    position: relative;
+  }
+  .usp-row:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: calc(var(--num-col) / 2);
+    top:calc(var(--ae-s-7) + clamp(44px,5.4vw,72px) + 12px); bottom:calc(-1 * (var(--ae-s-7) - 12px));
+    width: 2px; transform: translateX(-50%);
+    background-color: rgba(34, 33, 32, 0.12);
+    background-image: linear-gradient(var(--ae-coral), var(--ae-coral));
+    background-size: 100% var(--seg-progress, 0%);
+    background-repeat: no-repeat;
+    background-position: top;
+    border-radius: 2px;
+    transition: background-size 0.1s linear;
+    pointer-events: none;
+  }
+  .usp-row.is-active .usp-num { text-align:center;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+  .usp-num {
+    font-size: clamp(44px, 5.4vw, 72px);
+    font-weight: 300;
+    color: var(--ae-near-black);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    opacity: 0.2;
+    font-variant-numeric: tabular-nums;
+  }
+  .usp-body h3 {
+    font-size: clamp(22px, 2.2vw, 28px);
+    font-weight: 600;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .usp-body h3::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--ae-coral);
+    border-radius: 50%;
+    flex: none;
+    transform: translateY(-2px);
+  }
+  .usp-body p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(34, 33, 32, 0.72);
+  }
+  .usp-body .usp-meta {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--coral);
+    display: inline-block;
+  }
+
+  @media (max-width: 720px) {
+    .usp-list { --num-col: 48px; --usp-gap: var(--ae-s-4); }
+    .usp-row { padding: var(--ae-s-5) 0; }
+    .usp-row:not(:last-child)::after { top:calc(var(--ae-s-5) + 30px + 8px); bottom:calc(-1 * (var(--ae-s-5) - 8px)); }
+    .usp-num { font-size: 30px; }
+    .usp-body h3 { font-size: 19px; }
+  }
+
+  /* ========================================
+     S6 · WERTE / WHY (4 USP-Cards)
+     ======================================== */
+  .values {
+    background: var(--ae-grey-100);
+    padding: var(--section-y) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .values-texture {
+    position: absolute;
+    bottom: -160px; left: -160px;
+    width: 540px;
+    opacity: 0.05;
+    pointer-events: none;
+    transform: rotate(12deg);
+    z-index: 0;
+  }
+  .values-texture img { width: 100%; height: auto; }
+  .values .container { position: relative; z-index: 1; }
+  .values-header {
+    max-width: 760px;
+    margin-bottom: 56px;
+  }
+  .values-lead {
+    margin-top: 18px;
+    color: var(--gray-600);
+    font-size: 17px;
+    line-height: 1.65;
+    max-width: 580px;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--ae-s-5);
+  }
+  .value-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--ae-r-md);
+    padding: var(--ae-s-6) var(--ae-s-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--ae-s-3);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+  }
+  .value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(34, 33, 32, 0.06);
+    border-color: var(--coral);
+  }
+  .value-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: var(--coral-light);
+    color: var(--coral);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: var(--ae-s-3);
+    transition: background 0.3s, color 0.3s;
+  }
+  .value-card:hover .value-icon { background: var(--coral); color: var(--white); }
+  .value-icon svg { width: 28px; height: 28px; stroke-width: 1.6; }
+  .value-card h3 {
+    font-size: 18px;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+    color: var(--dark);
+    margin: 0;
+  }
+  .value-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gray-600);
+    margin: 0;
+  }
+  @media (max-width: 900px) {
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 540px) {
+    .values-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========================================
+     S7 · BEWERBUNGSFORMULAR
+     ======================================== */
+  .apply-section {
+    position: relative;
+    padding: var(--ae-s-8) 0 var(--ae-s-8);
+    background: var(--warm-white);
+  }
+  .apply-stack {
+    display: grid;
+    gap: var(--ae-s-6);
+  }
+  .apply-info-below {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--ae-s-5);
+  }
+  @media (max-width: 760px) {
+    .apply-info-below { grid-template-columns: 1fr; }
+  }
+  .apply-form-card {
     background: var(--white);
     border: 1px solid var(--gray-200);
     border-radius: var(--ae-r-lg);
-    padding: var(--ae-s-8) var(--ae-s-7);
+    padding: var(--ae-s-7) var(--ae-s-8);
     position: relative;
     box-shadow: 0 20px 60px -28px rgba(34, 33, 32, 0.10);
   }
-  .contact-form-card .section-label { margin-bottom: 12px; }
-  .contact-form-card h2 {
-    font-size: clamp(28px, 3vw, 36px);
-    letter-spacing: var(--ae-headline);
-    margin-bottom: 12px;
-  }
-  .contact-form-card .form-intro {
-    font-size: 15px;
-    color: var(--gray-600);
-    margin-bottom: var(--ae-s-6);
-    max-width: 56ch;
-  }
-  .contact-form {
+  .apply-form-card .form-head {
     display: grid;
-    gap: var(--ae-s-4);
+    grid-template-columns: 1fr auto;
+    gap: var(--ae-s-6);
+    align-items: end;
+    margin-bottom: var(--ae-s-5);
   }
+  .apply-form-card .section-label { margin-bottom: 12px; }
+  .apply-form-card h2 {
+    font-size: clamp(26px, 2.6vw, 32px);
+    letter-spacing: var(--ae-headline);
+    margin-bottom: 8px;
+  }
+  .apply-form-card .form-intro {
+    font-size: 14px;
+    color: var(--gray-600);
+    max-width: 64ch;
+    margin: 0;
+    line-height: 1.55;
+  }
+  .apply-form-card .form-head-meta {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--gray-500);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .apply-form-card .form-head-meta::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--coral);
+  }
+  @media (max-width: 760px) {
+    .apply-form-card { padding: var(--ae-s-7) var(--ae-s-6); }
+    .apply-form-card .form-head { grid-template-columns: 1fr; gap: var(--ae-s-4); }
+  }
+  .apply-form {
+    display: grid;
+    gap: 14px;
+  }
+  .apply-form .field textarea { min-height: 100px; }
   .form-row { display: grid; gap: var(--ae-s-4); }
   .form-row.cols-2 { grid-template-columns: 1fr 1fr; }
   @media (max-width: 640px) { .form-row.cols-2 { grid-template-columns: 1fr; } }
-
-  /* Form-Layout-Wrapper: standardmäßig einspaltig, im Open-State zweispaltig */
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--ae-s-4);
-  }
-  .form-col-left,
-  .form-col-right { display: grid; gap: var(--ae-s-4); }
-  .form-foot { display: grid; gap: var(--ae-s-4); margin-top: 4px; }
 
   .field { display: flex; flex-direction: column; gap: 6px; }
   .field label {
@@ -458,13 +1104,11 @@
     align-items: center;
     gap: 6px;
   }
-  .field label .req {
-    color: var(--coral);
-    font-weight: 600;
-  }
+  .field label .req { color: var(--coral); font-weight: 600; }
   .field input[type="text"],
   .field input[type="email"],
   .field input[type="tel"],
+  .field input[type="url"],
   .field select,
   .field textarea {
     font-family: var(--font-main);
@@ -479,20 +1123,15 @@
     transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
     width: 100%;
   }
-  .field input::placeholder,
-  .field textarea::placeholder { color: var(--gray-400); }
-  .field input:hover,
-  .field select:hover,
-  .field textarea:hover { border-color: var(--gray-300); background: var(--white); }
-  .field input:focus,
-  .field select:focus,
-  .field textarea:focus {
+  .field input::placeholder, .field textarea::placeholder { color: var(--gray-400); }
+  .field input:hover, .field select:hover, .field textarea:hover { border-color: var(--gray-300); background: var(--white); }
+  .field input:focus, .field select:focus, .field textarea:focus {
     outline: none;
     border-color: var(--coral);
     background: var(--white);
     box-shadow: 0 0 0 4px rgba(255, 99, 77, 0.10);
   }
-  .field textarea { resize: vertical; min-height: 140px; }
+  .field textarea { resize: vertical; min-height: 130px; }
   .field select {
     appearance: none; -webkit-appearance: none; -moz-appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23555453' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><polyline points='5 8 10 13 15 8'/></svg>");
@@ -508,34 +1147,62 @@
     background: rgba(199, 52, 31, 0.04);
   }
   .field .error-msg {
-    font-size: 12px;
-    color: #C7341F;
-    margin-top: 2px;
-    display: none;
+    font-size: 12px; color: #C7341F;
+    margin-top: 2px; display: none;
   }
   .field.has-error .error-msg { display: block; }
 
-  /* Honeypot — hidden from humans */
-  .honeypot {
-    position: absolute;
-    left: -10000px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
+  /* File-Upload */
+  .file-field {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .file-input-wrap {
+    position: relative;
+    border: 1.5px dashed var(--gray-300);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    text-align: center;
+    background: var(--warm-white);
+    transition: border-color 0.2s, background 0.2s;
+    cursor: pointer;
+  }
+  .file-input-wrap:hover { border-color: var(--coral); background: rgba(255,99,77,0.025); }
+  .file-input-wrap input[type="file"] {
+    position: absolute; inset: 0;
+    opacity: 0; cursor: pointer; width: 100%; height: 100%;
+  }
+  .file-input-wrap .file-label {
+    display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
+    pointer-events: none;
+  }
+  .file-input-wrap .file-icon {
+    width: 28px; height: 28px;
+    color: var(--coral);
+  }
+  .file-input-wrap .file-title {
+    font-size: 14px; font-weight: 500; color: var(--dark);
+  }
+  .file-input-wrap .file-hint {
+    font-size: 12px; color: var(--gray-500);
+  }
+  .file-input-wrap .file-list {
+    margin-top: 8px;
+    font-size: 12px; color: var(--coral); font-weight: 500;
+    word-break: break-all;
   }
 
-  /* Checkbox — überschreibt .field column-Direction */
+  .honeypot {
+    position: absolute; left: -10000px;
+    width: 1px; height: 1px; overflow: hidden;
+  }
+
   .checkbox-field {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    align-items: flex-start;
+    display: flex; flex-direction: row;
+    gap: 12px; align-items: flex-start;
     margin-top: 4px;
   }
   .checkbox-field .req {
-    color: var(--coral);
-    font-weight: 600;
-    margin-left: 2px;
+    color: var(--coral); font-weight: 600; margin-left: 2px;
   }
   .checkbox-field input[type="checkbox"] {
     appearance: none; -webkit-appearance: none;
@@ -551,8 +1218,7 @@
   }
   .checkbox-field input[type="checkbox"]:hover { border-color: var(--coral); }
   .checkbox-field input[type="checkbox"]:checked {
-    background: var(--coral);
-    border-color: var(--coral);
+    background: var(--coral); border-color: var(--coral);
   }
   .checkbox-field input[type="checkbox"]:checked::after {
     content: '';
@@ -564,45 +1230,28 @@
     transform: rotate(45deg);
   }
   .checkbox-field label {
-    display: block;
-    flex: 1;
-    min-width: 0;
-    font-size: 13px;
-    font-weight: 400;
+    display: block; flex: 1; min-width: 0;
+    font-size: 13px; font-weight: 400;
     color: var(--gray-600);
-    letter-spacing: 0;
-    line-height: 1.5;
-    cursor: pointer;
-    gap: 0;
+    line-height: 1.5; cursor: pointer; gap: 0;
   }
-  .checkbox-field a {
-    color: var(--coral);
-    border-bottom: 1px solid currentColor;
-  }
+  .checkbox-field a { color: var(--coral); border-bottom: 1px solid currentColor; }
   .checkbox-field a:hover { color: var(--coral-hover); }
   .checkbox-field.has-error label { color: #C7341F; }
   .checkbox-field.has-error input[type="checkbox"] { border-color: #C7341F; }
 
-  /* Submit-Bereich */
   .form-actions {
-    display: flex;
-    align-items: center;
-    gap: var(--ae-s-5);
-    flex-wrap: wrap;
-    margin-top: var(--ae-s-4);
+    display: flex; align-items: center; gap: var(--ae-s-5);
+    flex-wrap: wrap; margin-top: var(--ae-s-4);
   }
   .submit-btn {
     background: var(--ae-near-black);
     color: var(--ae-off-white);
-    font-weight: 600;
-    font-size: 15px;
+    font-weight: 600; font-size: 15px;
     padding: 16px 32px;
     border-radius: var(--radius-pill);
-    border: none;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    border: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 10px;
     transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
   }
   .submit-btn:hover { background: #000; transform: translateY(-1px); box-shadow: 0 10px 24px -10px rgba(34,33,32,0.5); }
@@ -618,17 +1267,13 @@
   }
   .submit-btn.is-loading .spinner { display: inline-block; }
   .submit-btn.is-loading .arrow { display: none; }
-  @keyframes spin { to { transform: rotate(360deg); } }
+
   .form-meta {
-    font-size: 12px;
-    color: var(--gray-500);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    font-size: 12px; color: var(--gray-500);
+    display: inline-flex; align-items: center; gap: 6px;
   }
   .form-meta svg { width: 14px; height: 14px; color: var(--coral); }
 
-  /* Success-State */
   .form-success {
     display: none;
     padding: var(--ae-s-7) var(--ae-s-6);
@@ -641,24 +1286,17 @@
   .form-success-icon {
     width: 56px; height: 56px;
     margin: 0 auto var(--ae-s-4);
-    background: var(--teal);
-    color: var(--white);
+    background: var(--teal); color: var(--white);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
   }
   .form-success-icon svg { width: 28px; height: 28px; }
   .form-success h3 {
-    font-size: 22px;
-    margin-bottom: 8px;
+    font-size: 22px; margin-bottom: 8px;
     letter-spacing: var(--ae-headline);
   }
-  .form-success p {
-    color: var(--gray-700);
-    max-width: 44ch;
-    margin: 0 auto;
-  }
+  .form-success p { color: var(--gray-700); max-width: 44ch; margin: 0 auto; }
 
-  /* Error-State */
   .form-error {
     display: none;
     margin-bottom: var(--ae-s-4);
@@ -666,17 +1304,14 @@
     background: rgba(199, 52, 31, 0.06);
     border: 1px solid rgba(199, 52, 31, 0.25);
     border-radius: var(--radius);
-    font-size: 13px;
-    color: #8a2a18;
-    line-height: 1.5;
+    font-size: 13px; color: #8a2a18; line-height: 1.5;
   }
   .form-error.is-visible { display: block; }
   .form-error a { color: #C7341F; border-bottom: 1px solid currentColor; }
 
-  /* CONTACT INFO SIDEBAR — Höhe füllt das Formular */
-  .contact-info {
-    display: flex;
-    flex-direction: column;
+  /* Sidebar */
+  .apply-info {
+    display: flex; flex-direction: column;
     gap: var(--ae-s-5);
     height: 100%;
   }
@@ -685,8 +1320,7 @@
     border: 1px solid var(--gray-200);
     border-radius: var(--ae-r-lg);
     padding: var(--ae-s-6);
-    display: flex;
-    flex-direction: column;
+    display: flex; flex-direction: column;
   }
   .info-card.dark { flex: 1.5; }
   .info-card:not(.dark) { flex: 1; }
@@ -700,10 +1334,7 @@
   }
   .info-card.dark::before {
     content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
     background-image:
       linear-gradient(rgba(252,250,245,0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(252,250,245,0.03) 1px, transparent 1px),
@@ -720,46 +1351,29 @@
     border-radius: var(--ae-r-pill);
     background: rgba(205,241,93,0.12);
     color: var(--ae-lime);
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 12px; font-weight: 500;
     margin-bottom: var(--ae-s-5);
+    align-self: flex-start;
   }
   .info-card .status::before {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--ae-lime);
+    content: ''; width: 6px; height: 6px;
+    border-radius: 50%; background: var(--ae-lime);
     box-shadow: 0 0 8px rgba(205,241,93,0.6);
     animation: ae-pulse 2.4s ease-in-out infinite;
   }
   .info-card h3 {
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--coral);
-    margin-bottom: var(--ae-s-4);
+    font-size: 13px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--coral); margin-bottom: var(--ae-s-4);
   }
   .info-card.dark h3 { color: var(--ae-lime); }
-  .info-card .label-line {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--gray-500);
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    margin-bottom: 4px;
-  }
-  .info-card.dark .label-line { color: rgba(252,250,245,0.5); }
 
   .info-items { display: grid; gap: var(--ae-s-4); }
-  .info-item {
-    display: flex; gap: 14px; align-items: flex-start;
-  }
+  .info-item { display: flex; gap: 14px; align-items: flex-start; }
   .info-item-icon {
     width: 40px; height: 40px;
     flex-shrink: 0;
-    background: var(--coral-light);
-    color: var(--coral);
+    background: var(--coral-light); color: var(--coral);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
   }
@@ -770,18 +1384,14 @@
   .info-item-icon svg { width: 18px; height: 18px; }
   .info-item-content { display: grid; gap: 2px; min-width: 0; }
   .info-item-content .label {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 1.4px;
     color: var(--gray-500);
   }
   .info-card.dark .info-item-content .label { color: rgba(252,250,245,0.55); }
   .info-item-content .value {
-    font-size: 15px;
-    color: var(--dark);
-    font-weight: 500;
-    line-height: 1.45;
+    font-size: 15px; color: var(--dark);
+    font-weight: 500; line-height: 1.45;
     word-break: break-word;
   }
   .info-card.dark .info-item-content .value { color: var(--ae-off-white); }
@@ -792,30 +1402,11 @@
   .info-item-content .value a:hover { color: var(--coral); border-color: var(--coral); }
   .info-card.dark .info-item-content .value a:hover { color: var(--ae-lime); border-color: var(--ae-lime); }
 
-  /* Opening hours */
-  .hours-table {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 8px var(--ae-s-5);
-    font-size: 14px;
-  }
-  .hours-table dt {
-    color: var(--gray-500);
-    font-weight: 500;
-  }
-  .info-card.dark .hours-table dt { color: rgba(252,250,245,0.6); }
-  .hours-table dd {
-    color: var(--dark);
-    font-weight: 500;
-  }
-  .info-card.dark .hours-table dd { color: var(--ae-off-white); }
-
   .response-line {
     margin-top: auto;
     padding-top: var(--ae-s-5);
     border-top: 1px solid var(--gray-200);
-    font-size: 13px;
-    color: var(--gray-600);
+    font-size: 13px; color: var(--gray-600);
     display: flex; align-items: center; gap: 10px;
   }
   .info-card.dark .response-line {
@@ -827,124 +1418,76 @@
   .response-line svg { width: 16px; height: 16px; color: var(--coral); flex-shrink: 0; }
   .info-card.dark .response-line svg { color: var(--ae-lime); }
 
-  @media (max-width: 1024px) {
-    .contact-grid { grid-template-columns: 1fr; gap: var(--ae-s-7); }
-    .contact-info { position: static; }
-  }
   @media (max-width: 640px) {
-    .contact-form-card { padding: var(--ae-s-6) var(--ae-s-5); }
+    .apply-form-card { padding: var(--ae-s-6) var(--ae-s-5); }
   }
+  /* Info-Cards in der 2-Spalten-Reihe unter dem Formular: Höhe angleichen */
+  .apply-info-below .info-card { height: 100%; }
 
   /* ========================================
-     S3 · MAP SECTION
+     S8 · EINDRÜCKE — Foto-Grid vor dem Final-CTA
      ======================================== */
-  .map-section {
-    padding: var(--ae-s-8) 0 var(--ae-s-9);
+  .impressions-section {
     background: var(--warm-white);
-    position: relative;
+    padding: var(--ae-s-8) 0 var(--ae-s-9);
   }
-  .map-header {
-    text-align: center;
+  .impressions-header {
+    max-width: 720px;
     margin-bottom: var(--ae-s-7);
-    max-width: 620px;
-    margin-left: auto;
-    margin-right: auto;
   }
-  .map-header h2 {
-    margin-bottom: 12px;
+  .impressions-header h2 {
+    margin: 0 0 12px;
     letter-spacing: var(--ae-headline);
   }
-  .map-header p {
-    color: var(--gray-600);
+  .impressions-header p {
     font-size: 16px;
+    color: var(--gray-600);
+    line-height: 1.65;
+    max-width: 580px;
+    margin: 0;
   }
-  .standort-grid {
+  .impressions-grid {
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: var(--ae-s-6);
-    align-items: stretch;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--ae-s-4);
   }
-  .map-frame {
+  .impression {
     position: relative;
-    width: 100%;
-    min-height: 420px;
-    border-radius: var(--ae-r-lg);
+    aspect-ratio: 3 / 4;
+    border-radius: var(--ae-r-md);
     overflow: hidden;
     background: var(--gray-100);
-    box-shadow: 0 24px 60px -28px rgba(34, 33, 32, 0.18);
-    border: 1px solid var(--gray-200);
   }
-  .map-frame iframe {
+  .impression img {
     width: 100%; height: 100%;
-    position: absolute; inset: 0;
-    border: 0;
-    filter: grayscale(0.2) contrast(1.02);
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .map-frame::after {
-    content: '';
+  .impression:hover img { transform: scale(1.04); }
+  .impression .caption {
     position: absolute;
-    inset: 0;
-    pointer-events: none;
-    box-shadow: inset 0 0 0 1px rgba(34, 33, 32, 0.04);
-    border-radius: var(--ae-r-lg);
+    left: 14px; bottom: 12px;
+    padding: 4px 10px;
+    background: rgba(34, 33, 32, 0.72);
+    color: var(--ae-off-white);
+    font-size: 11px;
+    font-weight: 500;
+    border-radius: var(--ae-r-pill);
+    letter-spacing: -0.1px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
-  .map-consent-placeholder {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 14px;
-    padding: 32px 28px;
-    background: linear-gradient(160deg, rgba(255,99,77,0.08) 0%, rgba(34,33,32,0.04) 100%);
-    border: 0; cursor: pointer;
-    font-family: 'Volte', system-ui, sans-serif;
-    text-align: center;
-    color: var(--dark);
-    transition: background 0.25s ease;
+  @media (max-width: 980px) {
+    .impressions-grid { grid-template-columns: 1fr 1fr; }
   }
-  .map-consent-placeholder:hover {
-    background: linear-gradient(160deg, rgba(255,99,77,0.14) 0%, rgba(34,33,32,0.05) 100%);
-  }
-  .map-consent-icon {
-    width: 48px; height: 48px;
-    border-radius: 14px;
-    background: rgba(255,99,77,0.12);
-    color: var(--coral);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .map-consent-icon svg { width: 26px; height: 26px; }
-  .map-consent-title {
-    font-size: 17px; font-weight: 600; letter-spacing: -0.01em;
-  }
-  .map-consent-address {
-    font-size: 13px; color: rgba(34,33,32,0.6);
-    text-transform: uppercase; letter-spacing: 0.06em;
-  }
-  .map-consent-note {
-    font-size: 12px; color: rgba(34,33,32,0.55);
-    max-width: 380px; line-height: 1.5;
-  }
-  .map-consent-note a { color: var(--coral); text-decoration: underline; }
-  .map-consent-cta {
-    margin-top: 4px;
-    display: inline-flex; align-items: center;
-    padding: 10px 20px;
-    background: var(--coral); color: var(--ae-near-black);
-    border-radius: 100px;
-    font-size: 14px; font-weight: 500;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-  .map-consent-placeholder:hover .map-consent-cta {
-    background: var(--coral-hover); transform: translateY(-1px);
-  }
-  .standort-info { display: flex; }
-  .standort-info .info-card { width: 100%; }
-  @media (max-width: 900px) {
-    .standort-grid { grid-template-columns: 1fr; }
-    .map-frame { min-height: 320px; aspect-ratio: 4 / 3; }
+  @media (max-width: 560px) {
+    .impressions-grid { grid-template-columns: 1fr; }
+    .impression { aspect-ratio: 4 / 5; }
   }
 
   /* ========================================
-     FINAL CTA — 1:1 zu Über uns
+     FINAL CTA (1:1 zu Über uns / Kontakt)
      ======================================== */
   .cta-section {
     padding: var(--ae-s-8) 0 0;
@@ -990,7 +1533,7 @@
     border: 4px solid var(--ae-near-black);
     box-shadow: 0 16px 40px -12px rgba(34, 33, 32, 0.45);
   }
-  .cta-portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; display: block; }
+  .cta-portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; display: block; }
   .cta-sign { text-align: center; display: grid; gap: 2px; }
   .cta-sign-name { font-size: 15px; font-weight: 600; letter-spacing: var(--ae-headline); }
   .cta-sign-title { font-size: 12px; opacity: 0.75; }
@@ -1002,7 +1545,7 @@
     display: inline-block;
   }
   .cta-content h2 {
-    max-width: 20ch;
+    max-width: 22ch;
     margin-bottom: var(--ae-s-4);
     font-size: clamp(32px, 3.5vw, 52px);
     font-weight: 600;
@@ -1045,7 +1588,7 @@
     .cta-section { margin-bottom: -100px; }
   }
 
-  /* FOOTER — 1:1 zu Über uns */
+  /* FOOTER (1:1 zu Über uns / Kontakt) */
   footer.site-footer {
     position: relative; overflow: hidden; isolation: isolate;
     background: var(--ae-near-black);
@@ -1225,7 +1768,7 @@
     .container, .container-narrow, .wrap { padding: 0 20px; }
     .mobile-cta-bar { display: flex; }
     .hero { padding: 56px 0 40px; }
-    .contact-form-card .form-actions { flex-direction: column; align-items: flex-start; }
+    .apply-form-card .form-actions { flex-direction: column; align-items: flex-start; }
   }
 
   /* DESIGN NOTE */
@@ -1627,8 +2170,6 @@ body.ae-menu-open{ overflow:hidden; }
 /* ===== MOBILE: no horizontal scroll + long-word wrapping (safeguard) ===== */
 html{ overflow-x:clip; }
 h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-word; }
- (max-width:768px){
-}
 
 @media (max-width:960px){ .hero-grid > *, .hero-content{ min-width:0; } }
 
@@ -1637,6 +2178,9 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
 .ostend-seo-strip p{ max-width:1000px; margin:0 auto; text-align:center; font-size:12.5px; line-height:1.55; color:rgba(34,33,32,0.45); }
 .ostend-seo-strip a{ color:rgba(34,33,32,0.62); text-decoration:none; border-bottom:1px solid rgba(34,33,32,0.22); }
 .ostend-seo-strip a:hover{ color:#FF634D; border-bottom-color:#FF634D; }
+
+/* center step numbers under the connector line */
+.usp-row > .usp-num{ text-align:center; }
 
 /* Final CTA: Mobile overflow-fix (unbreakable &nbsp;-Phrasen + grid 1fr min-content) */
 @media (max-width:860px) {
@@ -1666,8 +2210,8 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
     <a href="/aumann-eco-preview/foerderberatung/" data-slug="foerderberatung">Förderberatung</a>
     <span class="ae-mm-divider"></span>
     <a href="/aumann-eco-preview/ueber-uns/" data-slug="ueber-uns">Über uns</a>
-    <a href="/aumann-eco-preview/karriere/" data-slug="karriere">Karriere</a>
-    <a href="/aumann-eco-preview/kontakt/" class="is-current" data-slug="kontakt">Kontakt</a>
+    <a href="/aumann-eco-preview/karriere/" class="is-current" data-slug="karriere">Karriere</a>
+    <a href="/aumann-eco-preview/kontakt/" data-slug="kontakt">Kontakt</a>
     <a class="ae-mm-cta" href="/aumann-eco-preview/kontakt/">Kostenloses Erstgespräch</a>
     <a class="ae-mm-phone" href="tel:+491755697551">0175 569 75 51</a>
   </nav>
@@ -1676,9 +2220,9 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
 
 <!-- ======== DESIGN ANNOTATION ======== -->
 <div class="design-note" aria-hidden="true">
-  <strong>Screendesign V1</strong> — Aumann Eco · Kontakt<br>
-  Editorial-Layout, Stil 1:1 zu Über uns<br>
-  Formular live (Formsubmit → s.eldem@ostend.digital)
+  <strong>Screendesign V1</strong> — Aumann Eco · Karriere<br>
+  Editorial-Layout, Stil 1:1 zu Über uns & Kontakt<br>
+  Bewerbungsformular live (Formsubmit → s.eldem@ostend.digital)
 </div>
 
 <!-- ======== HEADER ======== -->
@@ -1696,9 +2240,9 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
           <path d="M126.99,17.14c-4.08,0-7.32,1.12-9.67,2.87-2.23-1.68-5.38-2.87-9.65-2.87-9.11,0-14.07,5.56-14.07,11.3v20.12h9.09v-16.53c0-3.12.71-6.35,5.2-6.35,4.05,0,4.76,2.96,4.76,6.3v16.59h9.36v-16.53c0-3.12.71-6.35,5.2-6.35,4.05,0,4.76,2.96,4.76,6.3v16.59h9.09v-20.53c0-4.11-3.83-10.89-14.07-10.89Z" fill="#222120"/>
           <path d="M231.69,17.32c10.18,0,13.99,6.75,13.99,10.83v20.41h-9.04v-16.49c0-3.32-.71-6.26-4.73-6.26-4.46,0-5.17,3.21-5.17,6.31v16.44h-9.04v-20.01c0-5.71,4.94-11.24,13.99-11.24Z" fill="#222120"/>
           <path d="M52.52,33.43c0-.79-.06-1.6-.19-2.41-1.01-6.77-6.29-13.7-16.14-13.70-11.03,0-16.33,8.68-16.33,16.06v.05c0,4.29,1.77,9.01,5.39,12.22,0,0,.02.02.02.02,1.75,1.61,3.93,2.79,6.49,3.36.06.02.13.03.2.05,1.06.22,2.18.34,3.37.34,3.5,0,7.22-1.35,8.84-4.26v3.23h8.35v-14.95ZM36.67,41.06c-5.39,0-7.44-4.74-7.44-7.49v-.05c0-3.4,2.27-7.71,7.39-7.71.01,0,.02,0,.03,0,3.73.24,6.8,3.38,6.8,7.63s-2.99,7.31-6.66,7.62c-.04,0-.08,0-.12,0Z" fill="#222120"/>
-          <path d="M177.81,33.25c0-.79-.06-1.6-.19-2.41-1.01-6.77-6.29-13.7-16.14-13.7-11.03,0-16.33,8.68-16.33,16.06v.05c0,4.29,1.77,9.01,5.39,12.22,0,0,.02.02.02.02,1.75,1.61,3.93,2.79,6.49,3.36.06.02.13.03.2.05,1.06.22,2.18.34,3.37.34,3.5,0,7.22-1.35,8.84-4.26v3.23h8.35v-14.95ZM161.97,40.87c-5.39,0-7.44-4.74-7.44-7.49v-.05c0-3.4,2.27-7.71,7.39-7.71.01,0,.02,0,.03,0,3.73.24,6.8,3.38,6.8,7.63s-2.99,7.31-6.66,7.62c-.04,0-.08,0-.12,0Z" fill="#222120"/>
+          <path d="M177.81,33.25c0-.79-.06-1.6-.19-2.41-1.01-6.77-6.29-13.70-16.14-13.70-11.03,0-16.33,8.68-16.33,16.06v.05c0,4.29,1.77,9.01,5.39,12.22,0,0,.02.02.02.02,1.75,1.61,3.93,2.79,6.49,3.36.06.02.13.03.2.05,1.06.22,2.18.34,3.37.34,3.5,0,7.22-1.35,8.84-4.26v3.23h8.35v-14.95ZM161.97,40.87c-5.39,0-7.44-4.74-7.44-7.49v-.05c0-3.4,2.27-7.71,7.39-7.71.01,0,.02,0,.03,0,3.73.24,6.8,3.38,6.8,7.63s-2.99,7.31-6.66,7.62c-.04,0-.08,0-.12,0Z" fill="#222120"/>
           <path d="M172.94,66.66c-2.81-2.96-6.74-4.74-11.32-4.74-9.11,0-15.69,7.71-15.69,16.06,0,8.89,7.27,15.85,15.85,15.85,3.07,0,6.03-.91,8.51-2.7,2.38-1.61,4.38-4,5.81-7.04h-9.35c-1.05,1.27-2.5,2.2-4.98,2.2-3.51,0-6.52-2.1-6.9-5.29h22.26c.7-5.5-.44-10.29-4.2-14.34ZM154.99,74.21c.22-1.4,2.05-4.75,6.68-4.75s6.47,3.34,6.68,4.75h-13.37Z" fill="#222120"/>
-          <path d="M216.1,77.79c0-7.28,5.23-15.85,16.12-15.85s16.12,8.57,16.12,15.9-5.23,15.9-16.12,15.9-16.12-8.57-16.12-15.9v-.05ZM225.05,77.9c0,4.31,3.29,7.49,7.17,7.49s7.17-3.18,7.17-7.55-3.29-7.55-7.17-7.55-7.17,3.18-7.17,7.55v.05Z" fill="#222120"/>
+          <path d="M216.1,77.79c0-7.28,5.23-15.85,16.12-15.85s16.12,8.57,16.12,15.90-5.23,15.9-16.12,15.9-16.12-8.57-16.12-15.9v-.05ZM225.05,77.9c0,4.31,3.29,7.49,7.17,7.49s7.17-3.18,7.17-7.55-3.29-7.55-7.17-7.55-7.17,3.18-7.17,7.55v.05Z" fill="#222120"/>
           <circle cx="36.34" cy="77.85" r="16.11" fill="#FF634D"/>
           <circle cx="77.29" cy="77.85" r="16.11" fill="#FF634D"/>
           <circle cx="118.22" cy="77.85" r="16.11" fill="#FF634D"/>
@@ -1755,8 +2299,8 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
         </div>
       </li>
       <li><a href="/aumann-eco-preview/ueber-uns/">Über uns</a></li>
-      <li><a href="/aumann-eco-preview/karriere/">Karriere</a></li>
-      <li><a href="/aumann-eco-preview/kontakt/" aria-current="page">Kontakt</a></li>
+      <li><a href="/aumann-eco-preview/karriere/" aria-current="page">Karriere</a></li>
+      <li><a href="/aumann-eco-preview/kontakt/">Kontakt</a></li>
     </ul>
       </nav>
 
@@ -1765,7 +2309,7 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           0175 569 75 51
         </a>
-        <a href="#kontakt-form" class="btn btn-primary">Kostenloses Erstgespräch</a>
+        <a href="#bewerbung" class="btn btn-primary">Jetzt bewerben</a>
       </div>
 
     </div>
@@ -1774,199 +2318,277 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
 
 <main id="main">
 
-<!-- ======== S1 · HERO mit Formular ======== -->
-<section class="hero" aria-labelledby="hero-h1" id="kontakt-form">
-  <div class="hero-teal-glow" aria-hidden="true"></div>
-  <img class="hero-texture" src="/aumann-eco-preview/assets/textures/aumanneco-texturen_Zeichenfläche 9.svg" alt="" aria-hidden="true">
+<!-- ======== S1 · HERO ======== -->
+<section class="hero" aria-labelledby="hero-h1">
   <div class="container">
     <div class="hero-inner">
-      <div class="hero-grid">
 
-        <!-- LINKE SPALTE: Editorial Copy + Quick-Contact -->
+      <div class="hero-top">
         <div class="hero-text">
-          <span class="ae-eyebrow">01 · Kontakt</span>
-          <h1 id="hero-h1">Lass uns über dein <span class="accent">Projekt</span> reden.</h1>
-          <p class="hero-sub">Schreib uns eine Nachricht oder ruf direkt an. Wir antworten innerhalb von 24&nbsp;Stunden.</p>
+          <span class="hero-pulse">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span>Werkstudium &amp; Initiativbewerbung · <strong>jederzeit willkommen</strong></span>
+          </span>
 
-          <div class="hero-quick">
-            <a href="tel:+491755697551" class="quick-pill">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </span>
-              <span class="pill-content">
-                <span class="pill-label">Telefon</span>
-                <span class="pill-value">0175 569 75 51</span>
-              </span>
-            </a>
-            <a href="mailto:info@aumann-eco.de" class="quick-pill">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </span>
-              <span class="pill-content">
-                <span class="pill-label">E-Mail</span>
-                <span class="pill-value">info@aumann-eco.de</span>
-              </span>
-            </a>
-          </div>
+          <h1 id="hero-h1">Mit aumann eco <span class="accent">wachsen.</span></h1>
 
-          <div class="hero-trust-mini">
-            <span class="label">Geprüft, gelistet, anerkannt</span>
-            <div class="items">
-              <span class="item">IK-Bau NRW</span>
-              <span class="item">dena · EEE</span>
-              <span class="item">Sachverständiger</span>
-              <span class="item">FliB-Prüfer</span>
-            </div>
+          <p class="hero-sub">Wir planen nachhaltige Gebäude — und suchen Menschen, die diesen Anspruch teilen. Kurze Wege, keine Konzern-Bürokratie.</p>
+
+          <div class="hero-cta-row">
+            <a href="#offene-stellen" class="btn btn-coral">Einstieg ansehen
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#bewerbung" class="btn btn-outline">Initiativ bewerben</a>
           </div>
         </div>
 
-        <!-- RECHTE SPALTE: Kontaktformular direkt sichtbar -->
-        <div class="hero-form-wrap">
-          <div class="contact-form-card" id="contact-form-panel">
-
-            <!-- Error Banner -->
-            <div class="form-error" id="form-error" role="alert" aria-live="polite">
-              Beim Senden ist etwas schief gegangen. Bitte versuche es nochmal — oder schreib uns direkt an <a href="mailto:info@aumann-eco.de">info@aumann-eco.de</a>.
-            </div>
-
-            <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/s.eldem@ostend.digital" method="POST" novalidate>
-              <!-- Honeypot (Spam-Schutz) -->
-              <div class="honeypot" aria-hidden="true">
-                <label>Bitte leer lassen: <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
-              </div>
-              <!-- Formsubmit-Konfiguration -->
-              <input type="hidden" name="_subject" value="Neue Anfrage über aumann-eco.de">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="false">
-
-              <div class="form-row cols-2">
-                <div class="field">
-                  <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
-                  <input type="text" id="name" name="Name" required autocomplete="name" placeholder="Max Mustermann">
-                  <span class="error-msg">Bitte gib deinen Namen ein.</span>
-                </div>
-                <div class="field">
-                  <label for="email">E-Mail <span class="req" aria-hidden="true">*</span></label>
-                  <input type="email" id="email" name="E-Mail" required autocomplete="email" placeholder="dein@beispiel.de">
-                  <span class="error-msg">Bitte gib eine gültige E-Mail-Adresse ein.</span>
-                </div>
-              </div>
-
-              <div class="form-row cols-2">
-                <div class="field">
-                  <label for="phone">Telefon <span style="color:var(--gray-400);font-weight:400;font-size:12px">(optional)</span></label>
-                  <input type="tel" id="phone" name="Telefon" autocomplete="tel" placeholder="0175 …">
-                </div>
-                <div class="field">
-                  <label for="service">Anliegen <span class="req" aria-hidden="true">*</span></label>
-                  <select id="service" name="Anliegen" required>
-                    <option value="" disabled selected>Bitte auswählen</option>
-                    <option>Energieberatung</option>
-                    <option>Sanierungsfahrplan (iSFP)</option>
-                    <option>Bauphysik &amp; Nachweise</option>
-                    <option>Blower Door Test</option>
-                    <option>Förderberatung</option>
-                    <option>Sonstiges</option>
-                  </select>
-                  <span class="error-msg">Bitte wähle ein Anliegen aus.</span>
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="message">Nachricht <span class="req" aria-hidden="true">*</span></label>
-                <textarea id="message" name="Nachricht" rows="5" required placeholder="Erzähl uns kurz von deinem Projekt — Gebäudetyp, Baujahr, Zeitrahmen, was du dir wünschst …"></textarea>
-                <span class="error-msg">Bitte schreib uns eine kurze Nachricht.</span>
-              </div>
-
-              <div class="field checkbox-field" id="consent-field">
-                <input type="checkbox" id="consent" name="Datenschutz akzeptiert" value="Ja" required>
-                <label for="consent">
-                  Ich habe die <a href="/aumann-eco-preview/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und stimme zu, dass meine Angaben zur Bearbeitung der Anfrage verarbeitet werden.
-                  <span class="req" aria-hidden="true">*</span>
-                </label>
-              </div>
-
-              <div class="form-actions">
-                <button type="submit" class="submit-btn" id="submit-btn">
-                  <span class="arrow">Nachricht senden</span>
-                  <span class="spinner" aria-hidden="true"></span>
-                  <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </button>
-                <span class="form-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                  SSL-verschlüsselt · Keine Weitergabe
-                </span>
-              </div>
-            </form>
-
-            <!-- Success State -->
-            <div class="form-success" id="form-success" role="status" aria-live="polite">
-              <div class="form-success-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </div>
-              <h3>Danke — deine Nachricht ist angekommen.</h3>
-              <p>Wir melden uns innerhalb von 24 Stunden. Solltest du es eilig haben, ruf uns gerne direkt unter <strong>0175 569 75 51</strong> an.</p>
-            </div>
-
-          </div>
+        <div class="hero-visual">
+          <img src="/aumann-eco-preview/assets/media/karriere-hero-photo.webp"
+               alt="Zwei aumann eco Kollegen im Austausch auf einer Baustelle in Köln"
+               width="1800" height="1200"
+               loading="eager"
+               fetchpriority="high">
         </div>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======== S2 · STANDORT (Map + Öffnungszeiten/Kontakt) ======== -->
-<section class="map-section" aria-labelledby="map-h2">
-  <div class="wrap">
-    <header class="map-header">
-      <span class="ae-eyebrow">02 · Standort</span>
-      <h2 id="map-h2">So findest du uns.</h2>
-      <p>Unser Ingenieurbüro befindet sich in Köln. Für Vor-Ort-Termine und Messungen kommen wir zu euch. Im Großraum Köln, Bonn, Düsseldorf und Aachen — Messungen nach Absprache auch bundesweit möglich.</p>
+<!-- ======== S4 · OFFENE STELLEN (Dark) ======== -->
+<section class="openings" aria-labelledby="openings-h2" id="offene-stellen">
+  <div class="container">
+    <header class="openings-header">
+      <span class="openings-live-pill">
+        <span class="pulse" aria-hidden="true"></span>
+        Wir stellen aktiv ein
+      </span>
+      <span class="ae-eyebrow" style="color:var(--ae-lime);">01 · Einstieg</span>
+      <h2 id="openings-h2">Werkstudium &amp; <span class="lime">Initiative</span>.</h2>
+      <p class="openings-lead">Aktuell suchen wir <strong style="color:var(--lime);">Werkstudent:innen</strong> — und freuen uns jederzeit über Initiativbewerbungen. Über das Formular unten oder per Mail an <a href="mailto:karriere@aumann-ing.de" style="color:var(--lime); border-bottom:1px solid currentColor;">karriere@aumann-ing.de</a>.</p>
     </header>
-    <div class="standort-grid">
-      <div class="map-frame" data-map-consent>
-        <button type="button" class="map-consent-placeholder" data-map-load aria-label="Karte anzeigen — beim Klick wird deine IP-Adresse an Google übertragen">
-          <span class="map-consent-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-          </span>
-          <span class="map-consent-title">Karte von Google Maps anzeigen</span>
-          <span class="map-consent-address">Schiefersburger Weg 57 · 50739 Köln</span>
-          <span class="map-consent-note">Beim Aktivieren wird deine IP-Adresse an Google&nbsp;LLC übertragen. Hinweise dazu in der <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google-Datenschutzerklärung</a>.</span>
-          <span class="map-consent-cta">Karte aktivieren</span>
-        </button>
-      </div>
-      <script>
-        (function() {
-          const wrap = document.querySelector('.map-frame[data-map-consent]');
-          if (!wrap) return;
-          const btn = wrap.querySelector('[data-map-load]');
-          const STORAGE_KEY = 'aumann-eco-map-consent';
-          function loadMap() {
-            wrap.innerHTML = '';
-            const iframe = document.createElement('iframe');
-            iframe.src = 'https://www.google.com/maps?q=Schiefersburger+Weg+57,+50739+K%C3%B6ln&z=15&output=embed';
-            iframe.loading = 'lazy';
-            iframe.title = 'Standort Aumann Eco — Schiefersburger Weg 57, 50739 Köln';
-            iframe.referrerPolicy = 'no-referrer-when-downgrade';
-            iframe.allowFullscreen = false;
-            wrap.appendChild(iframe);
-            try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch(_) {}
-          }
-          if (btn) btn.addEventListener('click', loadMap);
-          // Auto-load if user consented earlier in this session
-          try { if (sessionStorage.getItem(STORAGE_KEY) === '1') loadMap(); } catch(_) {}
-        })();
-      </script>
 
-      <aside class="standort-info" aria-label="Erreichbarkeit">
+    <div class="opening-list">
+
+      <article class="opening lime-bordered reveal-stagger">
+        <div class="opening-main">
+          <h3 class="opening-title">Werkstudent:in Bauphysik / Energietechnik</h3>
+          <p class="opening-summary">Du unterstützt bei Datenaufnahme, Blower-Door-Messungen, Auswertung und Erstellung von Berichten — und schreibst bei uns auch deine Abschlussarbeit, wenn’s passt.</p>
+        </div>
+        <div class="opening-meta">
+          <span class="opening-tag">10–20 h/Woche</span>
+          <span class="opening-tag neutral">Köln</span>
+          <span class="opening-tag neutral">m/w/d</span>
+        </div>
+        <a href="#bewerbung" class="opening-cta" data-prefill="Werkstudent:in Bauphysik / Energietechnik">
+          Jetzt bewerben
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="openings-foot">
+      <p><strong>Nichts Passendes dabei?</strong> Wir freuen uns auch über Initiativbewerbungen — besonders von Quereinsteiger:innen mit Messtechnik- oder Sanierungs-Hintergrund.</p>
+      <a href="#bewerbung" class="btn btn--lime" data-prefill="Initiativbewerbung">Initiativ bewerben →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== S6 · WERTE / WHY ======== -->
+<section class="values" aria-labelledby="values-h2">
+  <img class="values-texture" src="/aumann-eco-preview/assets/textures/aumanneco-texturen_Zeichenfläche 1.svg" alt="" aria-hidden="true">
+  <div class="container">
+    <header class="values-header">
+      <span class="ae-eyebrow">02 · Warum aumann eco</span>
+      <h2 id="values-h2">Was uns als Arbeitgeber ausmacht.</h2>
+      <p class="values-lead">Wenn dir die Punkte hier oben gefallen, passen wir wahrscheinlich auch in den weniger sichtbaren Dingen zusammen.</p>
+    </header>
+
+    <div class="values-grid">
+
+      <article class="value-card">
+        <div class="value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 8h2M4 12h3M4 16h2M8 4v2M12 4v3M16 4v2"/><path d="M14 14l3-3 3 3"/></svg>
+        </div>
+        <h3>Messbar statt Bauchgefühl</h3>
+        <p>Wir rechnen nicht nur, wir messen. Du arbeitest mit echten Daten aus eigener Messtechnik — und siehst, wo Theorie und Realität auseinander­fallen.</p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Ehrlich statt werblich</h3>
+        <p>Wir sagen Kund:innen offen, wenn sich eine Sanierung nicht rechnet. Du brauchst niemanden zu überreden — nur sauber zu beraten.</p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Unabhängig statt provisionsgetrieben</h3>
+        <p>Wir verkaufen weder Heizungen noch Dämmstoffe. Nur Expertise. Deine Empfehlungen folgen der Bauphysik — nicht einer Hersteller-Marge.</p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Klima-relevant statt austauschbar</h3>
+        <p>Jedes Projekt spart messbar CO₂. Du siehst direkt, wofür du arbeitest — und kannst zuhause erklären, warum es Sinn ergibt.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======== S7 · BEWERBUNG (Formular volle Breite, Info-Cards darunter) ======== -->
+<section class="apply-section" aria-labelledby="apply-h2" id="bewerbung">
+  <div class="container">
+    <div class="apply-stack">
+
+      <div class="apply-form-card">
+        <div class="form-head">
+          <div>
+            <span class="section-label">04 · Bewerbung</span>
+            <h2 id="apply-h2">Schick uns deine Unterlagen.</h2>
+            <p class="form-intro">Lebenslauf reicht — kein klassisches Anschreiben nötig. Schreib uns einfach kurz, warum du Lust auf aumann eco hast und ab wann du starten könntest.</p>
+          </div>
+          <span class="form-head-meta">Antwort binnen 48 h</span>
+        </div>
+
+        <!-- Error Banner -->
+        <div class="form-error" id="form-error" role="alert" aria-live="polite">
+          Beim Senden ist etwas schief gegangen. Bitte versuche es nochmal — oder schreib uns direkt an <a href="mailto:karriere@aumann-ing.de">karriere@aumann-ing.de</a>.
+        </div>
+
+        <form class="apply-form" id="apply-form" action="https://formsubmit.co/ajax/s.eldem@ostend.digital" method="POST" enctype="multipart/form-data" novalidate>
+          <!-- Honeypot -->
+          <div class="honeypot" aria-hidden="true">
+            <label>Bitte leer lassen: <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <!-- Formsubmit-Konfiguration -->
+          <input type="hidden" name="_subject" value="Neue Bewerbung über aumann-eco.de">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+
+          <div class="form-row cols-2">
+            <div class="field">
+              <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="Name" required autocomplete="name" placeholder="Max Mustermann">
+              <span class="error-msg">Bitte gib deinen Namen ein.</span>
+            </div>
+            <div class="field">
+              <label for="email">E-Mail <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="E-Mail" required autocomplete="email" placeholder="dein@beispiel.de">
+              <span class="error-msg">Bitte gib eine gültige E-Mail-Adresse ein.</span>
+            </div>
+          </div>
+
+          <div class="form-row cols-2">
+            <div class="field">
+              <label for="phone">Telefon <span style="color:var(--gray-400);font-weight:400;font-size:12px">(optional)</span></label>
+              <input type="tel" id="phone" name="Telefon" autocomplete="tel" placeholder="0175 …">
+            </div>
+            <div class="field">
+              <label for="position">Stelle <span class="req" aria-hidden="true">*</span></label>
+              <select id="position" name="Stelle" required>
+                <option value="" disabled selected>Bitte auswählen</option>
+                <option>Energieberater:in / Ingenieur:in Bauphysik</option>
+                <option>Bauphysik-Ingenieur:in Schall- &amp; Wärmeschutz</option>
+                <option>Werkstudent:in Bauphysik / Energietechnik</option>
+                <option>Initiativbewerbung</option>
+              </select>
+              <span class="error-msg">Bitte wähle eine Stelle aus.</span>
+            </div>
+          </div>
+
+          <div class="form-row cols-2">
+            <div class="field">
+              <label for="start">Frühester Start <span style="color:var(--gray-400);font-weight:400;font-size:12px">(optional)</span></label>
+              <input type="text" id="start" name="Frühester Start" placeholder="z. B. ab 01.09.2026">
+            </div>
+            <div class="field">
+              <label for="portfolio">Profil-Link <span style="color:var(--gray-400);font-weight:400;font-size:12px">(LinkedIn, XING, Portfolio)</span></label>
+              <input type="url" id="portfolio" name="Profil-Link" placeholder="https://linkedin.com/in/...">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Kurze Nachricht <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="message" name="Nachricht" rows="5" required placeholder="Erzähl uns kurz: Was reizt dich an der Rolle? Welche Erfahrung bringst du mit? Ab wann könntest du starten?"></textarea>
+            <span class="error-msg">Bitte schreib uns ein paar Sätze.</span>
+          </div>
+
+          <div class="file-field">
+            <label for="cv">Lebenslauf / Unterlagen <span style="color:var(--gray-400);font-weight:400;font-size:12px">(optional · PDF, max. 8 MB)</span></label>
+            <div class="file-input-wrap" id="file-wrap">
+              <input type="file" id="cv" name="Lebenslauf" accept=".pdf,.doc,.docx" aria-describedby="file-hint">
+              <span class="file-label">
+                <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span class="file-title">Datei hier ablegen oder auswählen</span>
+                <span class="file-hint" id="file-hint">PDF, DOC oder DOCX · bis 8 MB</span>
+              </span>
+              <span class="file-list" id="file-list" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="field checkbox-field" id="consent-field">
+            <input type="checkbox" id="consent" name="Datenschutz akzeptiert" value="Ja" required>
+            <label for="consent">
+              Ich habe die <a href="/aumann-eco-preview/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und stimme zu, dass meine Bewerbungsunterlagen zur Bearbeitung verarbeitet und für 6 Monate gespeichert werden.
+              <span class="req" aria-hidden="true">*</span>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="submit-btn" id="submit-btn">
+              <span class="arrow">Bewerbung senden</span>
+              <span class="spinner" aria-hidden="true"></span>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+            <span class="form-meta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              SSL-verschlüsselt · Vertraulich
+            </span>
+          </div>
+        </form>
+
+        <!-- Success State -->
+        <div class="form-success" id="form-success" role="status" aria-live="polite">
+          <div class="form-success-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h3>Danke — deine Bewerbung ist da.</h3>
+          <p>Wir melden uns innerhalb von 48 Stunden, oft schon binnen eines Werktags. Solltest du es eilig haben, ruf gerne unter <strong>0175 569 75 51</strong> an.</p>
+        </div>
+
+      </div>
+
+      <!-- INFO-CARDS UNTER DEM FORMULAR (2-Spalten) -->
+      <aside class="apply-info-below" aria-label="Direkter Kontakt zur Bewerbung">
         <div class="info-card dark">
-          <span class="status">Heute erreichbar bis 18:00</span>
-          <h3>Direkter Draht</h3>
+          <span class="status">Antwort binnen 48 h werktags</span>
+          <h3>Direkter Draht ins Team</h3>
           <div class="info-items">
+            <div class="info-item">
+              <div class="info-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="info-item-content">
+                <span class="label">Bewerbung per Mail</span>
+                <span class="value"><a href="mailto:karriere@aumann-ing.de">karriere@aumann-ing.de</a></span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="info-item-content">
+                <span class="label">Fragen vorab</span>
+                <span class="value"><a href="tel:+491755697551">0175 569 75 51</a></span>
+              </div>
+            </div>
             <div class="info-item">
               <div class="info-item-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1976,27 +2598,61 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
                 <span class="value">Schiefersburger Weg 57<br>50739 Köln</span>
               </div>
             </div>
-            <div class="info-item">
-              <div class="info-item-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <div class="info-item-content">
-                <span class="label">Erreichbar:</span>
-                <span class="value">Mo–Fr 08:00 – 18:00<br>Sa–So nach Vereinbarung</span>
-              </div>
-            </div>
           </div>
           <div class="response-line">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            <span>Antwort innerhalb von <strong>24&nbsp;h</strong> werktags</span>
+            <span>Erste Rückmeldung in <strong>maximal 48 Stunden</strong></span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>Tipp für deine Bewerbung</h3>
+          <div class="info-items">
+            <div class="info-item">
+              <div class="info-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="info-item-content">
+                <span class="label">Schreib uns konkret</span>
+                <span class="value">Welche Projekte hast du gemacht? Welche Tools (Hottgenroth, BKI, Bauphysik 11.2)?</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="info-item-content">
+                <span class="label">Keine Standard-Anschreiben</span>
+                <span class="value">Drei ehrliche Sätze sind uns lieber als drei Seiten Floskeln.</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="info-item-content">
+                <span class="label">Zeig uns ein Projekt</span>
+                <span class="value">Eine kurze Skizze eines Wärmeschutznachweises, einer iSFP-Beratung oder einer Blower-Door-Messung sagt mehr als jede Note.</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="info-item-content">
+                <span class="label">Frühester Starttermin</span>
+                <span class="value">Sag uns gerne, ab wann du verfügbar wärst — und ob Voll- oder Teilzeit besser passt.</span>
+              </div>
+            </div>
           </div>
         </div>
       </aside>
+
     </div>
   </div>
 </section>
 
-<!-- ======== FINAL CTA (1:1 zu Über uns) ======== -->
+<!-- ======== FINAL CTA (1:1 zu Über uns / Kontakt) ======== -->
 <div class="ostend-seo-strip">
   <p>Mit Ostend Digital als <a href="https://ostend.digital" target="_blank" rel="noopener">Werbeagentur Stuttgart</a> haben wir, die aumann eco, unsere Online-Präsenz mit kreativen Webdesigns und effektiven SEO-Maßnahmen optimiert.</p>
 </div>
@@ -2005,7 +2661,9 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
     <div class="final-cta">
       <div class="cta-portrait">
         <div class="cta-portrait-frame">
-          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco" width="200" height="200">
+          <img src="/aumann-eco-preview/assets/images/img-benedikt-cta.webp"
+               alt="Benedikt Aumann, Dipl.-Ing. und Geschäftsführer aumann eco"
+               width="200" height="200">
         </div>
         <div class="cta-sign">
           <span class="cta-sign-name">Benedikt Aumann</span>
@@ -2013,17 +2671,17 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
         </div>
       </div>
       <div class="cta-content">
-        <span class="ae-eyebrow">Lieber direkt sprechen?</span>
-        <h2 class="ae-h2">30 Minuten am Telefon —<br>oft genug für Klarheit.</h2>
-        <p>Ruf an, schick eine WhatsApp oder schreib eine Mail. Wir melden uns binnen 24 Stunden, sagen dir welche Nachweise du brauchst — und liefern alles aus einer Hand.</p>
+        <span class="ae-eyebrow">Noch unentschlossen?</span>
+        <h2 class="ae-h2">15 Minuten am Telefon —<br>auch ohne Bewerbung.</h2>
+        <p>Ruf an, wenn du erst mal Fragen hast: zur Rolle, zum Team, zu Gehaltsspannen. Keine HR-Hotline, sondern direkt mit der Geschäftsführung.</p>
         <div class="btn-group">
           <a href="tel:+491755697551" class="btn btn--dark">0175 569 75 51 anrufen →</a>
-          <a href="mailto:info@aumann-eco.de" class="btn btn--outline">E-Mail schreiben</a>
+          <a href="mailto:karriere@aumann-ing.de" class="btn btn--outline">E-Mail schreiben</a>
         </div>
         <ul class="cta-trust">
-          <li>Antwort binnen 24 h</li>
-          <li>Kostenlos &amp; unverbindlich</li>
-          <li>Ohne Verkaufsdruck</li>
+          <li>Antwort binnen 48 h</li>
+          <li>Kein HR-Vorgespräch</li>
+          <li>Vertraulich</li>
         </ul>
       </div>
     </div>
@@ -2032,7 +2690,7 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
 
 </main>
 
-<!-- ======== FOOTER (1:1 zu Über uns) ======== -->
+<!-- ======== FOOTER (1:1 zu Über uns / Kontakt) ======== -->
 <footer class="site-footer">
   <div class="wrap">
 
@@ -2050,13 +2708,13 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
           <dt>Telefon</dt>
           <dd><a href="tel:+491755697551">0175 569 75 51</a></dd>
           <dt>E-Mail</dt>
-          <dd><a href="mailto:info@aumann-eco.de">info@aumann-eco.de</a></dd>
+          <dd><a href="mailto:info@aumann-ing.de">info@aumann-ing.de</a></dd>
           <dt>Mo–Fr</dt>
           <dd>08:00 – 18:00 Uhr</dd>
         </dl>
         <div class="response">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          <span>Antwort innerhalb von <strong>24&nbsp;Stunden</strong> (werktags)</span>
+          <span>Antwort innerhalb von <strong>2 Stunden</strong> (werktags)</span>
         </div>
       </aside>
     </div>
@@ -2082,8 +2740,8 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
         <h4>Büro</h4>
         <ul>
           <li><a href="/aumann-eco-preview/ueber-uns/">Über uns</a></li>
-          <li><a href="/aumann-eco-preview/karriere/">Karriere</a></li>
-          <li><a href="/aumann-eco-preview/kontakt/" aria-current="page">Kontakt</a></li>
+          <li><a href="/aumann-eco-preview/karriere/" aria-current="page">Karriere</a></li>
+          <li><a href="/aumann-eco-preview/kontakt/">Kontakt</a></li>
         </ul>
       </div>
       <div>
@@ -2114,11 +2772,11 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
 </footer>
 
 <!-- ======== MOBILE STICKY CTA ======== -->
-<div class="mobile-cta-bar" role="complementary" aria-label="Kontakt">
+<div class="mobile-cta-bar" role="complementary" aria-label="Bewerbung">
   <a href="tel:+491755697551" class="mobile-cta-phone" aria-label="Anrufen">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
   </a>
-  <a href="#kontakt-form" class="btn btn-primary">Nachricht senden</a>
+  <a href="#bewerbung" class="btn btn-primary">Jetzt bewerben</a>
 </div>
 
 <!-- Schema.org -->
@@ -2127,29 +2785,79 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "ContactPage",
-      "name": "Kontakt — Aumann Eco",
-      "url": "https://aumann-eco.de/kontakt/"
+      "@type": "WebPage",
+      "name": "Karriere & Stellenangebote — Aumann Eco",
+      "url": "https://aumann-eco.de/karriere/"
     },
     {
-      "@type": "LocalBusiness",
-      "name": "Aumann Eco — Ingenieurbüro für Bauphysik & Energieberatung",
-      "image": "https://aumann-eco.de/img-benedikt.jpg",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Schiefersburger Weg 57",
-        "postalCode": "50739",
-        "addressLocality": "Köln",
-        "addressCountry": "DE"
+      "@type": "JobPosting",
+      "title": "Energieberater:in / Ingenieur:in Bauphysik (m/w/d)",
+      "datePosted": "2026-05-01",
+      "validThrough": "2026-08-31T23:59",
+      "employmentType": "FULL_TIME",
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "aumann eco GmbH",
+        "sameAs": "https://aumann-eco.de"
       },
-      "telephone": "+49 175 5697551",
-      "email": "info@aumann-eco.de",
-      "openingHoursSpecification": [{
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "08:00",
-        "closes": "18:00"
-      }]
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Schiefersburger Weg 57",
+          "postalCode": "50739",
+          "addressLocality": "Köln",
+          "addressCountry": "DE"
+        }
+      },
+      "description": "Eigenständige iSFP, BAFA- und KfW-Beratungen sowie Wärmeschutznachweise nach GEG.",
+      "directApply": true
+    },
+    {
+      "@type": "JobPosting",
+      "title": "Bauphysik-Ingenieur:in Schall- & Wärmeschutz (m/w/d)",
+      "datePosted": "2026-05-01",
+      "validThrough": "2026-08-31T23:59",
+      "employmentType": "FULL_TIME",
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "aumann eco GmbH",
+        "sameAs": "https://aumann-eco.de"
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Schiefersburger Weg 57",
+          "postalCode": "50739",
+          "addressLocality": "Köln",
+          "addressCountry": "DE"
+        }
+      },
+      "description": "Schwerpunkt Nachweise: Schallschutz DIN 4109, Wärmebrücken, sommerlicher Wärmeschutz."
+    },
+    {
+      "@type": "JobPosting",
+      "title": "Werkstudent:in Bauphysik / Energietechnik (m/w/d)",
+      "datePosted": "2026-05-01",
+      "validThrough": "2026-08-31T23:59",
+      "employmentType": "PART_TIME",
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "aumann eco GmbH",
+        "sameAs": "https://aumann-eco.de"
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Schiefersburger Weg 57",
+          "postalCode": "50739",
+          "addressLocality": "Köln",
+          "addressCountry": "DE"
+        }
+      },
+      "description": "Unterstützung bei Datenaufnahme, Blower-Door-Messungen, Auswertung und Berichten."
     }
   ]
 }
@@ -2163,8 +2871,12 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const fadeSelectors = [
-    '.contact-form-card', '.info-card',
-    '.map-header', '.map-frame',
+    '.benefit', '.benefits-header', '.benefits-closer',
+    '.openings-header', '.openings-foot',
+    '.section-head-center',
+    '.value-card', '.values-header',
+    '.apply-form-card', '.info-card',
+    '.impressions-header', '.impression',
     '.cta-content h2', '.cta-content p', '.cta-content .ae-eyebrow',
     '.cta-portrait', '.cta-trust'
   ];
@@ -2187,24 +2899,81 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
   }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
 
   document.querySelectorAll('.reveal, .reveal-scale').forEach(el => observer.observe(el));
+
+  // Stagger-Reveal speziell für Stellen-Karten (sequenzieller Slide-In)
+  const stagger = document.querySelectorAll('.opening.reveal-stagger');
+  stagger.forEach((el, i) => { el.style.transitionDelay = (i * 0.15) + 's'; });
+  const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        staggerObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -60px 0px' });
+  stagger.forEach(el => staggerObserver.observe(el));
 })();
 
 /* ========================================
-   CONTACT FORM — Validation + AJAX Submit
-   Endpoint: Formsubmit.co (kein Backend nötig)
-   Beim ersten Submit verschickt Formsubmit eine Aktivierungs-Mail
-   an die Empfänger-Adresse. Erst nach Bestätigung gehen Anfragen durch.
+   STELLEN-CTA → Formular prefill
+   Klick auf "Jetzt bewerben" bei einer Stelle scrollt zum Formular
+   und setzt das Dropdown automatisch auf die richtige Stelle.
    ======================================== */
 (function() {
-  const form = document.getElementById('contact-form');
+  const positionSelect = document.getElementById('position');
+  if (!positionSelect) return;
+
+  document.querySelectorAll('[data-prefill]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const value = btn.getAttribute('data-prefill');
+      const decoded = value.replace(/&amp;/g, '&');
+      const match = Array.from(positionSelect.options).find(o => o.value === decoded || o.textContent.trim() === decoded);
+      if (match) {
+        positionSelect.value = match.value || match.textContent;
+        positionSelect.dispatchEvent(new Event('change'));
+      }
+    });
+  });
+})();
+
+/* ========================================
+   FILE UPLOAD — Anzeige Dateiname + Größencheck
+   ======================================== */
+(function() {
+  const input = document.getElementById('cv');
+  const list = document.getElementById('file-list');
+  const wrap = document.getElementById('file-wrap');
+  if (!input || !list || !wrap) return;
+
+  const MAX_BYTES = 8 * 1024 * 1024;
+
+  input.addEventListener('change', () => {
+    list.textContent = '';
+    list.style.color = 'var(--coral)';
+    const file = input.files && input.files[0];
+    if (!file) return;
+    if (file.size > MAX_BYTES) {
+      list.style.color = '#C7341F';
+      list.textContent = `Datei zu groß (${(file.size / 1024 / 1024).toFixed(1)} MB) — bitte max. 8 MB.`;
+      input.value = '';
+      return;
+    }
+    list.textContent = `Ausgewählt: ${file.name} (${(file.size / 1024 / 1024).toFixed(1)} MB)`;
+  });
+})();
+
+/* ========================================
+   APPLICATION FORM — Validation + AJAX Submit
+   Endpoint: Formsubmit.co
+   ======================================== */
+(function() {
+  const form = document.getElementById('apply-form');
   if (!form) return;
 
   const submitBtn = document.getElementById('submit-btn');
   const successBox = document.getElementById('form-success');
   const errorBox = document.getElementById('form-error');
-  const consentField = document.getElementById('consent-field');
 
-  // Helper: Fehler an einem Feld zeigen
   function setError(input, hasError) {
     const field = input.closest('.field') || input.closest('.checkbox-field');
     if (!field) return;
@@ -2214,24 +2983,17 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
   function validate() {
     let valid = true;
     const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
-
     inputs.forEach(input => {
       let invalid = false;
-      if (input.type === 'checkbox') {
-        invalid = !input.checked;
-      } else if (input.type === 'email') {
-        invalid = !input.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
-      } else {
-        invalid = !input.value.trim();
-      }
+      if (input.type === 'checkbox') invalid = !input.checked;
+      else if (input.type === 'email') invalid = !input.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+      else invalid = !input.value.trim();
       setError(input, invalid);
       if (invalid) valid = false;
     });
-
     return valid;
   }
 
-  // Live-Validation: Fehler entfernen sobald getippt wird
   form.querySelectorAll('input, select, textarea').forEach(input => {
     const evt = input.type === 'checkbox' ? 'change' : 'input';
     input.addEventListener(evt, () => setError(input, false));
@@ -2242,13 +3004,11 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
     errorBox.classList.remove('is-visible');
 
     if (!validate()) {
-      // Zum ersten Fehler scrollen
       const firstError = form.querySelector('.has-error');
       if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
 
-    // Loading-State
     submitBtn.classList.add('is-loading');
     submitBtn.disabled = true;
 
@@ -2261,7 +3021,6 @@ h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-
       });
 
       if (response.ok) {
-        // Erfolg: Formular ausblenden, Success-State zeigen
         form.style.display = 'none';
         successBox.classList.add('is-visible');
         successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
