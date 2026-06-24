@@ -1,0 +1,167 @@
+[
+  {
+    "id": 2,
+    "slug": "sample-page",
+    "status": "draft",
+    "title": "Sample Page",
+    "template": "",
+    "modified": "2026-06-03T16:54:41",
+    "link": "https://aumann-eco.de/?page_id=2",
+    "file": "2-sample-page.raw.html",
+    "bytes": 1341
+  },
+  {
+    "id": 3,
+    "slug": "privacy-policy",
+    "status": "draft",
+    "title": "Privacy Policy",
+    "template": "",
+    "modified": "2026-06-22T10:49:31",
+    "link": "https://aumann-eco.de/?page_id=3",
+    "file": "3-privacy-policy.raw.html",
+    "bytes": 5532
+  },
+  {
+    "id": 8,
+    "slug": "energieberatung-koeln",
+    "status": "publish",
+    "title": "Startseite",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:29",
+    "link": "https://aumann-eco.de/",
+    "file": "8-energieberatung-koeln.raw.html",
+    "bytes": 139128
+  },
+  {
+    "id": 15,
+    "slug": "sanierungsfahrplan",
+    "status": "publish",
+    "title": "Sanierungsfahrplan",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:30",
+    "link": "https://aumann-eco.de/sanierungsfahrplan/",
+    "file": "15-sanierungsfahrplan.raw.html",
+    "bytes": 132884
+  },
+  {
+    "id": 19,
+    "slug": "bauphysik",
+    "status": "publish",
+    "title": "Bauphysik",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:31",
+    "link": "https://aumann-eco.de/bauphysik/",
+    "file": "19-bauphysik.raw.html",
+    "bytes": 135760
+  },
+  {
+    "id": 21,
+    "slug": "blower-door",
+    "status": "publish",
+    "title": "Blower Door",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:32",
+    "link": "https://aumann-eco.de/blower-door/",
+    "file": "21-blower-door.raw.html",
+    "bytes": 151667
+  },
+  {
+    "id": 23,
+    "slug": "foerderberatung",
+    "status": "publish",
+    "title": "Förderberatung",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:33",
+    "link": "https://aumann-eco.de/foerderberatung/",
+    "file": "23-foerderberatung.raw.html",
+    "bytes": 136475
+  },
+  {
+    "id": 25,
+    "slug": "ueber-uns",
+    "status": "publish",
+    "title": "Über uns",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:34",
+    "link": "https://aumann-eco.de/ueber-uns/",
+    "file": "25-ueber-uns.raw.html",
+    "bytes": 111468
+  },
+  {
+    "id": 27,
+    "slug": "karriere-vollversion",
+    "status": "draft",
+    "title": "Karriere",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:35",
+    "link": "https://aumann-eco.de/?page_id=27",
+    "file": "27-karriere-vollversion.raw.html",
+    "bytes": 131016
+  },
+  {
+    "id": 30,
+    "slug": "kontakt",
+    "status": "publish",
+    "title": "Kontakt",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:36",
+    "link": "https://aumann-eco.de/kontakt/",
+    "file": "30-kontakt.raw.html",
+    "bytes": 99138
+  },
+  {
+    "id": 40,
+    "slug": "impressum",
+    "status": "publish",
+    "title": "Impressum",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:37",
+    "link": "https://aumann-eco.de/impressum/",
+    "file": "40-impressum.raw.html",
+    "bytes": 91568
+  },
+  {
+    "id": 41,
+    "slug": "datenschutz",
+    "status": "publish",
+    "title": "Datenschutz",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:38",
+    "link": "https://aumann-eco.de/datenschutz/",
+    "file": "41-datenschutz.raw.html",
+    "bytes": 94308
+  },
+  {
+    "id": 42,
+    "slug": "agb",
+    "status": "publish",
+    "title": "AGB",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:39",
+    "link": "https://aumann-eco.de/agb/",
+    "file": "42-agb.raw.html",
+    "bytes": 95501
+  },
+  {
+    "id": 43,
+    "slug": "cookie-einstellungen",
+    "status": "publish",
+    "title": "Cookie-Einstellungen",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:40",
+    "link": "https://aumann-eco.de/cookie-einstellungen/",
+    "file": "43-cookie-einstellungen.raw.html",
+    "bytes": 91281
+  },
+  {
+    "id": 89,
+    "slug": "karriere",
+    "status": "publish",
+    "title": "Karriere",
+    "template": "blank-canvas",
+    "modified": "2026-06-22T15:54:42",
+    "link": "https://aumann-eco.de/karriere/",
+    "file": "89-karriere.raw.html",
+    "bytes": 122701
+  }
+]

@@ -3,3 +3,7 @@
 *.bak
 node_modules/
 .vercel
+
+# WP-Zugangsdaten NIE committen
+wp-tools/.env
+*.apppw
