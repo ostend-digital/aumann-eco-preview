@@ -1,0 +1,3142 @@
+
+<div id="top">
+<style>
+/* ═══════════════════════════════════════════════
+   VOLTE WEBFONT
+═══════════════════════════════════════════════ */
+@font-face { font-family:'Volte'; src:url('https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/fonts/Volte-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/fonts/Volte-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/fonts/Volte-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/fonts/Volte-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Volte'; src:url('https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/fonts/Volte-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+
+/* ═══════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════ */
+:root {
+  --ae-coral:#FF634D;
+  --ae-off-white:#FCFAF5;
+  --ae-lime:#CDF15D;
+  --ae-light-blue:#A2C9D0;
+  --ae-deep-teal:#056C7F;
+  --ae-near-black:#222120;
+  --ae-white:#FFFFFF;
+  --ae-grey-100:#F3F1EC;
+  --ae-grey-300:#D8D4CB;
+  --ae-grey-500:#8C877E;
+  --ae-font:'Volte',system-ui,sans-serif;
+  --ae-tight:-0.03em;
+  --ae-headline:-0.02em;
+  --ae-body:-0.005em;
+  --ae-s-1:4px; --ae-s-2:8px; --ae-s-3:12px; --ae-s-4:16px; --ae-s-5:24px;
+  --ae-s-6:32px; --ae-s-7:48px; --ae-s-8:64px; --ae-s-9:96px; --ae-s-10:128px;
+  --ae-r-sm:8px; --ae-r-md:16px; --ae-r-lg:24px; --ae-r-pill:999px;
+  --ae-max:1280px;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:var(--ae-font); font-weight:400; font-size:16px; line-height:1.55;
+  color:var(--ae-near-black); background:var(--ae-off-white);
+  letter-spacing:var(--ae-body); -webkit-font-smoothing:antialiased;
+}
+img { max-width:100%; display:block; }
+a { color:inherit; }
+.inline-link {
+  color:var(--ae-coral);
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+  text-decoration-color:rgba(255,99,77,0.4);
+  transition:text-decoration-color .2s;
+}
+.inline-link:hover { text-decoration-color:var(--ae-coral); }
+
+.ae-h1 { font-size:clamp(36px,4.5vw,64px); font-weight:700; line-height:1.0; letter-spacing:var(--ae-tight); }
+.ae-h2 { font-size:clamp(32px,3.5vw,52px); font-weight:600; line-height:1.05; letter-spacing:var(--ae-headline); }
+.ae-h3 { font-size:clamp(22px,2vw,28px); font-weight:600; line-height:1.15; letter-spacing:var(--ae-headline); }
+.ae-lead { font-size:clamp(18px,1.5vw,22px); font-weight:400; line-height:1.45; }
+.ae-eyebrow { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; }
+
+.wrap { max-width:var(--ae-max); margin:0 auto; padding:0 var(--ae-s-6); }
+section { padding:var(--ae-s-9) 0; }
+@media (max-width:720px) { section { padding:var(--ae-s-7) 0; } }
+
+/* ═══════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════ */
+.site-header {
+  position:sticky; top:0; z-index:50;
+  background:rgba(252,250,245,0.88);
+  backdrop-filter:blur(10px) saturate(140%);
+  border-bottom:1px solid var(--ae-grey-300);
+}
+.nav {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:var(--ae-s-4) var(--ae-s-6);
+  max-width:var(--ae-max); margin:0 auto;
+}
+.nav .logo img { height:36px; }
+.nav ul { list-style:none; display:flex; gap:var(--ae-s-6); }
+.nav ul a { text-decoration:none; font-size:14px; font-weight:500; color:var(--ae-near-black); }
+.nav ul a:hover { color:var(--ae-coral); }
+.nav .phone { font-size:14px; font-weight:500; text-decoration:none; margin-right:var(--ae-s-4); }
+.nav .nav-cta { margin-left:var(--ae-s-4); }
+@media (max-width:900px) { .nav ul { display:none; } }
+
+/* ═══════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════ */
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:14px 28px; border-radius:var(--ae-r-pill);
+  font-family:var(--ae-font); font-weight:500; font-size:15px;
+  text-decoration:none; border:none; cursor:pointer;
+  transition:transform .15s, box-shadow .15s, background .15s;
+  letter-spacing:-0.005em;
+}
+.btn:hover { transform:translateY(-1px); }
+.btn--primary { background:var(--ae-coral); color:var(--ae-near-black); }
+.btn--primary:hover { background:#FF4A31; box-shadow:0 6px 20px rgba(255,99,77,0.35); }
+.btn--lime { background:var(--ae-lime); color:var(--ae-near-black); }
+.btn--lime:hover { background:#BCE44A; box-shadow:0 6px 20px rgba(205,241,93,0.4); }
+.btn--dark { background:var(--ae-near-black); color:var(--ae-off-white); }
+.btn--dark:hover { background:#000; }
+.btn--outline { background:transparent; color:var(--ae-near-black); border:1.5px solid var(--ae-near-black); }
+.btn--outline:hover { background:var(--ae-near-black); color:var(--ae-off-white); }
+.btn--outline-light { background:transparent; color:var(--ae-off-white); border:1.5px solid rgba(252,250,245,0.5); }
+.btn--outline-light:hover { background:var(--ae-off-white); color:var(--ae-near-black); }
+.btn-group { display:flex; flex-wrap:wrap; gap:var(--ae-s-3); }
+
+/* ═══════════════════════════════════════════════
+   HERO — 2-spaltig mit Higgsfield Loop
+═══════════════════════════════════════════════ */
+.hero {
+  background:var(--ae-off-white);
+  color:var(--ae-near-black);
+  padding:var(--ae-s-10) 0 var(--ae-s-9);
+  position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(34,33,32,0.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,33,32,0.045) 1px,transparent 1px),
+    linear-gradient(rgba(34,33,32,0.10) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,33,32,0.10) 1px,transparent 1px);
+  background-size:16px 16px,16px 16px,96px 96px,96px 96px;
+  mask-image:radial-gradient(ellipse 70% 100% at 80% 40%,#000 8%,rgba(0,0,0,0.4) 40%,transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse 70% 100% at 80% 40%,#000 8%,rgba(0,0,0,0.4) 40%,transparent 78%);
+  pointer-events:none;
+}
+.hero-grid {
+  position:relative; z-index:1;
+  max-width:var(--ae-max); margin:0 auto; padding:0 var(--ae-s-6);
+  display:grid; grid-template-columns:1.4fr 1fr; gap:var(--ae-s-7); align-items:center;
+}
+.hero .ae-eyebrow { display:inline-flex; align-items:center; gap:13px; opacity:0.75; }
+.hero-dots { display:inline-flex; align-items:center; gap:6px; }
+.hero-dots span { width:8px; height:8px; border-radius:50%; background:var(--ae-coral); display:inline-block; }
+.hero h1 { margin:var(--ae-s-4) 0 var(--ae-s-5); }
+.hero .ae-lead { max-width:54ch; margin-bottom:var(--ae-s-6); font-size:17px; }
+.hero .btn-group { margin-bottom:var(--ae-s-6); }
+.hero-meta { display:flex; flex-wrap:wrap; gap:var(--ae-s-5); font-size:13px; font-weight:500; color:var(--ae-grey-500); }
+.hero-meta span { display:inline-flex; align-items:center; gap:6px; }
+.hero-meta svg { width:16px; height:16px; color:var(--ae-coral); flex-shrink:0; }
+
+.hero-visual {
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+}
+.hero-loop {
+  width:108%;
+  height:auto;
+  max-width:none;
+  display:block;
+  margin-right:-8%;
+  background:transparent;
+  filter:
+    drop-shadow(0.8px 0 0 #FF634D)
+    drop-shadow(-0.8px 0 0 #FF634D)
+    drop-shadow(0 0.8px 0 #FF634D)
+    drop-shadow(0 -0.8px 0 #FF634D)
+    saturate(1.1);
+}
+.hero-still { display:none; }
+@media (max-width:960px) {
+  .hero-grid { grid-template-columns:1fr; gap:var(--ae-s-6); }
+  .hero-visual { max-width:520px; margin:0 auto; }
+  .hero-loop { display:none; }
+  .hero-still { display:block; width:100%; height:auto; background:transparent;
+    filter: drop-shadow(0.8px 0 0 #FF634D) drop-shadow(-0.8px 0 0 #FF634D) drop-shadow(0 0.8px 0 #FF634D) drop-shadow(0 -0.8px 0 #FF634D) saturate(1.1); }
+}
+@media (max-width:560px) {
+  /* Hero-Headline: auf Mobile skalieren, damit die 3 gesetzten <br>-Zeilen je auf einer Zeile bleiben (statt 5+ Zeilen) */
+  .hero h1 { font-size:clamp(23px,7.4vw,32px); }
+}
+
+/* ═══════════════════════════════════════════════
+   LOGO SLIDER
+═══════════════════════════════════════════════ */
+.logo-slider { max-width:var(--ae-max); margin:0 auto; padding:var(--ae-s-7) var(--ae-s-6); }
+.logo-slider .slider-label {
+  text-align:center; font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.1em;
+  color:var(--ae-grey-500); margin-bottom:var(--ae-s-5);
+}
+.logo-slider-inner {
+  padding:var(--ae-s-5) 0; overflow:hidden; position:relative;
+  mask-image:linear-gradient(90deg,transparent 0%,black 12%,black 88%,transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 12%,black 88%,transparent 100%);
+}
+.logo-track {
+  display:flex; gap:var(--ae-s-9); width:max-content;
+  animation:scroll-logos 40s linear infinite; align-items:center;
+}
+.logo-slider-inner:hover .logo-track { animation-play-state:paused; }
+.logo-item {
+  display:flex; align-items:center; height:64px;
+  opacity:0.65; filter:grayscale(1);
+  transition:opacity .25s ease, filter .25s ease;
+}
+.logo-item:hover { opacity:1; filter:grayscale(0); }
+.logo-item img { max-height:100%; width:auto; display:block; object-fit:contain; }
+.logo-item.flib img { max-height:72px; }
+.logo-item.ikbau img { max-height:58px; }
+@keyframes scroll-logos {
+  from { transform:translateX(0); }
+  to { transform:translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION HEADS
+═══════════════════════════════════════════════ */
+.section-head { max-width:720px; margin-bottom:var(--ae-s-7); }
+.section-head .ae-eyebrow { color:var(--ae-coral); display:block; margin-bottom:var(--ae-s-3); }
+.section-head h2 { margin-bottom:var(--ae-s-4); }
+.section-head p { font-size:18px; color:#444; max-width:64ch; }
+
+.section-head-center { max-width:640px; margin:0 auto var(--ae-s-8); text-align:center; }
+.section-head-center .ae-eyebrow { color:var(--ae-coral); display:block; margin-bottom:var(--ae-s-3); }
+.section-head-center h2 { margin-bottom:var(--ae-s-4); }
+.section-head-center p { font-size:18px; color:#444; max-width:56ch; margin:0 auto; }
+
+/* ═══════════════════════════════════════════════
+   ERKLÄRUNG — Wie funktioniert die Messung
+═══════════════════════════════════════════════ */
+.erklaerung-section { background:var(--ae-off-white); }
+.erklaerung-section .section-head { margin-bottom:0; }
+.erklaerung-section .section-head h2 { margin-bottom:var(--ae-s-2); }
+.erklaerung-section .section-head p { margin-top:0; }
+.erklaerung-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:var(--ae-s-8); align-items:stretch;
+  margin-top:var(--ae-s-7);
+}
+@media (max-width:900px) { .erklaerung-grid { grid-template-columns:1fr; } }
+.erklaerung-text h3 { font-size:22px; font-weight:600; margin-bottom:var(--ae-s-4); letter-spacing:var(--ae-headline); }
+.erklaerung-text p { font-size:16px; line-height:1.65; color:rgba(34,33,32,0.72); margin-bottom:var(--ae-s-4); }
+.erklaerung-text p:last-child { margin-bottom:0; }
+.erklaerung-visual {
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--ae-r-md);
+  min-height:440px;
+}
+.erklaerung-visual img {
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  transform:scale(1.25);
+  transform-origin:center;
+}
+.bd-slider { position:absolute; inset:0; }
+.bd-slider img {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  transform:none; opacity:0; animation:bdfade 25s infinite;
+}
+.bd-slider img:nth-child(1){ animation-delay:0s; }
+.bd-slider img:nth-child(2){ animation-delay:5s; }
+.bd-slider img:nth-child(3){ animation-delay:10s; }
+.bd-slider img:nth-child(4){ animation-delay:15s; }
+.bd-slider img:nth-child(5){ animation-delay:20s; }
+@keyframes bdfade { 0%{opacity:0} 2%{opacity:1} 18%{opacity:1} 20%{opacity:0} 100%{opacity:0} }
+@media (prefers-reduced-motion:reduce){ .bd-slider img{ animation:none; } .bd-slider img:nth-child(1){ opacity:1; } }
+@media (max-width:900px) {
+  .erklaerung-visual { aspect-ratio:5/4; min-height:0; }
+}
+
+/* ═══════════════════════════════════════════════
+   PFLICHT-MATRIX (Tabelle)
+═══════════════════════════════════════════════ */
+.pflicht-section { background:var(--ae-grey-100); }
+.pflicht-table-wrap {
+  background:var(--ae-white);
+  border:1px solid rgba(34,33,32,0.08);
+  border-radius:var(--ae-r-lg);
+  overflow:hidden;
+  margin-top:var(--ae-s-6);
+}
+.pflicht-table {
+  width:100%; border-collapse:collapse; font-size:15px;
+}
+.pflicht-table th {
+  text-align:left; font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.1em;
+  color:var(--ae-grey-500);
+  padding:var(--ae-s-5) var(--ae-s-6);
+  background:rgba(34,33,32,0.02);
+  border-bottom:1px solid rgba(34,33,32,0.08);
+}
+.pflicht-table th:last-child { text-align:right; }
+.pflicht-table td {
+  padding:var(--ae-s-4) var(--ae-s-6);
+  border-top:1px solid rgba(34,33,32,0.06);
+  vertical-align:middle;
+}
+.pflicht-table td:first-child {
+  font-weight:500; color:var(--ae-near-black);
+}
+.pflicht-table td:last-child {
+  text-align:right; font-weight:600;
+  font-variant-numeric:tabular-nums;
+}
+.pflicht-status {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:12px; font-weight:600; letter-spacing:0.04em;
+  padding:5px 12px;
+  border-radius:var(--ae-r-pill);
+}
+.pflicht-status--pflicht {
+  background:rgba(255,99,77,0.10);
+  color:var(--ae-coral);
+  border:1px solid rgba(255,99,77,0.25);
+}
+.pflicht-status--optional {
+  background:rgba(34,33,32,0.06);
+  color:rgba(34,33,32,0.65);
+  border:1px solid rgba(34,33,32,0.10);
+}
+.pflicht-status::before {
+  content:''; width:6px; height:6px; border-radius:50%;
+  background:currentColor;
+}
+@media (max-width:720px) {
+  .pflicht-table { font-size:13px; }
+  .pflicht-table th, .pflicht-table td { padding:var(--ae-s-3); }
+}
+
+/* ═══════════════════════════════════════════════
+   PREISE — Festpreis-Tabelle (helle Section)
+═══════════════════════════════════════════════ */
+.preise-section { background:var(--ae-off-white); position:relative; }
+.preise-grid {
+  display:grid; grid-template-columns:1.1fr 1fr;
+  gap:var(--ae-s-7); align-items:stretch;
+  margin-top:var(--ae-s-6);
+}
+@media (max-width:900px) { .preise-grid { grid-template-columns:1fr; } .preise-card, .preise-inkl { min-width:0; } }
+@media (max-width:560px) { .preise-card .preise-table { table-layout:fixed; font-size:14px; } .preise-card .preise-table th, .preise-card .preise-table td { overflow-wrap:break-word; hyphens:auto; -webkit-hyphens:auto; } .preise-card .preise-table th:last-child, .preise-card .preise-table td:last-child { width:40%; white-space:normal; } }
+.preise-card {
+  background:var(--ae-white);
+  border:1px solid rgba(34,33,32,0.08);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-7);
+  display:flex; flex-direction:column;
+}
+.preise-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:10px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  color:var(--ae-coral);
+  padding:5px 12px;
+  border:1px solid var(--ae-coral);
+  border-radius:var(--ae-r-pill);
+  align-self:flex-start;
+  margin-bottom:var(--ae-s-5);
+}
+.preise-table {
+  width:100%; border-collapse:collapse; font-size:15px;
+  margin-bottom:var(--ae-s-5);
+}
+.preise-table th {
+  text-align:left; font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.1em;
+  color:var(--ae-grey-500);
+  padding:0 0 var(--ae-s-3) 0;
+  border-bottom:1px solid rgba(34,33,32,0.08);
+}
+.preise-table th:last-child { text-align:right; }
+.preise-table td {
+  padding:var(--ae-s-4) 0;
+  border-bottom:1px solid rgba(34,33,32,0.06);
+  color:var(--ae-near-black);
+}
+.preise-table td:last-child {
+  text-align:right; font-weight:600;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.preise-table tr:last-child td { border-bottom:none; }
+.preise-table tr.highlight-row td:last-child { color:var(--ae-coral); }
+.preise-card-cta { margin-top:auto; padding-top:var(--ae-s-5); }
+
+.preise-inkl {
+  background:var(--ae-near-black);
+  color:var(--ae-off-white);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-7);
+  display:flex; flex-direction:column;
+  position:relative; overflow:hidden;
+}
+.preise-inkl::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 70% 30%, rgba(205,241,93,0.10), transparent 55%);
+  pointer-events:none;
+}
+.preise-inkl > * { position:relative; z-index:1; }
+.preise-inkl-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:10px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  color:var(--ae-lime);
+  padding:5px 12px;
+  border:1px solid var(--ae-lime);
+  border-radius:var(--ae-r-pill);
+  align-self:flex-start;
+  margin-bottom:var(--ae-s-5);
+}
+.preise-inkl h3 {
+  font-size:20px; font-weight:600;
+  margin-bottom:var(--ae-s-5);
+  letter-spacing:var(--ae-headline);
+}
+.preise-inkl ul {
+  list-style:none; display:flex; flex-direction:column; gap:12px;
+  margin-bottom:var(--ae-s-5);
+}
+.preise-inkl ul li {
+  display:flex; align-items:flex-start; gap:12px;
+  font-size:14px; line-height:1.5;
+  color:rgba(252,250,245,0.85);
+}
+.preise-inkl ul li::before {
+  content:''; width:18px; height:18px;
+  border-radius:50%; background:var(--ae-lime);
+  flex-shrink:0; margin-top:2px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M3 8.5 L6.5 11.5 L13 5' stroke='%23222120' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-position:center; background-repeat:no-repeat;
+}
+.preise-inkl-note {
+  margin-top:auto;
+  padding-top:var(--ae-s-5);
+  border-top:1px dashed rgba(252,250,245,0.15);
+  font-size:13px; color:rgba(252,250,245,0.65);
+  line-height:1.55;
+}
+.preise-inkl-note strong { color:var(--ae-lime); }
+
+/* ═══════════════════════════════════════════════
+   ABLAUF — vertikale Linie wie Sanierungsfahrplan
+═══════════════════════════════════════════════ */
+.ablauf-section { background:var(--ae-off-white); }
+.usp-list {
+  margin:var(--ae-s-8) auto 0; max-width:720px;
+  position:relative; --num-col:100px; --usp-gap:var(--ae-s-6);
+}
+.usp-row {
+  display:grid; grid-template-columns:var(--num-col) 1fr;
+  gap:var(--usp-gap); padding:var(--ae-s-7) 0;
+  align-items:start; position:relative;
+}
+.usp-row:not(:last-child)::after {
+  content:""; position:absolute;
+  left:calc(var(--num-col) / 2);
+  top:calc(var(--ae-s-7) + clamp(44px,5.4vw,72px) + 12px); bottom:calc(-1 * (var(--ae-s-7) - 12px));
+  width:2px; transform:translateX(-50%);
+  background-color:rgba(255,99,77,0.25);
+  background-image:linear-gradient(var(--ae-coral),var(--ae-coral));
+  background-size:100% var(--seg-progress,0%);
+  background-repeat:no-repeat;
+  background-position:top;
+  border-radius:2px;
+  transition:background-size .1s linear;
+  pointer-events:none;
+}
+.usp-row.is-active .usp-num { text-align:center; opacity:0.9; transition:opacity .3s ease; }
+.usp-num {
+  font-size:clamp(44px,5.4vw,72px); font-weight:300;
+  color:var(--ae-near-black); line-height:0.95;
+  letter-spacing:-0.03em; opacity:0.2;
+  font-variant-numeric:tabular-nums;
+}
+.usp-body h3 {
+  font-size:clamp(22px,2.2vw,28px); font-weight:600;
+  margin:0 0 12px; letter-spacing:-0.02em; line-height:1.25;
+  display:flex; align-items:baseline; gap:12px;
+}
+.usp-body h3::before {
+  content:""; width:8px; height:8px; background:var(--ae-coral);
+  border-radius:50%; flex:none; transform:translateY(-2px);
+}
+.usp-body p { font-size:15px; line-height:1.6; color:rgba(34,33,32,0.72); }
+@media (max-width:720px) {
+  .usp-list { --num-col:48px; --usp-gap:var(--ae-s-4); }
+  .usp-row { padding:var(--ae-s-5) 0; }
+  .usp-row:not(:last-child)::after { top:calc(var(--ae-s-5) + 30px + 8px); bottom:calc(-1 * (var(--ae-s-5) - 8px)); }
+  .usp-num { font-size:30px; }
+  .usp-body h3 { font-size:19px; }
+}
+
+/* ═══════════════════════════════════════════════
+   LECKAGE-BEISPIELE (6 Karten)
+═══════════════════════════════════════════════ */
+.leckage-section { background:var(--ae-off-white); }
+.leckage-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:var(--ae-s-5); margin-top:var(--ae-s-7);
+}
+@media (max-width:980px) { .leckage-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:640px) { .leckage-grid { grid-template-columns:1fr; } }
+.leckage-card {
+  background:var(--ae-white);
+  border:1px solid rgba(34,33,32,0.08);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-6);
+  display:flex; flex-direction:column;
+  transition:transform .2s, border-color .2s, box-shadow .2s;
+}
+.leckage-card:hover {
+  transform:translateY(-3px);
+  border-color:rgba(34,33,32,0.16);
+  box-shadow:0 16px 36px -16px rgba(34,33,32,0.18);
+}
+.leckage-card-icon {
+  width:52px; height:52px;
+  border-radius:12px;
+  background:rgba(255,99,77,0.10);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:var(--ae-s-5);
+}
+.leckage-card-icon svg { width:26px; height:26px; stroke:var(--ae-coral); fill:none; stroke-width:1.7; }
+.leckage-card h3 {
+  font-size:17px; font-weight:600; line-height:1.25;
+  letter-spacing:var(--ae-headline);
+  margin-bottom:var(--ae-s-3);
+}
+.leckage-card p {
+  font-size:14px; line-height:1.6;
+  color:rgba(34,33,32,0.65);
+}
+
+/* ═══════════════════════════════════════════════
+   MESS-COCKPIT (DUNKLE SECTION) — Live-Werte
+═══════════════════════════════════════════════ */
+.cockpit-section {
+  background:var(--ae-near-black);
+  color:var(--ae-off-white);
+  position:relative; overflow:hidden;
+}
+.cockpit-section::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(252,250,245,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(252,250,245,0.025) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 70% 80% at 50% 40%,#000 10%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 70% 80% at 50% 40%,#000 10%,transparent 80%);
+  pointer-events:none;
+}
+.cockpit-section::after {
+  content:''; position:absolute; z-index:0; pointer-events:none;
+  width:600px; height:600px; right:-180px; top:-180px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(255,99,77,0.10) 0%, transparent 60%);
+  filter:blur(60px);
+}
+.cockpit-section > .wrap { position:relative; z-index:1; }
+.cockpit-section .section-head .ae-eyebrow { color:var(--ae-lime); }
+.cockpit-section .section-head h2 { color:var(--ae-off-white); }
+.cockpit-section .section-head p { color:rgba(252,250,245,0.75); }
+
+.cockpit-statusbar {
+  display:flex; flex-wrap:wrap;
+  gap:var(--ae-s-5);
+  padding:var(--ae-s-4) var(--ae-s-5);
+  margin:var(--ae-s-6) 0 var(--ae-s-6);
+  background:rgba(252,250,245,0.04);
+  border:1px solid rgba(252,250,245,0.10);
+  border-radius:var(--ae-r-md);
+  font-size:12px; font-weight:500;
+  color:rgba(252,250,245,0.65);
+}
+.cockpit-statusbar-item { display:inline-flex; align-items:center; gap:8px; }
+.cockpit-statusbar-item::before {
+  content:''; width:6px; height:6px; border-radius:50%;
+  background:var(--ae-lime);
+  box-shadow:0 0 6px rgba(205,241,93,0.6);
+}
+.cockpit-statusbar-item strong { color:var(--ae-off-white); font-weight:600; }
+.cockpit-statusbar-item .ts {
+  margin-left:auto; padding-left:var(--ae-s-4);
+  font-variant-numeric:tabular-nums;
+  opacity:0.4;
+}
+
+/* ─── Cockpit-Stage: Live-Display + Mess-Diagramm ─── */
+.cockpit-stage {
+  display:grid; grid-template-columns:1fr 1.5fr;
+  gap:var(--ae-s-4);
+}
+@media (max-width:980px) { .cockpit-stage { grid-template-columns:1fr; } }
+
+/* Live-Display (links) */
+.live-display {
+  background:rgba(252,250,245,0.04);
+  border:1px solid rgba(252,250,245,0.10);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-6);
+  display:flex; flex-direction:column;
+  position:relative;
+}
+.live-display-head {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:var(--ae-s-5);
+}
+.live-display-label {
+  font-size:10px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  color:rgba(252,250,245,0.55);
+  display:inline-flex; align-items:center; gap:8px;
+}
+.live-display-label::before {
+  content:''; width:6px; height:6px; border-radius:50%;
+  background:var(--ae-lime);
+  box-shadow:0 0 6px rgba(205,241,93,0.7);
+  animation:live-blink 1.4s ease-in-out infinite;
+}
+@keyframes live-blink {
+  0%,100% { opacity:1; box-shadow:0 0 6px rgba(205,241,93,0.7); }
+  50% { opacity:0.4; box-shadow:0 0 2px rgba(205,241,93,0.3); }
+}
+.live-display-status {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:10px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.1em;
+  color:var(--ae-lime);
+  padding:4px 10px;
+  background:rgba(205,241,93,0.10);
+  border:1px solid rgba(205,241,93,0.25);
+  border-radius:var(--ae-r-pill);
+}
+.live-display-status::before {
+  content:''; width:5px; height:5px; border-radius:50%;
+  background:var(--ae-lime);
+}
+
+/* Großer LED-Hauptwert */
+.live-display-main {
+  padding:var(--ae-s-6) 0 var(--ae-s-5);
+  text-align:center;
+  border-bottom:1px dashed rgba(252,250,245,0.12);
+  margin-bottom:var(--ae-s-5);
+}
+.live-display-value {
+  display:inline-flex; align-items:baseline; gap:8px;
+  font-family:var(--ae-font);
+  font-size:clamp(72px,9vw,108px);
+  font-weight:300; line-height:1.1;
+  color:var(--ae-lime);
+  letter-spacing:var(--ae-tight);
+  font-variant-numeric:tabular-nums;
+  text-shadow:0 0 24px rgba(205,241,93,0.35);
+  position:relative;
+}
+.live-display-value::after {
+  content:''; position:absolute;
+  right:-14px; bottom:8px;
+  width:6px; height:14px;
+  background:var(--ae-lime);
+  opacity:0.85;
+  animation:cursor-blink 1s steps(2) infinite;
+}
+@keyframes cursor-blink { 50% { opacity:0; } }
+.live-display-unit {
+  display:block;
+  font-size:12px; font-weight:500;
+  color:rgba(252,250,245,0.55);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  margin-top:16px;
+}
+.live-display-name {
+  display:block;
+  font-size:15px; font-weight:600;
+  color:var(--ae-off-white);
+  margin-top:var(--ae-s-3);
+  letter-spacing:var(--ae-headline);
+}
+.live-display-soll {
+  display:block;
+  font-size:11px; color:rgba(252,250,245,0.55);
+  margin-top:4px;
+  font-variant-numeric:tabular-nums;
+}
+
+/* Sekundäre Werte */
+.live-display-secondary {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:var(--ae-s-3);
+  margin-bottom:var(--ae-s-5);
+}
+.live-display-sec-item {
+  text-align:center;
+  padding:var(--ae-s-3) 0;
+}
+.live-display-sec-label {
+  display:block;
+  font-size:9px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  color:rgba(252,250,245,0.45);
+  margin-bottom:6px;
+}
+.live-display-sec-value {
+  display:block;
+  font-size:18px; font-weight:600;
+  color:var(--ae-off-white);
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-0.01em;
+}
+.live-display-sec-unit {
+  font-size:11px; font-weight:400;
+  color:rgba(252,250,245,0.55);
+  margin-left:3px;
+}
+
+.live-display-norm {
+  margin-top:auto;
+  padding-top:var(--ae-s-4);
+  border-top:1px dashed rgba(252,250,245,0.12);
+  font-size:11px; color:rgba(252,250,245,0.55);
+  font-weight:500; letter-spacing:0.02em;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.live-display-norm strong { color:rgba(252,250,245,0.85); font-weight:600; }
+
+/* Mess-Diagramm (rechts) */
+.chart-card {
+  background:rgba(252,250,245,0.04);
+  border:1px solid rgba(252,250,245,0.10);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-6);
+  display:flex; flex-direction:column;
+  position:relative;
+}
+.chart-card-head {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:var(--ae-s-5);
+}
+.chart-card-title {
+  font-size:13px; font-weight:600;
+  color:var(--ae-off-white);
+  letter-spacing:var(--ae-headline);
+}
+.chart-card-sub {
+  font-size:10px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  color:rgba(252,250,245,0.45);
+}
+
+.chart-wrap {
+  position:relative;
+  flex:1;
+  min-height:240px;
+}
+.chart-svg {
+  width:100%; height:100%;
+  display:block;
+  overflow:visible;
+}
+.chart-grid-line { stroke:rgba(252,250,245,0.06); stroke-width:1; }
+.chart-axis-line { stroke:rgba(252,250,245,0.18); stroke-width:1; }
+.chart-axis-label {
+  fill:rgba(252,250,245,0.45);
+  font-family:var(--ae-font);
+  font-size:9px;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+.chart-axis-num {
+  fill:rgba(252,250,245,0.55);
+  font-family:var(--ae-font);
+  font-size:10px;
+  font-weight:500;
+  font-variant-numeric:tabular-nums;
+}
+.chart-curve {
+  fill:none;
+  stroke:var(--ae-lime);
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  filter:drop-shadow(0 0 6px rgba(205,241,93,0.4));
+  stroke-dasharray:1000;
+  stroke-dashoffset:1000;
+  transition:stroke-dashoffset 1.8s cubic-bezier(.22,1,.36,1);
+}
+.cockpit-section.is-visible .chart-curve { stroke-dashoffset:0; }
+.chart-area {
+  fill:url(#chart-area-gradient);
+  opacity:0;
+  transition:opacity 1s ease 1s;
+}
+.cockpit-section.is-visible .chart-area { opacity:1; }
+.chart-point {
+  fill:var(--ae-lime);
+  stroke:var(--ae-near-black);
+  stroke-width:2;
+  opacity:0;
+  transform-origin:center;
+  filter:drop-shadow(0 0 4px rgba(205,241,93,0.6));
+  transition:opacity .35s ease, transform .35s ease;
+}
+.cockpit-section.is-visible .chart-point { opacity:1; }
+.cockpit-section.is-visible .chart-point:nth-child(1) { transition-delay:0.30s; }
+.cockpit-section.is-visible .chart-point:nth-child(2) { transition-delay:0.55s; }
+.cockpit-section.is-visible .chart-point:nth-child(3) { transition-delay:0.80s; }
+.cockpit-section.is-visible .chart-point:nth-child(4) { transition-delay:1.05s; }
+.cockpit-section.is-visible .chart-point:nth-child(5) { transition-delay:1.30s; }
+.cockpit-section.is-visible .chart-point:nth-child(6) { transition-delay:1.55s; }
+.chart-point-target {
+  fill:none;
+  stroke:var(--ae-coral);
+  stroke-width:1.2;
+  stroke-dasharray:3 3;
+  opacity:0.7;
+}
+
+.chart-legend {
+  display:flex; flex-wrap:wrap;
+  gap:var(--ae-s-5);
+  margin-top:var(--ae-s-4);
+  padding-top:var(--ae-s-4);
+  border-top:1px dashed rgba(252,250,245,0.12);
+  font-size:11px;
+  color:rgba(252,250,245,0.6);
+}
+.chart-legend-item { display:inline-flex; align-items:center; gap:8px; }
+.chart-legend-dot {
+  width:10px; height:10px; border-radius:50%;
+  background:var(--ae-lime);
+  box-shadow:0 0 6px rgba(205,241,93,0.5);
+}
+.chart-legend-target {
+  width:14px; height:0;
+  border-top:1.4px dashed var(--ae-coral);
+}
+.chart-legend strong { color:var(--ae-off-white); font-weight:600; margin-right:4px; }
+
+.cockpit-cta {
+  margin-top:var(--ae-s-7);
+  padding:var(--ae-s-6);
+  background:rgba(252,250,245,0.04);
+  border:1px solid rgba(252,250,245,0.10);
+  border-radius:var(--ae-r-lg);
+  display:flex; align-items:center; justify-content:space-between;
+  gap:var(--ae-s-5); flex-wrap:wrap;
+}
+.cockpit-cta-text { flex:1; min-width:240px; }
+.cockpit-cta-text h3 {
+  font-size:20px; font-weight:600;
+  margin-bottom:6px; letter-spacing:var(--ae-headline);
+  color:var(--ae-off-white);
+}
+.cockpit-cta-text p {
+  font-size:14px; line-height:1.55;
+  color:rgba(252,250,245,0.65);
+}
+
+/* ── Cockpit-Docs: Leckageprotokoll + Bilddokumentation ─── */
+.cockpit-docs-intro {
+  margin-top:var(--ae-s-6);
+  display:flex; align-items:center; gap:var(--ae-s-4); flex-wrap:wrap;
+  padding:var(--ae-s-4) var(--ae-s-5);
+  background:rgba(205,241,93,0.07);
+  border:1px solid rgba(205,241,93,0.22);
+  border-radius:var(--ae-r-md);
+}
+.cockpit-docs-badge {
+  flex:none; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em;
+  color:var(--ae-near-black); background:var(--ae-lime);
+  padding:5px 12px; border-radius:var(--ae-r-pill);
+}
+.cockpit-docs-intro p { flex:1; min-width:240px; margin:0; font-size:14px; line-height:1.55; color:rgba(252,250,245,0.8); }
+.cockpit-docs-intro strong { color:var(--ae-off-white); font-weight:600; }
+.cockpit-docs { margin-top:var(--ae-s-4); display:grid; grid-template-columns:1fr 1fr; gap:var(--ae-s-4); }
+@media (max-width:860px) { .cockpit-docs { grid-template-columns:1fr; } }
+.doc-card {
+  background:rgba(252,250,245,0.04);
+  border:1px solid rgba(252,250,245,0.10);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-6);
+  display:flex; flex-direction:column;
+  transition:border-color .25s;
+}
+.doc-card:hover { border-color:rgba(205,241,93,0.25); }
+.doc-card-head { display:flex; align-items:center; gap:var(--ae-s-3); margin-bottom:var(--ae-s-5); }
+.doc-card-icon {
+  width:42px; height:42px; flex:none; border-radius:var(--ae-r-sm);
+  background:rgba(205,241,93,0.10); border:1px solid rgba(205,241,93,0.22);
+  display:flex; align-items:center; justify-content:center;
+}
+.doc-card-icon svg { width:22px; height:22px; fill:none; stroke:var(--ae-lime); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.doc-card-head h3 { font-size:18px; font-weight:600; letter-spacing:var(--ae-headline); color:var(--ae-off-white); }
+.doc-list { list-style:none; display:flex; flex-direction:column; gap:var(--ae-s-3); margin:0; padding:0; }
+.doc-list li { position:relative; padding-left:28px; font-size:14px; line-height:1.5; color:rgba(252,250,245,0.78); }
+.doc-list li::before {
+  content:'✓'; position:absolute; left:0; top:1px;
+  width:18px; height:18px; border-radius:50%;
+  background:rgba(205,241,93,0.15); color:var(--ae-lime);
+  font-size:11px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+}
+.doc-shots { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--ae-s-3); }
+.doc-shot { margin:0; }
+.doc-shot-img {
+  aspect-ratio:4/3; border-radius:var(--ae-r-sm); position:relative; overflow:hidden;
+  border:1px solid rgba(252,250,245,0.12);
+}
+.doc-shot-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.doc-shot-tag {
+  position:absolute; top:6px; left:6px; z-index:1;
+  font-size:8px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ae-off-white); background:rgba(34,33,32,0.55); padding:2px 6px; border-radius:4px;
+}
+.doc-shot figcaption { margin-top:8px; font-size:11px; line-height:1.35; color:rgba(252,250,245,0.62); }
+.doc-shots-note { margin-top:var(--ae-s-4); font-size:12px; line-height:1.5; color:rgba(252,250,245,0.5); }
+
+/* ── Section 02: Wann nötig — Process-Tabs (wie Homepage) ─── */
+.process { margin-top:var(--ae-s-7); }
+.process-tabs { position:relative; display:grid; grid-template-columns:repeat(2,1fr); gap:var(--ae-s-3); padding-bottom:var(--ae-s-4); border-bottom:1px solid var(--ae-grey-300); }
+.process-tab { position:relative; display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto auto; column-gap:var(--ae-s-4); row-gap:2px; padding:var(--ae-s-4) var(--ae-s-5); background:transparent; border:1px solid var(--ae-grey-300); border-radius:var(--ae-r-md); color:var(--ae-near-black); font-family:inherit; text-align:left; cursor:pointer; transition:background .25s, border-color .25s, color .25s, transform .25s; }
+.process-tab .num { grid-row:1 / 3; align-self:center; display:flex; align-items:center; justify-content:center; width:40px; height:40px; color:var(--ae-grey-500); transition:color .25s; }
+.process-tab .num svg { width:28px; height:28px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.process-tab .label { font-size:15px; font-weight:600; line-height:1.2; letter-spacing:-0.01em; }
+.process-tab .dur { font-size:11px; font-weight:500; color:var(--ae-grey-500); text-transform:uppercase; letter-spacing:0.08em; transition:color .25s; }
+.process-tab:hover:not(.active) { border-color:var(--ae-near-black); transform:translateY(-2px); }
+.process-tab.active { background:var(--ae-near-black); border-color:var(--ae-near-black); color:var(--ae-off-white); }
+.process-tab.active .num { color:var(--ae-coral); }
+.process-tab.active .dur { color:rgba(252,250,245,0.6); }
+.process-tab:focus-visible { outline:2px solid var(--ae-coral); outline-offset:3px; }
+.process-progress { position:absolute; bottom:-1px; left:0; height:2px; width:50%; background:rgba(255,99,77,0.18); transform:translateX(0); transition:transform .45s cubic-bezier(0.22,0.61,0.36,1); pointer-events:none; overflow:hidden; }
+.process-progress-fill { display:block; height:100%; width:100%; background:var(--ae-coral); transform-origin:left center; }
+.process-panels { position:relative; margin-top:var(--ae-s-7); background:var(--ae-white); border:1px solid var(--ae-grey-300); border-radius:var(--ae-r-lg); padding:var(--ae-s-8); overflow:hidden; }
+.process-panels::before { content:""; position:absolute; top:-80px; right:-80px; width:360px; height:360px; background:radial-gradient(circle, rgba(255,99,77,0.08) 0%, transparent 65%); pointer-events:none; }
+.process-panel { display:none; position:relative; }
+.process-panel.active { display:block; animation:panelIn .45s cubic-bezier(0.22,0.61,0.36,1); }
+@keyframes panelIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+.panel-head { display:grid; grid-template-columns:auto 1fr; gap:var(--ae-s-6); align-items:start; margin-bottom:var(--ae-s-6); padding-bottom:var(--ae-s-6); border-bottom:1px solid var(--ae-grey-300); }
+.panel-head .big-num { display:flex; align-items:center; justify-content:center; width:clamp(80px,9vw,104px); height:clamp(80px,9vw,104px); border-radius:var(--ae-r-md); background:rgba(255,99,77,0.08); color:var(--ae-coral); flex-shrink:0; }
+.panel-head .big-num svg { width:60%; height:60%; stroke:currentColor; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.panel-head h3 { font-size:clamp(22px,2.2vw,28px); font-weight:600; letter-spacing:var(--ae-headline); margin-bottom:var(--ae-s-3); }
+.panel-head p { font-size:16px; line-height:1.55; color:#444; max-width:60ch; }
+.check-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:12px var(--ae-s-7); }
+.check-list li { position:relative; padding-left:32px; font-size:15px; line-height:1.5; }
+.check-list li::before { content:""; position:absolute; left:0; top:2px; width:20px; height:20px; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='10' r='10' fill='%23CDF15D'/><path d='M5.8 10.2 L8.8 13 L14.3 7.2' stroke='%23222120' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>"); background-size:100%; background-repeat:no-repeat; }
+@media (prefers-reduced-motion: reduce) { .process-progress { transition:none; } .process-panel.active { animation:none; } }
+@media (max-width:760px) {
+  .process-panels { padding:var(--ae-s-6); }
+  .panel-head { grid-template-columns:1fr; gap:var(--ae-s-3); }
+  .panel-head .big-num { width:64px; height:64px; }
+  .check-list { grid-template-columns:1fr; }
+}
+@media (max-width:560px) { .process-tabs { grid-template-columns:1fr; } .process-progress { display:none; } }
+
+/* ── Grenzwerte-Section ─── */
+.grenzwerte-section { background:var(--ae-grey-100); }
+.gw-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--ae-s-4); margin-top:var(--ae-s-7); text-align:left; }
+@media (max-width:900px) { .gw-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px) { .gw-grid { grid-template-columns:1fr; } }
+.gw-card { background:var(--ae-white); border:1px solid rgba(34,33,32,0.08); border-radius:var(--ae-r-lg); padding:var(--ae-s-6); display:flex; flex-direction:column; }
+.gw-card-cat { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--ae-coral); }
+.gw-card-name { font-size:16px; font-weight:600; margin:6px 0 var(--ae-s-4); letter-spacing:var(--ae-headline); }
+.gw-card-value { font-size:clamp(30px,3.2vw,40px); font-weight:700; letter-spacing:var(--ae-tight); line-height:1; font-variant-numeric:tabular-nums; }
+.gw-card-unit { font-size:13px; color:var(--ae-grey-500); margin-top:8px; }
+.gw-card-note { font-size:12px; line-height:1.45; color:rgba(34,33,32,0.55); margin-top:auto; padding-top:var(--ae-s-4); }
+.gw-foot { margin-top:var(--ae-s-5); font-size:13px; color:rgba(34,33,32,0.6); text-align:center; }
+
+/* ── Vorteile luftdichte Hülle ─── */
+.vorteile-luft-section { background:var(--ae-off-white); }
+.vt-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--ae-s-5); margin-top:var(--ae-s-7); text-align:left; }
+@media (max-width:900px) { .vt-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px) { .vt-grid { grid-template-columns:1fr; } }
+.vt-card { background:var(--ae-white); border:1px solid rgba(34,33,32,0.08); border-radius:var(--ae-r-lg); padding:var(--ae-s-6); transition:border-color .2s, transform .2s, box-shadow .2s; }
+.vt-card:hover { border-color:rgba(34,33,32,0.16); transform:translateY(-2px); box-shadow:0 12px 32px -14px rgba(34,33,32,0.14); }
+.vt-card-icon { width:48px; height:48px; border-radius:var(--ae-r-sm); background:rgba(255,99,77,0.10); display:flex; align-items:center; justify-content:center; margin-bottom:var(--ae-s-4); }
+.vt-card-icon svg { width:24px; height:24px; fill:none; stroke:var(--ae-coral); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.vt-card h3 { font-size:18px; font-weight:600; margin-bottom:var(--ae-s-3); letter-spacing:var(--ae-headline); }
+.vt-card p { font-size:14px; line-height:1.6; color:rgba(34,33,32,0.65); }
+.bd-subhead { font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--ae-coral); margin:var(--ae-s-7) 0 0; }
+.bd-subhead + .vt-grid, .bd-subhead + .leckage-grid { margin-top:var(--ae-s-5); }
+
+/* ── Luftdichte Hülle: zweispaltig (Warum | Wo) ─── */
+.lh-cols { display:grid; grid-template-columns:1fr 1fr; gap:var(--ae-s-5); margin-top:var(--ae-s-7); text-align:left; }
+@media (max-width:820px) { .lh-cols { grid-template-columns:1fr; } }
+.lh-col { background:var(--ae-white); border:1px solid rgba(34,33,32,0.08); border-radius:var(--ae-r-lg); padding:var(--ae-s-6); }
+.lh-col-title { display:flex; align-items:center; gap:var(--ae-s-3); font-size:18px; font-weight:600; letter-spacing:var(--ae-headline); margin-bottom:var(--ae-s-5); padding-bottom:var(--ae-s-4); border-bottom:1px solid rgba(34,33,32,0.08); }
+.lh-col-title svg { flex:none; width:20px; height:20px; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.lh-list { list-style:none; display:flex; flex-direction:column; gap:var(--ae-s-4); margin:0; padding:0; }
+.lh-list li { display:flex; gap:var(--ae-s-3); align-items:flex-start; }
+.lh-ic { flex:none; width:34px; height:34px; border-radius:var(--ae-r-sm); display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.lh-ic svg { width:18px; height:18px; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.lh-txt b { display:block; font-size:15px; font-weight:600; color:var(--ae-near-black); letter-spacing:var(--ae-headline); margin-bottom:2px; }
+.lh-txt p { font-size:13px; line-height:1.5; color:rgba(34,33,32,0.6); margin:0; }
+.lh-col--pro .lh-col-title svg { stroke:#056C7F; }
+.lh-col--pro .lh-ic { background:rgba(5,108,127,0.10); }
+.lh-col--pro .lh-ic svg { stroke:#056C7F; }
+.lh-col--con .lh-col-title svg { stroke:var(--ae-coral); }
+.lh-col--con .lh-ic { background:rgba(255,99,77,0.10); }
+.lh-col--con .lh-ic svg { stroke:var(--ae-coral); }
+
+/* ═══════════════════════════════════════════════
+   VORBEREITUNGS-CHECKLISTE
+═══════════════════════════════════════════════ */
+.vorbereitung-section { background:var(--ae-off-white); }
+.vorbereitung-grid {
+  display:grid; grid-template-columns:1.1fr 1fr;
+  gap:var(--ae-s-8); align-items:start;
+}
+@media (max-width:900px) { .vorbereitung-grid { grid-template-columns:1fr; } }
+.checkliste-list {
+  background:var(--ae-white);
+  border:1px solid rgba(34,33,32,0.08);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-3) var(--ae-s-6);
+}
+.checkliste-list {
+  position:relative;
+  transition:box-shadow .5s ease, border-color .5s ease, background-color .5s ease;
+}
+.checkliste-list.is-complete {
+  border-color:rgba(205,241,93,0.55);
+  background:linear-gradient(180deg, rgba(205,241,93,0.06), var(--ae-white) 30%);
+  box-shadow:
+    0 0 0 1px rgba(205,241,93,0.2),
+    0 16px 48px -16px rgba(205,241,93,0.30);
+}
+.checkliste-progress {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:var(--ae-s-3);
+  padding:var(--ae-s-4) 0;
+  border-bottom:1px solid rgba(34,33,32,0.08);
+  margin-bottom:var(--ae-s-2);
+  position:relative;
+}
+.checkliste-list.is-complete .checkliste-progress {
+  border-bottom-color:rgba(205,241,93,0.4);
+}
+.checkliste-list.is-complete .checkliste-progress-label { display:none; }
+.checkliste-list.is-complete .checkliste-progress-count { display:none; }
+.checkliste-complete-banner {
+  display:none;
+  flex:1;
+  align-items:center; justify-content:space-between;
+  gap:var(--ae-s-3);
+}
+.checkliste-list.is-complete .checkliste-complete-banner { display:flex; }
+.checkliste-list.is-complete .checkliste-progress-bar { display:none; }
+.checkliste-complete-badge {
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:14px; font-weight:600;
+  color:var(--ae-near-black);
+  letter-spacing:var(--ae-headline);
+  animation:complete-pop .55s cubic-bezier(.34, 1.56, .64, 1) both;
+}
+.checkliste-complete-badge svg {
+  width:22px; height:22px;
+  padding:4px; border-radius:50%;
+  background:var(--ae-lime);
+  box-shadow:0 0 0 0 rgba(205,241,93,0.6);
+  animation:complete-glow 2s ease-in-out infinite;
+}
+.checkliste-complete-cta {
+  font-size:13px; font-weight:600;
+  color:var(--ae-coral);
+  text-decoration:none;
+  display:inline-flex; align-items:center; gap:4px;
+  transition:gap .2s;
+}
+.checkliste-complete-cta:hover { gap:8px; }
+@keyframes complete-pop {
+  0% { transform:translateY(8px); opacity:0; }
+  100% { transform:translateY(0); opacity:1; }
+}
+@keyframes complete-glow {
+  0%,100% { box-shadow:0 0 0 0 rgba(205,241,93,0.5); }
+  50% { box-shadow:0 0 0 10px rgba(205,241,93,0); }
+}
+
+/* Confetti-Burst — kurze Lime-/Coral-Punkte schießen vom Progress-Bereich */
+.checkliste-confetti {
+  position:absolute;
+  pointer-events:none;
+  inset:0;
+  overflow:visible;
+}
+.checkliste-confetti span {
+  position:absolute;
+  top:50%; left:50%;
+  width:8px; height:8px;
+  border-radius:50%;
+  opacity:0;
+  --dx:0px; --dy:0px;
+  --c:var(--ae-lime);
+  background:var(--c);
+  transform:translate(-50%,-50%);
+}
+.checkliste-list.is-complete .checkliste-confetti span {
+  animation:confetti-burst 1s cubic-bezier(.22,1,.36,1) forwards;
+}
+.checkliste-confetti span:nth-child(1) { --dx:-90px; --dy:-30px; --c:#FF634D; animation-delay:0s; }
+.checkliste-confetti span:nth-child(2) { --dx:-50px; --dy:-50px; --c:#CDF15D; animation-delay:0.05s; }
+.checkliste-confetti span:nth-child(3) { --dx:-20px; --dy:-60px; --c:#FF634D; animation-delay:0.1s; }
+.checkliste-confetti span:nth-child(4) { --dx:30px; --dy:-55px; --c:#CDF15D; animation-delay:0.05s; }
+.checkliste-confetti span:nth-child(5) { --dx:70px; --dy:-35px; --c:#FF634D; animation-delay:0.1s; }
+.checkliste-confetti span:nth-child(6) { --dx:100px; --dy:-15px; --c:#CDF15D; animation-delay:0.15s; }
+.checkliste-confetti span:nth-child(7) { --dx:-110px; --dy:10px; --c:#CDF15D; animation-delay:0.1s; }
+.checkliste-confetti span:nth-child(8) { --dx:110px; --dy:20px; --c:#FF634D; animation-delay:0.05s; }
+@keyframes confetti-burst {
+  0% { opacity:0; transform:translate(-50%,-50%) scale(0); }
+  20% { opacity:1; }
+  100% { opacity:0; transform:translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .checkliste-confetti span,
+  .checkliste-complete-badge,
+  .checkliste-complete-badge svg { animation:none; }
+}
+
+.checkliste-progress-label {
+  font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.12em;
+  color:var(--ae-grey-500);
+}
+.checkliste-progress-count {
+  font-size:13px; font-weight:600;
+  color:var(--ae-near-black);
+  font-variant-numeric:tabular-nums;
+}
+.checkliste-progress-count strong { color:var(--ae-coral); margin-right:2px; }
+.checkliste-progress-bar {
+  flex:1;
+  height:4px; border-radius:2px;
+  background:rgba(34,33,32,0.08);
+  overflow:hidden;
+  position:relative;
+  max-width:160px;
+}
+.checkliste-progress-bar::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(90deg, var(--ae-coral), var(--ae-lime));
+  border-radius:2px;
+  transform:translateX(calc(-100% + var(--p, 0%)));
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.checkliste-row {
+  display:grid; grid-template-columns:auto 1fr;
+  gap:var(--ae-s-4); align-items:flex-start;
+  padding:var(--ae-s-4) 0;
+  border-bottom:1px solid rgba(34,33,32,0.06);
+  cursor:pointer;
+  user-select:none;
+  transition:background-color .15s ease;
+  margin:0 calc(-1 * var(--ae-s-4));
+  padding-left:var(--ae-s-4); padding-right:var(--ae-s-4);
+  border-radius:8px;
+}
+.checkliste-row:last-of-type { border-bottom:none; }
+.checkliste-row:hover { background:rgba(255,99,77,0.04); }
+.checkliste-row:hover .checkliste-check { border-color:rgba(255,99,77,0.45); }
+.checkliste-input {
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+  width:0; height:0;
+}
+.checkliste-check {
+  width:24px; height:24px; border-radius:50%;
+  background:transparent;
+  border:1.5px solid rgba(34,33,32,0.20);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+  transition:background-color .25s ease, border-color .25s ease, transform .25s ease;
+}
+.checkliste-check svg {
+  width:14px; height:14px;
+  stroke:var(--ae-near-black); stroke-width:3;
+  opacity:0;
+  transform:scale(0.4);
+  transition:opacity .2s ease .05s, transform .25s cubic-bezier(.34, 1.56, .64, 1) .05s;
+}
+.checkliste-input:checked ~ .checkliste-check {
+  background:var(--ae-lime);
+  border-color:var(--ae-lime);
+}
+.checkliste-input:checked ~ .checkliste-check svg {
+  opacity:1;
+  transform:scale(1);
+}
+.checkliste-input:checked ~ .checkliste-text .checkliste-label {
+  text-decoration:line-through;
+  text-decoration-color:rgba(34,33,32,0.35);
+  color:rgba(34,33,32,0.45);
+}
+.checkliste-input:checked ~ .checkliste-text .checkliste-note {
+  color:rgba(34,33,32,0.35);
+}
+.checkliste-input:focus-visible ~ .checkliste-check {
+  outline:2px solid var(--ae-coral);
+  outline-offset:3px;
+}
+.checkliste-text {
+  display:flex; flex-direction:column; gap:3px;
+  transition:opacity .25s ease;
+}
+.checkliste-label {
+  font-size:15px; font-weight:500; color:var(--ae-near-black); line-height:1.3;
+  transition:color .25s ease, text-decoration-color .25s ease;
+}
+.checkliste-note {
+  font-size:13px; color:rgba(34,33,32,0.55); line-height:1.45;
+  transition:color .25s ease;
+}
+
+/* ═══════════════════════════════════════════════
+   ÜBER UNS — Hero-Style Layout (wie Bauphysik)
+═══════════════════════════════════════════════ */
+.ueber-section {
+  background:var(--ae-off-white);
+  position:relative; overflow:hidden;
+}
+.ueber-grid {
+  display:grid; grid-template-columns:1.2fr 1fr;
+  gap:var(--ae-s-8);
+  align-items:center;
+}
+@media (max-width:980px) {
+  .ueber-grid { grid-template-columns:1fr; gap:var(--ae-s-8); }
+}
+.ueber-content { max-width:600px; }
+.ueber-eyebrow { display:block; color:var(--ae-coral); margin-bottom:var(--ae-s-3); }
+.ueber-headline { margin:0 0 var(--ae-s-5); }
+.ueber-lead {
+  font-size:18px; line-height:1.6;
+  color:#444;
+  margin-bottom:var(--ae-s-6);
+  max-width:54ch;
+}
+.ueber-lead em {
+  font-style:normal;
+  background:linear-gradient(120deg, transparent 0%, transparent 8%, rgba(205,241,93,0.45) 8%, rgba(205,241,93,0.45) 92%, transparent 92%);
+  padding:0 4px;
+  font-weight:600;
+  color:var(--ae-near-black);
+}
+.ueber-cta-group { display:flex; gap:var(--ae-s-3); margin-bottom:var(--ae-s-6); flex-wrap:wrap; }
+.ueber-quals {
+  display:flex; flex-wrap:wrap;
+  gap:var(--ae-s-4) var(--ae-s-5);
+  padding-top:var(--ae-s-5);
+  border-top:1px solid var(--ae-grey-300);
+}
+.ueber-qual {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13px; font-weight:500;
+  color:var(--ae-grey-500);
+}
+.ueber-qual svg { width:18px; height:18px; color:var(--ae-coral); flex-shrink:0; }
+.ueber-aside { display:flex; justify-content:center; position:relative; }
+.ueber-aside .founder-card {
+  position:relative; max-width:440px; width:100%;
+  padding:var(--ae-s-6) 0 var(--ae-s-4);
+}
+.ueber-aside .founder-visual {
+  position:relative;
+  width:100%; max-width:420px;
+  aspect-ratio:1/1;
+  margin:0 auto;
+  z-index:1;
+}
+.ueber-aside .founder-dots-stack {
+  position:absolute;
+  left:50%; top:50%;
+  transform:translate(-50%,-50%);
+  display:flex; flex-direction:column;
+  align-items:center; gap:14px;
+  z-index:0;
+  pointer-events:none;
+}
+.ueber-aside .founder-dots-stack span {
+  display:block; width:150px; height:150px;
+  border-radius:50%; background:var(--ae-coral);
+}
+.ueber-aside .founder-dots-stack span:nth-child(1) { opacity:0.35; }
+.ueber-aside .founder-dots-stack span:nth-child(2) { opacity:0.62; }
+.ueber-aside .founder-dots-stack span:nth-child(3) { opacity:0.9; }
+.ueber-aside .founder-portrait {
+  position:relative;
+  width:100%; height:auto; z-index:1;
+  filter:drop-shadow(0 24px 28px rgba(34,33,32,0.22));
+  object-fit:contain; object-position:center bottom;
+}
+.ueber-aside .founder-plaque {
+  position:relative;
+  max-width:380px;
+  margin:-30px auto 0;
+  background:var(--ae-near-black);
+  color:var(--ae-off-white);
+  padding:var(--ae-s-3) 95px var(--ae-s-3) var(--ae-s-4);
+  border-radius:var(--ae-r-sm);
+  display:flex; align-items:center; gap:var(--ae-s-4);
+  z-index:2;
+  box-shadow:0 14px 32px -12px rgba(34,33,32,0.45);
+}
+.ueber-aside .founder-plaque::before {
+  content:''; width:3px; align-self:stretch;
+  background:var(--ae-coral); border-radius:2px; flex:none;
+}
+.ueber-aside .founder-name { font-size:17px; font-weight:600; letter-spacing:var(--ae-headline); line-height:1.2; }
+.ueber-aside .founder-title { font-size:12px; font-weight:400; opacity:0.7; margin-top:3px; }
+.ueber-aside .brand-badge {
+  position:absolute; right:-44px; top:50%;
+  transform:translateY(-50%);
+  width:140px; height:140px; z-index:3;
+  filter:drop-shadow(0 14px 32px rgba(34,33,32,0.28));
+  pointer-events:none;
+}
+.ueber-aside .brand-badge-ring {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  animation:ueber-badge-spin 24s linear infinite;
+  transform-origin:center;
+}
+.ueber-aside .brand-badge-mark {
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--ae-font);
+  font-size:58px; font-weight:600;
+  color:var(--ae-off-white);
+  letter-spacing:-0.06em; line-height:1; padding-bottom:4px;
+}
+@keyframes ueber-badge-spin { to { transform:rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .ueber-aside .brand-badge-ring { animation:none; } }
+@media (max-width:720px) {
+  .ueber-aside .brand-badge { width:110px; height:110px; right:-20px; }
+}
+
+/* ═══════════════════════════════════════════════
+   STATS
+═══════════════════════════════════════════════ */
+.stats {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:var(--ae-s-6); text-align:center; padding-top:var(--ae-s-6);
+}
+@media (max-width:900px) { .stats { grid-template-columns:repeat(2,1fr); row-gap:var(--ae-s-8); } }
+.stat { display:flex; flex-direction:column; align-items:center; gap:var(--ae-s-3); }
+.stat .num {
+  font-size:clamp(64px,7vw,96px); font-weight:500; line-height:0.9;
+  letter-spacing:var(--ae-tight); color:var(--ae-near-black);
+  display:flex; align-items:baseline; justify-content:center;
+}
+.stat .num .unit { color:var(--ae-coral); font-weight:500; font-size:0.5em; align-self:flex-start; margin-top:0.4em; margin-left:2px; }
+.stat .label {
+  font-size:13px; color:var(--ae-grey-500);
+  text-transform:uppercase; letter-spacing:0.08em; font-weight:600;
+}
+
+/* ═══════════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════════ */
+.faq { max-width:860px; margin:0 auto; }
+.faq details { border-bottom:1px solid var(--ae-grey-300); padding:var(--ae-s-5) 0; }
+.faq details[open] summary { color:var(--ae-coral); }
+.faq summary {
+  cursor:pointer; list-style:none;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:var(--ae-s-4);
+  font-size:18px; font-weight:600;
+  letter-spacing:var(--ae-headline);
+  padding:var(--ae-s-3) 0;
+}
+.faq summary::-webkit-details-marker { display:none; }
+.faq summary::after { content:'+'; font-size:24px; font-weight:400; transition:transform .25s ease; flex:none; }
+.faq details[open] summary::after { transform:rotate(45deg); }
+.faq details p { margin-top:var(--ae-s-4); font-size:15px; line-height:1.65; color:#444; max-width:70ch; }
+.faq details[open] p { animation:faq-open .3s ease-out; }
+@keyframes faq-open { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .faq details[open] p { animation:none; } }
+
+/* ═══════════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════════ */
+.cta-section {
+  padding:var(--ae-s-8) 0 0;
+  position:relative;
+  margin-bottom:-140px;
+  background:var(--ae-grey-100);
+}
+.final-cta {
+  background:var(--ae-coral);
+  color:var(--ae-near-black);
+  border-radius:var(--ae-r-lg);
+  padding:var(--ae-s-9) var(--ae-s-8);
+  position:relative; overflow:hidden;
+  z-index:2;
+  box-shadow:0 30px 80px -20px rgba(34,33,32,0.45);
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:var(--ae-s-8);
+  align-items:center;
+}
+.final-cta::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(34,33,32,0.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,33,32,0.045) 1px,transparent 1px),
+    linear-gradient(rgba(34,33,32,0.10) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,33,32,0.10) 1px,transparent 1px);
+  background-size:16px 16px,16px 16px,96px 96px,96px 96px;
+  mask-image:radial-gradient(ellipse at center,black 30%,transparent 72%);
+  -webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 72%);
+  pointer-events:none;
+}
+.final-cta > * { position:relative; }
+.cta-portrait {
+  display:flex; flex-direction:column;
+  align-items:center; gap:var(--ae-s-4);
+}
+.cta-portrait-frame {
+  width:100%;
+  border-radius:var(--ae-r-md);
+  overflow:hidden;
+  background:var(--ae-near-black);
+  border:4px solid var(--ae-near-black);
+  box-shadow:0 16px 40px -12px rgba(34,33,32,0.45);
+}
+.cta-portrait-frame img {
+  width:100%; height:auto;
+  display:block;
+}
+.cta-sign { text-align:center; display:grid; gap:2px; }
+.cta-sign-name { font-size:15px; font-weight:600; letter-spacing:var(--ae-headline); }
+.cta-sign-title { font-size:12px; opacity:0.75; }
+.cta-content .ae-eyebrow { opacity:0.8; margin-bottom:var(--ae-s-3); }
+.cta-content h2 { max-width:20ch; margin-bottom:var(--ae-s-4); }
+.cta-content p {
+  max-width:56ch;
+  font-size:17px; line-height:1.55;
+  margin-bottom:var(--ae-s-6);
+}
+.cta-content .btn-group { margin-bottom:var(--ae-s-6); }
+.cta-trust {
+  list-style:none;
+  display:flex; flex-wrap:wrap;
+  gap:var(--ae-s-5);
+  font-size:13px;
+  border-top:1px solid rgba(34,33,32,0.2);
+  padding-top:var(--ae-s-4);
+}
+.cta-trust li { padding-left:22px; position:relative; font-weight:500; }
+.cta-trust li::before {
+  content:''; position:absolute; left:0; top:3px;
+  width:14px; height:14px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7.5 L5.8 10 L11 4.5' stroke='%23222120' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-size:100%; background-repeat:no-repeat;
+}
+@media (max-width:860px) {
+  .final-cta {
+    grid-template-columns:1fr; text-align:center;
+    padding:var(--ae-s-8) var(--ae-s-6); gap:var(--ae-s-6);
+  }
+  .cta-content h2, .cta-content p { margin-left:auto; margin-right:auto; }
+  .cta-content .btn-group { justify-content:center; }
+  .cta-trust { justify-content:center; }
+  .cta-section { margin-bottom:-100px; }
+}
+
+/* ═══════════════════════════════════════════════
+   FOOTER (mit Claim + Office Card)
+═══════════════════════════════════════════════ */
+footer.site-footer {
+  position:relative; overflow:hidden; isolation:isolate;
+  background:var(--ae-near-black); color:var(--ae-off-white);
+  padding-top:calc(var(--ae-s-9) + 60px);
+}
+.site-footer::before {
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(252,250,245,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(252,250,245,0.03) 1px,transparent 1px),
+    linear-gradient(rgba(252,250,245,0.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(252,250,245,0.07) 1px,transparent 1px);
+  background-size:16px 16px,16px 16px,96px 96px,96px 96px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 0%, black 0%, transparent 75%);
+          mask-image:radial-gradient(ellipse at 50% 0%, black 0%, transparent 75%);
+}
+.site-footer::after {
+  content:""; position:absolute; z-index:0; pointer-events:none;
+  width:620px; height:620px; left:-180px; top:-180px; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,99,77,0.12) 0%, transparent 65%);
+  filter:blur(60px);
+}
+.site-footer .wrap { position:relative; z-index:1; }
+.footer-claim {
+  padding:var(--ae-s-9) 0 var(--ae-s-7);
+  display:grid; grid-template-columns:1.35fr 1fr;
+  gap:var(--ae-s-8); align-items:end;
+  border-bottom:1px solid rgba(252,250,245,0.1);
+}
+.footer-claim .eyebrow {
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em;
+  color:rgba(252,250,245,0.65); margin-bottom:var(--ae-s-5);
+}
+.footer-claim .eyebrow::before {
+  content:""; width:8px; height:8px; border-radius:50%;
+  background:var(--ae-lime);
+  box-shadow:0 0 0 0 rgba(205,241,93,0.45);
+  animation:ae-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ae-pulse { 0%,100% { box-shadow:0 0 0 0 rgba(205,241,93,0.45); } 50% { box-shadow:0 0 0 10px rgba(205,241,93,0); } }
+.footer-claim h2 { font-size:clamp(36px,4.8vw,68px); font-weight:600; line-height:1.02; letter-spacing:var(--ae-tight); color:var(--ae-off-white); max-width:14ch; }
+.footer-claim h2 em { font-style:italic; font-weight:500; color:var(--ae-coral); }
+.footer-claim .lead { margin-top:var(--ae-s-5); font-size:16px; line-height:1.6; color:rgba(252,250,245,0.65); max-width:48ch; }
+.office-card {
+  background:rgba(252,250,245,0.04); border:1px solid rgba(252,250,245,0.12);
+  border-radius:var(--ae-r-md); padding:var(--ae-s-6); backdrop-filter:blur(6px);
+}
+.office-card .status {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 12px; border-radius:var(--ae-r-pill);
+  background:rgba(205,241,93,0.12); color:var(--ae-lime);
+  font-size:12px; font-weight:500; margin-bottom:var(--ae-s-5);
+}
+.office-card .status::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--ae-lime); box-shadow:0 0 8px rgba(205,241,93,0.6); }
+.office-card dl { display:grid; grid-template-columns:76px 1fr; gap:12px var(--ae-s-4); font-size:14px; line-height:1.45; }
+.office-card dt { color:rgba(252,250,245,0.5); font-weight:400; }
+.office-card dd { color:var(--ae-off-white); }
+.office-card dd a { text-decoration:none; color:inherit; border-bottom:1px solid transparent; transition:border-color .2s, color .2s; }
+.office-card dd a:hover { color:var(--ae-lime); border-color:var(--ae-lime); }
+.office-card .response {
+  margin-top:var(--ae-s-5); padding-top:var(--ae-s-4);
+  border-top:1px solid rgba(252,250,245,0.1);
+  font-size:13px; color:rgba(252,250,245,0.7);
+  display:flex; align-items:center; gap:10px;
+}
+.office-card .response strong { color:var(--ae-off-white); font-weight:600; }
+.office-card .response svg { width:16px; height:16px; color:var(--ae-lime); flex-shrink:0; }
+.footer-inner {
+  padding:var(--ae-s-8) 0 var(--ae-s-7);
+  display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:var(--ae-s-7);
+}
+.footer-inner .brand .logo img { width:100%; max-width:210px; height:auto; margin-bottom:var(--ae-s-4); }
+.footer-inner .brand p { font-size:14px; color:rgba(252,250,245,0.6); line-height:1.6; max-width:34ch; }
+.site-footer h4 { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; margin-bottom:var(--ae-s-4); color:rgba(252,250,245,0.5); }
+.site-footer ul { list-style:none; display:grid; gap:10px; }
+.site-footer li a { font-size:14px; color:rgba(252,250,245,0.88); text-decoration:none; transition:color .2s; }
+.site-footer li a:hover { color:var(--ae-lime); }
+.cert-strip {
+  display:grid; grid-template-columns:auto 1fr; gap:var(--ae-s-6);
+  align-items:center;
+  padding:var(--ae-s-5) 0;
+  border-top:1px solid rgba(252,250,245,0.1);
+  border-bottom:1px solid rgba(252,250,245,0.1);
+}
+.cert-strip .label {
+  font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em;
+  color:rgba(252,250,245,0.5);
+  max-width:12ch; line-height:1.3;
+}
+.cert-strip ul { list-style:none; display:flex; flex-wrap:wrap; gap:var(--ae-s-3); }
+.cert-strip li {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px;
+  border:1px solid rgba(252,250,245,0.14);
+  border-radius:var(--ae-r-sm);
+  background:rgba(252,250,245,0.02);
+  font-size:13px; color:var(--ae-off-white);
+  transition:border-color .2s, background .2s, transform .2s;
+}
+.cert-strip li:hover {
+  border-color:rgba(205,241,93,0.35);
+  background:rgba(252,250,245,0.05);
+  transform:translateY(-1px);
+}
+.cert-strip li svg { width:14px; height:14px; color:var(--ae-lime); flex-shrink:0; }
+.footer-bottom {
+  padding:var(--ae-s-5) 0;
+  display:flex; justify-content:space-between; flex-wrap:wrap; align-items:center;
+  font-size:12px; color:rgba(252,250,245,0.5);
+}
+@media (max-width:900px) {
+  .footer-claim { grid-template-columns:1fr; gap:var(--ae-s-7); align-items:start; }
+  .footer-inner { grid-template-columns:1fr 1fr; gap:var(--ae-s-6); }
+}
+@media (max-width:560px) { .footer-inner { grid-template-columns:1fr; } }
+
+/* ===== MOBILE NAV (Hamburger) — added in mobile-optimization pass ===== */
+.ae-burger{ display:none; }
+.ae-mobile-menu{
+  position:fixed; inset:0; z-index:1000; background:#FCFAF5;
+  padding:92px 28px 40px; display:flex; flex-direction:column; overflow-y:auto;
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity .25s ease, transform .25s ease, visibility .25s;
+}
+.ae-mobile-menu.is-open{ opacity:1; visibility:visible; transform:none; }
+.ae-mm-inner{ display:flex; flex-direction:column; gap:2px; max-width:420px; margin:0 auto; width:100%; }
+.ae-mm-label{ font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#FF634D; margin-bottom:8px; }
+.ae-mobile-menu a{ font-size:22px; font-weight:600; color:#222120; text-decoration:none;
+  padding:13px 2px; border-bottom:1px solid rgba(34,33,32,0.08); letter-spacing:-0.02em; }
+.ae-mobile-menu a.is-current{ color:#FF634D; }
+.ae-mm-divider{ height:16px; }
+.ae-mobile-menu a.ae-mm-cta{ margin-top:24px; background:#FF634D; color:#222120; text-align:center;
+  border:none; border-radius:999px; padding:16px; font-size:16px; }
+.ae-mobile-menu a.ae-mm-phone{ text-align:center; border:none; color:#222120; opacity:0.7;
+  font-size:16px; font-weight:500; padding-top:16px; }
+body.ae-menu-open{ overflow:hidden; }
+@media (max-width:900px){
+  .ae-burger{ display:flex; flex-direction:column; justify-content:center; gap:5px;
+    position:fixed; top:14px; right:16px; z-index:1001; width:46px; height:46px; padding:11px;
+    border:none; border-radius:12px; background:#FCFAF5; box-shadow:0 4px 16px rgba(34,33,32,0.16); cursor:pointer; }
+  .ae-burger span{ display:block; height:2px; width:100%; background:#222120; border-radius:2px;
+    transition:transform .25s ease, opacity .2s ease; }
+  .ae-burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .ae-burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .ae-burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  /* hide desktop header nav + cta/phone on mobile (menu replaces them) */
+  .site-header .nav > ul, .header .header-inner nav, .nav > ul{ display:none !important; }
+  .nav .phone, .nav .nav-cta, .site-header .btn.nav-cta, .header-right{ display:none !important; }
+}
+</style>
+<style id="dropdown-nav-style">
+  @font-face {
+    font-family: 'Volte';
+    src: url('https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/fonts/Volte-MediumItalic.woff2') format('woff2'),
+         url('https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/fonts/Volte-MediumItalic.woff') format('woff');
+    font-weight: 500; font-style: italic; font-display: swap;
+  }
+
+  /* === Unified menu typography across all page styles === */
+  header.header nav .nav > li > a,
+  header.header nav .nav .nav-dropdown > button,
+  .site-header .nav > ul > li > a,
+  .site-header .nav-dropdown > button {
+    font-family: 'Volte', system-ui, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+    color: #222120 !important;
+    line-height: 1.4 !important;
+  }
+
+  /* === Unified header padding & height === */
+  header.site-header, header.header { padding: 0 !important; }
+  .site-header .nav, .header .header-inner {
+    min-height: 84px !important;
+    padding-top: 14px !important; padding-bottom: 14px !important;
+  }
+
+  /* === Unified logo size === */
+  .site-header .nav .logo img,
+  .header .logo-mark svg,
+  .header .logo-link .logo-mark svg {
+    height: 44px !important;
+    width: auto !important;
+  }
+
+  /* === Unified phone + CTA size === */
+  .site-header .nav .phone,
+  .header .header-phone {
+    font-size: 15px !important; font-weight: 500 !important;
+  }
+  .site-header .btn.nav-cta,
+  .header .btn-primary {
+    font-family: 'Volte', system-ui, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0 !important;
+    padding: 10px 16px !important;
+    min-width: 210px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    box-sizing: border-box !important;
+    border-radius: 100px !important;
+    text-align: center !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #FF634D !important;
+    color: #222120 !important;
+    text-decoration: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: background .15s ease, transform .15s ease !important;
+  }
+  .site-header .btn.nav-cta:hover,
+  .header .btn-primary:hover {
+    background: #ed553f !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* === Nav gap unification === */
+  .site-header .nav > ul, .header .header-inner .nav { gap: 30px !important; }
+
+  /* === Logo-link wrapper styles (editorial pages) === */
+  .header .logo-link { display: inline-flex; text-decoration: none; }
+  .header .logo-link:hover { opacity: 0.85; }
+
+  /* === Dropdown === */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > button {
+    background: none; border: 0; cursor: pointer;
+    padding: 0; display: inline-flex; align-items: center; gap: 6px; line-height: inherit;
+  }
+  .nav-dropdown > button::after {
+    content: ''; width: 7px; height: 7px;
+    border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor;
+    transform: rotate(45deg); margin-top: -3px; transition: transform .2s ease;
+  }
+  .nav-dropdown:hover > button::after,
+  .nav-dropdown:focus-within > button::after { transform: rotate(225deg); margin-top: 1px; }
+  .nav-dropdown::before {
+    content: ''; position: absolute; top: 100%; left: -10px; right: -10px;
+    height: 18px; pointer-events: none;
+  }
+  .nav-dropdown:hover::before,
+  .nav-dropdown:focus-within::before { pointer-events: auto; }
+  ul.nav-dropdown-menu {
+    position: absolute; top: calc(100% + 14px); left: 50%;
+    transform: translate(-50%, -6px); min-width: 260px;
+    background: #FCFAF5; border: 1px solid rgba(34,33,32,0.08);
+    border-radius: 14px; padding: 8px;
+    box-shadow: 0 16px 40px rgba(34,33,32,0.10);
+    list-style: none; margin: 0; display: block;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease, visibility .18s;
+    z-index: 100;
+  }
+  .nav-dropdown:hover ul.nav-dropdown-menu,
+  .nav-dropdown:focus-within ul.nav-dropdown-menu {
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+  ul.nav-dropdown-menu li { padding: 0; margin: 0; list-style: none; display: block; }
+  ul.nav-dropdown-menu a {
+    display: block; padding: 11px 16px; border-radius: 9px;
+    text-decoration: none; color: #222120; white-space: nowrap;
+    font-family: 'Volte', system-ui, sans-serif !important;
+    font-size: 15px !important; font-weight: 500 !important;
+    letter-spacing: 0 !important;
+  }
+  ul.nav-dropdown-menu a::after { display: none !important; content: none !important; }
+  ul.nav-dropdown-menu a:hover,
+  ul.nav-dropdown-menu a:focus-visible { background: rgba(255,99,77,0.08); color: #FF634D; outline: none; }
+  ul.nav-dropdown-menu a[aria-current="page"] { background: rgba(255,99,77,0.10); color: #FF634D; font-weight: 600 !important; }
+
+  /* === Active-page indicator: dot beside the link === */
+  .site-header nav ul > li > a[aria-current="page"],
+  header.header nav .nav > li > a[aria-current="page"] {
+    color: #FF634D !important; position: relative;
+  }
+  .site-header nav ul > li > a[aria-current="page"]::after,
+  header.header nav .nav > li > a[aria-current="page"]::after {
+    content: ''; display: inline-block;
+    width: 6px; height: 6px;
+    background: #FF634D; border-radius: 50%;
+    margin-left: 7px; vertical-align: middle;
+    position: static;
+  }
+  .site-header nav ul > li > a[aria-current="page"]::before,
+  header.header nav .nav > li > a[aria-current="page"]::before {
+    content: none !important;
+  }
+  .nav-dropdown > button[aria-current="true"] { color: #FF634D !important; }
+
+  @media (max-width: 900px) { .nav-dropdown { display: none; } }
+  /* === Icon-Box hover state (unified across pages) === */
+  .ae-card:hover .svg-icon,
+  .leistung-card:hover .leistung-card-icon,
+  .leckage-card:hover .leckage-card-icon,
+  .ebene-card:hover .ebene-card-icon,
+  .isfp-value-card:hover .isfp-value-icon,
+  .value-card:hover .value-icon {
+    background: #FF634D !important;
+  }
+  .ae-card:hover .svg-icon svg,
+  .leistung-card:hover .leistung-card-icon svg,
+  .leckage-card:hover .leckage-card-icon svg,
+  .ebene-card:hover .ebene-card-icon svg,
+  .isfp-value-card:hover .isfp-value-icon svg,
+  .value-card:hover .value-icon svg {
+    stroke: #FCFAF5 !important;
+    color: #FCFAF5 !important;
+  }
+  /* Override homepage homepage-specific stroke-color rule on hover */
+  .ae-card:hover .svg-icon svg [stroke="#FF634D"],
+  .ae-card:hover .svg-icon svg [stroke="currentColor"] { stroke: #FCFAF5 !important; }
+  .ae-card:hover .svg-icon svg [fill="#FF634D"] { fill: #FCFAF5 !important; }
+  /* === Mega-Menu === */
+  .nav-dropdown-panel,
+  .nav-dropdown .nav-mega-panel {
+    position: absolute; top: calc(100% + 14px);
+    left: 50%; transform: translate(-50%, -6px);
+    min-width: 720px; max-width: 760px;
+    background: #FCFAF5;
+    border: 1px solid rgba(34,33,32,0.06);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 24px 60px -16px rgba(34,33,32,0.18), 0 4px 12px -4px rgba(34,33,32,0.06);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity .22s ease, transform .22s ease, visibility .22s;
+    z-index: 100;
+  }
+  .nav-dropdown:hover .nav-mega-panel,
+  .nav-dropdown:focus-within .nav-mega-panel {
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+  ul.nav-mega-grid {
+    list-style: none !important; margin: 0 !important; padding: 0 !important;
+    display: grid !important; grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    margin-bottom: 14px !important;
+    flex-direction: unset !important;
+  }
+  .nav-mega-grid li { list-style: none; display: block; padding: 0; margin: 0; }
+  .nav-mega-item {
+    display: grid !important;
+    grid-template-columns: 48px 1fr !important;
+    gap: 14px !important; align-items: center !important;
+    padding: 14px 14px !important;
+    border-radius: 12px;
+    text-decoration: none !important;
+    white-space: normal !important;
+    background: transparent;
+    transition: background .15s ease;
+    color: #222120 !important;
+  }
+  .nav-mega-item::after { display: none !important; content: none !important; }
+  .nav-mega-item:hover,
+  .nav-mega-item:focus-visible { background: rgba(255,99,77,0.06) !important; outline: none; }
+  .nav-mega-item[aria-current="page"] { background: rgba(255,99,77,0.10) !important; }
+  .nav-mega-icon {
+    width: 48px; height: 48px;
+    background: rgba(255,99,77,0.10);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background .18s ease;
+  }
+  .nav-mega-icon svg {
+    width: 24px; height: 24px;
+    stroke: #FF634D !important; fill: none;
+    transition: stroke .18s ease;
+  }
+  .nav-mega-item:hover .nav-mega-icon { background: #FF634D; }
+  .nav-mega-item:hover .nav-mega-icon svg { stroke: #FCFAF5 !important; }
+  .nav-mega-item[aria-current="page"] .nav-mega-icon { background: #FF634D; }
+  .nav-mega-item[aria-current="page"] .nav-mega-icon svg { stroke: #FCFAF5 !important; }
+  .nav-mega-content {
+    display: flex !important; flex-direction: column !important;
+    gap: 2px;
+    min-width: 0;
+  }
+  .nav-mega-title {
+    font-family: 'Volte', system-ui, sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #222120 !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.005em !important;
+  }
+  .nav-mega-item[aria-current="page"] .nav-mega-title,
+  .nav-mega-item:hover .nav-mega-title { color: #FF634D !important; }
+  .nav-mega-sub {
+    font-family: 'Volte', system-ui, sans-serif !important;
+    font-size: 12.5px !important;
+    font-weight: 400 !important;
+    color: rgba(34,33,32,0.6) !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0 !important;
+  }
+
+  /* Mega Footer (Featured CTA) */
+  .nav-mega-footer {
+    display: flex !important; align-items: center !important; justify-content: space-between !important;
+    gap: 16px;
+    padding: 16px 18px !important;
+    border-radius: 14px;
+    background:
+      linear-gradient(135deg, rgba(255,99,77,0.08) 0%, rgba(205,241,93,0.08) 100%),
+      #FCFAF5;
+    text-decoration: none !important;
+    color: #222120 !important;
+    border: 1px solid rgba(34,33,32,0.06);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .nav-mega-footer::after { display: none !important; content: none !important; }
+  .nav-mega-footer:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px -8px rgba(34,33,32,0.14);
+  }
+  .nav-mega-footer-text { display: flex; flex-direction: column; gap: 2px; }
+  .nav-mega-footer-text strong {
+    font-family: 'Volte', system-ui, sans-serif !important;
+    font-size: 14px !important; font-weight: 600 !important;
+    color: #222120 !important;
+    letter-spacing: -0.005em !important;
+  }
+  .nav-mega-footer-text span {
+    font-size: 12.5px !important; font-weight: 400 !important;
+    color: rgba(34,33,32,0.6) !important;
+  }
+  .nav-mega-footer-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #FF634D; color: #FCFAF5 !important;
+    font-family: 'Volte', system-ui, sans-serif !important;
+    font-size: 13px !important; font-weight: 600 !important;
+    letter-spacing: 0 !important;
+    padding: 10px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+    transition: background .15s ease;
+  }
+  .nav-mega-footer:hover .nav-mega-footer-cta { background: #ed553f; }
+  .nav-mega-footer-cta svg { width: 14px; height: 14px; stroke: currentColor; }
+
+  @media (max-width: 900px) {
+    .nav-dropdown { display: none; }
+  }
+  /* Hide debug screendesign annotations (editorial pages) */
+  .design-note { display: none !important; }
+
+  /* Solid header background (no transparency glitches over dark sections) */
+  header.header { background: #FCFAF5 !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  header.site-header { background: #FCFAF5; }
+  /* === Unified container + phone (no SVG icon) === */
+  .site-header .nav,
+  header.header > .container {
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    padding-left: 24px !important; padding-right: 24px !important;
+    box-sizing: border-box !important;
+  }
+  header.header .header-inner {
+    padding-left: 0 !important; padding-right: 0 !important;
+  }
+  /* Hide the phone SVG-icon on editorial pages */
+  .header .header-phone svg { display: none !important; }
+  /* Webdesign credit (footer) */
+  .webdesign-credit {
+    font-size: 11px;
+    color: rgba(252,250,245,0.4) !important;
+    text-decoration: none !important;
+    letter-spacing: 0.04em;
+    transition: color .2s ease;
+  }
+  .webdesign-credit:hover {
+    color: rgba(252,250,245,0.8) !important;
+  }
+
+
+
+
+
+
+/* ===== MOBILE NAV: hide desktop header CTA/phone/nav (override, must be last) ===== */
+@media (max-width:900px){
+  .site-header .nav .phone, .site-header .nav .nav-cta, .site-header .btn.nav-cta,
+  .header .header-right, .header-right, .header .header-phone, .header .btn-primary,
+  .header .header-inner nav, .site-header .nav > ul, .nav > ul { display:none !important; }
+}
+
+/* ===== MOBILE: no horizontal scroll + long-word wrapping (safeguard) ===== */
+html{ overflow-x:clip; }
+h1,h2,h3,.ae-h1,.ae-h2,.ae-h3,.hero h1,.isfp-headline-line{ overflow-wrap:break-word; }
+
+@media (max-width:960px){ .hero-grid > *, .hero-content{ min-width:0; } }
+
+/* ===== Ostend Digital On-Page SEO-Credit (blends with adjacent sections) ===== */
+.ostend-seo-strip{ background:#F3F1EC; padding:26px 24px; }
+.ostend-seo-strip p{ max-width:1000px; margin:0 auto; text-align:center; font-size:12.5px; line-height:1.55; color:rgba(34,33,32,0.45); }
+.ostend-seo-strip a{ color:rgba(34,33,32,0.62); text-decoration:none; border-bottom:1px solid rgba(34,33,32,0.22); }
+.ostend-seo-strip a:hover{ color:#FF634D; border-bottom-color:#FF634D; }
+
+/* center step numbers under the connector line */
+.usp-row > .usp-num{ text-align:center; }
+
+/* Final CTA: Mobile overflow-fix (unbreakable &nbsp;-Phrasen + grid 1fr min-content) */
+@media (max-width:860px) {
+  .final-cta > * { min-width:0; }
+  .cta-content { min-width:0; }
+  .cta-content h2, .cta-content p { overflow-wrap:anywhere; word-break:break-word; max-width:100%; }
+}
+@media (max-width:560px) {
+  .final-cta { padding:var(--ae-s-7) var(--ae-s-5); }
+  .cta-content .btn-group { flex-direction:column; align-items:stretch; gap:var(--ae-s-3); }
+  .cta-content .btn-group .btn { width:100%; text-align:center; justify-content:center; }
+  .cta-trust { gap:var(--ae-s-3); justify-content:flex-start; }
+}
+</style>
+<!-- ===== MOBILE NAV (Hamburger) ===== -->
+<button class="ae-burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="ae-mobile-menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="ae-mobile-menu" id="ae-mobile-menu">
+  <nav class="ae-mm-inner" aria-label="Mobile Navigation">
+    <span class="ae-mm-label">Leistungen</span>
+    <a href="/sanierungsfahrplan/" data-slug="sanierungsfahrplan">Sanierungsfahrplan</a>
+    <a href="/bauphysik/" data-slug="bauphysik">Bauphysik &amp; Nachweise</a>
+    <a href="/blower-door/" class="is-current" data-slug="blower-door">Blower Door Test</a>
+    <a href="/foerderberatung/" data-slug="foerderberatung">Förderberatung</a>
+    <span class="ae-mm-divider"></span>
+    <a href="/ueber-uns/" data-slug="ueber-uns">Über uns</a>
+    <a href="/karriere/" data-slug="karriere">Karriere</a>
+    <a href="/kontakt/" data-slug="kontakt">Kontakt</a>
+    <a class="ae-mm-cta" href="/kontakt/">Kostenloses Erstgespräch</a>
+    <a class="ae-mm-phone" href="tel:+491755697551">0175 569 75 51</a>
+  </nav>
+</div>
+
+
+<!-- ═════════════════════ HEADER ═════════════════════ -->
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="logo" aria-label="aumann eco — Startseite">
+      <img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/logos/aumanneco_Wortbildmarke-rot.svg" alt="aumann eco">
+    </a>
+    <ul>
+      <li class="nav-dropdown">
+        <button type="button" class="nav-link" aria-current="true" aria-haspopup="menu" aria-expanded="false">Leistungen</button>
+        <div class="nav-mega-panel" role="menu">
+          <ul class="nav-mega-grid">
+            <li role="none"><a class="nav-mega-item" role="menuitem" href="/sanierungsfahrplan/">
+              <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-4 4 4 7-7"/><path d="M14 6h6v6"/><path d="M3 21h18"/></svg></span>
+              <span class="nav-mega-content">
+                <span class="nav-mega-title">Sanierungsfahrplan</span>
+                <span class="nav-mega-sub">iSFP nach BAFA · bis 50&nbsp;% Förderung</span>
+              </span>
+            </a></li>
+            <li role="none"><a class="nav-mega-item" role="menuitem" href="/bauphysik/">
+              <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="17" x2="13" y2="17"/></svg></span>
+              <span class="nav-mega-content">
+                <span class="nav-mega-title">Bauphysik &amp; Nachweise</span>
+                <span class="nav-mega-sub">GEG · Wärme- &amp; Schallschutz</span>
+              </span>
+            </a></li>
+            <li role="none"><a class="nav-mega-item" role="menuitem" href="/blower-door/" aria-current="page">
+              <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h11a3 3 0 100-6 3 3 0 00-3 3"/><path d="M3 14h17a3 3 0 110 6 3 3 0 01-3-3"/><path d="M3 11h13"/></svg></span>
+              <span class="nav-mega-content">
+                <span class="nav-mega-title">Blower Door Test</span>
+                <span class="nav-mega-sub">Luftdichtheit nach DIN&nbsp;EN&nbsp;ISO&nbsp;9972</span>
+              </span>
+            </a></li>
+            <li role="none"><a class="nav-mega-item" role="menuitem" href="/foerderberatung/">
+              <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8h6"/><path d="M8 11h7a3 3 0 010 6h-3.5"/><path d="M11.5 8v9"/></svg></span>
+              <span class="nav-mega-content">
+                <span class="nav-mega-title">Förderberatung</span>
+                <span class="nav-mega-sub">KfW · BAFA</span>
+              </span>
+            </a></li>
+          </ul>
+          <a class="nav-mega-footer" href="/kontakt/">
+            <span class="nav-mega-footer-text">
+              <strong>Unsicher, was Sie brauchen?</strong>
+              <span>Kostenloses Erstgespräch — 15&nbsp;Min</span>
+            </span>
+            <span class="nav-mega-footer-cta">
+              Erstgespräch buchen
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+            </span>
+          </a>
+        </div>
+      </li>
+      <li><a href="/ueber-uns/">Über uns</a></li>
+      <li><a href="/karriere/">Karriere</a></li>
+      <li><a href="/kontakt/">Kontakt</a></li>
+    </ul>
+    <div style="display:flex; align-items:center;">
+      <a href="tel:+491755697551" class="phone">0175 569 75 51</a>
+      <a href="/kontakt/" class="btn btn--primary nav-cta">Kostenloses Erstgespräch</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ═════════════════════ HERO ═════════════════════ -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="ae-eyebrow">
+        <span class="hero-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+        Luft&shy;dichtheits&shy;messung · KfW-konform
+      </div>
+      <h1 class="ae-h1">Blower Door Test —<br>Luftdichtheit messen,<br>Förderung sichern.</h1>
+      <p class="ae-lead">
+        Mit dem Differenzdruck-Verfahren prüfen wir die Luftdichtheit Ihres Gebäudes nach DIN&nbsp;EN&nbsp;ISO&nbsp;9972 — anerkannt bei KfW, GEG und BEG, inklusive Leckageortung und Messprotokoll innerhalb von 5&nbsp;Werktagen. Blower Door Test in Köln, im Rheinland und bundesweit.
+      </p>
+      <div class="btn-group">
+        <a href="/kontakt/" class="btn btn--primary">Festpreis anfragen →</a>
+        <a href="#kosten" class="btn btn--outline">Preise ansehen</a>
+      </div>
+      <div class="hero-meta">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-10 8-14a8 8 0 0 0-16 0c0 4 8 14 8 14z"/><circle cx="12" cy="10" r="3"/></svg>
+          FLiB e.V. Mitglied
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Festpreis-Garantie
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Zertifizierter Messdienstleister
+        </span>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <video class="hero-loop" autoplay muted loop playsinline aria-label="Animation: Drei Markenpunkte formen eine Tür mit Lüfter — Blower Door Mess-Setup">
+        <source src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/media/blower-door-hero-loop.webm" type="video/webm">
+        <source src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/media/blower-door-hero-source.mp4" type="video/mp4">
+      </video>
+      <img decoding="async" class="hero-still" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/media/blower-door-hero-anim.webp" width="960" height="960" alt="" aria-hidden="true" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ LOGO SLIDER ═════════════════════ -->
+<div class="logo-slider">
+  <div class="slider-label">Zertifiziert &amp; gelistet bei</div>
+  <div class="logo-slider-inner">
+    <div class="logo-track">
+      <div class="logo-item ikbau"><img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/partners/logo-ikbau.webp" alt="Ingenieurkammer-Bau NRW"></div>
+      <div class="logo-item"><img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/partners/logo-eee.webp" alt="Energieeffizienz-Experte"></div>
+      <div class="logo-item flib"><img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/partners/logo-flib.webp" alt="FLiB e.V."></div>
+      <div class="logo-item"><img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/partners/logo-dgnb.webp" alt="DGNB Mitglied"></div>
+      <div class="logo-item"><img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/partners/logo-gih.webp" alt="GIH Mitglied"></div>
+      <div class="logo-item ikbau"><img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/partners/logo-ikbau.webp" alt="" aria-hidden="true"></div>
+      <div class="logo-item"><img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/partners/logo-eee.webp" alt="" aria-hidden="true"></div>
+      <div class="logo-item flib"><img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/partners/logo-flib.webp" alt="" aria-hidden="true"></div>
+      <div class="logo-item"><img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/partners/logo-dgnb.webp" alt="" aria-hidden="true"></div>
+      <div class="logo-item"><img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/partners/logo-gih.webp" alt="" aria-hidden="true"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════ ERKLÄRUNG ═════════════════════ -->
+<section class="erklaerung-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="ae-eyebrow">01 · So funktioniert&#8217;s</span>
+      <h2 class="ae-h2">Wie funktioniert eine<br>Luftdichtheitsmessung?</h2>
+      <p>Eine normgerechte Messung mittels Differenzdruck-Verfahren — in der Praxis erklärt.</p>
+    </div>
+
+    <div class="erklaerung-grid">
+      <div class="erklaerung-text">
+        <h3>Blower Door Test mit Leckageortung statt Bauchgefühl.</h3>
+        <p>Wir setzen kalibrierte Messlüfter ein, die in eine geeignete Außentür eingesetzt werden, und erzeugen damit <strong>Unter- und Überdruck</strong> im Gebäude. Der Prüfdruck von <strong>50&nbsp;Pa</strong> entspricht einem starken Winddruck auf die Gebäudehülle — so können Einströmungen durch Undichtheiten einfach und schnell lokalisiert werden.</p>
+        <p>Das Messsystem erfasst, wie viel Luft nachströmen muss, um den Prüfdruck zu halten. Aus diesem Volumenstrom und dem Gebäudevolumen wird der <strong>n50-Wert</strong> berechnet — die Luftwechselrate bei 50&nbsp;Pa.</p>
+        <p>Während der Messung können <a href="/bauphysik/" class="inline-link">Leckagen</a> mittels Hitzedrahtanemometer, Thermografiekamera oder Kunstnebel lokalisiert werden, zum Beispiel an Fensteranschlüssen oder Bauteilfugen. Sie erhalten einen Prüfbericht mit Messprotokoll, n50-Wert und Fotodokumentation der Leckagen mit Hinweisen zur Nachbesserung.</p>
+      </div>
+      <div class="erklaerung-visual">
+        <div class="bd-slider">
+          <img decoding="async" src="https://aumann-eco.de/wp-content/uploads/2026/06/bd-slide1.jpg" alt="Blower-Door-Messung: roter Messrahmen mit Gebläse in der Tür" width="1100" height="733" loading="lazy">
+          <img decoding="async" src="https://aumann-eco.de/wp-content/uploads/2026/06/bd-slide2.jpg" alt="Thermografie und Leckageortung während der Blower-Door-Messung" width="1100" height="733" loading="lazy">
+          <img decoding="async" src="https://aumann-eco.de/wp-content/uploads/2026/06/bd-slide3.jpg" alt="Aufbau der Messtechnik beim Blower Door Test vor Ort" width="1100" height="733" loading="lazy">
+          <img decoding="async" src="https://aumann-eco.de/wp-content/uploads/2026/06/ae-JOT01162.jpg" alt="Blower-Door-Messung an der Gebäudehülle" width="1600" height="1067" loading="lazy">
+          <img decoding="async" src="https://aumann-eco.de/wp-content/uploads/2026/06/ae-JOT01249.jpg" alt="Luftdichtheitsmessung mit Messtechnik vor Ort" width="1600" height="1067" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ WANN NÖTIG — PFLICHT / EMPFEHLUNG ═════════════════════ -->
+<section class="pflicht-section">
+  <div class="wrap">
+    <div class="section-head-center">
+      <span class="ae-eyebrow">02 · Wann nötig?</span>
+      <h2 class="ae-h2">Wann ist ein Blower Door Test Pflicht?</h2>
+      <p>Pflicht oder Empfehlung — abhängig von Förderung, Lüftung und Gebäudetyp.</p>
+    </div>
+
+    <div class="process" data-process>
+      <div class="process-tabs" role="tablist" aria-label="Pflicht oder Empfehlung">
+        <button class="process-tab active" role="tab" aria-selected="true" aria-controls="bd-panel-1" id="bd-tab-1" data-step="1">
+          <span class="num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+          <span class="label">Pflicht</span>
+          <span class="dur">Gesetz &amp; Förderung</span>
+        </button>
+        <button class="process-tab" role="tab" aria-selected="false" aria-controls="bd-panel-2" id="bd-tab-2" data-step="2" tabindex="-1">
+          <span class="num" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg></span>
+          <span class="label">Empfohlen</span>
+          <span class="dur">Qualität &amp; Sicherheit</span>
+        </button>
+        <span class="process-progress" aria-hidden="true"><span class="process-progress-fill"></span></span>
+      </div>
+
+      <div class="process-panels">
+        <article class="process-panel active" id="bd-panel-1" role="tabpanel" aria-labelledby="bd-tab-1" data-step="1">
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+            <div>
+              <h3>Wann ist ein Blower Door Test erforderlich?</h3>
+              <p>Bei diesen Konstellationen ist die Luft&shy;dichtheits&shy;messung durch das Gebäudeenergiegesetz oder das Förderprogramm verbindlich vorgeschrieben.</p>
+            </div>
+          </div>
+          <ul class="check-list">
+            <li>Gebäude mit bilanzierter Lüftungsanlage / verminderter Luftwechselrate nach § 28 GEG</li>
+            <li>Nachhaltigkeits-Zertifizierung mit Dichtheitsprüfung &amp; Leckageortung (DGNB, LEED, BREEAM)</li>
+            <li>KfW-Effizienzhaus 40, 40 EE, 55 &amp; 70 — KfW-TMA</li>
+            <li>Passivhaus-Zertifizierung — PHI</li>
+            <li>Kommunale &amp; programmspezifische Förderanforderungen wie progres.nrw oder Stadt Köln — Neubau</li>
+            <li>Kommunale &amp; programmspezifische Förderanforderungen wie progres.nrw oder Stadt Köln — Bestandssanierung</li>
+          </ul>
+        </article>
+
+        <article class="process-panel" id="bd-panel-2" role="tabpanel" aria-labelledby="bd-tab-2" data-step="2" hidden>
+          <div class="panel-head">
+            <span class="big-num" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg></span>
+            <div>
+              <h3>Wann ist er empfehlenswert?</h3>
+              <p>Auch ohne Pflicht lohnt sich die Messung — für Qualitätssicherung, Wohnkomfort und als Schutz vor späteren Bauschäden.</p>
+            </div>
+          </div>
+          <ul class="check-list">
+            <li>Neubau ohne Lüftungsanlage</li>
+            <li>Sanierung ohne Förderung</li>
+            <li>Qualitätskontrolle nach der Bauphase</li>
+            <li>Vor Ablauf der Gewährleistung</li>
+            <li>Bei Zugluft- oder Schimmelverdacht</li>
+            <li>Bei der Dachsanierung</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ GRENZWERTE ═════════════════════ -->
+<section class="grenzwerte-section">
+  <div class="wrap">
+    <div class="section-head-center">
+      <span class="ae-eyebrow">03 · Grenzwerte</span>
+      <h2 class="ae-h2">Welche Grenzwerte muss ich einhalten?</h2>
+      <p>Die zulässigen Grenzwerte wie n50- und q50-Wert hängen vom Regelwerk und der Lüftungssituation ab — die wichtigsten Anforderungen im Überblick.</p>
+    </div>
+
+    <div class="gw-grid">
+      <article class="gw-card">
+        <span class="gw-card-cat">§&nbsp;26 GEG</span>
+        <span class="gw-card-name">Gebäude mit Lüftungsanlage</span>
+        <span class="gw-card-value">≤ 1,5</span>
+        <span class="gw-card-unit">n50 · 1/h</span>
+        <span class="gw-card-note">Mit raumlufttechnischer Anlage (RLT) / ventilatorgestützter Lüftung (KWL). Bei Gebäuden &gt; 1.500 m³ gilt hüllflächenbezogen: q50 ≤ 2,5 m³/(h·m²).</span>
+      </article>
+      <article class="gw-card">
+        <span class="gw-card-cat">§&nbsp;26 GEG</span>
+        <span class="gw-card-name">Gebäude ohne Lüftungsanlage</span>
+        <span class="gw-card-value">≤ 3,0</span>
+        <span class="gw-card-unit">n50 · 1/h</span>
+        <span class="gw-card-note">Ohne raumlufttechnische Anlagen (RLT) / ventilatorgestützte Lüftung (freie Lüftung, Fensterlüftung). Bei Gebäuden &gt; 1.500 m³ gilt hüllflächenbezogen: q50 ≤ 4,5 m³/(h·m²).</span>
+      </article>
+      <article class="gw-card">
+        <span class="gw-card-cat">Passivhausinstitut</span>
+        <span class="gw-card-name">Passivhaus-Zertifizierung</span>
+        <span class="gw-card-value">≤ 0,6</span>
+        <span class="gw-card-unit">n50 · 1/h</span>
+        <span class="gw-card-note">Strengste Anforderung — verpflichtend für die PHI-Zertifizierung.</span>
+      </article>
+      <article class="gw-card">
+        <span class="gw-card-cat">Individuell</span>
+        <span class="gw-card-name">Projekt &amp; Förderprogramm</span>
+        <span class="gw-card-value">1,0–2,0</span>
+        <span class="gw-card-unit">n50 · 1/h · je Programm</span>
+        <span class="gw-card-note">Je nach Stufe und Programm.</span>
+      </article>
+    </div>
+    <p class="gw-foot">Unsicher, welcher Wert für Ihr Projekt gilt? <a href="/kontakt/" class="inline-link">Wir klären das im Erstgespräch.</a></p>
+  </div>
+</section>
+
+<!-- ═════════════════════ PREISE ═════════════════════ -->
+<section id="kosten" class="preise-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="ae-eyebrow">04 · Kosten</span>
+      <h2 class="ae-h2">Was kostet ein Blower Door Test in&nbsp;Köln?</h2>
+      <p>Festpreise nach Gebäudetyp — Anfahrt, Leckageortung und Protokoll inklusive. Keine versteckten Kosten.</p>
+    </div>
+
+    <div class="preise-grid">
+      <div class="preise-card">
+        <span class="preise-badge">Festpreise</span>
+        <table class="preise-table">
+          <thead>
+            <tr><th>Gebäudetyp</th><th>Preis (netto)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Einliegerwohnung, Laubengangwohnung, je WE (ab 2 Messungen)</td><td>250 €</td></tr>
+            <tr><td>Ein-/Zweifamilienhäuser (1–2 WE)</td><td>390 €</td></tr>
+            <tr><td>Reihenhaus/Doppelhaushälfte</td><td>350 €</td></tr>
+            <tr><td>Mehrfamilienhaus (3–6 WE)</td><td>590 €</td></tr>
+            <tr><td>Mehrfamilienhaus (7+ WE)</td><td>ab 790 € · auf Anfrage</td></tr>
+            <tr class="highlight-row"><td>Nichtwohngebäude (Schulen, Bürogebäude, Logistik- und Lagerhallen)</td><td>auf Anfrage</td></tr>
+            <tr><td>Folge- und Wiederholungsmessungen</td><td>bis zu 30 % Nachlass · nach Anzahl</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12.5px; color:rgba(34,33,32,0.55); margin-top:var(--ae-s-3);">zzgl. 19 % USt. · Anfahrt bis 50&nbsp;km frei</p>
+        <div class="preise-card-cta">
+          <a href="/kontakt/" class="btn btn--primary">Festpreis anfragen →</a>
+        </div>
+      </div>
+
+      <div class="preise-inkl">
+        <span class="preise-inkl-badge">Im Festpreis enthalten</span>
+        <h3>Alles inklusive — keine Zusatzkosten.</h3>
+        <ul>
+          <li>Anfahrt im Großraum Köln &amp; Rheinland</li>
+          <li>Differenzdruckmessung mit Über- und Unterdruck (je 50&nbsp;Pa)</li>
+          <li>Leckageortung mit Anemometer und Thermografie</li>
+          <li>Foto-Dokumentation aller gefundenen Schwachstellen</li>
+          <li>PDF-Protokoll innerhalb 5&nbsp;Werktagen</li>
+          <li>Beratung zu Maßnahmen zur Mängelbeseitigung</li>
+          <li>Vorlagefähig bei <a href="/foerderberatung/" class="inline-link">KfW und BAFA</a></li>
+        </ul>
+        <div class="preise-inkl-note">
+          <strong>Förderhinweis:</strong> Im Rahmen einer KfW-geförderten Baubegleitung ist die Messung mit <strong>50&nbsp;%</strong> über BAFA bezuschussbar — Ihr Eigenanteil sinkt entsprechend.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ ABLAUF ═════════════════════ -->
+<section id="ablauf" class="ablauf-section">
+  <div class="wrap">
+    <div class="section-head-center">
+      <span class="ae-eyebrow">05 · Ablauf</span>
+      <h2 class="ae-h2">In 4 Schritten zum Protokoll.</h2>
+      <p>Vom ersten Anruf bis zum fertigen Messbericht — transparent und planbar.</p>
+    </div>
+    <div class="usp-list">
+      <article class="usp-row">
+        <span class="usp-num">01</span>
+        <div class="usp-body">
+          <h3>Anfrage &amp; Festpreis-Angebot</h3>
+          <p>Sie nennen uns Gebäudetyp, Adresse und Wunschtermin. Innerhalb von 48&nbsp;Stunden erhalten Sie ein verbindliches Festpreis-Angebot — keine versteckten Aufschläge im Nachhinein.</p>
+        </div>
+      </article>
+      <article class="usp-row">
+        <span class="usp-num">02</span>
+        <div class="usp-body">
+          <h3>Terminvereinbarung</h3>
+          <p>Wir vereinbaren einen Termin, der zu Ihrem Bauzeitplan passt — auch abends und am Wochenende möglich. Bei KfW-Förderung erhalten Sie das Messprotokoll fristgerecht zur Einreichung.</p>
+        </div>
+      </article>
+      <article class="usp-row">
+        <span class="usp-num">03</span>
+        <div class="usp-body">
+          <h3>Messung &amp; Leckageortung vor Ort</h3>
+          <p>Vor Ort dauert die Messung zwischen 1,5&nbsp;h und 3&nbsp;Stunden, je nach Größe und Objekt: Vorbereitung, Auf- und Abbau, Unter- und Überdruckmessung inklusive Leckageortung mit Anemometer und Thermografie und Fotodokumentation aller Schwachstellen.</p>
+        </div>
+      </article>
+      <article class="usp-row">
+        <span class="usp-num">04</span>
+        <div class="usp-body">
+          <h3>Protokoll &amp; Übergabe</h3>
+          <p>Innerhalb von 5&nbsp;Werktagen erhalten Sie das Messprotokoll — mit n50- und q50-Wert, Bildbericht und Leckagedokumentation, normgerecht und fristgerecht zum Nachweis gemäß GEG/BEG — für <a href="/foerderberatung/" class="inline-link">BAFA und KfW</a>.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ LECKAGE-BEISPIELE ═════════════════════ -->
+<section class="leckage-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="ae-eyebrow">06 · Luftdichte Hülle</span>
+      <h2 class="ae-h2">Was eine luftdichte Hülle bringt — und wo es zieht.</h2>
+      <p>Luftdichtheit zahlt gleichzeitig auf Energie, Bauschutz und Wohnkomfort ein. Und genau diese sechs Stellen sind dabei die häufigsten Schwachstellen.</p>
+    </div>
+
+    <div class="lh-cols">
+      <div class="lh-col lh-col--pro">
+        <h3 class="lh-col-title"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Warum luftdicht bauen?</h3>
+        <ul class="lh-list">
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><path d="M14 14.76V4a2 2 0 1 0-4 0v10.76a4 4 0 1 0 4 0z"/></svg></span><div class="lh-txt"><b>Wärmeschutz</b><p>Verhindert Wärmeverluste durch unkontrollierten Luftwechsel.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></span><div class="lh-txt"><b>Feuchteschutz</b><p>Schützt vor Tauwasserausfall im Inneren des Bauteils.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><div class="lh-txt"><b>Energieeinsparung</b><p>Weniger Lüftungsverluste — niedrigere Heizkosten.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span><div class="lh-txt"><b>Brandschutz</b><p>Dichte Bauteile vermeiden Rauch- und Feuerübertragung.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></span><div class="lh-txt"><b>Schallschutz</b><p>Dichte Anschlüsse senken die Luftschallübertragung.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span><div class="lh-txt"><b>Komfort</b><p>Behagliches Raumklima, keine Zugluft.</p></div></li>
+        </ul>
+      </div>
+
+      <div class="lh-col lh-col--con">
+        <h3 class="lh-col-title"><svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Typische Undichtheiten</h3>
+        <ul class="lh-list">
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></svg></span><div class="lh-txt"><b>Fensterleibungen &amp; Anschlussfugen</b><p>Übergänge Fenster ↔ Mauerwerk, oft unsauber abgedichtet.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="6" rx="1"/><rect x="3" y="9" width="18" height="3"/><line x1="6" y1="12" x2="6" y2="20"/><line x1="18" y1="12" x2="18" y2="20"/></svg></span><div class="lh-txt"><b>Rollladenkästen</b><p>Ungedämmt, im Querschnitt direkt mit der Außenluft verbunden.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><circle cx="9.5" cy="12" r="1.2"/><circle cx="14.5" cy="12" r="1.2"/></svg></span><div class="lh-txt"><b>Steckdosen in der Außenwand</b><p>Offene Gerätedosen und Leerrohre perforieren die luftdichte Gebäudehülle.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><path d="M3 18 L12 6 L21 18"/><line x1="3" y1="18" x2="21" y2="18"/><path d="M6 18 L6 13 L18 13 L18 18"/></svg></span><div class="lh-txt"><b>Drempel &amp; Kniestock</b><p>Dachanschluss — hier passieren die meisten Sanierungsfehler.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M3 12 L9 12 M15 12 L21 12 M12 3 L12 9 M12 15 L12 21"/></svg></span><div class="lh-txt"><b>Rohr- &amp; Kabeldurchführungen</b><p>Wegen fehlender Abdichtung/Manschetten meist undicht und nachträglich schwer abzudichten.</p></div></li>
+          <li><span class="lh-ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="5" y1="11" x2="19" y2="11"/></svg></span><div class="lh-txt"><b>Außentüren beheizt/unbeheizt</b><p>Fehlende Dichtungen, undichte Türschwellen.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ MESS-COCKPIT (DUNKLE SECTION) ═════════════════════ -->
+<section class="cockpit-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="ae-eyebrow">07 · Mess-Cockpit</span>
+      <h2 class="ae-h2">So sieht ein bestandenes Mess&#8209;Protokoll aus.</h2>
+      <p>Vier Kennwerte aus einem typischen EFH-Neubau mit Lüftungsanlage in&nbsp;Köln-Sülz — alle innerhalb der GEG-/KfW-Grenzwerte.</p>
+    </div>
+
+    <div class="cockpit-statusbar">
+      <span class="cockpit-statusbar-item"><strong>Projekt:</strong>&nbsp;EFH Köln-Sülz · Neubau mit KWL</span>
+      <span class="cockpit-statusbar-item"><strong>Status:</strong>&nbsp;bestanden · Erstmessung</span>
+      <span class="cockpit-statusbar-item ts">11.05.2026 · 09:48</span>
+    </div>
+
+    <div class="cockpit-stage">
+      <!-- LINKS: Live-Display mit n50-Hauptwert + Sekundär-Werten -->
+      <article class="live-display">
+        <div class="live-display-head">
+          <span class="live-display-label">Live · Erstmessung · Unterdruck</span>
+          <span class="live-display-status">bestanden</span>
+        </div>
+
+        <div class="live-display-main">
+          <span class="live-display-value" data-counter data-target="1.1" data-decimals="1">0,0</span>
+          <span class="live-display-unit">n50 · 1/h bei 50 Pa</span>
+          <span class="live-display-name">Luftwechselrate</span>
+          <span class="live-display-soll">Soll: ≤ 1,5 · Ist: 1,1</span>
+        </div>
+
+        <div class="live-display-secondary">
+          <div class="live-display-sec-item">
+            <span class="live-display-sec-label">V50</span>
+            <span class="live-display-sec-value"><span data-counter data-target="462">0</span><span class="live-display-sec-unit">m³/h</span></span>
+          </div>
+          <div class="live-display-sec-item">
+            <span class="live-display-sec-label">q50</span>
+            <span class="live-display-sec-value"><span data-counter data-target="1.3" data-decimals="1">0,0</span><span class="live-display-sec-unit">m³/(h·m²)</span></span>
+          </div>
+          <div class="live-display-sec-item">
+            <span class="live-display-sec-label">Δp</span>
+            <span class="live-display-sec-value"><span data-counter data-target="50">0</span><span class="live-display-sec-unit">Pa</span></span>
+          </div>
+        </div>
+
+        <div class="live-display-norm">
+          <span>Norm</span>
+          <strong>DIN EN ISO 9972 · Verfahren 3</strong>
+        </div>
+      </article>
+
+      <!-- RECHTS: Mess-Diagramm — Druck-Volumenstrom-Kurve -->
+      <article class="chart-card">
+        <div class="chart-card-head">
+          <span class="chart-card-title">Mess-Reihe · 6 Druckstufen</span>
+          <span class="chart-card-sub">Δp / V-Kurve</span>
+        </div>
+
+        <div class="chart-wrap">
+          <!-- viewBox: 0 0 480 280
+               x = Δp (10–60 Pa) → 60..440
+               y = V (0–700 m³/h) → 240..20
+               Messpunkte:
+                 10 Pa → 168 m³/h
+                 20 Pa → 257 m³/h
+                 30 Pa → 327 m³/h
+                 40 Pa → 394 m³/h
+                 50 Pa → 462 m³/h
+                 60 Pa → 524 m³/h
+               Y-Mapping: y = 240 - (V/700)*220
+                  168 → 240 - 0.24*220 = 187.2
+                  257 → 240 - 0.367*220 = 159.3
+                  327 → 240 - 0.467*220 = 137.3
+                  394 → 240 - 0.563*220 = 116.2
+                  462 → 240 - 0.66*220 = 94.8
+                  524 → 240 - 0.749*220 = 75.3
+               X-Mapping: x = 60 + ((Δp-10)/50)*380
+                  10 → 60
+                  20 → 136
+                  30 → 212
+                  40 → 288
+                  50 → 364
+                  60 → 440 -->
+          <svg class="chart-svg" viewBox="0 0 480 280" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="chart-area-gradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#CDF15D" stop-opacity="0.28"/>
+                <stop offset="100%" stop-color="#CDF15D" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Grid-Linien horizontal -->
+            <line class="chart-grid-line" x1="60" y1="20" x2="440" y2="20"/>
+            <line class="chart-grid-line" x1="60" y1="75" x2="440" y2="75"/>
+            <line class="chart-grid-line" x1="60" y1="130" x2="440" y2="130"/>
+            <line class="chart-grid-line" x1="60" y1="185" x2="440" y2="185"/>
+
+            <!-- Achsen -->
+            <line class="chart-axis-line" x1="60" y1="20" x2="60" y2="240"/>
+            <line class="chart-axis-line" x1="60" y1="240" x2="440" y2="240"/>
+
+            <!-- Y-Achsen-Labels (Volumenstrom) -->
+            <text class="chart-axis-num" x="52" y="24" text-anchor="end">700</text>
+            <text class="chart-axis-num" x="52" y="79" text-anchor="end">525</text>
+            <text class="chart-axis-num" x="52" y="134" text-anchor="end">350</text>
+            <text class="chart-axis-num" x="52" y="189" text-anchor="end">175</text>
+            <text class="chart-axis-num" x="52" y="244" text-anchor="end">0</text>
+
+            <!-- X-Achsen-Labels (Druckdifferenz) -->
+            <text class="chart-axis-num" x="60" y="258" text-anchor="middle">10</text>
+            <text class="chart-axis-num" x="136" y="258" text-anchor="middle">20</text>
+            <text class="chart-axis-num" x="212" y="258" text-anchor="middle">30</text>
+            <text class="chart-axis-num" x="288" y="258" text-anchor="middle">40</text>
+            <text class="chart-axis-num" x="364" y="258" text-anchor="middle">50</text>
+            <text class="chart-axis-num" x="440" y="258" text-anchor="middle">60</text>
+
+            <!-- Achsen-Titel -->
+            <text class="chart-axis-label" x="248" y="275" text-anchor="middle">Δp · Pa</text>
+            <text class="chart-axis-label" x="20" y="130" text-anchor="middle" transform="rotate(-90 20 130)">V · m³/h</text>
+
+            <!-- Soll-Marker bei n50 = 1,5 (V_soll ≈ 630 m³/h bei 50 Pa) -->
+            <!-- y für 630: 240 - 0.9*220 = 42 -->
+            <line class="chart-point-target" x1="364" y1="42" x2="364" y2="240"/>
+            <line class="chart-point-target" x1="60" y1="42" x2="364" y2="42"/>
+            <text class="chart-axis-num" x="370" y="46" fill="rgba(255,99,77,0.85)" font-size="9">Soll-Limit</text>
+
+            <!-- Fläche unter der Kurve -->
+            <path class="chart-area" d="M 60 187.2 L 136 159.3 L 212 137.3 L 288 116.2 L 364 94.8 L 440 75.3 L 440 240 L 60 240 Z"/>
+
+            <!-- Mess-Kurve -->
+            <path class="chart-curve" d="M 60 187.2 L 136 159.3 L 212 137.3 L 288 116.2 L 364 94.8 L 440 75.3"/>
+
+            <!-- Mess-Punkte -->
+            <circle class="chart-point" cx="60" cy="187.2" r="5"/>
+            <circle class="chart-point" cx="136" cy="159.3" r="5"/>
+            <circle class="chart-point" cx="212" cy="137.3" r="5"/>
+            <circle class="chart-point" cx="288" cy="116.2" r="5"/>
+            <circle class="chart-point" cx="364" cy="94.8" r="6"/>
+            <circle class="chart-point" cx="440" cy="75.3" r="5"/>
+          </svg>
+        </div>
+
+        <div class="chart-legend">
+          <span class="chart-legend-item"><span class="chart-legend-dot"></span><strong>Messpunkte</strong> 6 Stufen (10–60 Pa)</span>
+          <span class="chart-legend-item"><span class="chart-legend-target"></span><strong>Soll-Limit</strong> n50 ≤ 1,5 1/h</span>
+        </div>
+      </article>
+    </div>
+
+    <!-- USP: all-inkl. Leckageortung dokumentiert -->
+    <div class="cockpit-docs-intro">
+      <span class="cockpit-docs-badge">all inkl.</span>
+      <p>Die Messung endet nicht bei der Zahl: <strong>Leckageortung, Protokoll und Bildbericht sind bei jedem Termin dabei</strong> — Sie bekommen die Schwachstellen schwarz auf weiß, nicht nur einen n50-Wert.</p>
+    </div>
+
+    <div class="cockpit-docs">
+      <article class="doc-card">
+        <div class="doc-card-head">
+          <div class="doc-card-icon"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h4"/></svg></div>
+          <h3>Leckageprotokoll</h3>
+        </div>
+        <ul class="doc-list">
+          <li>Jede Leckage mit Ort &amp; Bauteil erfasst</li>
+          <li>Leckagedoku mit Strömungsmessung</li>
+          <li>Foto je Schwachstelle, eindeutig verortet</li>
+          <li>Konkrete Handlungsempfehlungen</li>
+          <li>PDF-Protokoll innerhalb von 5 Werktagen</li>
+        </ul>
+      </article>
+
+      <article class="doc-card">
+        <div class="doc-card-head">
+          <div class="doc-card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+          <h3>Bilddokumentation</h3>
+        </div>
+        <div class="doc-shots">
+          <figure class="doc-shot">
+            <div class="doc-shot-img"><img decoding="async" src="https://aumann-eco.de/wp-content/uploads/2026/06/ae-anemometer.jpg" alt="Leckageortung mit Hitzdraht-Anemometer am Fensteranschluss" loading="lazy"></div>
+            <figcaption>Anemometer · Leckageortung</figcaption>
+          </figure>
+          <figure class="doc-shot">
+            <div class="doc-shot-img"><img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/images/bd-doc-thermo2.webp" alt="Wärmebild am Fensteranschluss (Thermografie)" loading="lazy"></div>
+            <figcaption>Thermografie · Fensteranschluss</figcaption>
+          </figure>
+          <figure class="doc-shot">
+            <div class="doc-shot-img"><img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/images/bd-doc-blowerdoor.webp" alt="Blower-Door-Messaufbau mit rotem Lüfter in einer Haustür" loading="lazy"></div>
+            <figcaption>Blower-Door im Einsatz</figcaption>
+          </figure>
+        </div>
+        <p class="doc-shots-note">Auszug aus einem Bildbericht — Thermografie und Messung dokumentieren jede Schwachstelle.</p>
+      </article>
+    </div>
+
+    <div class="cockpit-cta">
+      <div class="cockpit-cta-text">
+        <h3>Sie möchten die Luftdichtheit Ihres Gebäudes prüfen lassen?</h3>
+        <p>Vor-Ort-Termin mit Messung inkl. Dokumentation — Festpreis-Angebot innerhalb von 48&nbsp;Stunden.</p>
+      </div>
+      <a href="/kontakt/" class="btn btn--lime">Termin vereinbaren →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ VORBEREITUNG ═════════════════════ -->
+<section class="vorbereitung-section">
+  <div class="wrap">
+    <div class="vorbereitung-grid">
+      <div>
+        <span class="ae-eyebrow" style="color:var(--ae-coral); display:block; margin-bottom:var(--ae-s-3);">08 · Vorbereitung</span>
+        <h2 class="ae-h2" style="margin-bottom:var(--ae-s-4);">Gebäudepräparation und Vorbereitung auf den Messtag.</h2>
+        <p style="font-size:17px; line-height:1.65; color:rgba(34,33,32,0.7); margin-bottom:var(--ae-s-5);">Optimal vorbereitet am Messtag: damit die Messung normgerecht abläuft und das Ergebnis stimmt — mit der Checkliste zur bestandenen Messung. Bauleitung und Projektbeteiligte erhalten diese vorab als PDF zur optimalen Vorbereitung.</p>
+      </div>
+
+      <div class="checkliste-list" data-checkliste>
+        <div class="checkliste-progress">
+          <span class="checkliste-progress-label">Vorbereitungs-Status</span>
+          <div class="checkliste-progress-bar" style="--p:0%"></div>
+          <span class="checkliste-progress-count"><strong data-count>0</strong>/<span data-total>6</span></span>
+          <div class="checkliste-complete-banner">
+            <span class="checkliste-complete-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Bereit für die Messung!
+            </span>
+            <a href="/kontakt/" class="checkliste-complete-cta">Termin vereinbaren →</a>
+          </div>
+          <div class="checkliste-confetti" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <label class="checkliste-row">
+          <input type="checkbox" class="checkliste-input">
+          <div class="checkliste-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="checkliste-text">
+            <span class="checkliste-label">Fenster &amp; Außentüren geschlossen</span>
+            <span class="checkliste-note">Inklusive Dachfenster, Balkontüren, Kellerfenster — wirklich alle.</span>
+          </div>
+        </label>
+        <label class="checkliste-row">
+          <input type="checkbox" class="checkliste-input">
+          <div class="checkliste-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="checkliste-text">
+            <span class="checkliste-label">Innentüren offen</span>
+            <span class="checkliste-note">Damit der Druck im ganzen Gebäude gleichmäßig aufgebaut werden kann.</span>
+          </div>
+        </label>
+        <label class="checkliste-row">
+          <input type="checkbox" class="checkliste-input">
+          <div class="checkliste-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="checkliste-text">
+            <span class="checkliste-label">Lüftungsanlage ausgeschaltet, geschlossen oder abgedichtet</span>
+            <span class="checkliste-note">Zu- und Abluftöffnungen werden vor der Messung abgeklebt.</span>
+          </div>
+        </label>
+        <label class="checkliste-row">
+          <input type="checkbox" class="checkliste-input">
+          <div class="checkliste-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="checkliste-text">
+            <span class="checkliste-label">Kamin, Ofen &amp; Dunstabzug aus</span>
+            <span class="checkliste-note">Asche entsorgt, Klappen geschlossen — Sicherheit geht vor.</span>
+          </div>
+        </label>
+        <label class="checkliste-row">
+          <input type="checkbox" class="checkliste-input">
+          <div class="checkliste-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="checkliste-text">
+            <span class="checkliste-label">Geruchsverschlüsse gefüllt</span>
+            <span class="checkliste-note">Alle Siphons mit Wasser geflutet — auch in selten genutzten Räumen.</span>
+          </div>
+        </label>
+        <label class="checkliste-row">
+          <input type="checkbox" class="checkliste-input">
+          <div class="checkliste-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="checkliste-text">
+            <span class="checkliste-label">Eine Außentür frei zugänglich</span>
+            <span class="checkliste-note">Das Mess-System wird in eine Tür eingesetzt — meist Haustür oder Terrassentür.</span>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ ÜBER UNS ═════════════════════ -->
+<section class="ueber-section">
+  <div class="wrap">
+    <div class="ueber-grid">
+      <div class="ueber-content">
+        <span class="ae-eyebrow ueber-eyebrow">09 · Über aumann eco</span>
+        <h2 class="ae-h2 ueber-headline">Ihr Messpartner für luftdichte Gebäude.</h2>
+        <p class="ueber-lead">Als Mitglied im <em>FLiB&nbsp;e.V.</em> ist aumann eco Ihr Partner für normgerechte Luft&shy;dichtheits&shy;messungen in Köln und dem Rheinland. Mit eigenen Mess-Systemen messen wir nach DIN — für Bauunternehmen, Planer und private Bauherren. Sie erhalten nicht nur eine Zahl, sondern eine belastbare Einschätzung.</p>
+
+        <div class="ueber-cta-group">
+          <a href="/ueber-uns/" class="btn btn--primary">Mehr über aumann eco →</a>
+          <a href="/kontakt/" class="btn btn--outline">Termin vereinbaren</a>
+        </div>
+
+        <div class="ueber-quals">
+          <div class="ueber-qual">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-10 8-14a8 8 0 0 0-16 0c0 4 8 14 8 14z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>FLiB e.V. Mitglied</span>
+          </div>
+          <div class="ueber-qual">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg>
+            <span>Zertifizierter Messdienstleister</span>
+          </div>
+          <div class="ueber-qual">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Energieeffizienz-Experte</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="ueber-aside">
+        <div class="founder-card">
+          <div class="founder-visual">
+            <img decoding="async" class="founder-portrait" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/images/img-benedikt-jot00258-cutout.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco">
+          </div>
+          <div class="founder-plaque">
+            <div class="brand-badge" aria-hidden="true">
+              <svg class="brand-badge-ring" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="96" fill="#222120"/>
+                <defs>
+                  <path id="brand-badge-path" d="M 100 100 m 0 -76 a 76 76 0 1 1 0 152 a 76 76 0 1 1 0 -152" fill="none"/>
+                </defs>
+                <text fill="#FCFAF5" font-family="Volte, system-ui, sans-serif" font-size="14" font-weight="500" letter-spacing="2.4">
+                  <textPath href="#brand-badge-path" startOffset="0" textLength="475" lengthAdjust="spacingAndGlyphs">INGENIEURBÜRO · FÜR NACHHALTIGES BAUEN · </textPath>
+                </text>
+              </svg>
+              <span class="brand-badge-mark">ae</span>
+            </div>
+            <div>
+              <div class="founder-name">Benedikt Aumann</div>
+              <div class="founder-title">Ingenieur, M.A. · Inhaber</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ ZAHLEN & FAKTEN ═════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="section-head-center">
+      <span class="ae-eyebrow">Zahlen &amp; Fakten</span>
+      <h2 class="ae-h2">Blower Door bei aumann&nbsp;eco.</h2>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="num"><span class="counter" data-target="11">0</span><span class="unit">+</span></div>
+        <div class="label">Jahre Erfahrung</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="counter" data-target="500">0</span><span class="unit">+</span></div>
+        <div class="label">durchgeführte Messungen</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="counter" data-target="5">0</span></div>
+        <div class="label">Werktage bis zum Protokoll</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="counter" data-target="50">0</span><span class="unit">%</span></div>
+        <div class="label">Zuschuss bei Baubegleitung mit BAFA/KfW</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ FAQ ═════════════════════ -->
+<section id="faq" style="background:var(--ae-grey-100);">
+  <div class="wrap">
+    <div class="section-head" style="margin:0 auto var(--ae-s-7); text-align:center; max-width:640px;">
+      <span class="ae-eyebrow">10 · Häufige Fragen</span>
+      <h2 class="ae-h2">Häufig gefragt.</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Wann ist ein Blower Door Test Pflicht?</summary>
+        <p>Pflicht ist die Messung bei jeder <a href="/foerderberatung/" class="inline-link">KfW-geförderten</a> Maßnahme (Effizienzhaus 70/55/40), beim Einbau einer Lüftungsanlage mit Wärmerückgewinnung, bei kommunalen Förderanträgen sowie für Passivhaus-Zertifizierungen. Beim Standard-Bauantrag ohne Förderung ist er empfohlen, aber nicht verpflichtend — siehe Pflicht-Matrix oben.</p>
+      </details>
+      <details>
+        <summary>Was kostet ein Blower Door Test in Köln?</summary>
+        <p>Bei aumann eco gilt ein Festpreis für Ein- und Zweifamilienhäuser: 390 € netto (464,10 € brutto) inkl. Anfahrt im Großraum Köln, Leckageortung mit Anemometer und Thermografie sowie Messprotokoll. Mehrfamilienhäuser und Nichtwohngebäude auf Anfrage. Bei KfW-Baubegleitung ist die Messung mit 50 % über BAFA bezuschussbar.</p>
+      </details>
+      <details>
+        <summary>Wie lange dauert die Messung vor Ort?</summary>
+        <p>Eine typische Messung dauert 1,5 bis maximal 2,5 Stunden: ca. 30 Min Vorbereitung (Gebäude präparieren, Aufbau der Messgeräte), 30–90 Min Messung mit Über- und Unterdruck plus Leckageortung, 15 Min Abbau. Der Zeitaufwand variiert je nach Komplexität und Größe des Projekts.</p>
+      </details>
+      <details>
+        <summary>Welche Norm gilt für den Blower Door Test?</summary>
+        <p>Seit dem Inkrafttreten des Gebäudeenergiegesetzes gilt die <strong>DIN EN ISO 9972</strong>, die die alte DIN EN 13829 abgelöst hat. Unsere kalibrierten Messgeräte garantieren normgerechte und präzise Messungen — dokumentiert und lückenlos.</p>
+      </details>
+      <details>
+        <summary>Was passiert, wenn der Test nicht besteht?</summary>
+        <p>Kein Drama — dafür sind wir vor Ort. Wenn die Grenzwerte mal nicht passen, gibt es dafür immer Gründe — und wir finden diese. Wir orten alle Leckagen während der Messung mit Hitzedrahtanemometer und Thermografie, in speziellen Fällen mit Nebel, dokumentieren sie und geben Ihnen konkrete Empfehlungen zur Mängelbeseitigung. Nach der Sanierung kommen wir zur Nachmessung — mit Rabatt auf den Festpreis.</p>
+      </details>
+      <details>
+        <summary>Wird der Test gefördert?</summary>
+        <p>Die Messung wird sowohl bei BAFA wie auch bei KfW-Effizienzhaus-Vorhaben im Rahmen der Baubegleitung mit 50 % der förderfähigen Kosten gefördert.</p>
+      </details>
+      <details>
+        <summary>Brauche ich einen Blower Door Test, wenn ich nicht fördern lasse?</summary>
+        <p>Siehe „Wann ist ein Blower Door Test Pflicht?&#8220; — je nach Bilanzierung kann der Blower Door Test auch für den GEG-Nachweis erforderlich sein. Doch auch wenn keine Dichtheitsprüfung berücksichtigt ist — die Messung lohnt sich trotzdem: Sie deckt Bauschäden auf und verhindert Schimmel oder Energieverluste — und ist eine objektive Qualitätskontrolle der Gebäudehülle.</p>
+      </details>
+      <details>
+        <summary>Wie wird der n50-Wert berechnet?</summary>
+        <p>n50 = Volumenstrom V50 [m³/h] geteilt durch das beheizte Gebäudevolumen V [m³]. Beispiel: Bei einem EFH mit 420&nbsp;m³ Innenvolumen und einem gemessenen V50 von 460&nbsp;m³/h ergibt sich n50 = 1,1 — also klar unter dem GEG-Grenzwert von 1,5 für Gebäude mit Lüftungsanlage.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ FINAL CTA ═════════════════════ -->
+<div class="ostend-seo-strip">
+  <p>Mit Ostend Digital als <a href="https://ostend.digital/werbeagentur-stuttgart/" target="_blank" rel="noopener">Werbeagentur Stuttgart</a> haben wir, die aumann eco, unsere Online-Präsenz mit kreativen Webdesigns und effektiven SEO-Maßnahmen optimiert.</p>
+</div>
+<section class="cta-section">
+  <div class="wrap">
+    <div class="final-cta">
+      <div class="cta-portrait">
+        <div class="cta-portrait-frame">
+          <img decoding="async" src="https://aumann-eco-preview.vercel.app/aumann-eco-preview/assets/images/img-benedikt-cta.webp" alt="Benedikt Aumann, Ingenieur M.A. und Inhaber von aumann eco" width="200" height="200" loading="lazy">
+        </div>
+        <div class="cta-sign">
+          <span class="cta-sign-name">Benedikt Aumann</span>
+          <span class="cta-sign-title">Ingenieur, M.A. · Inhaber</span>
+        </div>
+      </div>
+      <div class="cta-content">
+        <span class="ae-eyebrow">Festpreis-Angebot</span>
+        <h2 class="ae-h2">Blower Door Test —<br>Festpreis in&nbsp;Köln.</h2>
+        <p>Sagen Sie uns kurz Gebäudetyp, Adresse und Wunschtermin — wir antworten mit einem verbindlichen Angebot. Inklusive Leckageortung, Protokoll und Förderhinweisen.</p>
+        <div class="btn-group">
+          <a href="/kontakt/" class="btn btn--dark">Festpreis anfragen →</a>
+          <a href="tel:+491755697551" class="btn btn--outline">0175 569 75 51</a>
+        </div>
+        <ul class="cta-trust">
+          <li>Angebot binnen 48 h</li>
+          <li>Festpreis-Garantie</li>
+          <li>Leckageortung inklusive</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ FOOTER ═════════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-claim">
+      <div>
+        <span class="eyebrow">Ingenieurbüro Köln</span>
+        <h2>Nachhaltig. <em>Messbar.</em> Ehrlich.</h2>
+        <p class="lead">Wir planen Gebäude nicht nach Bauchgefühl, sondern auf Basis verlässlicher Daten. Bauphysik, Energieberatung und eigene Messungen aus einer Hand — damit Förderung, Ausführung und Qualität zusammenpassen.</p>
+      </div>
+      <aside class="office-card" aria-label="Kontakt &#038; Öffnungszeiten">
+        <span class="status">Heute erreichbar bis 18:00</span>
+        <dl>
+          <dt>Büro</dt>
+          <dd>Schiefersburger Weg 57<br>50739 Köln</dd>
+          <dt>Telefon</dt>
+          <dd><a href="tel:+491755697551">0175 569 75 51</a></dd>
+          <dt>E-Mail</dt>
+          <dd><a href="mailto:info@aumann-eco.de">info@aumann-eco.de</a></dd>
+          <dt>Mo–Fr</dt>
+          <dd>08:00 – 18:00 Uhr</dd>
+        </dl>
+        <div class="response">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Antwort innerhalb von <strong>24 Stunden</strong> (werktags)</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="footer-inner">
+      <div class="brand">
+        <a href="/" class="logo">
+          <svg id="ae-wbm" style="width:210px;max-width:100%;height:auto;display:block;margin-bottom:20px" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 263.09 111.29">
+  <defs>
+    <style>
+      .aewbm1 {
+        fill: #fff;
+      }
+
+      .aewbm2 {
+        fill: #ec6453;
+      }
+    </style>
+  </defs>
+  <path class="aewbm1" d="M212.98,81.49c-1.62,6.79-7.6,12.34-15.68,12.34-9.06,0-16.01-7.12-16.01-16.01s6.85-15.9,15.79-15.9c7.92,0,14.34,5.23,15.85,12.56h-9.05c-.97-2.05-2.75-4.2-6.47-4.2-2.1-.11-3.88.7-5.17,2.1-1.24,1.4-1.94,3.34-1.94,5.5,0,4.37,2.86,7.6,7.12,7.6,3.72,0,5.5-2.16,6.47-3.99h9.11Z"/>
+  <path class="aewbm1" d="M197.14,17.32c10.18,0,13.99,6.75,13.99,10.83v20.41h-9.04v-16.49c0-3.32-.71-6.26-4.73-6.26-4.46,0-5.17,3.21-5.17,6.31v16.44h-9.04v-20.01c0-5.71,4.94-11.24,13.99-11.24Z"/>
+  <path class="aewbm1" d="M73.06,49.41c-10.18,0-13.99-6.75-13.99-10.83v-20.41h9.04v16.49c0,3.32.71,6.26,4.73,6.26,4.46,0,5.17-3.21,5.17-6.31v-16.44h9.04v20.01c0,5.71-4.94,11.24-13.99,11.24Z"/>
+  <path class="aewbm1" d="M126.99,17.14c-4.08,0-7.32,1.12-9.67,2.87-2.23-1.68-5.38-2.87-9.65-2.87-9.11,0-14.07,5.56-14.07,11.3v20.12h9.09v-16.53c0-3.12.71-6.35,5.2-6.35,4.05,0,4.76,2.96,4.76,6.3v16.59h9.36v-16.53c0-3.12.71-6.35,5.2-6.35,4.05,0,4.76,2.96,4.76,6.3v16.59h9.09v-20.53c0-4.11-3.83-10.89-14.07-10.89Z"/>
+  <path class="aewbm1" d="M231.69,17.32c10.18,0,13.99,6.75,13.99,10.83v20.41h-9.04v-16.49c0-3.32-.71-6.26-4.73-6.26-4.46,0-5.17,3.21-5.17,6.31v16.44h-9.04v-20.01c0-5.71,4.94-11.24,13.99-11.24Z"/>
+  <path class="aewbm1" d="M52.52,33.43c0-.79-.06-1.6-.19-2.41-1.01-6.77-6.29-13.7-16.14-13.7-11.03,0-16.33,8.68-16.33,16.06v.05c0,4.29,1.77,9.01,5.39,12.22,0,0,.02.02.02.02,1.75,1.61,3.93,2.79,6.49,3.36.06.02.13.03.2.05,1.06.22,2.18.34,3.37.34,3.5,0,7.22-1.35,8.84-4.26v3.23h8.35v-14.95ZM36.67,41.06c-5.39,0-7.44-4.74-7.44-7.49v-.05c0-3.4,2.27-7.71,7.39-7.71.01,0,.02,0,.03,0,3.73.24,6.8,3.38,6.8,7.63s-2.99,7.31-6.66,7.62c-.04,0-.08,0-.12,0Z"/>
+  <path class="aewbm1" d="M177.81,33.25c0-.79-.06-1.6-.19-2.41-1.01-6.77-6.29-13.7-16.14-13.7-11.03,0-16.33,8.68-16.33,16.06v.05c0,4.29,1.77,9.01,5.39,12.22,0,0,.02.02.02.02,1.75,1.61,3.93,2.79,6.49,3.36.06.02.13.03.2.05,1.06.22,2.18.34,3.37.34,3.5,0,7.22-1.35,8.84-4.26v3.23h8.35v-14.95ZM161.97,40.87c-5.39,0-7.44-4.74-7.44-7.49v-.05c0-3.4,2.27-7.71,7.39-7.71.01,0,.02,0,.03,0,3.73.24,6.8,3.38,6.8,7.63s-2.99,7.31-6.66,7.62c-.04,0-.08,0-.12,0Z"/>
+  <path class="aewbm1" d="M172.94,66.66c-2.81-2.96-6.74-4.74-11.32-4.74-9.11,0-15.69,7.71-15.69,16.06,0,8.89,7.27,15.85,15.85,15.85,3.07,0,6.03-.91,8.51-2.7,2.38-1.61,4.38-4,5.81-7.04h-9.35c-1.05,1.27-2.5,2.2-4.98,2.2-3.51,0-6.52-2.1-6.9-5.29h22.26c.7-5.5-.44-10.29-4.2-14.34ZM154.99,74.21c.22-1.4,2.05-4.75,6.68-4.75s6.47,3.34,6.68,4.75h-13.37Z"/>
+  <path class="aewbm1" d="M216.1,77.79c0-7.28,5.23-15.85,16.12-15.85s16.12,8.57,16.12,15.9-5.23,15.9-16.12,15.9-16.12-8.57-16.12-15.9v-.05ZM225.05,77.9c0,4.31,3.29,7.49,7.17,7.49s7.17-3.18,7.17-7.55-3.29-7.55-7.17-7.55-7.17,3.18-7.17,7.55v.05Z"/>
+  <g>
+    <path class="aewbm2" d="M52.46,77.85c0,7.33-5.23,15.89-16.12,15.89s-16.11-8.57-16.11-15.89v-.05c0-7.28,5.23-15.85,16.11-15.85s16.12,8.57,16.12,15.91Z"/>
+    <path class="aewbm2" d="M93.4,77.85c0,7.33-5.23,15.89-16.11,15.89s-16.12-8.57-16.12-15.89v-.05c0-7.28,5.24-15.85,16.12-15.85s16.11,8.57,16.11,15.91Z"/>
+    <path class="aewbm2" d="M134.34,77.85c0,7.33-5.24,15.89-16.12,15.89s-16.11-8.57-16.11-15.89v-.05c0-7.28,5.23-15.85,16.11-15.85s16.12,8.57,16.12,15.91Z"/>
+  </g>
+</svg>
+        </a>
+        <p>Messbare Bauqualität, ehrliche Beratung, eigene Messtechnik.</p>
+      </div>
+      <div>
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="/">Energieberatung</a></li>
+          <li><a href="/sanierungsfahrplan/">Sanierungsfahrplan</a></li>
+          <li><a href="/bauphysik/">Bauphysik</a></li>
+          <li><a href="/foerderberatung/">Förderberatung</a></li>
+          <li><a href="/blower-door/" aria-current="page">Blower Door Test</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Büro</h4>
+        <ul>
+          <li><a href="/ueber-uns/">Über uns</a></li>
+          <li><a href="/karriere/">Karriere</a></li>
+          <li><a href="/kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="/impressum/">Impressum</a></li>
+          <li><a href="/datenschutz/">Datenschutz</a></li>
+          <li><a href="/agb/">AGB</a></li>
+          <li><a href="/cookie-einstellungen/">Cookie-Einstellungen</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cert-strip" aria-label="Mitgliedschaften und Zertifikate">
+      <span class="label">Zertifiziert &amp; gelistet</span>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> Ingenieurkammer-Bau NRW</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> dena Energieeffizienz-Experte</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> FliB e.V.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> BAFA-Energieberater</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> KfW-zugelassen</li>
+      </ul>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 aumann eco · Alle Rechte vorbehalten</span>
+      <a href="https://ostend.digital/webdesign-stuttgart/" target="_blank" rel="noopener" class="webdesign-credit">Webdesign by Ostend Digital</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── Cockpit Reveal — Chart-Curve, Points, Live-Display Counter ───
+(function(){
+  const section = document.querySelector('.cockpit-section');
+  if (!section) return;
+  const counters = section.querySelectorAll('[data-counter]');
+
+  const formatVal = (val, decimals) => {
+    if (decimals > 0) return val.toFixed(decimals).replace('.', ',');
+    return Math.round(val).toString();
+  };
+
+  const animateCounter = (el, delay = 0) => {
+    const target = parseFloat(el.dataset.target || '0');
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const duration = 1500;
+    setTimeout(() => {
+      const start = performance.now();
+      const step = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = formatVal(target * eased, decimals);
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }, delay);
+  };
+
+  const reveal = () => {
+    section.classList.add('is-visible');
+    counters.forEach((el, i) => animateCounter(el, i * 120));
+  };
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          reveal();
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(section);
+  } else {
+    reveal();
+  }
+})();
+
+// ─── Ablauf Timeline Progress ───
+(function(){
+  const rows = document.querySelectorAll('.usp-row');
+  if (!rows.length) return;
+  const update = () => {
+    const vh = window.innerHeight;
+    rows.forEach((row, i) => {
+      const r = row.getBoundingClientRect();
+      const center = r.top + r.height / 2;
+      const active = center < vh * 0.6;
+      row.classList.toggle('is-active', active);
+      if (i < rows.length - 1) {
+        const next = rows[i + 1].getBoundingClientRect();
+        const segStart = r.bottom;
+        const segEnd = next.top;
+        const segLen = segEnd - segStart;
+        const visible = Math.max(0, Math.min(segLen, vh * 0.6 - segStart));
+        const progress = segLen > 0 ? (visible / segLen) * 100 : 0;
+        row.style.setProperty('--seg-progress', `${progress}%`);
+      }
+    });
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+// ─── Interaktive Checkliste — Progress-Tracking ───
+(function(){
+  const list = document.querySelector('[data-checkliste]');
+  if (!list) return;
+  const inputs = list.querySelectorAll('.checkliste-input');
+  const countEl = list.querySelector('[data-count]');
+  const totalEl = list.querySelector('[data-total]');
+  const bar = list.querySelector('.checkliste-progress-bar');
+  const total = inputs.length;
+  if (totalEl) totalEl.textContent = total;
+  const update = () => {
+    const done = Array.from(inputs).filter((i) => i.checked).length;
+    if (countEl) countEl.textContent = done;
+    if (bar) bar.style.setProperty('--p', `${(done / total) * 100}%`);
+    const wasComplete = list.classList.contains('is-complete');
+    const isComplete = done === total;
+    if (isComplete && !wasComplete) {
+      // Re-trigger confetti animation by removing + re-adding the class
+      list.classList.remove('is-complete');
+      void list.offsetWidth;
+      list.classList.add('is-complete');
+    } else {
+      list.classList.toggle('is-complete', isComplete);
+    }
+  };
+  inputs.forEach((i) => i.addEventListener('change', update));
+  update();
+})();
+
+// ─── Counter Animation (Stats) ───
+(function(){
+  const counters = document.querySelectorAll('.counter');
+  if (!counters.length) return;
+  const animate = (el) => {
+    const target = parseInt(el.dataset.target || '0', 10);
+    const duration = 1400;
+    const start = performance.now();
+    const step = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * eased);
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach((c) => io.observe(c));
+  } else {
+    counters.forEach(animate);
+  }
+})();
+
+// ─── Wann nötig: Process-Tabs (wie Homepage) ───
+(function(){
+  const root = document.querySelector('[data-process]');
+  if (!root) return;
+  const tabs = root.querySelectorAll('.process-tab');
+  const panels = root.querySelectorAll('.process-panel');
+  const progress = root.querySelector('.process-progress');
+  const total = tabs.length;
+  function activate(step){
+    tabs.forEach((t) => { const a = +t.dataset.step === step; t.classList.toggle('active', a); t.setAttribute('aria-selected', a ? 'true' : 'false'); t.tabIndex = a ? 0 : -1; });
+    panels.forEach((p) => { const a = +p.dataset.step === step; p.classList.toggle('active', a); if (a) p.removeAttribute('hidden'); else p.setAttribute('hidden', ''); });
+    if (progress) progress.style.transform = `translateX(${(step - 1) * 100}%)`;
+  }
+  tabs.forEach((tab) => tab.addEventListener('click', () => { activate(+tab.dataset.step); tab.focus(); }));
+  root.addEventListener('keydown', (e) => {
+    if (!['ArrowLeft','ArrowRight','Home','End'].includes(e.key)) return;
+    if (!e.target.classList.contains('process-tab')) return;
+    e.preventDefault();
+    const current = [...tabs].findIndex((t) => t.classList.contains('active')) + 1;
+    let next = current;
+    if (e.key === 'ArrowRight') next = current >= total ? 1 : current + 1;
+    else if (e.key === 'ArrowLeft') next = current <= 1 ? total : current - 1;
+    else if (e.key === 'Home') next = 1;
+    else if (e.key === 'End') next = total;
+    activate(next); tabs[next - 1].focus();
+  });
+})();
+</script>
+
+
+<script>
+/* MOBILE NAV toggle */
+(function(){
+  var b=document.querySelector('.ae-burger'), m=document.getElementById('ae-mobile-menu');
+  if(!b||!m) return;
+  function open(){ m.classList.add('is-open'); b.setAttribute('aria-expanded','true'); b.setAttribute('aria-label','Menü schließen'); document.body.classList.add('ae-menu-open'); }
+  function close(){ m.classList.remove('is-open'); b.setAttribute('aria-expanded','false'); b.setAttribute('aria-label','Menü öffnen'); document.body.classList.remove('ae-menu-open'); }
+  b.addEventListener('click', function(){ m.classList.contains('is-open')?close():open(); });
+  m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+</div>
