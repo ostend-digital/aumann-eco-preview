@@ -6,6 +6,7 @@
     "title": "Sample Page",
     "template": "",
     "modified": "2026-06-03T16:54:41",
+    "modified_gmt": "2026-06-03T14:54:41",
     "link": "https://aumann-eco.de/?page_id=2",
     "file": "2-sample-page.raw.html",
     "bytes": 1341
@@ -17,6 +18,7 @@
     "title": "Privacy Policy",
     "template": "",
     "modified": "2026-06-22T10:49:31",
+    "modified_gmt": "2026-06-22T08:49:31",
     "link": "https://aumann-eco.de/?page_id=3",
     "file": "3-privacy-policy.raw.html",
     "bytes": 5532
@@ -28,6 +30,7 @@
     "title": "Startseite",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:29",
+    "modified_gmt": "2026-06-22T13:54:29",
     "link": "https://aumann-eco.de/",
     "file": "8-energieberatung-koeln.raw.html",
     "bytes": 139128
@@ -39,6 +42,7 @@
     "title": "Sanierungsfahrplan",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:30",
+    "modified_gmt": "2026-06-22T13:54:30",
     "link": "https://aumann-eco.de/sanierungsfahrplan/",
     "file": "15-sanierungsfahrplan.raw.html",
     "bytes": 132884
@@ -50,6 +54,7 @@
     "title": "Bauphysik",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:31",
+    "modified_gmt": "2026-06-22T13:54:31",
     "link": "https://aumann-eco.de/bauphysik/",
     "file": "19-bauphysik.raw.html",
     "bytes": 135760
@@ -61,6 +66,7 @@
     "title": "Blower Door",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:32",
+    "modified_gmt": "2026-06-22T13:54:32",
     "link": "https://aumann-eco.de/blower-door/",
     "file": "21-blower-door.raw.html",
     "bytes": 151667
@@ -72,6 +78,7 @@
     "title": "Förderberatung",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:33",
+    "modified_gmt": "2026-06-22T13:54:33",
     "link": "https://aumann-eco.de/foerderberatung/",
     "file": "23-foerderberatung.raw.html",
     "bytes": 136475
@@ -83,6 +90,7 @@
     "title": "Über uns",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:34",
+    "modified_gmt": "2026-06-22T13:54:34",
     "link": "https://aumann-eco.de/ueber-uns/",
     "file": "25-ueber-uns.raw.html",
     "bytes": 111468
@@ -94,6 +102,7 @@
     "title": "Karriere",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:35",
+    "modified_gmt": "2026-06-22T13:54:35",
     "link": "https://aumann-eco.de/?page_id=27",
     "file": "27-karriere-vollversion.raw.html",
     "bytes": 131016
@@ -105,6 +114,7 @@
     "title": "Kontakt",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:36",
+    "modified_gmt": "2026-06-22T13:54:36",
     "link": "https://aumann-eco.de/kontakt/",
     "file": "30-kontakt.raw.html",
     "bytes": 99138
@@ -116,6 +126,7 @@
     "title": "Impressum",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:37",
+    "modified_gmt": "2026-06-22T13:54:37",
     "link": "https://aumann-eco.de/impressum/",
     "file": "40-impressum.raw.html",
     "bytes": 91568
@@ -127,6 +138,7 @@
     "title": "Datenschutz",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:38",
+    "modified_gmt": "2026-06-22T13:54:38",
     "link": "https://aumann-eco.de/datenschutz/",
     "file": "41-datenschutz.raw.html",
     "bytes": 94308
@@ -138,6 +150,7 @@
     "title": "AGB",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:39",
+    "modified_gmt": "2026-06-22T13:54:39",
     "link": "https://aumann-eco.de/agb/",
     "file": "42-agb.raw.html",
     "bytes": 95501
@@ -149,6 +162,7 @@
     "title": "Cookie-Einstellungen",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:40",
+    "modified_gmt": "2026-06-22T13:54:40",
     "link": "https://aumann-eco.de/cookie-einstellungen/",
     "file": "43-cookie-einstellungen.raw.html",
     "bytes": 91281
@@ -160,6 +174,7 @@
     "title": "Karriere",
     "template": "blank-canvas",
     "modified": "2026-06-22T15:54:42",
+    "modified_gmt": "2026-06-22T13:54:42",
     "link": "https://aumann-eco.de/karriere/",
     "file": "89-karriere.raw.html",
     "bytes": 122701
